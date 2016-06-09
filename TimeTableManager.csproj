@@ -1,0 +1,481 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{942D6454-CF7E-4D11-9A56-B155C19A7DAD}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>TimeTableManager</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>TimeTableManager</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>TimeTableManager.Program</StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <ManifestCertificateThumbprint>C961F7A84A1D2AE1A43730F1AAD251DEDFF78287</ManifestCertificateThumbprint>
+    <ManifestKeyFile>TimeTableManager_1_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>true</SignManifests>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>doc\.xml</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>doc\.xml</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <DocumentationFile>doc\.xml</DocumentationFile>
+    <FileAlignment>4096</FileAlignment>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <DocumentationFile>doc\.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <FileAlignment>4096</FileAlignment>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorcfg">
+      <Name>mscorcfg</Name>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.DirectoryServices">
+      <Name>System.DirectoryServices</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Messaging">
+      <Name>System.Messaging</Name>
+    </Reference>
+    <Reference Include="System.ServiceProcess">
+      <Name>System.ServiceProcess</Name>
+    </Reference>
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FAboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FAboutBox.Designer.cs">
+      <DependentUpon>FAboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CAbstractElement.cs" />
+    <Compile Include="CDayOff.cs" />
+    <Compile Include="CDayOffCollection.cs" />
+    <Compile Include="CDefaultFavoriteRandomizer.cs" />
+    <Compile Include="CEvaluation1Day.cs" />
+    <Compile Include="CEvaluationResult.cs" />
+    <Compile Include="CLoader.cs" />
+    <Compile Include="CMember.cs" />
+    <Compile Include="CMemberCollection.cs" />
+    <Compile Include="CPageIndex.cs" />
+    <Compile Include="CPattern.cs" />
+    <Compile Include="CPatternCollection.cs" />
+    <Compile Include="CPrintDocumentBody.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CPrintDocumentFooter.cs" />
+    <Compile Include="CPrintDocumentHeader.cs" />
+    <Compile Include="CRequirePatterns.cs" />
+    <Compile Include="CRequirePatternsCollection.cs" />
+    <Compile Include="CSaver.cs" />
+    <Compile Include="CSchedule.cs" />
+    <Compile Include="CScheduledDate.cs" />
+    <Compile Include="CScheduledDateCollection.cs" />
+    <Compile Include="CTimeTable.cs" />
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ECurrentDateChangedArgs.cs" />
+    <Compile Include="EScheduleEditedEventArgs.cs" />
+    <Compile Include="ESelectionChangedEventArg.cs" />
+    <Compile Include="FCancelDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FCancelDialog.Designer.cs">
+      <DependentUpon>FCancelDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FCSVExport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FCSVExport.Designer.cs">
+      <DependentUpon>FCSVExport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FDayOffDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FDisplayCalendarDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FFooterConfigDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FFooterConfigDialog.Designer.cs">
+      <DependentUpon>FFooterConfigDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FHeaderConfigDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FHeaderConfigDialog.Designer.cs">
+      <DependentUpon>FHeaderConfigDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FImportDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FImportDialog.Designer.cs">
+      <DependentUpon>FImportDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FMainForm.Designer.cs">
+      <DependentUpon>FMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FMemberDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FMemberDialog.Designer.cs">
+      <DependentUpon>FMemberDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FPatternDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FPatternDialog.Designer.cs">
+      <DependentUpon>FPatternDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRequirePatternsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRequirePatternsDialog.Designer.cs">
+      <DependentUpon>FRequirePatternsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FResentFileDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FResentFileDialog.Designer.cs">
+      <DependentUpon>FResentFileDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FScheduleConfigDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FScheduleConfigDialog.Designer.cs">
+      <DependentUpon>FScheduleConfigDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FSplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FSplashScreen.Designer.cs">
+      <DependentUpon>FSplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FToolsOptionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FToolsOptionDialog.Designer.cs">
+      <DependentUpon>FToolsOptionDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IFavoriteRandomizer.cs" />
+    <Compile Include="IPlugin.cs" />
+    <Compile Include="ITimeTableElement.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="UCheckList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCheckList.Designer.cs">
+      <DependentUpon>UCheckList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UFavoriteEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UFavoriteEditor.Designer.cs">
+      <DependentUpon>UFavoriteEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UMultiEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UMultiEditor.Designer.cs">
+      <DependentUpon>UMultiEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UScheduleCalenderView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UScheduleCalenderView.Designer.cs">
+      <DependentUpon>UScheduleCalenderView.cs</DependentUpon>
+    </Compile>
+    <Content Include="App.ico" />
+    <Content Include="Images\ar.gif" />
+    <Content Include="Images\ar_mini.gif" />
+    <Content Include="Images\cal.gif" />
+    <Content Include="Images\cal_mini.gif" />
+    <Content Include="Images\check.gif" />
+    <Content Include="Images\check_mini.gif" />
+    <EmbeddedResource Include="FAboutBox.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FAboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FCancelDialog.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FCancelDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FCSVExport.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FCSVExport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FDayOffDialog.resx">
+      <DependentUpon>FDayOffDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FDisplayCalendarDialog.resx">
+      <DependentUpon>FDisplayCalendarDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FFooterConfigDialog.resx">
+      <DependentUpon>FFooterConfigDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FHeaderConfigDialog.resx">
+      <DependentUpon>FHeaderConfigDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FImportDialog.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FImportDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FMainForm.resx">
+      <DependentUpon>FMainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FMemberDialog.resx">
+      <DependentUpon>FMemberDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FPatternDialog.resx">
+      <DependentUpon>FPatternDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRequirePatternsDialog.resx">
+      <DependentUpon>FRequirePatternsDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FResentFileDialog.resx">
+      <DependentUpon>FResentFileDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FScheduleConfigDialog.resx">
+      <DependentUpon>FScheduleConfigDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FSplashScreen.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FToolsOptionDialog.resx">
+      <DependentUpon>FToolsOptionDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\FrontDel.gif" />
+    <EmbeddedResource Include="Images\FrontEdit.gif" />
+    <EmbeddedResource Include="Images\FrontPlus.gif" />
+    <Content Include="Images\new.gif" />
+    <Content Include="Images\new_mini.gif" />
+    <Content Include="Images\open.gif" />
+    <Content Include="Images\open_mini.gif" />
+    <Content Include="Images\preview.gif" />
+    <Content Include="Images\preview_mini.gif" />
+    <Content Include="Images\print.gif" />
+    <Content Include="Images\print_mini.gif" />
+    <Content Include="Images\rr.gif" />
+    <Content Include="Images\rr_mini.gif" />
+    <Content Include="Images\save.gif" />
+    <Content Include="Images\save_mini.gif" />
+    <Content Include="Images\sconfig.gif" />
+    <Content Include="Images\sconfig_mini.gif" />
+    <Content Include="Images\SplashScreen.jpg" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCheckList.resx">
+      <DependentUpon>UCheckList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UFavoriteEditor.resx">
+      <DependentUpon>UFavoriteEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UMultiEditor.resx">
+      <DependentUpon>UMultiEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UScheduleCalenderView.resx">
+      <DependentUpon>UScheduleCalenderView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="TimeTableManager_1_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows インストーラー 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <FileAssociation Include=".125">
+      <Visible>False</Visible>
+      <Description>タイムテーブル</Description>
+      <Progid>TimeTable</Progid>
+      <DefaultIcon>App.ico</DefaultIcon>
+    </FileAssociation>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

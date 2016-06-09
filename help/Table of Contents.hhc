@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<OBJECT type="text/site properties">
+	<param name="Window Styles" value="0x800025">
+	<param name="ImageType" value="Folder">
+</OBJECT>
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="画面と各機能">
+		<param name="Local" value="AboutForms.html">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="メイン画面">
+			<param name="Local" value="MainForm.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="メイン画面の機能">
+				<param name="Local" value="MainMenu.html">
+				</OBJECT>
+			<UL>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="カレンダー部分">
+					<param name="Local" value="CalenderView.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="詳細タブ">
+					<param name="Local" value="DetailTab.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="設定タブ">
+					<param name="Local" value="AutoSetting.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="評価タブ">
+					<param name="Local" value="AnalyzeTab.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="印刷設定タブ">
+					<param name="Local" value="Config_Prn.html">
+					</OBJECT>
+			</UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="タイムテーブルの設定">
+				<param name="Local" value="Config_Gen.html">
+				</OBJECT>
+			<UL>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="全般タブ">
+					<param name="Local" value="Config_Gen.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="メンバーの設定">
+					<param name="Local" value="Config_Mem.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="勤務シフトの設定">
+					<param name="Local" value="Config_Pat.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="人員配置の設定">
+					<param name="Local" value="Config_Req.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="休日の設定">
+					<param name="Local" value="Config_Off.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="印刷設定">
+					<param name="Local" value="Config_Prn.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="その他の設定">
+					<param name="Local" value="Config_Otr.html">
+					</OBJECT>
+			</UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="表示範囲の設定">
+				<param name="Local" value="PeriodDialog.html">
+				</OBJECT>
+			<UL>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="表示範囲の設定">
+					<param name="Local" value="PeriodDialog.html">
+					</OBJECT>
+			</UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="オプションダイアログ">
+				<param name="Local" value="Option_Gen.html">
+				</OBJECT>
+			<UL>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="全般タブ">
+					<param name="Local" value="Option_Gen.html">
+					</OBJECT>
+				<UL>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="自動設定タブ">
+						<param name="Local" value="Option_Auto.html">
+						</OBJECT>
+				</UL>
+			</UL>
+		</UL>
+	</UL>
+</UL>
+</BODY></HTML>

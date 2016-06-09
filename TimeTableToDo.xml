@@ -1,0 +1,2072 @@
+<?xml version="1.0" standalone="yes"?>
+<todolist>
+  <todo>
+    <Title>タイムテーブル</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>0</Level>
+    <Checked>false</Checked>
+    <Expanded>true</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>次バージョンへ持ち越し</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>1</Level>
+    <Checked>false</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>Comサポート</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>2</Level>
+    <Checked>false</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>時給のサポート</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>2</Level>
+    <Checked>false</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>エレメントをインターフェースにする</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>2</Level>
+    <Checked>false</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>コレクションをEnumerativeにする</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>2</Level>
+    <Checked>false</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>作業済み</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>1</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>過去データの削除</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>2</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>作業済み</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>3</Level>
+    <Checked>true</Checked>
+    <Expanded>true</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>現在データのバックアップ</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>?日前のスケジュール日を削除する→i番目</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\froman\fprq1\fcharset128 \'82\'6c\'82\'72 \'82\'6f\'83\'53\'83\'56\'83\'62\'83\'4e;}{\f1\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs16\'93\'fa\'95\'74\'82\'c5\'83\'8b\'81\'5b\'83\'76\'82\'b3\'82\'b9\'82\'e9\'82\'b1\'82\'c6\'82\'cd\'82\'c5\'82\'ab\'82\'c8\'82\'a2\'82\'cc\'82\'c5\f1 int\f0\'82\'cc\'83\'43\'83\'93\'83\'66\'83\'62\'83\'4e\'83\'58\'82\'c5\'83\'60\'83\'46\'83\'62\'83\'4e\'82\'b5\'82\'c4\'8e\'77\'92\'e8\'93\'fa\'82\'e6\'82\'e8\'8c\'c3\'82\'af\'82\'ea\'82\'ce\'8d\'ed\'8f\'9c\'82\'b7\'82\'e9\'82\'e6\'82\'a4\'82\'c9\'8d\'6c\'82\'a6\'82\'e9\f1\fs17\par
+}
+&#x0;</ExtendedText>
+    <DueTo>1950-01-01T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText>日付でループさせることはできないのでintのインデックスでチェックして指定日より古ければ削除するように考える</SimpleExtendedText>
+  </todo>
+  <todo>
+    <Title>?日前に削除されたエレメントの削除</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>true</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>メンバー</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>5</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>勤務シフト</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>5</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>人員配置</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>5</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>?日前の休日を削除</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>イベント管理</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>2</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>タイムテーブル-イベント管理, セルがうまく切り替わらない。::（本文あり）</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs17 this is test\par
+}
+&amp;#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>3</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText>ビューのセルがうまく切り替わらない。→検証中</SimpleExtendedText>
+  </todo>
+  <todo>
+    <Title>ビューの選択された日付の変更はリフレクションベースにする</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs17 this is test\par
+}
+&amp;#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>3</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>タイムテーブル, メインフォームイベントの追加::（本文あり）</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs17 this is test\par
+}
+&amp;#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>3</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText>・タイムテーブルのオープン・セーブ	１
+・表示期間の変更			１
+</SimpleExtendedText>
+  </todo>
+  <todo>
+    <Title>スケジュールの値が変更されたイベントをリフレクションベースにする</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs17 this is test\par
+}
+&amp;#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>3</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>終了するときに保存確認する</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs17 this is test\par
+}
+&amp;#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>3</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>エディタ</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>2</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>作業済み</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>3</Level>
+    <Checked>true</Checked>
+    <Expanded>true</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>複数選択エディタ::（本文あり）</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs17 this is test\par
+}
+&amp;#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText>まぁ、単に「複数選択されています」ですね。</SimpleExtendedText>
+  </todo>
+  <todo>
+    <Title>複数の日付を選択するとバーの表示が変になる</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>休みが設定されると０除算エラーになる問題::（本文あり）</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs17 this is test\par
+}
+&amp;#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText>ゼロ除算は回避したけどゼロになるよね。→とりあえずいいか。っていうかマルチのタイミングでPattern.DayOffを無視する</SimpleExtendedText>
+  </todo>
+  <todo>
+    <Title>ファイルオープン直後にスクロールバーが消えない問題</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs17 this is test\par
+}
+&amp;#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>ドラッグ中のバー表示の色を選択中の文字列の色に合わせる</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>スケジュールエディタ上のバーラベルの移動の閾値を設定できるようにする</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>エディタ上での変更時→影響::（本文あり）</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs17 this is test\par
+}
+&amp;#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText>バー表示、ビューの更新
+
+結果的にはスケジュールの変更イベント（デリゲード）に依存するわけね。
+</SimpleExtendedText>
+  </todo>
+  <todo>
+    <Title>好みの設定（データグリッドビュー）::（本文あり）</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs17 this is test\par
+}
+&amp;#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText>ここもやっぱりデータグリッドビューにするよね</SimpleExtendedText>
+  </todo>
+  <todo>
+    <Title>エディタのちらつきが気になる</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fmodern\fcharset128 \'82\'6c\'82\'72 \'83\'53\'83\'56\'83\'62\'83\'4e;}{\f1\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs20 6/28:\'82\'be\'82\'a2\'82\'d4\'82\'dc\'82\'b5\'82\'c9\'82\'c8\'82\'c1\'82\'bd\'81\'42\f1\fs17\par
+}
+&#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText>6/28:だいぶましになった。</SimpleExtendedText>
+  </todo>
+  <todo>
+    <Title>日付をまたがるときにバー（ラベル）が表示されない。</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>バー（ラベル）のドラッグドロップで時間移動など（メニュー表示）</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>編集可能／不可能のビューとの不一致::（本文あり）</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs17 this is test\par
+}
+&amp;#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText>当日も一応編集可能とする→自動化のとき</SimpleExtendedText>
+  </todo>
+  <todo>
+    <Title>メンバーのラベルがダブルクリックされたらメンバーの編集</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>マルチエディタから過去が編集できた→使い続けるなら修正をする</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>営業時間終了後の開始時間のパターンがあると表示が崩れる</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>日付をまたいだときにバーの部分がちょっと変になる</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\froman\fprq1\fcharset128 \'82\'6c\'82\'72 \'82\'6f\'83\'53\'83\'56\'83\'62\'83\'4e;}{\f1\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs16\'97\'f1\'82\'cc\'95\'5c\'8e\'a6\'8e\'a9\'91\'cc\'82\'cd\'8f\'43\'90\'b3\'8d\'cf\'82\'dd\f1\fs17\par
+}
+&#x0;</ExtendedText>
+    <DueTo>1950-01-01T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText>列の表示自体は修正済み</SimpleExtendedText>
+  </todo>
+  <todo>
+    <Title>営業時間を超えたパターンのバー表示がおかしい</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\froman\fprq1\fcharset128 \'82\'6c\'82\'72 \'82\'6f\'83\'53\'83\'56\'83\'62\'83\'4e;}{\f1\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs16\'8a\'4a\'8e\'6e\'8e\'9e\'8a\'d4\'82\'aa\'89\'63\'8b\'c6\'8e\'9e\'8a\'d4\'82\'e6\'82\'e8\'82\'a0\'82\'c6\'82\'cc\'8f\'ea\'8d\'87\'81\'41\'8a\'4a\'8e\'6e\'88\'ca\'92\'75\'82\'aa\'90\'b3\'82\'b5\'82\'ad\'8c\'76\'8e\'5a\'82\'c5\'82\'ab\'82\'c8\'82\'a2\'82\'e6\'82\'a4\'82\'be\'81\'42\par
+\'81\'5b\'81\'84\par
+\'82\'50\'81\'44\'81\'69\'83\'56\'83\'74\'83\'67\'8a\'4a\'8e\'6e\'81\'60\'83\'56\'83\'74\'83\'67\'8f\'49\'97\'b9\'81\'6a\'81\'83\'89\'63\'8b\'c6\'8a\'4a\'8e\'6e\par
+\'82\'51\'81\'44\'89\'63\'8b\'c6\'8f\'49\'97\'b9\'81\'83\'81\'69\'83\'56\'83\'74\'83\'67\'8a\'4a\'8e\'6e\'81\'60\'83\'56\'83\'74\'83\'67\'8f\'49\'97\'b9\'81\'6a\par
+\'82\'cc\'83\'70\'83\'5e\'81\'5b\'83\'93\'82\'cd\'83\'6f\'81\'5b\'82\'f0\'95\'5c\'8e\'a6\'82\'b5\'82\'c8\'82\'a2\'82\'e6\'82\'a4\'82\'c9\'8f\'43\'90\'b3\'82\'b7\'82\'ea\'82\'ce\'82\'e6\'82\'a2\f1\fs17\par
+}
+&#x0;</ExtendedText>
+    <DueTo>1950-01-01T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText>開始時間が営業時間よりあとの場合、開始位置が正しく計算できないようだ。
+ー＞
+１．（シフト開始～シフト終了）＜営業開始
+２．営業終了＜（シフト開始～シフト終了）
+のパターンはバーを表示しないように修正すればよい</SimpleExtendedText>
+  </todo>
+  <todo>
+    <Title>エディタにメモを表示してみる（バー（ラベルダブルクリックしたとき））</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs17 this is test\par
+}
+&amp;#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>エディタ部分はClientSizeを検討にいれる</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs17 this is test\par
+}
+&amp;#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>複数行の選択時、バーの表示がえらい長くなる。</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\froman\fprq1\fcharset128 \'82\'6c\'82\'72 \'82\'6f\'83\'53\'83\'56\'83\'62\'83\'4e;}{\f1\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs16\'82\'50\'81\'44\'95\'a1\'90\'94\'82\'cc\'83\'70\'83\'5e\'81\'5b\'83\'93\'82\'aa\'8a\'dc\'82\'dc\'82\'ea\'82\'e9\'8f\'ea\'8d\'87\'82\'cd\'83\'6f\'83\'8b\'81\'5b\'83\'93\'95\'5c\'8e\'a6\'82\'b5\'82\'c4\'82\'dd\'82\'e9\par
+\'82\'51\'81\'44\'8b\'78\'82\'dd\'82\'aa\'8a\'dc\'82\'dc\'82\'ea\'82\'e9\'8f\'ea\'8d\'87\'82\'cd\'82\'c7\'82\'a4\'82\'c8\'82\'e9\'81\'48\f1\fs17\par
+}
+&#x0;</ExtendedText>
+    <DueTo>1950-01-01T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText>１．複数のパターンが含まれる場合はバルーン表示してみる
+２．休みが含まれる場合はどうなる？</SimpleExtendedText>
+  </todo>
+  <todo>
+    <Title>複数選択時にバーを移動などさせると例外が起こる→再現しなくなった</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>おやバーラベルが消えないぞ</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs17 this is test\par
+}
+&amp;#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>用語の変更</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>2</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>就業パターン→勤務シフト</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>3</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>必要人数→態勢</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>3</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>バグフィックス</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>2</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>作業済み</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>3</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>スレッド関連は配列範囲外が発生する</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>表示期間の選択で前後関係を検証していないためカレンダービューがクラッシュする</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>スケジュールビューで登録されているがまだ有効ｊになっていない（作成日に達していない）メンバーが表示される→確認待ち</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>"複数選択されています。"が複数でてくる（マルチコンボ）</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>ファイルを開くとメンバーが２重になる（ビュー）</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>タイムテーブルを開いたとき::（本文あり）</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs17 this is test\par
+}
+&amp;#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText>やたらメンバーが重複するんですけど・・・
+
+ビューとエディタが主か？
+</SimpleExtendedText>
+  </todo>
+  <todo>
+    <Title>んん？メンバーの作業予定時間が変だぞ？</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs17 this is test\par
+}
+&amp;#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>んん？パターンの休憩時間の保存・読み込みが変だぞ？</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs17 this is test\par
+}
+&amp;#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>自動設定用お気に入り順の設定がおかしい。</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fmodern\fcharset128 \'82\'6c\'82\'72 \'83\'53\'83\'56\'83\'62\'83\'4e;}{\f1\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs20\'83\'52\'83\'93\'83\'7b\'83\'7b\'83\'62\'83\'4e\'83\'58\'82\'c5\'91\'49\'91\'f0\'82\'b5\'82\'bd\'82\'e0\'82\'cc\'82\'aa\'90\'b3\'82\'b5\'82\'ad\'94\'bd\'89\'66\'82\'b3\'82\'ea\'82\'c8\'82\'a2\'81\'42\'81\'a8\'8b\'43\'82\'cc\'82\'b9\'82\'a2\'82\'a9\'82\'c8\'81\'48\f1\fs17\par
+}
+&#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText>コンボボックスで選択したものが正しく反映されない。→気のせいかな？</SimpleExtendedText>
+  </todo>
+  <todo>
+    <Title>当然だが存在しないファイルは開けない</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>初期起動時のファイルがなくっていたら異常終了する</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>用語の変更</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>2</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>就業パターン→勤務シフト</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>3</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>必要人数→態勢</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>3</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>印刷機能</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>2</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>対応済み</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>3</Level>
+    <Checked>true</Checked>
+    <Expanded>true</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>あれ？なんか印刷の列数の設定がおかしいぞ？::（本文あり）</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs17 this is test\par
+}
+&amp;#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText>４だとうまくいくんだけど、それより小さいとおかしいよ→とりあえずこれでいいはず。</SimpleExtendedText>
+  </todo>
+  <todo>
+    <Title>印刷機能作成</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs17 this is test\par
+}
+&amp;#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>ページインデックスクラスの作成::（本文あり）</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs17 this is test\par
+}
+&amp;#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText>印刷前に
+クラス ページインデックス
+（ページごとの）
+	開始日、終了日
+	開始メンバー、終了メンバー
+を作成する。
+
+あとは印刷時にページインデックス分ループすればよい。
+
+Javaのソースを参考にするとよい。のか？</SimpleExtendedText>
+  </todo>
+  <todo>
+    <Title>印刷フッタの時刻フォーマットが効いていない</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>ページ設定ダイアログ</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs17 this is test\par
+}
+&amp;#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>設定画面</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>2</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>作業済み</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>3</Level>
+    <Checked>true</Checked>
+    <Expanded>true</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>パターンの追加時、営業時間を更新するか確認する</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>必要人数の人数をNumericなんたらコンポーネントにする→コンボボックス（DataGridView）</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fmodern\fcharset128 \'82\'6c\'82\'72 \'83\'53\'83\'56\'83\'62\'83\'4e;}{\f1\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs20\'83\'5f\'83\'75\'83\'8b\'83\'4e\'83\'8a\'83\'62\'83\'4e\'82\'cd\'96\'ca\'93\'7c\'82\'be\'82\'b5\'81\'41\'83\'4c\'81\'5b\'83\'7b\'81\'5b\'83\'68\'82\'e0\'8e\'67\'82\'a2\'82\'bd\'82\'a2\'81\'42\f1\fs17\par
+}
+&#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText>ダブルクリックは面倒だし、キーボードも使いたい。</SimpleExtendedText>
+  </todo>
+  <todo>
+    <Title>メンバー設定のパターン::（本文あり）</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs17 this is test\par
+}
+&amp;#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText>メンバー設定の自動選択可能なパターンをCheckedListBoxにする</SimpleExtendedText>
+  </todo>
+  <todo>
+    <Title>必要人数の確認</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fmodern\fcharset128 \'82\'6c\'82\'72 \'83\'53\'83\'56\'83\'62\'83\'4e;}{\f1\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs20\'8a\'6d\'94\'46\'97\'70\'83\'52\'83\'93\'83\'7c\'81\'5b\'83\'6c\'83\'93\'83\'67\'82\'cc\'8d\'ec\'90\'ac\f1\fs17\par
+}
+&#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText>確認用コンポーネントの作成</SimpleExtendedText>
+  </todo>
+  <todo>
+    <Title>メンバーなどの削除機能::（本文あり）</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs17 this is test\par
+}
+&amp;#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText>まぁ・・・とりあえず。</SimpleExtendedText>
+  </todo>
+  <todo>
+    <Title>タブインデックスを何とかする</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>パターンの新規追加時、全てのメンバーに追加する？</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>メンバー、パターン、休日、必要人数の名前の初期値（新しいＸＸ）</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>パターンの削除</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>パターンの追加時、リストボックスの更新</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>一覧</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>2</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>作業済み</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>3</Level>
+    <Checked>true</Checked>
+    <Expanded>true</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>複数選択</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>選択範囲の取得</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs17 this is test\par
+}
+&amp;#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>5</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>当日がクリアされない</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>カレンダービュー・詳細タブの日付の初期をオプションで編集可能にする</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>ビューはDataGridViewにしよう。</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs17 this is test\par
+}
+&amp;#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>テーブルの列幅調整方法をユーザーが選択できるようにする</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>切り取り・貼り付け・削除時のイベントの再実行</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs17 this is test\par
+}
+&amp;#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>自動設定時のイベントの再実行</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>メンバー名の変更がリアルタイムで反映されない</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>初期起動時、スクロールバーが出ない問題</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>行の複数選択でパフォーマンスが極端に悪化する→再現しない？</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>過去を編集可能にする？</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>削除キーのサポート</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>エレメント</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>2</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>作業済み</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>3</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>タイムテーブル-エレメント, イベントの作成::（本文あり）</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs17 this is test\par
+}
+&amp;#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText>・スケジュール日の必要人数の変更	１
+・必要人数の追加・修正・削除		１
+・パターンの追加・修正・削除		１
+・メンバーの追加・修正・削除		１
+・休日の追加・修正・削除		１
+・プロパティの追加・修正・削除	１
+
+１：イベントハンドラの作成済み</SimpleExtendedText>
+  </todo>
+  <todo>
+    <Title>パターンの保存形式を終了時間ではなく経過時間にする。</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs17 this is test\par
+}
+&amp;#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>各アイテムの数の上限を1000に限定する</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>true</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>メンバー</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>5</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>勤務シフト</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>5</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>人員配置</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>5</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>休日</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>5</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>エレメントの有効・無効チェックで開始、終了によるチェックを作成する</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>メンバー</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>稼動の曜日化？→スケジュールの作成時、稼動曜日でなければ自動で休みにする</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fmodern\fcharset128 \'82\'6c\'82\'72 \'83\'53\'83\'56\'83\'62\'83\'4e;}{\f1\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs20\'89\'d2\'93\'ae\'82\'cc\'97\'6a\'93\'fa\'89\'bb\'81\'48\'81\'a8\'83\'58\'83\'50\'83\'57\'83\'85\'81\'5b\'83\'8b\'82\'cc\'8d\'ec\'90\'ac\'8e\'9e\'81\'41\'89\'d2\'93\'ae\'97\'6a\'93\'fa\'82\'c5\'82\'c8\'82\'af\'82\'ea\'82\'ce\'8e\'a9\'93\'ae\'82\'c5\'8b\'78\'82\'dd\'82\'c9\'82\'b7\'82\'e9\par
+\'83\'81\'83\'93\'83\'6f\'81\'5b\'82\'cc\'90\'56\'8b\'4b\'8d\'ec\'90\'ac\'8e\'9e\'81\'41\'83\'66\'83\'74\'83\'48\'83\'8b\'83\'67\'82\'c5\'82\'b7\'82\'d7\'82\'c4\'82\'cc\'97\'6a\'93\'fa\'82\'f0\'89\'d2\'93\'ae\'93\'fa\'82\'c9\'82\'b7\'82\'e9\'81\'42\par
+\'89\'bd\'93\'fa\'82\'a8\'82\'ab\'82\'c9\'8b\'78\'82\'dd\'82\'aa\'8a\'6d\'95\'db\'82\'b3\'82\'ea\'82\'e9\'81\'69\'82\'d7\'82\'ab\'81\'6a\'82\'a9\'81\'a61\'81\'a8\'83\'66\'83\'74\'83\'48\'83\'8b\'83\'67\'82\'55\'93\'fa\'82\'c5\'82\'c7\'82\'a7\'81\'48\par
+\'91\'4f\'93\'fa\'82\'cc\'8d\'ec\'8b\'c6\'8f\'49\'97\'b9\'82\'a9\'82\'e7\'89\'bd\'8e\'9e\'8a\'d4\'8b\'f3\'82\'af\'82\'c4\'8d\'ec\'8b\'c6\'8a\'4a\'8e\'6e\'82\'a9\'81\'a62\'81\'a8\'83\'66\'83\'74\'83\'48\'83\'8b\'83\'67\'82\'50\'82\'51\'8e\'9e\'8a\'d4\'82\'c5\'82\'c7\'82\'a7\'81\'48\f1\fs17\par
+}
+&#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>5</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText>稼動の曜日化？→スケジュールの作成時、稼動曜日でなければ自動で休みにする
+メンバーの新規作成時、デフォルトですべての曜日を稼動日にする。
+何日おきに休みが確保される（べき）か※1→デフォルト６日でどぉ？
+前日の作業終了から何時間空けて作業開始か※2→デフォルト１２時間でどぉ？</SimpleExtendedText>
+  </todo>
+  <todo>
+    <Title>何日おきに休みが確保される（べき）か※1→デフォルト６日でどぉ？</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fmodern\fcharset128 \'82\'6c\'82\'72 \'83\'53\'83\'56\'83\'62\'83\'4e;}{\f1\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs20\'89\'bd\'93\'fa\'82\'a8\'82\'ab\'82\'c9\'8b\'78\'82\'dd\'82\'aa\'8a\'6d\'95\'db\'82\'b3\'82\'ea\'82\'e9\'81\'69\'82\'d7\'82\'ab\'81\'6a\'82\'a9\'81\'a61\'81\'a8\'83\'66\'83\'74\'83\'48\'83\'8b\'83\'67\'82\'55\'93\'fa\'82\'c5\'82\'c7\'82\'a7\'81\'48\par
+\'91\'4f\'93\'fa\'82\'cc\'8d\'ec\'8b\'c6\'8f\'49\'97\'b9\'82\'a9\'82\'e7\'89\'bd\'8e\'9e\'8a\'d4\'8b\'f3\'82\'af\'82\'c4\'8d\'ec\'8b\'c6\'8a\'4a\'8e\'6e\'82\'a9\'81\'a62\'81\'a8\'83\'66\'83\'74\'83\'48\'83\'8b\'83\'67\'82\'50\'82\'51\'8e\'9e\'8a\'d4\'82\'c5\'82\'c7\'82\'a7\'81\'48\f1\fs17\par
+}
+&#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>5</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText>何日おきに休みが確保される（べき）か※1→デフォルト６日でどぉ？
+前日の作業終了から何時間空けて作業開始か※2→デフォルト１２時間でどぉ？</SimpleExtendedText>
+  </todo>
+  <todo>
+    <Title>前日の作業終了から何時間空けて作業開始か※2→デフォルト１２時間でどぉ？</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fmodern\fcharset128 \'82\'6c\'82\'72 \'83\'53\'83\'56\'83\'62\'83\'4e;}{\f1\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs20\'91\'4f\'93\'fa\'82\'cc\'8d\'ec\'8b\'c6\'8f\'49\'97\'b9\'82\'a9\'82\'e7\'89\'bd\'8e\'9e\'8a\'d4\'8b\'f3\'82\'af\'82\'c4\'8d\'ec\'8b\'c6\'8a\'4a\'8e\'6e\'82\'a9\'81\'a62\'81\'a8\'83\'66\'83\'74\'83\'48\'83\'8b\'83\'67\'82\'50\'82\'51\'8e\'9e\'8a\'d4\'82\'c5\'82\'c7\'82\'a7\'81\'48\par
+\f1\fs17\par
+}
+&#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>5</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText>前日の作業終了から何時間空けて作業開始か※2→デフォルト１２時間でどぉ？
+</SimpleExtendedText>
+  </todo>
+  <todo>
+    <Title>Nullエレメントを作成する</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>メンバー</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>5</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>パターン</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>5</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>必要人数</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>5</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>メンバーの追加・修正・削除のイベントでタイムテーブルを修正済みにする</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>パターンの追加・修正・削除のイベントでタイムテーブルを修正済みにする</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>プロパティのイベントでタイムテーブルを修正済みにする</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>必要人数の追加・修正・削除のイベントでタイムテーブルを修正済みにする</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>タイムテーブルの終了時間を開始時間＋営業時間にする</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>エレメントの作成時、IDが重複したらIDの再交付を要求する→追加時</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fnil\fcharset0 Tahoma;}{\f1\froman\fprq1\fcharset128 \'82\'6c\'82\'72 \'82\'6f\'83\'53\'83\'56\'83\'62\'83\'4e;}}
+\viewkind4\uc1\pard\lang1041\f0\fs17 ID\f1\fs16\'82\'cd\'83\'6e\'83\'62\'83\'56\'83\'85\'8a\'c7\'97\'9d\'82\'b5\'82\'c8\'82\'a2\'82\'cc\'82\'c5\'8f\'64\'95\'a1\'82\'b5\'82\'bd\'82\'e7\'8d\'a2\'82\'e9\f0\fs17\par
+}
+&#x0;</ExtendedText>
+    <DueTo>1950-01-01T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText>IDはハッシュ管理しないので重複したら困る</SimpleExtendedText>
+  </todo>
+  <todo>
+    <Title>プロパティの設定でイベントを発生させる</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>DefaultElement→Element</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>DefaultCollection→ElementCollection</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>エレメントの追加時、全てのメンバーに対して有効にするか確認するが、メンバーがまだ登録されていない場合、この確認メッセージを出さない。</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>休日の追加・修正・削除のイベントでタイムテーブルを修正済みにする</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>エクスポート</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>2</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>作業済み</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>3</Level>
+    <Checked>true</Checked>
+    <Expanded>true</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>カレンダーの内容をCSV形式にエクスポートする</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>true</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>,を",にReplaceAll</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>5</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>"を""にReplaceAll</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>5</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>外部連携</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>2</Level>
+    <Checked>true</Checked>
+    <Expanded>true</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>作業済み</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>3</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>Dll追加機能</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>true</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>各機能に絞らずメニュー呼び出しとイベント呼び出しに終始する</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>5</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>エラーメッセージを出さない</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>5</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>追加機能が存在しない場合はメニューを表示しない</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>5</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>インポート・エクスポート</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>true</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>インポート</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>5</Level>
+    <Checked>true</Checked>
+    <Expanded>true</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>別のタイムテーブルからメンバーをインポートする </Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>6</Level>
+    <Checked>true</Checked>
+    <Expanded>true</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>インポート時、全ての勤務シフトを有効にする </Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>7</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>別のタイムテーブルから勤務シフトをインポートする</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>6</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>別のタイムテーブルから人員配置をインポートする</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>6</Level>
+    <Checked>true</Checked>
+    <Expanded>true</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>カスケード処理：は以下の勤務シフトを同時にインポートする</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>7</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>別のタイムテーブルから休日をインポートする</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>6</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>インポート時、名前が同じなら同じオブジェクトとみなす</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>6</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>分析機能</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>2</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>作業済み</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>3</Level>
+    <Checked>true</Checked>
+    <Expanded>true</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>優先度に色分けを行う</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>メッセージの人数とか(%2)とかの置換ができてない</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>評価コメントをconst化する</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>メンバーに登録されていない勤務シフトを警告する</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>一日評価</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>必要人数に対するパターンの確保状況（不足時に警告）</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fmodern\fcharset128 \'82\'6c\'82\'72 \'83\'53\'83\'56\'83\'62\'83\'4e;}{\f1\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs20\'95\'4b\'97\'76\'90\'6c\'90\'94\'82\'c9\'91\'ce\'82\'b7\'82\'e9\'83\'70\'83\'5e\'81\'5b\'83\'93\'82\'cc\'8a\'6d\'95\'db\'8f\'f3\'8b\'b5\'81\'69\'95\'73\'91\'ab\'8e\'9e\'82\'c9\'8c\'78\'8d\'90\'81\'6a\par
+\'89\'63\'8b\'c6\'8e\'9e\'8a\'d4\'92\'86\'82\'c9\'90\'dd\'92\'e8\'83\'81\'83\'93\'83\'6f\'81\'5b\'82\'aa\'83\'5b\'83\'8d\'82\'cc\'8e\'9e\'8a\'d4\'82\'aa\'94\'ad\'90\'b6\'82\'b5\'82\'bd\'82\'e7\'8c\'78\'8d\'90\par
+\'95\'4b\'97\'76\'90\'6c\'90\'94\'82\'cc\'8d\'c5\'8f\'ac\'8a\'4a\'8e\'6e\'81\'60\'8d\'c5\'91\'e5\'8f\'49\'97\'b9\'82\'c9\'90\'dd\'92\'e8\'83\'81\'83\'93\'83\'6f\'81\'5b\'82\'aa\'83\'5b\'83\'8d\'82\'cc\'8e\'9e\'8a\'d4\'82\'aa\'94\'ad\'90\'b6\'82\'b5\'82\'bd\'82\'e7\'83\'47\'83\'89\'81\'5b\f1\fs17\par
+}
+&#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>5</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText>必要人数に対するパターンの確保状況（不足時に警告）
+営業時間中に設定メンバーがゼロの時間が発生したら警告
+必要人数の最小開始～最大終了に設定メンバーがゼロの時間が発生したらエラー</SimpleExtendedText>
+  </todo>
+  <todo>
+    <Title>メンバーの連続稼動日数が※1の日数を超えていたら警告</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fmodern\fcharset128 \'82\'6c\'82\'72 \'83\'53\'83\'56\'83\'62\'83\'4e;}{\f1\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs20\'83\'81\'83\'93\'83\'6f\'81\'5b\'82\'cc\'98\'41\'91\'b1\'89\'d2\'93\'ae\'93\'fa\'90\'94\'82\'aa\'81\'a61\'82\'cc\'93\'fa\'90\'94\'82\'f0\'92\'b4\'82\'a6\'82\'c4\'82\'a2\'82\'bd\'82\'e7\'8c\'78\'8d\'90\f1\fs17\par
+}
+&#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>5</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText>メンバーの連続稼動日数が※1の日数を超えていたら警告</SimpleExtendedText>
+  </todo>
+  <todo>
+    <Title>メンバーの作業時間の重複（エラー）または※2の時間を満たしていなければ警告</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fmodern\fcharset128 \'82\'6c\'82\'72 \'83\'53\'83\'56\'83\'62\'83\'4e;}{\f1\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs20\'83\'81\'83\'93\'83\'6f\'81\'5b\'82\'cc\'8d\'ec\'8b\'c6\'8e\'9e\'8a\'d4\'82\'cc\'8f\'64\'95\'a1\'81\'69\'83\'47\'83\'89\'81\'5b\'81\'6a\'82\'dc\'82\'bd\'82\'cd\'81\'a62\'82\'cc\'8e\'9e\'8a\'d4\'82\'f0\'96\'9e\'82\'bd\'82\'b5\'82\'c4\'82\'a2\'82\'c8\'82\'af\'82\'ea\'82\'ce\'8c\'78\'8d\'90\f1\fs17\par
+}
+&#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>5</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText>メンバーの作業時間の重複（エラー）または※2の時間を満たしていなければ警告</SimpleExtendedText>
+  </todo>
+  <todo>
+    <Title>カレンダー部分</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>2</Level>
+    <Checked>true</Checked>
+    <Expanded>true</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>作業済み</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>3</Level>
+    <Checked>true</Checked>
+    <Expanded>true</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>メンバーの有効・無効の列確認で作成日の評価がおかしい→間違いでした</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>自動設定</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>2</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>作業済み</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>3</Level>
+    <Checked>true</Checked>
+    <Expanded>true</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>週ごとの自動設定 </Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>設定タブを非表示にする→削除した（関連物服務）</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>曜日ごとの自動設定</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>ステータスバーに「yyyy年MM月dd日を処理中」と表示する→替わりにプログレスバーを表示する</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>スレッド対応が必要でしょう</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\froman\fprq1\fcharset128 \'82\'6c\'82\'72 \'82\'6f\'83\'53\'83\'56\'83\'62\'83\'4e;}{\f1\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs16 1.\'83\'81\'83\'93\'83\'6f\'81\'5b\'82\'cc\'90\'94\'82\'aa10\'88\'c8\'8f\'e3\'82\'dc\'82\'bd\'82\'cd\par
+2.\'8b\'ce\'96\'b1\'83\'56\'83\'74\'83\'67\'82\'cc\'90\'94\'82\'aa10\'88\'c8\'8f\'e3\'82\'cc\'82\'c6\'82\'ab\par
+3.\'83\'58\'83\'8c\'83\'62\'83\'68\'82\'f0\'8d\'ec\'90\'ac\'82\'b7\'82\'e9\par
+4.\'83\'58\'83\'8c\'83\'62\'83\'68\'82\'f0\'8a\'c4\'8e\'8b\'82\'b7\'82\'e9\'83\'74\'83\'48\'81\'5b\'83\'80\'82\'f0\'8d\'ec\'90\'ac\'81\'45\'95\'5c\'8e\'a6\'82\'b7\'82\'e9\'81\'69\'8e\'a9\'93\'ae\'90\'dd\'92\'e8\'82\'f0\'92\'86\'8e\'7e\'82\'b5\'82\'dc\'82\'b7\'82\'a9\'81\'48\'81\'79\'82\'cd\'82\'a2\'81\'7a\'81\'6a\par
+   \'83\'58\'83\'8c\'83\'62\'83\'68\'8f\'49\'97\'b9\'8e\'9e\'82\'c9\'82\'cd\'83\'74\'83\'48\'81\'5b\'83\'80\'82\'aa\'95\'c2\'82\'b6\'82\'e9\par
+5.\'83\'58\'83\'8c\'83\'62\'83\'68\'82\'f0\'8a\'4a\'8e\'6e\'82\'b7\'82\'e9\'81\'42\par
+\par
+\par
+\par
+\f1 999.\f0\'82\'bb\'82\'ea\'88\'c8\'8a\'4f\'82\'cc\'82\'c6\'82\'ab\'82\'cd\'83\'58\'83\'8c\'83\'62\'83\'68\'82\'b6\'82\'e1\'82\'c8\'82\'a2\'91\'ce\'89\'9e\par
+       \'83\'58\'83\'65\'81\'5b\'83\'5e\'83\'58\'83\'6f\'81\'5b\'82\'c9\'81\'75\f1 yyyy\f0\'94\'4e\f1 MM\f0\'8c\'8e\f1 dd\f0\'93\'fa\'82\'f0\'8f\'88\'97\'9d\'92\'86\'81\'76\'82\'c6\'95\'5c\'8e\'a6\'82\'b7\'82\'e9\f1\fs17\par
+}
+&#x0;</ExtendedText>
+    <DueTo>1950-01-01T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText>1.メンバーの数が10以上または
+2.勤務シフトの数が10以上のとき
+3.スレッドを作成する
+4.スレッドを監視するフォームを作成・表示する（自動設定を中止しますか？【はい】）
+   スレッド終了時にはフォームが閉じる
+5.スレッドを開始する。
+
+
+
+999.それ以外のときはスレッドじゃない対応
+       ステータスバーに「yyyy年MM月dd日を処理中」と表示する</SimpleExtendedText>
+  </todo>
+  <todo>
+    <Title>月ごとの自動設定</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>オプションダイアログ</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>2</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>作業済み</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>3</Level>
+    <Checked>true</Checked>
+    <Expanded>true</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>過去を編集可能にするチェックボックス</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>保存されないオプションがある→列幅の自動調整</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>4</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>ヘルプ</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>1</Level>
+    <Checked>false</Checked>
+    <Expanded>true</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>作業済み</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>2</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>バージョン情報</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>3</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>スプラッシュウインドウ</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>3</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>ヘルプドキュメントの作成</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>2</Level>
+    <Checked>false</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>アプリケーション</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>1</Level>
+    <Checked>false</Checked>
+    <Expanded>true</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>作業済み</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>2</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>ToolStrip</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fmodern\fcharset128 \'82\'6c\'82\'72 \'83\'53\'83\'56\'83\'62\'83\'4e;}{\f1\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs20\'83\'63\'81\'5b\'83\'8b\'83\'58\'83\'67\'83\'8a\'83\'62\'83\'76\'82\'f0\'8e\'67\'97\'70\'82\'b7\'82\'e9\'81\'a8\'83\'81\'83\'6a\'83\'85\'81\'5b\'83\'58\'83\'67\'83\'8a\'83\'62\'83\'76\'82\'cc\'88\'ca\'92\'75\'82\'aa\'90\'b3\'82\'b5\'82\'a2\'82\'a9\'82\'c7\'82\'a4\'82\'a9\'8a\'6d\'94\'46\'82\'b7\'82\'e9\f1\fs17\par
+}
+&#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>3</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText>ツールストリップを使用する→メニューストリップの位置が正しいかどうか確認する</SimpleExtendedText>
+  </todo>
+  <todo>
+    <Title>ファイルの履歴::（本文あり）</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs17 this is test\par
+}
+&amp;#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>3</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText>最近使用したファイルの一覧を作成し、起動時にはもっとも最近使用したファイルを自動で開くようにする（オプション）</SimpleExtendedText>
+  </todo>
+  <todo>
+    <Title>起動時コマンドラインパラメータファイルのサポート</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>3</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>アセンブリ情報</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>3</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>ウインドウの状態（最大・サイズ・位置）の保存</Title>
+    <ExtendedText />
+    <DueTo>1950-04-14T00:00:00.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>3</Level>
+    <Checked>true</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+  <todo>
+    <Title>ソースコードの整理・コメント追加</Title>
+    <ExtendedText>{\rtf1\ansi\ansicpg932\deff0\deflang1033\deflangfe1041{\fonttbl{\f0\fnil\fcharset0 Tahoma;}}
+\viewkind4\uc1\pard\lang1041\f0\fs17 this is test\par
+}
+&amp;#x0;</ExtendedText>
+    <DueTo>2006-12-07T07:02:41.0000000+09:00</DueTo>
+    <Priority>3</Priority>
+    <Level>2</Level>
+    <Checked>false</Checked>
+    <Expanded>false</Expanded>
+    <SimpleExtendedText />
+  </todo>
+</todolist>

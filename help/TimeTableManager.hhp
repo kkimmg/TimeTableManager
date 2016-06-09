@@ -1,0 +1,27 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=TimeTableManager.chm
+Contents file=Table of Contents.hhc
+Default topic=AboutForms.html
+Display compile progress=Yes
+Index file=Index.hhk
+Language=0x411 日本語
+Title=タイムテーブルマネージャのヘルプ
+
+
+[FILES]
+MainForm.html
+AutoSetting.html
+CalenderView.html
+DetailTab.html
+index.html
+AnalyzeTab.html
+MainMenu.html
+tutorial_StartUp.html
+FuncAutoSetting.html
+tutorial.html
+tutorial_1st.html
+ForUse.html
+
+[INFOTYPES]
+
