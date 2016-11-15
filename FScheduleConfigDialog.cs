@@ -86,12 +86,18 @@ namespace TimeTableManager.UI {
         /// </summary>
         private void lstPatterns_DoubleClick(object sender, EventArgs e) {
             DataRowView view = (DataRowView)this.lstPatterns.SelectedItem;
-            CPattern pattern = view.Row["PatternColumn"] as CPattern;
-            if (pattern != null) {
-                FPatternDialog dialog = new FPatternDialog();
-                dialog.Pattern = pattern;
-                if (dialog.ShowDialog(this) == DialogResult.OK) {
-                    view.Row["PatternName"] = pattern.Name;
+            if (view != null)
+            {
+
+                CPattern pattern = view.Row["PatternColumn"] as CPattern;
+                if (pattern != null)
+                {
+                    FPatternDialog dialog = new FPatternDialog();
+                    dialog.Pattern = pattern;
+                    if (dialog.ShowDialog(this) == DialogResult.OK)
+                    {
+                        view.Row["PatternName"] = pattern.Name;
+                    }
                 }
             }
         }
@@ -290,52 +296,74 @@ namespace TimeTableManager.UI {
         /// <summary>勤務シフトの処理
         /// </summary>
         private void PatternToolBar_Click(object sender, System.Windows.Forms.ToolBarButtonClickEventArgs e) {
-            if (e.Button == this.btnAddPattern) {
-                if (timeTable.Patterns.Size() >= FMainForm.MaxItemCount) {
+            if (e.Button == this.btnAddPattern)
+            {
+                if (timeTable.Patterns.Size() >= FMainForm.MaxItemCount)
+                {
                     MessageBox.Show(this, "勤務シフトは%1個までしか登録できません。".Replace("%1", FMainForm.MaxItemCount.ToString()), "勤務シフトの追加の上限", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                     return;
                 }
                 FPatternDialog dialog = new FPatternDialog();
                 dialog.Pattern = timeTable.Patterns.CreatePattern(true);
-                if (dialog.ShowDialog(this) == DialogResult.OK) {
+                if (dialog.ShowDialog(this) == DialogResult.OK)
+                {
                     timeTable.Patterns.AddPattern(dialog.Pattern);
                     // 一覧の更新
                     RebuildPatternList();
                     // すべてのメンバーに追加する？
                     int j = timeTable.Members.Size(true);
-                    if (j > 0 && MessageBox.Show(this, "すべてのメンバーに対して有効にしますか？", "勤務シフトの追加", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
-                        for (int i = 0; i < j; i++) {
+                    if (j > 0 && MessageBox.Show(this, "すべてのメンバーに対して有効にしますか？", "勤務シフトの追加", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        for (int i = 0; i < j; i++)
+                        {
                             CMember member = timeTable.Members[i, true];
-                            if (member.Removed == null && !member.BuiltIn) {
+                            if (member.Removed == null && !member.BuiltIn)
+                            {
                                 member.AddPattern(dialog.Pattern);
                             }
                         }
                     }
                 }
-            } else if (e.Button == this.btnEditPattern) {
+            }
+            else if (e.Button == this.btnEditPattern)
+            {
                 DataRowView view = (DataRowView)this.lstPatterns.SelectedItem;
-                CPattern pattern = view.Row["PatternColumn"] as CPattern;
-                if (pattern != null) {
-                    FPatternDialog dialog = new FPatternDialog();
-                    dialog.Pattern = pattern;
-                    if (dialog.ShowDialog(this) == DialogResult.OK) {
-                        // 一覧の更新
-                        RebuildPatternList();
+                if (view != null)
+                {
+                    CPattern pattern = view.Row["PatternColumn"] as CPattern;
+                    if (pattern != null)
+                    {
+                        FPatternDialog dialog = new FPatternDialog();
+                        dialog.Pattern = pattern;
+                        if (dialog.ShowDialog(this) == DialogResult.OK)
+                        {
+                            // 一覧の更新
+                            RebuildPatternList();
+                        }
                     }
                 }
-            } else if (e.Button == this.btnDeletePattern) {
+            }
+            else if (e.Button == this.btnDeletePattern)
+            {
                 DataRowView view = (DataRowView)this.lstPatterns.SelectedItem;
-                CPattern pattern = view.Row["PatternColumn"] as CPattern;
-                if (pattern != null) {
-                    FPatternDialog dialog = new FPatternDialog();
-                    dialog.Pattern = pattern;
-                    pattern.SetAvailable(false);
-                    if (dialog.ShowDialog(this) == DialogResult.OK) {
-                        timeTable.Patterns.DelPattern(pattern);
-                        // 一覧の更新
-                        RebuildPatternList();
-                    } else {
-                        pattern.SetAvailable(true);
+                if (view != null)
+                {
+                    CPattern pattern = view.Row["PatternColumn"] as CPattern;
+                    if (pattern != null)
+                    {
+                        FPatternDialog dialog = new FPatternDialog();
+                        dialog.Pattern = pattern;
+                        pattern.SetAvailable(false);
+                        if (dialog.ShowDialog(this) == DialogResult.OK)
+                        {
+                            timeTable.Patterns.DelPattern(pattern);
+                            // 一覧の更新
+                            RebuildPatternList();
+                        }
+                        else
+                        {
+                            pattern.SetAvailable(true);
+                        }
                     }
                 }
             }
@@ -376,32 +404,44 @@ namespace TimeTableManager.UI {
             } else if (e.Button == this.BtnEditMember) {
                 #region 修正
                 DataRowView view = (DataRowView)this.lstMembers.SelectedItem;
-                CMember Member = view.Row["MemberColumn"] as CMember;
-                if (Member != null) {
-                    FMemberDialog dialog = new FMemberDialog();
-                    dialog.Member = Member;
-                    if (dialog.ShowDialog(this) == DialogResult.OK) {
-                        view.Row["MemberName"] = Member.Name;
-                        // 一覧の更新
-                        RebuildMemberList();
+                if (view != null)
+                {
+                    CMember Member = view.Row["MemberColumn"] as CMember;
+                    if (Member != null)
+                    {
+                        FMemberDialog dialog = new FMemberDialog();
+                        dialog.Member = Member;
+                        if (dialog.ShowDialog(this) == DialogResult.OK)
+                        {
+                            view.Row["MemberName"] = Member.Name;
+                            // 一覧の更新
+                            RebuildMemberList();
+                        }
                     }
                 }
                 #endregion
             } else if (e.Button == this.BtnDeleteMember) {
                 #region 削除
                 DataRowView view = (DataRowView)this.lstMembers.SelectedItem;
-                CMember Member = view.Row["MemberColumn"] as CMember;
-                if (Member != null) {
-                    //if (MessageBox.Show(this, Member.Name + "を削除しますか？", "メンバーの削除", MessageBoxButtons.YesNo, MessageBoxIcon.Question,MessageBoxDefaultButton.Button1) == DialogResult.Yes) {
-                    FMemberDialog dialog = new FMemberDialog();
-                    Member.SetAvailable(false);
-                    dialog.Member = Member;
-                    if (dialog.ShowDialog(this) == DialogResult.OK) {
-                        timeTable.Members.DelMember(Member);
-                        // 一覧の更新
-                        RebuildMemberList();
-                    } else {
-                        Member.SetAvailable(true);
+                if (view != null)
+                {
+                    CMember Member = view.Row["MemberColumn"] as CMember;
+                    if (Member != null)
+                    {
+                        //if (MessageBox.Show(this, Member.Name + "を削除しますか？", "メンバーの削除", MessageBoxButtons.YesNo, MessageBoxIcon.Question,MessageBoxDefaultButton.Button1) == DialogResult.Yes) {
+                        FMemberDialog dialog = new FMemberDialog();
+                        Member.SetAvailable(false);
+                        dialog.Member = Member;
+                        if (dialog.ShowDialog(this) == DialogResult.OK)
+                        {
+                            timeTable.Members.DelMember(Member);
+                            // 一覧の更新
+                            RebuildMemberList();
+                        }
+                        else
+                        {
+                            Member.SetAvailable(true);
+                        }
                     }
                 }
                 #endregion
@@ -426,21 +466,27 @@ namespace TimeTableManager.UI {
         /// </summary>
         private void lstMembers_DoubleClick(object sender, EventArgs e) {
             DataRowView view = (DataRowView)this.lstMembers.SelectedItem;
-            CMember Member = view.Row["MemberColumn"] as CMember;
-            if (Member != null) {
-                FMemberDialog dialog = new FMemberDialog();
-                dialog.Member = Member;
-                if (dialog.ShowDialog(this) == DialogResult.OK) {
-                    view.Row["MemberName"] = Member.Name;
-                    // 一覧の更新
-                    this.MemberTable.Clear();
-                    int memsize = timeTable.Members.Size();
-                    for (int i = 0; i < memsize; i++) {
-                        CMember mem = timeTable.Members[i];
-                        DataRow row = this.MemberTable.NewRow();
-                        row["MemberColumn"] = mem;
-                        row["MemberName"] = mem.Name;
-                        this.MemberTable.Rows.Add(row);
+            if (view != null)
+            {
+                CMember Member = view.Row["MemberColumn"] as CMember;
+                if (Member != null)
+                {
+                    FMemberDialog dialog = new FMemberDialog();
+                    dialog.Member = Member;
+                    if (dialog.ShowDialog(this) == DialogResult.OK)
+                    {
+                        view.Row["MemberName"] = Member.Name;
+                        // 一覧の更新
+                        this.MemberTable.Clear();
+                        int memsize = timeTable.Members.Size();
+                        for (int i = 0; i < memsize; i++)
+                        {
+                            CMember mem = timeTable.Members[i];
+                            DataRow row = this.MemberTable.NewRow();
+                            row["MemberColumn"] = mem;
+                            row["MemberName"] = mem.Name;
+                            this.MemberTable.Rows.Add(row);
+                        }
                     }
                 }
             }
@@ -481,28 +527,36 @@ namespace TimeTableManager.UI {
                 // 日付の修正 
                 TimeTableManager.UI.FDayOffDialog dialog = new FDayOffDialog();
                 DataRowView view = (DataRowView)this.DayOffList.SelectedItem;
-                DataRow row = view.Row;
-                dialog.DayOff = row["DayOffColumn"] as CDayOff;
-                if (dialog.ShowDialog(this) == DialogResult.OK) {
-                    // 一覧の再作成
-                    RebuildHollyDayList();
+                if (view != null)
+                {
+                    DataRow row = view.Row;
+                    dialog.DayOff = row["DayOffColumn"] as CDayOff;
+                    if (dialog.ShowDialog(this) == DialogResult.OK)
+                    {
+                        // 一覧の再作成
+                        RebuildHollyDayList();
+                    }
                 }
             } else if (e.Button == this.TbbRemoveDayOff) {
                 // 日付の削除
                 TimeTableManager.UI.FDayOffDialog dialog = new FDayOffDialog();
                 DataRowView view = (DataRowView)this.DayOffList.SelectedItem;
-                DataRow row = view.Row;
-                CDayOff dayoff = row["DayOffColumn"] as CDayOff;
-                string message = "休日：" + dayoff.Name + "(" +
-                    (dayoff.StartDate == dayoff.EndDate ?
-                    dayoff.StartDate.ToShortDateString() :
-                    dayoff.StartDate.ToShortDateString() + "～" + dayoff.EndDate.ToShortDateString())
-                + ")を削除してよろしいですか？";
-                if (MessageBox.Show(this, message, "休日の削除", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
-                    dayoff.SetAvailable(false);
-                    timeTable.DayOffs.DeleteDayOff(dayoff);
-                    // 一覧の再作成
-                    RebuildHollyDayList();
+                if (view != null)
+                {
+                    DataRow row = view.Row;
+                    CDayOff dayoff = row["DayOffColumn"] as CDayOff;
+                    string message = "休日：" + dayoff.Name + "(" +
+                        (dayoff.StartDate == dayoff.EndDate ?
+                        dayoff.StartDate.ToShortDateString() :
+                        dayoff.StartDate.ToShortDateString() + "～" + dayoff.EndDate.ToShortDateString())
+                    + ")を削除してよろしいですか？";
+                    if (MessageBox.Show(this, message, "休日の削除", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        dayoff.SetAvailable(false);
+                        timeTable.DayOffs.DeleteDayOff(dayoff);
+                        // 一覧の再作成
+                        RebuildHollyDayList();
+                    }
                 }
             }
         }
@@ -524,47 +578,70 @@ namespace TimeTableManager.UI {
         /// <summary>人員配置のツールバー処理
         /// </summary>
         private void RequiresToolBar_ButtonClick(object sender, System.Windows.Forms.ToolBarButtonClickEventArgs e) {
-            if (e.Button == this.TbbAddRequires) {
-                if (timeTable.Requires.Size() >= FMainForm.MaxItemCount) {
+            if (e.Button == this.TbbAddRequires)
+            {
+                if (timeTable.Requires.Size() >= FMainForm.MaxItemCount)
+                {
                     MessageBox.Show(this, "人員配置は%1個までしか登録できません。".Replace("%1", FMainForm.MaxItemCount.ToString()), "人員配置の追加の上限", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                     return;
                 }
                 // 人員配置の追加 
                 TimeTableManager.UI.FRequirePatternsDialog dialog = new FRequirePatternsDialog();
                 dialog.Require = this.timeTable.Requires.CreateRequirePatterns(true);
-                if (dialog.ShowDialog(this) == DialogResult.OK) {
+                if (dialog.ShowDialog(this) == DialogResult.OK)
+                {
                     //
                     this.timeTable.Requires.AddRequirePatterns(dialog.Require);
                     // 一覧の再作成
                     RebuildRequireList();
                 }
-            } else if (e.Button == this.TbbEditRequires) {
+            }
+            else if (e.Button == this.TbbEditRequires)
+            {
                 // 人員配置の修正 
                 TimeTableManager.UI.FRequirePatternsDialog dialog = new FRequirePatternsDialog();
                 DataRowView view = (DataRowView)this.lstRequirePatterns.SelectedItem;
-                DataRow row = view.Row;
-                CRequirePatterns require = row["RequirePatternsColumn"] as CRequirePatterns;
-                dialog.Require = require;
-                if (dialog.ShowDialog(this) == DialogResult.OK) {
-                    // 一覧の再作成
-                    RebuildRequireList();
+                if (view != null)
+                {
+                    DataRow row = view.Row;
+                    CRequirePatterns require = row["RequirePatternsColumn"] as CRequirePatterns;
+                    if (require != null)
+                    {
+                        dialog.Require = require;
+                        if (dialog.ShowDialog(this) == DialogResult.OK)
+                        {
+                            // 一覧の再作成
+                            RebuildRequireList();
+                        }
+                    }
                 }
-            } else if (e.Button == this.TbbDelRequires) {
+            }
+            else if (e.Button == this.TbbDelRequires)
+            {
                 // 人員配置の削除
                 TimeTableManager.UI.FRequirePatternsDialog dialog = new FRequirePatternsDialog();
                 DataRowView view = (DataRowView)this.lstRequirePatterns.SelectedItem;
-                DataRow row = view.Row;
-                CRequirePatterns require = row["RequirePatternsColumn"] as CRequirePatterns;
-                require.SetAvailable(false);
-                dialog.Require = require;
-                if (dialog.ShowDialog(this) == DialogResult.OK) {
-                    // 削除
-                    timeTable.Requires.DelRequirePatterns(require);
-                    // 一覧の再作成
-                    RebuildRequireList();
-                } else {
-                    // 復活
-                    require.SetAvailable(true);
+                if (view != null)
+                {
+                    DataRow row = view.Row;
+                    CRequirePatterns require = row["RequirePatternsColumn"] as CRequirePatterns;
+                    require.SetAvailable(false);
+                    dialog.Require = require;
+                    if (require != null)
+                    {
+                        if (dialog.ShowDialog(this) == DialogResult.OK)
+                        {
+                            // 削除
+                            timeTable.Requires.DelRequirePatterns(require);
+                            // 一覧の再作成
+                            RebuildRequireList();
+                        }
+                        else
+                        {
+                            // 復活
+                            require.SetAvailable(true);
+                        }
+                    }
                 }
             }
 
@@ -575,46 +652,59 @@ namespace TimeTableManager.UI {
             // 日付の修正 
             TimeTableManager.UI.FRequirePatternsDialog dialog = new FRequirePatternsDialog();
             DataRowView view = (DataRowView)this.lstRequirePatterns.SelectedItem;
-            DataRow row = view.Row;
-            dialog.Require = row["RequirePatternsColumn"] as CRequirePatterns;
-            if (dialog.ShowDialog(this) == DialogResult.OK) {
-                //
-                row["RequirePatternsColumn"] = dialog.Require;
-                row["RequirePatternsName"] = dialog.Require.Name;
+            if (view != null)
+            {
+                DataRow row = view.Row;
+                dialog.Require = row["RequirePatternsColumn"] as CRequirePatterns;
+                if (dialog.ShowDialog(this) == DialogResult.OK)
+                {
+                    //
+                    row["RequirePatternsColumn"] = dialog.Require;
+                    row["RequirePatternsName"] = dialog.Require.Name;
+                }
             }
         }
         /// <summary>メンバーの優先度を上げる
         /// </summary>
         private void BtnMemberUp_Click(object sender, System.EventArgs e) {
             DataRowView view = (DataRowView)this.lstMembers.SelectedItem;
-            CMember member = view.Row["MemberColumn"] as CMember;
-            if (member != null) {
-                CMember prev = null;
-                for (int i = 0; i < timeTable.Members.Size(); i++) {
-                    CMember work = timeTable.Members[i];
-                    if (work.Priority < member.Priority) {
-                        prev = work;
-                    }
-                }
-                if (prev != null) {
-                    int k = member.Priority;
-                    int l = prev.Priority;
-                    member.Priority = l;
-                    prev.Priority = k;
-                    // メンバー
-                    this.MemberTable.Rows.Clear();
-                    int memsize = timeTable.Members.Size();
-                    for (int i = 0; i < memsize; i++) {
-                        CMember mem = timeTable.Members[i];
-                        DataRow row = this.MemberTable.NewRow();
-                        row["MemberColumn"] = mem;
-                        row["MemberName"] = mem.Name;
-                        this.MemberTable.Rows.Add(row);
-                        if (member == mem) {
-                            this.lstMembers.SelectedIndex = i;
+            if (view != null)
+            {
+                CMember member = view.Row["MemberColumn"] as CMember;
+                if (member != null)
+                {
+                    CMember prev = null;
+                    for (int i = 0; i < timeTable.Members.Size(); i++)
+                    {
+                        CMember work = timeTable.Members[i];
+                        if (work.Priority < member.Priority)
+                        {
+                            prev = work;
                         }
                     }
-                    this.TimeTable.NotifyMembersEdited(EnumTimeTableElementEventTypes.ElementEdited, member);
+                    if (prev != null)
+                    {
+                        int k = member.Priority;
+                        int l = prev.Priority;
+                        member.Priority = l;
+                        prev.Priority = k;
+                        // メンバー
+                        this.MemberTable.Rows.Clear();
+                        int memsize = timeTable.Members.Size();
+                        for (int i = 0; i < memsize; i++)
+                        {
+                            CMember mem = timeTable.Members[i];
+                            DataRow row = this.MemberTable.NewRow();
+                            row["MemberColumn"] = mem;
+                            row["MemberName"] = mem.Name;
+                            this.MemberTable.Rows.Add(row);
+                            if (member == mem)
+                            {
+                                this.lstMembers.SelectedIndex = i;
+                            }
+                        }
+                        this.TimeTable.NotifyMembersEdited(EnumTimeTableElementEventTypes.ElementEdited, member);
+                    }
                 }
             }
         }
@@ -622,35 +712,44 @@ namespace TimeTableManager.UI {
         /// </summary>
         private void BtnMemberDown_Click(object sender, System.EventArgs e) {
             DataRowView view = (DataRowView)this.lstMembers.SelectedItem;
-            CMember member = view.Row["MemberColumn"] as CMember;
-            if (member != null) {
-                CMember prev = null;
-                for (int i = 0; i < timeTable.Members.Size(); i++) {
-                    CMember work = timeTable.Members[i];
-                    if (work.Priority > member.Priority) {
-                        prev = work;
-                        break;
-                    }
-                }
-                if (prev != null) {
-                    int k = member.Priority;
-                    int l = prev.Priority;
-                    member.Priority = l;
-                    prev.Priority = k;
-                    // メンバー
-                    this.MemberTable.Rows.Clear();
-                    int memsize = timeTable.Members.Size();
-                    for (int i = 0; i < memsize; i++) {
-                        CMember mem = timeTable.Members[i];
-                        DataRow row = this.MemberTable.NewRow();
-                        row["MemberColumn"] = mem;
-                        row["MemberName"] = mem.Name;
-                        this.MemberTable.Rows.Add(row);
-                        if (member == mem) {
-                            this.lstMembers.SelectedIndex = i;
+            if (view != null)
+            {
+                CMember member = view.Row["MemberColumn"] as CMember;
+                if (member != null)
+                {
+                    CMember prev = null;
+                    for (int i = 0; i < timeTable.Members.Size(); i++)
+                    {
+                        CMember work = timeTable.Members[i];
+                        if (work.Priority > member.Priority)
+                        {
+                            prev = work;
+                            break;
                         }
                     }
-                    this.TimeTable.NotifyMembersEdited(EnumTimeTableElementEventTypes.ElementEdited, member);
+                    if (prev != null)
+                    {
+                        int k = member.Priority;
+                        int l = prev.Priority;
+                        member.Priority = l;
+                        prev.Priority = k;
+                        // メンバー
+                        this.MemberTable.Rows.Clear();
+                        int memsize = timeTable.Members.Size();
+                        for (int i = 0; i < memsize; i++)
+                        {
+                            CMember mem = timeTable.Members[i];
+                            DataRow row = this.MemberTable.NewRow();
+                            row["MemberColumn"] = mem;
+                            row["MemberName"] = mem.Name;
+                            this.MemberTable.Rows.Add(row);
+                            if (member == mem)
+                            {
+                                this.lstMembers.SelectedIndex = i;
+                            }
+                        }
+                        this.TimeTable.NotifyMembersEdited(EnumTimeTableElementEventTypes.ElementEdited, member);
+                    }
                 }
             }
         }
@@ -791,14 +890,18 @@ namespace TimeTableManager.UI {
             // 日付の修正 
             TimeTableManager.UI.FDayOffDialog dialog = new FDayOffDialog();
             DataRowView view = (DataRowView)this.DayOffList.SelectedItem;
-            DataRow row = view.Row;
-            dialog.DayOff = row["DayOffColumn"] as CDayOff;
-            if (dialog.ShowDialog(this) == DialogResult.OK) {
-                //
-                row["DayOffColumn"] = dialog.DayOff;
-                row["DayOffNameColumn"] = dialog.DayOff.Name;
-                row["DayOffStartColumn"] = dialog.DayOff.StartDate;
-                row["DayOffEndColumn"] = dialog.DayOff.EndDate;
+            if (view != null)
+            {
+                DataRow row = view.Row;
+                dialog.DayOff = row["DayOffColumn"] as CDayOff;
+                if (dialog.ShowDialog(this) == DialogResult.OK)
+                {
+                    //
+                    row["DayOffColumn"] = dialog.DayOff;
+                    row["DayOffNameColumn"] = dialog.DayOff.Name;
+                    row["DayOffStartColumn"] = dialog.DayOff.StartDate;
+                    row["DayOffEndColumn"] = dialog.DayOff.EndDate;
+                }
             }
         }
         /// <summary>削除済みアイテムの再編集

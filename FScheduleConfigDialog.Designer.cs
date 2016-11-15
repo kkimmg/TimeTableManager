@@ -130,6 +130,42 @@ namespace TimeTableManager.UI {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FScheduleConfigDialog));
             this.tabPrint = new System.Windows.Forms.TabControl();
+            this.tabPattern = new System.Windows.Forms.TabPage();
+            this.lstPatterns = new System.Windows.Forms.ListBox();
+            this.PatternDataSet = new System.Data.DataSet();
+            this.PatternTable = new System.Data.DataTable();
+            this.PatternColumn = new System.Data.DataColumn();
+            this.PatternNameColumn = new System.Data.DataColumn();
+            this.PatternToolBar = new System.Windows.Forms.ToolBar();
+            this.btnAddPattern = new System.Windows.Forms.ToolBarButton();
+            this.btnEditPattern = new System.Windows.Forms.ToolBarButton();
+            this.btnDeletePattern = new System.Windows.Forms.ToolBarButton();
+            this.IconImages = new System.Windows.Forms.ImageList(this.components);
+            this.tabMember = new System.Windows.Forms.TabPage();
+            this.lstMembers = new System.Windows.Forms.ListBox();
+            this.MemberDataSet = new System.Data.DataSet();
+            this.MemberTable = new System.Data.DataTable();
+            this.MemberColumn = new System.Data.DataColumn();
+            this.MemberNameColumn = new System.Data.DataColumn();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.BtnMemberDown = new System.Windows.Forms.Button();
+            this.BtnMemberUp = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.MemberToolBar = new System.Windows.Forms.ToolBar();
+            this.BtnAddMember = new System.Windows.Forms.ToolBarButton();
+            this.BtnEditMember = new System.Windows.Forms.ToolBarButton();
+            this.BtnDeleteMember = new System.Windows.Forms.ToolBarButton();
+            this.tabRequirePatterns = new System.Windows.Forms.TabPage();
+            this.lstRequirePatterns = new System.Windows.Forms.ListBox();
+            this.RequirePatternsDataSet = new System.Data.DataSet();
+            this.RequirePatternsTable = new System.Data.DataTable();
+            this.RequirePatternsColumn = new System.Data.DataColumn();
+            this.RequirePatternsNameColumn = new System.Data.DataColumn();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.RequiresToolBar = new System.Windows.Forms.ToolBar();
+            this.TbbAddRequires = new System.Windows.Forms.ToolBarButton();
+            this.TbbEditRequires = new System.Windows.Forms.ToolBarButton();
+            this.TbbDelRequires = new System.Windows.Forms.ToolBarButton();
             this.tabGeneral = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -179,42 +215,6 @@ namespace TimeTableManager.UI {
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.tabMember = new System.Windows.Forms.TabPage();
-            this.lstMembers = new System.Windows.Forms.ListBox();
-            this.MemberDataSet = new System.Data.DataSet();
-            this.MemberTable = new System.Data.DataTable();
-            this.MemberColumn = new System.Data.DataColumn();
-            this.MemberNameColumn = new System.Data.DataColumn();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.BtnMemberDown = new System.Windows.Forms.Button();
-            this.BtnMemberUp = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.MemberToolBar = new System.Windows.Forms.ToolBar();
-            this.BtnAddMember = new System.Windows.Forms.ToolBarButton();
-            this.BtnEditMember = new System.Windows.Forms.ToolBarButton();
-            this.BtnDeleteMember = new System.Windows.Forms.ToolBarButton();
-            this.IconImages = new System.Windows.Forms.ImageList(this.components);
-            this.tabPattern = new System.Windows.Forms.TabPage();
-            this.lstPatterns = new System.Windows.Forms.ListBox();
-            this.PatternDataSet = new System.Data.DataSet();
-            this.PatternTable = new System.Data.DataTable();
-            this.PatternColumn = new System.Data.DataColumn();
-            this.PatternNameColumn = new System.Data.DataColumn();
-            this.PatternToolBar = new System.Windows.Forms.ToolBar();
-            this.btnAddPattern = new System.Windows.Forms.ToolBarButton();
-            this.btnEditPattern = new System.Windows.Forms.ToolBarButton();
-            this.btnDeletePattern = new System.Windows.Forms.ToolBarButton();
-            this.tabRequirePatterns = new System.Windows.Forms.TabPage();
-            this.lstRequirePatterns = new System.Windows.Forms.ListBox();
-            this.RequirePatternsDataSet = new System.Data.DataSet();
-            this.RequirePatternsTable = new System.Data.DataTable();
-            this.RequirePatternsColumn = new System.Data.DataColumn();
-            this.RequirePatternsNameColumn = new System.Data.DataColumn();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.RequiresToolBar = new System.Windows.Forms.ToolBar();
-            this.TbbAddRequires = new System.Windows.Forms.ToolBarButton();
-            this.TbbEditRequires = new System.Windows.Forms.ToolBarButton();
-            this.TbbDelRequires = new System.Windows.Forms.ToolBarButton();
             this.tabDayOffs = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.DayOffList = new System.Windows.Forms.ListBox();
@@ -292,6 +292,18 @@ namespace TimeTableManager.UI {
             this.DlgImportFile = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.tabPrint.SuspendLayout();
+            this.tabPattern.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PatternDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PatternTable)).BeginInit();
+            this.tabMember.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MemberDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MemberTable)).BeginInit();
+            this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.tabRequirePatterns.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RequirePatternsDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RequirePatternsTable)).BeginInit();
+            this.panel7.SuspendLayout();
             this.tabGeneral.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -306,18 +318,6 @@ namespace TimeTableManager.UI {
             ((System.ComponentModel.ISupportInitialize)(this.FridayTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SaturdayTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SundayTable)).BeginInit();
-            this.tabMember.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MemberDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MemberTable)).BeginInit();
-            this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.tabPattern.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PatternDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PatternTable)).BeginInit();
-            this.tabRequirePatterns.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RequirePatternsDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RequirePatternsTable)).BeginInit();
-            this.panel7.SuspendLayout();
             this.tabDayOffs.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DayOffDataSet)).BeginInit();
@@ -360,6 +360,306 @@ namespace TimeTableManager.UI {
             this.tabPrint.SelectedIndex = 0;
             this.tabPrint.Size = new System.Drawing.Size(388, 333);
             this.tabPrint.TabIndex = 0;
+            // 
+            // tabPattern
+            // 
+            this.tabPattern.Controls.Add(this.lstPatterns);
+            this.tabPattern.Controls.Add(this.PatternToolBar);
+            this.tabPattern.Location = new System.Drawing.Point(4, 22);
+            this.tabPattern.Name = "tabPattern";
+            this.tabPattern.Size = new System.Drawing.Size(380, 307);
+            this.tabPattern.TabIndex = 1;
+            this.tabPattern.Text = "勤務シフト";
+            this.tabPattern.UseVisualStyleBackColor = true;
+            // 
+            // lstPatterns
+            // 
+            this.lstPatterns.DataSource = this.PatternDataSet;
+            this.lstPatterns.DisplayMember = "PatternTable.PatternName";
+            this.lstPatterns.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstPatterns.ItemHeight = 12;
+            this.lstPatterns.Location = new System.Drawing.Point(0, 41);
+            this.lstPatterns.Name = "lstPatterns";
+            this.lstPatterns.Size = new System.Drawing.Size(380, 266);
+            this.lstPatterns.TabIndex = 1;
+            this.lstPatterns.ValueMember = "PatternTable.PatternColumn";
+            this.lstPatterns.DoubleClick += new System.EventHandler(this.lstPatterns_DoubleClick);
+            // 
+            // PatternDataSet
+            // 
+            this.PatternDataSet.DataSetName = "PatternDataSet";
+            this.PatternDataSet.Locale = new System.Globalization.CultureInfo("ja-JP");
+            this.PatternDataSet.Tables.AddRange(new System.Data.DataTable[] {
+            this.PatternTable});
+            // 
+            // PatternTable
+            // 
+            this.PatternTable.Columns.AddRange(new System.Data.DataColumn[] {
+            this.PatternColumn,
+            this.PatternNameColumn});
+            this.PatternTable.TableName = "PatternTable";
+            // 
+            // PatternColumn
+            // 
+            this.PatternColumn.Caption = "Pattern";
+            this.PatternColumn.ColumnName = "PatternColumn";
+            this.PatternColumn.DataType = typeof(TimeTableManager.Element.CPattern);
+            // 
+            // PatternNameColumn
+            // 
+            this.PatternNameColumn.Caption = "勤務シフト";
+            this.PatternNameColumn.ColumnName = "PatternName";
+            // 
+            // PatternToolBar
+            // 
+            this.PatternToolBar.Buttons.AddRange(new System.Windows.Forms.ToolBarButton[] {
+            this.btnAddPattern,
+            this.btnEditPattern,
+            this.btnDeletePattern});
+            this.PatternToolBar.DropDownArrows = true;
+            this.PatternToolBar.ImageList = this.IconImages;
+            this.PatternToolBar.Location = new System.Drawing.Point(0, 0);
+            this.PatternToolBar.Name = "PatternToolBar";
+            this.PatternToolBar.ShowToolTips = true;
+            this.PatternToolBar.Size = new System.Drawing.Size(380, 41);
+            this.PatternToolBar.TabIndex = 0;
+            this.PatternToolBar.ButtonClick += new System.Windows.Forms.ToolBarButtonClickEventHandler(this.PatternToolBar_Click);
+            // 
+            // btnAddPattern
+            // 
+            this.btnAddPattern.ImageIndex = 0;
+            this.btnAddPattern.Name = "btnAddPattern";
+            this.btnAddPattern.Text = "追加";
+            // 
+            // btnEditPattern
+            // 
+            this.btnEditPattern.ImageIndex = 1;
+            this.btnEditPattern.Name = "btnEditPattern";
+            this.btnEditPattern.Text = "修正";
+            // 
+            // btnDeletePattern
+            // 
+            this.btnDeletePattern.ImageIndex = 2;
+            this.btnDeletePattern.Name = "btnDeletePattern";
+            this.btnDeletePattern.Text = "削除";
+            // 
+            // IconImages
+            // 
+            this.IconImages.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("IconImages.ImageStream")));
+            this.IconImages.TransparentColor = System.Drawing.Color.Transparent;
+            this.IconImages.Images.SetKeyName(0, "FrontPlus.gif");
+            this.IconImages.Images.SetKeyName(1, "FrontEdit.gif");
+            this.IconImages.Images.SetKeyName(2, "FrontDel.gif");
+            // 
+            // tabMember
+            // 
+            this.tabMember.Controls.Add(this.lstMembers);
+            this.tabMember.Controls.Add(this.panel3);
+            this.tabMember.Controls.Add(this.panel2);
+            this.tabMember.Location = new System.Drawing.Point(4, 22);
+            this.tabMember.Name = "tabMember";
+            this.tabMember.Size = new System.Drawing.Size(380, 307);
+            this.tabMember.TabIndex = 2;
+            this.tabMember.Text = "メンバー";
+            this.tabMember.UseVisualStyleBackColor = true;
+            // 
+            // lstMembers
+            // 
+            this.lstMembers.DataSource = this.MemberDataSet;
+            this.lstMembers.DisplayMember = "MemberTable.MemberName";
+            this.lstMembers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstMembers.ItemHeight = 12;
+            this.lstMembers.Location = new System.Drawing.Point(0, 40);
+            this.lstMembers.Name = "lstMembers";
+            this.lstMembers.Size = new System.Drawing.Size(316, 267);
+            this.lstMembers.TabIndex = 2;
+            this.lstMembers.ValueMember = "MemberTable.MemberColumn";
+            this.lstMembers.DoubleClick += new System.EventHandler(this.lstMembers_DoubleClick);
+            // 
+            // MemberDataSet
+            // 
+            this.MemberDataSet.DataSetName = "MemberDataSet";
+            this.MemberDataSet.Locale = new System.Globalization.CultureInfo("ja-JP");
+            this.MemberDataSet.Tables.AddRange(new System.Data.DataTable[] {
+            this.MemberTable});
+            // 
+            // MemberTable
+            // 
+            this.MemberTable.Columns.AddRange(new System.Data.DataColumn[] {
+            this.MemberColumn,
+            this.MemberNameColumn});
+            this.MemberTable.TableName = "MemberTable";
+            // 
+            // MemberColumn
+            // 
+            this.MemberColumn.ColumnName = "MemberColumn";
+            this.MemberColumn.DataType = typeof(TimeTableManager.Element.CMember);
+            // 
+            // MemberNameColumn
+            // 
+            this.MemberNameColumn.Caption = "メンバー名";
+            this.MemberNameColumn.ColumnName = "MemberName";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.BtnMemberDown);
+            this.panel3.Controls.Add(this.BtnMemberUp);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel3.Location = new System.Drawing.Point(316, 40);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(64, 267);
+            this.panel3.TabIndex = 1;
+            // 
+            // BtnMemberDown
+            // 
+            this.BtnMemberDown.Location = new System.Drawing.Point(8, 40);
+            this.BtnMemberDown.Name = "BtnMemberDown";
+            this.BtnMemberDown.Size = new System.Drawing.Size(48, 23);
+            this.BtnMemberDown.TabIndex = 1;
+            this.BtnMemberDown.Text = "Down";
+            this.BtnMemberDown.Click += new System.EventHandler(this.BtnMemberDown_Click);
+            // 
+            // BtnMemberUp
+            // 
+            this.BtnMemberUp.Location = new System.Drawing.Point(8, 8);
+            this.BtnMemberUp.Name = "BtnMemberUp";
+            this.BtnMemberUp.Size = new System.Drawing.Size(48, 23);
+            this.BtnMemberUp.TabIndex = 0;
+            this.BtnMemberUp.Text = "Up";
+            this.BtnMemberUp.Click += new System.EventHandler(this.BtnMemberUp_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.MemberToolBar);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(380, 40);
+            this.panel2.TabIndex = 0;
+            // 
+            // MemberToolBar
+            // 
+            this.MemberToolBar.Buttons.AddRange(new System.Windows.Forms.ToolBarButton[] {
+            this.BtnAddMember,
+            this.BtnEditMember,
+            this.BtnDeleteMember});
+            this.MemberToolBar.DropDownArrows = true;
+            this.MemberToolBar.ImageList = this.IconImages;
+            this.MemberToolBar.Location = new System.Drawing.Point(0, 0);
+            this.MemberToolBar.Name = "MemberToolBar";
+            this.MemberToolBar.ShowToolTips = true;
+            this.MemberToolBar.Size = new System.Drawing.Size(380, 41);
+            this.MemberToolBar.TabIndex = 0;
+            this.MemberToolBar.ButtonClick += new System.Windows.Forms.ToolBarButtonClickEventHandler(this.MemberToolBar_Click);
+            // 
+            // BtnAddMember
+            // 
+            this.BtnAddMember.ImageIndex = 0;
+            this.BtnAddMember.Name = "BtnAddMember";
+            this.BtnAddMember.Text = "追加";
+            // 
+            // BtnEditMember
+            // 
+            this.BtnEditMember.ImageIndex = 1;
+            this.BtnEditMember.Name = "BtnEditMember";
+            this.BtnEditMember.Text = "修正";
+            // 
+            // BtnDeleteMember
+            // 
+            this.BtnDeleteMember.ImageIndex = 2;
+            this.BtnDeleteMember.Name = "BtnDeleteMember";
+            this.BtnDeleteMember.Text = "削除";
+            // 
+            // tabRequirePatterns
+            // 
+            this.tabRequirePatterns.Controls.Add(this.lstRequirePatterns);
+            this.tabRequirePatterns.Controls.Add(this.panel7);
+            this.tabRequirePatterns.Location = new System.Drawing.Point(4, 22);
+            this.tabRequirePatterns.Name = "tabRequirePatterns";
+            this.tabRequirePatterns.Size = new System.Drawing.Size(380, 307);
+            this.tabRequirePatterns.TabIndex = 4;
+            this.tabRequirePatterns.Text = "人員配置";
+            this.tabRequirePatterns.UseVisualStyleBackColor = true;
+            // 
+            // lstRequirePatterns
+            // 
+            this.lstRequirePatterns.DataSource = this.RequirePatternsDataSet;
+            this.lstRequirePatterns.DisplayMember = "RequirePatternsTable.RequirePatternsName";
+            this.lstRequirePatterns.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstRequirePatterns.ItemHeight = 12;
+            this.lstRequirePatterns.Location = new System.Drawing.Point(0, 40);
+            this.lstRequirePatterns.Name = "lstRequirePatterns";
+            this.lstRequirePatterns.Size = new System.Drawing.Size(380, 267);
+            this.lstRequirePatterns.TabIndex = 1;
+            this.lstRequirePatterns.ValueMember = "RequirePatternsTable.RequirePatternsColumn";
+            this.lstRequirePatterns.DoubleClick += new System.EventHandler(this.lstRequirePatterns_DoubleClick);
+            // 
+            // RequirePatternsDataSet
+            // 
+            this.RequirePatternsDataSet.DataSetName = "RequirePatternsDataSet";
+            this.RequirePatternsDataSet.Locale = new System.Globalization.CultureInfo("ja-JP");
+            this.RequirePatternsDataSet.Tables.AddRange(new System.Data.DataTable[] {
+            this.RequirePatternsTable});
+            // 
+            // RequirePatternsTable
+            // 
+            this.RequirePatternsTable.Columns.AddRange(new System.Data.DataColumn[] {
+            this.RequirePatternsColumn,
+            this.RequirePatternsNameColumn});
+            this.RequirePatternsTable.TableName = "RequirePatternsTable";
+            // 
+            // RequirePatternsColumn
+            // 
+            this.RequirePatternsColumn.Caption = "人員配置";
+            this.RequirePatternsColumn.ColumnName = "RequirePatternsColumn";
+            this.RequirePatternsColumn.DataType = typeof(TimeTableManager.Element.CRequirePatterns);
+            // 
+            // RequirePatternsNameColumn
+            // 
+            this.RequirePatternsNameColumn.Caption = "人員配置";
+            this.RequirePatternsNameColumn.ColumnName = "RequirePatternsName";
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.RequiresToolBar);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(380, 40);
+            this.panel7.TabIndex = 0;
+            // 
+            // RequiresToolBar
+            // 
+            this.RequiresToolBar.Buttons.AddRange(new System.Windows.Forms.ToolBarButton[] {
+            this.TbbAddRequires,
+            this.TbbEditRequires,
+            this.TbbDelRequires});
+            this.RequiresToolBar.DropDownArrows = true;
+            this.RequiresToolBar.ImageList = this.IconImages;
+            this.RequiresToolBar.Location = new System.Drawing.Point(0, 0);
+            this.RequiresToolBar.Name = "RequiresToolBar";
+            this.RequiresToolBar.ShowToolTips = true;
+            this.RequiresToolBar.Size = new System.Drawing.Size(380, 41);
+            this.RequiresToolBar.TabIndex = 0;
+            this.RequiresToolBar.ButtonClick += new System.Windows.Forms.ToolBarButtonClickEventHandler(this.RequiresToolBar_ButtonClick);
+            // 
+            // TbbAddRequires
+            // 
+            this.TbbAddRequires.ImageIndex = 0;
+            this.TbbAddRequires.Name = "TbbAddRequires";
+            this.TbbAddRequires.Text = "追加";
+            // 
+            // TbbEditRequires
+            // 
+            this.TbbEditRequires.ImageIndex = 1;
+            this.TbbEditRequires.Name = "TbbEditRequires";
+            this.TbbEditRequires.Text = "修正";
+            // 
+            // TbbDelRequires
+            // 
+            this.TbbDelRequires.ImageIndex = 2;
+            this.TbbDelRequires.Name = "TbbDelRequires";
+            this.TbbDelRequires.Text = "削除";
             // 
             // tabGeneral
             // 
@@ -813,306 +1113,6 @@ namespace TimeTableManager.UI {
             this.label9.Text = "日曜日";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // tabMember
-            // 
-            this.tabMember.Controls.Add(this.lstMembers);
-            this.tabMember.Controls.Add(this.panel3);
-            this.tabMember.Controls.Add(this.panel2);
-            this.tabMember.Location = new System.Drawing.Point(4, 22);
-            this.tabMember.Name = "tabMember";
-            this.tabMember.Size = new System.Drawing.Size(380, 307);
-            this.tabMember.TabIndex = 2;
-            this.tabMember.Text = "メンバー";
-            this.tabMember.UseVisualStyleBackColor = true;
-            // 
-            // lstMembers
-            // 
-            this.lstMembers.DataSource = this.MemberDataSet;
-            this.lstMembers.DisplayMember = "MemberTable.MemberName";
-            this.lstMembers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lstMembers.ItemHeight = 12;
-            this.lstMembers.Location = new System.Drawing.Point(0, 40);
-            this.lstMembers.Name = "lstMembers";
-            this.lstMembers.Size = new System.Drawing.Size(316, 267);
-            this.lstMembers.TabIndex = 2;
-            this.lstMembers.ValueMember = "MemberTable.MemberColumn";
-            this.lstMembers.DoubleClick += new System.EventHandler(this.lstMembers_DoubleClick);
-            // 
-            // MemberDataSet
-            // 
-            this.MemberDataSet.DataSetName = "MemberDataSet";
-            this.MemberDataSet.Locale = new System.Globalization.CultureInfo("ja-JP");
-            this.MemberDataSet.Tables.AddRange(new System.Data.DataTable[] {
-            this.MemberTable});
-            // 
-            // MemberTable
-            // 
-            this.MemberTable.Columns.AddRange(new System.Data.DataColumn[] {
-            this.MemberColumn,
-            this.MemberNameColumn});
-            this.MemberTable.TableName = "MemberTable";
-            // 
-            // MemberColumn
-            // 
-            this.MemberColumn.ColumnName = "MemberColumn";
-            this.MemberColumn.DataType = typeof(TimeTableManager.Element.CMember);
-            // 
-            // MemberNameColumn
-            // 
-            this.MemberNameColumn.Caption = "メンバー名";
-            this.MemberNameColumn.ColumnName = "MemberName";
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.BtnMemberDown);
-            this.panel3.Controls.Add(this.BtnMemberUp);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(316, 40);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(64, 267);
-            this.panel3.TabIndex = 1;
-            // 
-            // BtnMemberDown
-            // 
-            this.BtnMemberDown.Location = new System.Drawing.Point(8, 40);
-            this.BtnMemberDown.Name = "BtnMemberDown";
-            this.BtnMemberDown.Size = new System.Drawing.Size(48, 23);
-            this.BtnMemberDown.TabIndex = 1;
-            this.BtnMemberDown.Text = "Down";
-            this.BtnMemberDown.Click += new System.EventHandler(this.BtnMemberDown_Click);
-            // 
-            // BtnMemberUp
-            // 
-            this.BtnMemberUp.Location = new System.Drawing.Point(8, 8);
-            this.BtnMemberUp.Name = "BtnMemberUp";
-            this.BtnMemberUp.Size = new System.Drawing.Size(48, 23);
-            this.BtnMemberUp.TabIndex = 0;
-            this.BtnMemberUp.Text = "Up";
-            this.BtnMemberUp.Click += new System.EventHandler(this.BtnMemberUp_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.MemberToolBar);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(380, 40);
-            this.panel2.TabIndex = 0;
-            // 
-            // MemberToolBar
-            // 
-            this.MemberToolBar.Buttons.AddRange(new System.Windows.Forms.ToolBarButton[] {
-            this.BtnAddMember,
-            this.BtnEditMember,
-            this.BtnDeleteMember});
-            this.MemberToolBar.DropDownArrows = true;
-            this.MemberToolBar.ImageList = this.IconImages;
-            this.MemberToolBar.Location = new System.Drawing.Point(0, 0);
-            this.MemberToolBar.Name = "MemberToolBar";
-            this.MemberToolBar.ShowToolTips = true;
-            this.MemberToolBar.Size = new System.Drawing.Size(380, 41);
-            this.MemberToolBar.TabIndex = 0;
-            this.MemberToolBar.ButtonClick += new System.Windows.Forms.ToolBarButtonClickEventHandler(this.MemberToolBar_Click);
-            // 
-            // BtnAddMember
-            // 
-            this.BtnAddMember.ImageIndex = 0;
-            this.BtnAddMember.Name = "BtnAddMember";
-            this.BtnAddMember.Text = "追加";
-            // 
-            // BtnEditMember
-            // 
-            this.BtnEditMember.ImageIndex = 1;
-            this.BtnEditMember.Name = "BtnEditMember";
-            this.BtnEditMember.Text = "修正";
-            // 
-            // BtnDeleteMember
-            // 
-            this.BtnDeleteMember.ImageIndex = 2;
-            this.BtnDeleteMember.Name = "BtnDeleteMember";
-            this.BtnDeleteMember.Text = "削除";
-            // 
-            // IconImages
-            // 
-            this.IconImages.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("IconImages.ImageStream")));
-            this.IconImages.TransparentColor = System.Drawing.Color.Transparent;
-            this.IconImages.Images.SetKeyName(0, "FrontPlus.gif");
-            this.IconImages.Images.SetKeyName(1, "FrontEdit.gif");
-            this.IconImages.Images.SetKeyName(2, "FrontDel.gif");
-            // 
-            // tabPattern
-            // 
-            this.tabPattern.Controls.Add(this.lstPatterns);
-            this.tabPattern.Controls.Add(this.PatternToolBar);
-            this.tabPattern.Location = new System.Drawing.Point(4, 22);
-            this.tabPattern.Name = "tabPattern";
-            this.tabPattern.Size = new System.Drawing.Size(380, 307);
-            this.tabPattern.TabIndex = 1;
-            this.tabPattern.Text = "勤務シフト";
-            this.tabPattern.UseVisualStyleBackColor = true;
-            // 
-            // lstPatterns
-            // 
-            this.lstPatterns.DataSource = this.PatternDataSet;
-            this.lstPatterns.DisplayMember = "PatternTable.PatternName";
-            this.lstPatterns.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lstPatterns.ItemHeight = 12;
-            this.lstPatterns.Location = new System.Drawing.Point(0, 41);
-            this.lstPatterns.Name = "lstPatterns";
-            this.lstPatterns.Size = new System.Drawing.Size(380, 266);
-            this.lstPatterns.TabIndex = 1;
-            this.lstPatterns.ValueMember = "PatternTable.PatternColumn";
-            this.lstPatterns.DoubleClick += new System.EventHandler(this.lstPatterns_DoubleClick);
-            // 
-            // PatternDataSet
-            // 
-            this.PatternDataSet.DataSetName = "PatternDataSet";
-            this.PatternDataSet.Locale = new System.Globalization.CultureInfo("ja-JP");
-            this.PatternDataSet.Tables.AddRange(new System.Data.DataTable[] {
-            this.PatternTable});
-            // 
-            // PatternTable
-            // 
-            this.PatternTable.Columns.AddRange(new System.Data.DataColumn[] {
-            this.PatternColumn,
-            this.PatternNameColumn});
-            this.PatternTable.TableName = "PatternTable";
-            // 
-            // PatternColumn
-            // 
-            this.PatternColumn.Caption = "Pattern";
-            this.PatternColumn.ColumnName = "PatternColumn";
-            this.PatternColumn.DataType = typeof(TimeTableManager.Element.CPattern);
-            // 
-            // PatternNameColumn
-            // 
-            this.PatternNameColumn.Caption = "勤務シフト";
-            this.PatternNameColumn.ColumnName = "PatternName";
-            // 
-            // PatternToolBar
-            // 
-            this.PatternToolBar.Buttons.AddRange(new System.Windows.Forms.ToolBarButton[] {
-            this.btnAddPattern,
-            this.btnEditPattern,
-            this.btnDeletePattern});
-            this.PatternToolBar.DropDownArrows = true;
-            this.PatternToolBar.ImageList = this.IconImages;
-            this.PatternToolBar.Location = new System.Drawing.Point(0, 0);
-            this.PatternToolBar.Name = "PatternToolBar";
-            this.PatternToolBar.ShowToolTips = true;
-            this.PatternToolBar.Size = new System.Drawing.Size(380, 41);
-            this.PatternToolBar.TabIndex = 0;
-            this.PatternToolBar.ButtonClick += new System.Windows.Forms.ToolBarButtonClickEventHandler(this.PatternToolBar_Click);
-            // 
-            // btnAddPattern
-            // 
-            this.btnAddPattern.ImageIndex = 0;
-            this.btnAddPattern.Name = "btnAddPattern";
-            this.btnAddPattern.Text = "追加";
-            // 
-            // btnEditPattern
-            // 
-            this.btnEditPattern.ImageIndex = 1;
-            this.btnEditPattern.Name = "btnEditPattern";
-            this.btnEditPattern.Text = "修正";
-            // 
-            // btnDeletePattern
-            // 
-            this.btnDeletePattern.ImageIndex = 2;
-            this.btnDeletePattern.Name = "btnDeletePattern";
-            this.btnDeletePattern.Text = "削除";
-            // 
-            // tabRequirePatterns
-            // 
-            this.tabRequirePatterns.Controls.Add(this.lstRequirePatterns);
-            this.tabRequirePatterns.Controls.Add(this.panel7);
-            this.tabRequirePatterns.Location = new System.Drawing.Point(4, 22);
-            this.tabRequirePatterns.Name = "tabRequirePatterns";
-            this.tabRequirePatterns.Size = new System.Drawing.Size(380, 307);
-            this.tabRequirePatterns.TabIndex = 4;
-            this.tabRequirePatterns.Text = "人員配置";
-            this.tabRequirePatterns.UseVisualStyleBackColor = true;
-            // 
-            // lstRequirePatterns
-            // 
-            this.lstRequirePatterns.DataSource = this.RequirePatternsDataSet;
-            this.lstRequirePatterns.DisplayMember = "RequirePatternsTable.RequirePatternsName";
-            this.lstRequirePatterns.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lstRequirePatterns.ItemHeight = 12;
-            this.lstRequirePatterns.Location = new System.Drawing.Point(0, 40);
-            this.lstRequirePatterns.Name = "lstRequirePatterns";
-            this.lstRequirePatterns.Size = new System.Drawing.Size(380, 267);
-            this.lstRequirePatterns.TabIndex = 1;
-            this.lstRequirePatterns.ValueMember = "RequirePatternsTable.RequirePatternsColumn";
-            this.lstRequirePatterns.DoubleClick += new System.EventHandler(this.lstRequirePatterns_DoubleClick);
-            // 
-            // RequirePatternsDataSet
-            // 
-            this.RequirePatternsDataSet.DataSetName = "RequirePatternsDataSet";
-            this.RequirePatternsDataSet.Locale = new System.Globalization.CultureInfo("ja-JP");
-            this.RequirePatternsDataSet.Tables.AddRange(new System.Data.DataTable[] {
-            this.RequirePatternsTable});
-            // 
-            // RequirePatternsTable
-            // 
-            this.RequirePatternsTable.Columns.AddRange(new System.Data.DataColumn[] {
-            this.RequirePatternsColumn,
-            this.RequirePatternsNameColumn});
-            this.RequirePatternsTable.TableName = "RequirePatternsTable";
-            // 
-            // RequirePatternsColumn
-            // 
-            this.RequirePatternsColumn.Caption = "人員配置";
-            this.RequirePatternsColumn.ColumnName = "RequirePatternsColumn";
-            this.RequirePatternsColumn.DataType = typeof(TimeTableManager.Element.CRequirePatterns);
-            // 
-            // RequirePatternsNameColumn
-            // 
-            this.RequirePatternsNameColumn.Caption = "人員配置";
-            this.RequirePatternsNameColumn.ColumnName = "RequirePatternsName";
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.RequiresToolBar);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(380, 40);
-            this.panel7.TabIndex = 0;
-            // 
-            // RequiresToolBar
-            // 
-            this.RequiresToolBar.Buttons.AddRange(new System.Windows.Forms.ToolBarButton[] {
-            this.TbbAddRequires,
-            this.TbbEditRequires,
-            this.TbbDelRequires});
-            this.RequiresToolBar.DropDownArrows = true;
-            this.RequiresToolBar.ImageList = this.IconImages;
-            this.RequiresToolBar.Location = new System.Drawing.Point(0, 0);
-            this.RequiresToolBar.Name = "RequiresToolBar";
-            this.RequiresToolBar.ShowToolTips = true;
-            this.RequiresToolBar.Size = new System.Drawing.Size(380, 41);
-            this.RequiresToolBar.TabIndex = 0;
-            this.RequiresToolBar.ButtonClick += new System.Windows.Forms.ToolBarButtonClickEventHandler(this.RequiresToolBar_ButtonClick);
-            // 
-            // TbbAddRequires
-            // 
-            this.TbbAddRequires.ImageIndex = 0;
-            this.TbbAddRequires.Name = "TbbAddRequires";
-            this.TbbAddRequires.Text = "追加";
-            // 
-            // TbbEditRequires
-            // 
-            this.TbbEditRequires.ImageIndex = 1;
-            this.TbbEditRequires.Name = "TbbEditRequires";
-            this.TbbEditRequires.Text = "修正";
-            // 
-            // TbbDelRequires
-            // 
-            this.TbbDelRequires.ImageIndex = 2;
-            this.TbbDelRequires.Name = "TbbDelRequires";
-            this.TbbDelRequires.Text = "削除";
-            // 
             // tabDayOffs
             // 
             this.tabDayOffs.Controls.Add(this.panel5);
@@ -1334,9 +1334,9 @@ namespace TimeTableManager.UI {
             // 
             // btnHeaderFont
             // 
-            this.btnHeaderFont.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHeaderFont.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnHeaderFont.Location = new System.Drawing.Point(95, 3);
             this.btnHeaderFont.Name = "btnHeaderFont";
             this.btnHeaderFont.Size = new System.Drawing.Size(86, 30);
@@ -1357,9 +1357,9 @@ namespace TimeTableManager.UI {
             // 
             // btnBodyFont
             // 
-            this.btnBodyFont.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBodyFont.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBodyFont.Location = new System.Drawing.Point(279, 3);
             this.btnBodyFont.Name = "btnBodyFont";
             this.btnBodyFont.Size = new System.Drawing.Size(86, 30);
@@ -1370,9 +1370,9 @@ namespace TimeTableManager.UI {
             // 
             // btnDateFont
             // 
-            this.btnDateFont.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDateFont.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDateFont.Location = new System.Drawing.Point(187, 3);
             this.btnDateFont.Name = "btnDateFont";
             this.btnDateFont.Size = new System.Drawing.Size(86, 30);
@@ -1495,7 +1495,7 @@ namespace TimeTableManager.UI {
             this.tableLayoutPanel4.ColumnCount = 3;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.27119F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.72881F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 58F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 59F));
             this.tableLayoutPanel4.Controls.Add(this.BtnResqPattern, 2, 1);
             this.tableLayoutPanel4.Controls.Add(this.CmbRemovedRequires, 1, 2);
             this.tableLayoutPanel4.Controls.Add(this.label16, 0, 0);
@@ -1518,9 +1518,9 @@ namespace TimeTableManager.UI {
             // BtnResqPattern
             // 
             this.BtnResqPattern.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnResqPattern.Location = new System.Drawing.Point(312, 34);
+            this.BtnResqPattern.Location = new System.Drawing.Point(311, 34);
             this.BtnResqPattern.Name = "BtnResqPattern";
-            this.BtnResqPattern.Size = new System.Drawing.Size(53, 25);
+            this.BtnResqPattern.Size = new System.Drawing.Size(54, 25);
             this.BtnResqPattern.TabIndex = 10;
             this.BtnResqPattern.Text = "復活";
             this.BtnResqPattern.UseVisualStyleBackColor = true;
@@ -1536,7 +1536,7 @@ namespace TimeTableManager.UI {
             this.CmbRemovedRequires.ImeMode = System.Windows.Forms.ImeMode.On;
             this.CmbRemovedRequires.Location = new System.Drawing.Point(84, 65);
             this.CmbRemovedRequires.Name = "CmbRemovedRequires";
-            this.CmbRemovedRequires.Size = new System.Drawing.Size(222, 20);
+            this.CmbRemovedRequires.Size = new System.Drawing.Size(221, 20);
             this.CmbRemovedRequires.TabIndex = 7;
             this.CmbRemovedRequires.ValueMember = "TblRemovedRequires.ClmRR";
             // 
@@ -1676,7 +1676,7 @@ namespace TimeTableManager.UI {
             this.CmbRemovedMember.ImeMode = System.Windows.Forms.ImeMode.On;
             this.CmbRemovedMember.Location = new System.Drawing.Point(84, 3);
             this.CmbRemovedMember.Name = "CmbRemovedMember";
-            this.CmbRemovedMember.Size = new System.Drawing.Size(222, 20);
+            this.CmbRemovedMember.Size = new System.Drawing.Size(221, 20);
             this.CmbRemovedMember.TabIndex = 4;
             this.CmbRemovedMember.ValueMember = "TblRemovedMembers.ClmRM";
             // 
@@ -1690,16 +1690,16 @@ namespace TimeTableManager.UI {
             this.CmbRemovedPattern.ImeMode = System.Windows.Forms.ImeMode.On;
             this.CmbRemovedPattern.Location = new System.Drawing.Point(84, 34);
             this.CmbRemovedPattern.Name = "CmbRemovedPattern";
-            this.CmbRemovedPattern.Size = new System.Drawing.Size(222, 20);
+            this.CmbRemovedPattern.Size = new System.Drawing.Size(221, 20);
             this.CmbRemovedPattern.TabIndex = 5;
             this.CmbRemovedPattern.ValueMember = "TblRemovedPatterns.ClmRP";
             // 
             // BtnResqMember
             // 
             this.BtnResqMember.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnResqMember.Location = new System.Drawing.Point(312, 3);
+            this.BtnResqMember.Location = new System.Drawing.Point(311, 3);
             this.BtnResqMember.Name = "BtnResqMember";
-            this.BtnResqMember.Size = new System.Drawing.Size(53, 25);
+            this.BtnResqMember.Size = new System.Drawing.Size(54, 25);
             this.BtnResqMember.TabIndex = 8;
             this.BtnResqMember.Text = "復活";
             this.BtnResqMember.UseVisualStyleBackColor = true;
@@ -1708,9 +1708,9 @@ namespace TimeTableManager.UI {
             // BtnResqRequire
             // 
             this.BtnResqRequire.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnResqRequire.Location = new System.Drawing.Point(312, 65);
+            this.BtnResqRequire.Location = new System.Drawing.Point(311, 65);
             this.BtnResqRequire.Name = "BtnResqRequire";
-            this.BtnResqRequire.Size = new System.Drawing.Size(53, 26);
+            this.BtnResqRequire.Size = new System.Drawing.Size(54, 26);
             this.BtnResqRequire.TabIndex = 12;
             this.BtnResqRequire.Text = "復活";
             this.BtnResqRequire.UseVisualStyleBackColor = true;
@@ -1901,6 +1901,21 @@ namespace TimeTableManager.UI {
             this.Shown += new System.EventHandler(this.ScheduleConfigDialog_Shown);
             this.VisibleChanged += new System.EventHandler(this.ScheduleConfigDialog_VisibleChanged);
             this.tabPrint.ResumeLayout(false);
+            this.tabPattern.ResumeLayout(false);
+            this.tabPattern.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PatternDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PatternTable)).EndInit();
+            this.tabMember.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.MemberDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MemberTable)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.tabRequirePatterns.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.RequirePatternsDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RequirePatternsTable)).EndInit();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.tabGeneral.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -1917,21 +1932,6 @@ namespace TimeTableManager.UI {
             ((System.ComponentModel.ISupportInitialize)(this.FridayTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SaturdayTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SundayTable)).EndInit();
-            this.tabMember.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.MemberDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MemberTable)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.tabPattern.ResumeLayout(false);
-            this.tabPattern.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PatternDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PatternTable)).EndInit();
-            this.tabRequirePatterns.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.RequirePatternsDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RequirePatternsTable)).EndInit();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
             this.tabDayOffs.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
