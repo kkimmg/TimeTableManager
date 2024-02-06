@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 namespace TimeTableManager.Element {
     /// <summary>ランダム化する（デフォルト）
     /// </summary>
@@ -94,12 +95,37 @@ namespace TimeTableManager.Element {
                 work = work.AddDays(1.0);
             }
         }
+        /// <summary>
+        /// メンバーの並び順
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        public int MemberComparison　(CMember x, CMember y) {
+            int ret = 0;
+            if (x.IsChief == false) { ret = 1; } 
+            else if (x.IsChief == true) {
+                if (y.IsChief == false) { ret = -1; }
+                else
+                {
+                    ret = 0; 
+                }
+            } 
+                return ret;
+        }
         /// <summary> メンバーとシフトの好みの組み合わせを自動設定してみる。
         /// </summary>
         protected virtual void AutoAllwithChief(CScheduledDate sDate) {
             // メンバーのこのみをセットする
-            for (int i = 0; i < sDate.ValidMemberSize; i++) {
-                SetFavoriteMemberStand(sDate, sDate.GetValidMember(i));
+            List<CMember> cMembers = new List<CMember>();
+            for (int i = 0; i < sDate.ValidMemberSize; i++)
+            {
+                cMembers.Add(sDate.GetValidMember(i));
+            }
+            cMembers.Sort(MemberComparison);            
+            for (int i = 0; i < cMembers.Count/*sDate.ValidMemberSize*/; i++) {
+                //SetFavoriteMemberStand(sDate, sDate.GetValidMember(i));
+                SetFavoriteMemberStand(sDate, cMembers[i]);
             }
             // スケジュールのこのみをセットする
             CRequirePatterns req = sDate.Require;

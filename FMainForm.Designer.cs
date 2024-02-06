@@ -193,7 +193,7 @@ namespace TimeTableManager.UI {
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(792, 455);
+            this.panelMain.Size = new System.Drawing.Size(784, 490);
             this.panelMain.TabIndex = 0;
             // 
             // SptBody
@@ -210,8 +210,8 @@ namespace TimeTableManager.UI {
             // SptBody.Panel2
             // 
             this.SptBody.Panel2.Controls.Add(this.ScheduleViewer1);
-            this.SptBody.Size = new System.Drawing.Size(792, 455);
-            this.SptBody.SplitterDistance = 173;
+            this.SptBody.Size = new System.Drawing.Size(784, 490);
+            this.SptBody.SplitterDistance = 185;
             this.SptBody.TabIndex = 0;
             this.SptBody.TabStop = false;
             // 
@@ -223,7 +223,7 @@ namespace TimeTableManager.UI {
             this.tabMain.Location = new System.Drawing.Point(0, 0);
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
-            this.tabMain.Size = new System.Drawing.Size(792, 173);
+            this.tabMain.Size = new System.Drawing.Size(784, 185);
             this.tabMain.TabIndex = 4;
             // 
             // tabMultiEdit
@@ -232,7 +232,7 @@ namespace TimeTableManager.UI {
             this.tabMultiEdit.Location = new System.Drawing.Point(4, 22);
             this.tabMultiEdit.Name = "tabMultiEdit";
             this.tabMultiEdit.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMultiEdit.Size = new System.Drawing.Size(784, 147);
+            this.tabMultiEdit.Size = new System.Drawing.Size(776, 159);
             this.tabMultiEdit.TabIndex = 2;
             this.tabMultiEdit.Text = "複数";
             this.tabMultiEdit.UseVisualStyleBackColor = true;
@@ -245,7 +245,7 @@ namespace TimeTableManager.UI {
             this.multiEditor1.Location = new System.Drawing.Point(3, 3);
             this.multiEditor1.MainForm = null;
             this.multiEditor1.Name = "multiEditor1";
-            this.multiEditor1.Size = new System.Drawing.Size(778, 141);
+            this.multiEditor1.Size = new System.Drawing.Size(770, 153);
             this.multiEditor1.TabIndex = 0;
             this.multiEditor1.TimeTable = null;
             // 
@@ -255,7 +255,7 @@ namespace TimeTableManager.UI {
             this.tabEvaluation.Location = new System.Drawing.Point(4, 22);
             this.tabEvaluation.Name = "tabEvaluation";
             this.tabEvaluation.Padding = new System.Windows.Forms.Padding(3);
-            this.tabEvaluation.Size = new System.Drawing.Size(784, 157);
+            this.tabEvaluation.Size = new System.Drawing.Size(776, 159);
             this.tabEvaluation.TabIndex = 3;
             this.tabEvaluation.Text = "評価";
             this.tabEvaluation.UseVisualStyleBackColor = true;
@@ -266,18 +266,18 @@ namespace TimeTableManager.UI {
             this.checkList1.Location = new System.Drawing.Point(3, 3);
             this.checkList1.MainForm = null;
             this.checkList1.Name = "checkList1";
-            this.checkList1.Size = new System.Drawing.Size(778, 151);
+            this.checkList1.Size = new System.Drawing.Size(770, 153);
             this.checkList1.TabIndex = 0;
             this.checkList1.TimeTable = null;
             // 
             // ScheduleViewer1
             // 
             this.ScheduleViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ScheduleViewer1.EndDate = new System.DateTime(2011, 2, 1, 0, 0, 0, 0);
+            this.ScheduleViewer1.EndDate = new System.DateTime(2024, 2, 1, 0, 0, 0, 0);
             this.ScheduleViewer1.Location = new System.Drawing.Point(0, 0);
             this.ScheduleViewer1.MainForm = null;
             this.ScheduleViewer1.Name = "ScheduleViewer1";
-            this.ScheduleViewer1.Size = new System.Drawing.Size(792, 278);
+            this.ScheduleViewer1.Size = new System.Drawing.Size(784, 301);
             this.ScheduleViewer1.StartDate = new System.DateTime(2006, 6, 1, 0, 0, 0, 0);
             this.ScheduleViewer1.TabIndex = 1;
             this.ScheduleViewer1.TimeTable = null;
@@ -287,7 +287,7 @@ namespace TimeTableManager.UI {
             this.panelBody.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelBody.Location = new System.Drawing.Point(0, 0);
             this.panelBody.Name = "panelBody";
-            this.panelBody.Size = new System.Drawing.Size(792, 455);
+            this.panelBody.Size = new System.Drawing.Size(784, 490);
             this.panelBody.TabIndex = 0;
             // 
             // imageList1
@@ -312,9 +312,9 @@ namespace TimeTableManager.UI {
             // 
             // MainStatus
             // 
-            this.MainStatus.Location = new System.Drawing.Point(0, 455);
+            this.MainStatus.Location = new System.Drawing.Point(0, 490);
             this.MainStatus.Name = "MainStatus";
-            this.MainStatus.Size = new System.Drawing.Size(792, 22);
+            this.MainStatus.Size = new System.Drawing.Size(784, 22);
             this.MainStatus.TabIndex = 2;
             this.MainStatus.Text = "タイムテーブルが選択されていません。";
             // 
@@ -381,7 +381,7 @@ namespace TimeTableManager.UI {
             this.MniHelp});
             this.MnuMainMenu.Location = new System.Drawing.Point(0, 0);
             this.MnuMainMenu.Name = "MnuMainMenu";
-            this.MnuMainMenu.Size = new System.Drawing.Size(792, 26);
+            this.MnuMainMenu.Size = new System.Drawing.Size(784, 24);
             this.MnuMainMenu.TabIndex = 5;
             this.MnuMainMenu.Text = "メインメニュー";
             // 
@@ -401,7 +401,7 @@ namespace TimeTableManager.UI {
             this.toolStripSeparator4,
             this.MniExit});
             this.MnuFile.Name = "MnuFile";
-            this.MnuFile.Size = new System.Drawing.Size(85, 22);
+            this.MnuFile.Size = new System.Drawing.Size(67, 20);
             this.MnuFile.Text = "ファイル(&F)";
             this.MnuFile.DropDownOpening += new System.EventHandler(this.MnuFile_Popup);
             // 
@@ -411,7 +411,7 @@ namespace TimeTableManager.UI {
             this.MniNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.MniNew.Name = "MniNew";
             this.MniNew.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.MniNew.Size = new System.Drawing.Size(201, 22);
+            this.MniNew.Size = new System.Drawing.Size(184, 22);
             this.MniNew.Text = "新規作成(&N)";
             this.MniNew.Click += new System.EventHandler(this.MniNew_Click);
             // 
@@ -421,14 +421,14 @@ namespace TimeTableManager.UI {
             this.MniOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.MniOpen.Name = "MniOpen";
             this.MniOpen.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.MniOpen.Size = new System.Drawing.Size(201, 22);
+            this.MniOpen.Size = new System.Drawing.Size(184, 22);
             this.MniOpen.Text = "開く(&O)";
             this.MniOpen.Click += new System.EventHandler(this.MniOpen_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(198, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(181, 6);
             // 
             // MniSave
             // 
@@ -436,21 +436,21 @@ namespace TimeTableManager.UI {
             this.MniSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.MniSave.Name = "MniSave";
             this.MniSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.MniSave.Size = new System.Drawing.Size(201, 22);
+            this.MniSave.Size = new System.Drawing.Size(184, 22);
             this.MniSave.Text = "上書き保存(&S)";
             this.MniSave.Click += new System.EventHandler(this.MniSave_Click);
             // 
             // MniSaveAs
             // 
             this.MniSaveAs.Name = "MniSaveAs";
-            this.MniSaveAs.Size = new System.Drawing.Size(201, 22);
+            this.MniSaveAs.Size = new System.Drawing.Size(184, 22);
             this.MniSaveAs.Text = "名前を付けて保存(&A)";
             this.MniSaveAs.Click += new System.EventHandler(this.MniSaveAs_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(198, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(181, 6);
             // 
             // MniPrint
             // 
@@ -458,7 +458,7 @@ namespace TimeTableManager.UI {
             this.MniPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.MniPrint.Name = "MniPrint";
             this.MniPrint.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.MniPrint.Size = new System.Drawing.Size(201, 22);
+            this.MniPrint.Size = new System.Drawing.Size(184, 22);
             this.MniPrint.Text = "印刷(&P)";
             this.MniPrint.Click += new System.EventHandler(this.MniPrint_Click);
             // 
@@ -467,31 +467,31 @@ namespace TimeTableManager.UI {
             this.MniPrintPreview.Image = ((System.Drawing.Image)(resources.GetObject("MniPrintPreview.Image")));
             this.MniPrintPreview.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.MniPrintPreview.Name = "MniPrintPreview";
-            this.MniPrintPreview.Size = new System.Drawing.Size(201, 22);
+            this.MniPrintPreview.Size = new System.Drawing.Size(184, 22);
             this.MniPrintPreview.Text = "印刷プレビュー(&V)";
             this.MniPrintPreview.Click += new System.EventHandler(this.MniPreview_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(198, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(181, 6);
             // 
             // MniRecentFile
             // 
             this.MniRecentFile.Name = "MniRecentFile";
-            this.MniRecentFile.Size = new System.Drawing.Size(201, 22);
+            this.MniRecentFile.Size = new System.Drawing.Size(184, 22);
             this.MniRecentFile.Text = "最近使用したファイル";
             this.MniRecentFile.Click += new System.EventHandler(this.MniRecentFile_Click_1);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(198, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(181, 6);
             // 
             // MniExit
             // 
             this.MniExit.Name = "MniExit";
-            this.MniExit.Size = new System.Drawing.Size(201, 22);
+            this.MniExit.Size = new System.Drawing.Size(184, 22);
             this.MniExit.Text = "終了(&X)";
             this.MniExit.Click += new System.EventHandler(this.MniQuit_Click);
             // 
@@ -504,7 +504,7 @@ namespace TimeTableManager.UI {
             this.toolStripSeparator8,
             this.MniClearRow});
             this.MniEdit.Name = "MniEdit";
-            this.MniEdit.Size = new System.Drawing.Size(61, 22);
+            this.MniEdit.Size = new System.Drawing.Size(57, 20);
             this.MniEdit.Text = "編集(&E)";
             // 
             // MniCut
@@ -513,7 +513,7 @@ namespace TimeTableManager.UI {
             this.MniCut.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.MniCut.Name = "MniCut";
             this.MniCut.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.MniCut.Size = new System.Drawing.Size(189, 22);
+            this.MniCut.Size = new System.Drawing.Size(170, 22);
             this.MniCut.Text = "切り取り(&T)";
             this.MniCut.Click += new System.EventHandler(this.MniCut_Click);
             // 
@@ -523,7 +523,7 @@ namespace TimeTableManager.UI {
             this.MniCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.MniCopy.Name = "MniCopy";
             this.MniCopy.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.MniCopy.Size = new System.Drawing.Size(189, 22);
+            this.MniCopy.Size = new System.Drawing.Size(170, 22);
             this.MniCopy.Text = "コピー(&C)";
             this.MniCopy.Click += new System.EventHandler(this.MniCopy_Click);
             // 
@@ -533,21 +533,21 @@ namespace TimeTableManager.UI {
             this.MniPaste.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.MniPaste.Name = "MniPaste";
             this.MniPaste.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.MniPaste.Size = new System.Drawing.Size(189, 22);
+            this.MniPaste.Size = new System.Drawing.Size(170, 22);
             this.MniPaste.Text = "貼り付け(&P)";
             this.MniPaste.Click += new System.EventHandler(this.MniPaste_Click);
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(186, 6);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(167, 6);
             // 
             // MniClearRow
             // 
             this.MniClearRow.Image = ((System.Drawing.Image)(resources.GetObject("MniClearRow.Image")));
             this.MniClearRow.Name = "MniClearRow";
             this.MniClearRow.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this.MniClearRow.Size = new System.Drawing.Size(189, 22);
+            this.MniClearRow.Size = new System.Drawing.Size(170, 22);
             this.MniClearRow.Text = "行クリア";
             this.MniClearRow.Click += new System.EventHandler(this.MniDel_Click);
             // 
@@ -561,44 +561,44 @@ namespace TimeTableManager.UI {
             this.toolStripSeparator9,
             this.MniConfigTimeTable});
             this.MnuAutoSetting.Name = "MnuAutoSetting";
-            this.MnuAutoSetting.Size = new System.Drawing.Size(140, 22);
+            this.MnuAutoSetting.Size = new System.Drawing.Size(115, 20);
             this.MnuAutoSetting.Text = "タイムテーブルの設定";
             // 
             // MniAutoAll
             // 
             this.MniAutoAll.Name = "MniAutoAll";
-            this.MniAutoAll.Size = new System.Drawing.Size(196, 22);
+            this.MniAutoAll.Size = new System.Drawing.Size(179, 22);
             this.MniAutoAll.Text = "表示範囲を自動設定";
             this.MniAutoAll.Click += new System.EventHandler(this.MniAutoAll1_Click);
             // 
             // MniAutoSelected
             // 
             this.MniAutoSelected.Name = "MniAutoSelected";
-            this.MniAutoSelected.Size = new System.Drawing.Size(196, 22);
+            this.MniAutoSelected.Size = new System.Drawing.Size(179, 22);
             this.MniAutoSelected.Text = "選択範囲を自動設定";
             this.MniAutoSelected.Click += new System.EventHandler(this.MniAutoRow1_Click);
             // 
             // toolStripSeparator10
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(193, 6);
+            this.toolStripSeparator10.Size = new System.Drawing.Size(176, 6);
             // 
             // MniPerind
             // 
             this.MniPerind.Name = "MniPerind";
-            this.MniPerind.Size = new System.Drawing.Size(196, 22);
+            this.MniPerind.Size = new System.Drawing.Size(179, 22);
             this.MniPerind.Text = "表示期間";
             this.MniPerind.Click += new System.EventHandler(this.MniPeriod_Click);
             // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(193, 6);
+            this.toolStripSeparator9.Size = new System.Drawing.Size(176, 6);
             // 
             // MniConfigTimeTable
             // 
             this.MniConfigTimeTable.Name = "MniConfigTimeTable";
-            this.MniConfigTimeTable.Size = new System.Drawing.Size(196, 22);
+            this.MniConfigTimeTable.Size = new System.Drawing.Size(179, 22);
             this.MniConfigTimeTable.Text = "タイムテーブルの設定";
             this.MniConfigTimeTable.Click += new System.EventHandler(this.MniConfig_Click);
             // 
@@ -608,27 +608,27 @@ namespace TimeTableManager.UI {
             this.MniExport,
             this.MniOption});
             this.MniTool.Name = "MniTool";
-            this.MniTool.Size = new System.Drawing.Size(74, 22);
+            this.MniTool.Size = new System.Drawing.Size(60, 20);
             this.MniTool.Text = "ツール(&T)";
             // 
             // MniExport
             // 
             this.MniExport.Name = "MniExport";
-            this.MniExport.Size = new System.Drawing.Size(155, 22);
+            this.MniExport.Size = new System.Drawing.Size(134, 22);
             this.MniExport.Text = "エクスポート";
             this.MniExport.Click += new System.EventHandler(this.MniExport_Click);
             // 
             // MniOption
             // 
             this.MniOption.Name = "MniOption";
-            this.MniOption.Size = new System.Drawing.Size(155, 22);
+            this.MniOption.Size = new System.Drawing.Size(134, 22);
             this.MniOption.Text = "オプション(&O)";
             this.MniOption.Click += new System.EventHandler(this.MniOption_Click);
             // 
             // MniPlugin
             // 
             this.MniPlugin.Name = "MniPlugin";
-            this.MniPlugin.Size = new System.Drawing.Size(68, 22);
+            this.MniPlugin.Size = new System.Drawing.Size(67, 20);
             this.MniPlugin.Text = "追加機能";
             // 
             // MniHelp
@@ -636,13 +636,13 @@ namespace TimeTableManager.UI {
             this.MniHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MniHelpVersion});
             this.MniHelp.Name = "MniHelp";
-            this.MniHelp.Size = new System.Drawing.Size(75, 22);
+            this.MniHelp.Size = new System.Drawing.Size(65, 20);
             this.MniHelp.Text = "ヘルプ(&H)";
             // 
             // MniHelpVersion
             // 
             this.MniHelpVersion.Name = "MniHelpVersion";
-            this.MniHelpVersion.Size = new System.Drawing.Size(190, 22);
+            this.MniHelpVersion.Size = new System.Drawing.Size(167, 22);
             this.MniHelpVersion.Text = "バージョン情報(&A)...";
             this.MniHelpVersion.Click += new System.EventHandler(this.MniHelpVersion_Click);
             // 
@@ -659,7 +659,7 @@ namespace TimeTableManager.UI {
             this.TbbCopy,
             this.TbbPaste,
             this.toolStripSeparator1});
-            this.TsrGeneral.Location = new System.Drawing.Point(3, 25);
+            this.TsrGeneral.Location = new System.Drawing.Point(3, 0);
             this.TsrGeneral.Name = "TsrGeneral";
             this.TsrGeneral.Size = new System.Drawing.Size(185, 25);
             this.TsrGeneral.TabIndex = 6;
@@ -753,11 +753,11 @@ namespace TimeTableManager.UI {
             this.toolStripContainer1.ContentPanel.AutoScroll = true;
             this.toolStripContainer1.ContentPanel.Controls.Add(this.panelMain);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.MainStatus);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(792, 477);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(784, 512);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(792, 527);
+            this.toolStripContainer1.Size = new System.Drawing.Size(784, 537);
             this.toolStripContainer1.TabIndex = 6;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
@@ -776,7 +776,7 @@ namespace TimeTableManager.UI {
             this.TbbCalendar,
             this.toolStripSeparator14,
             this.TbbConfig});
-            this.TsrTimeTable.Location = new System.Drawing.Point(34, 0);
+            this.TsrTimeTable.Location = new System.Drawing.Point(188, 0);
             this.TsrTimeTable.Name = "TsrTimeTable";
             this.TsrTimeTable.Size = new System.Drawing.Size(116, 25);
             this.TsrTimeTable.TabIndex = 7;
@@ -839,11 +839,11 @@ namespace TimeTableManager.UI {
             // 
             this.toolStripContainer2.ContentPanel.AutoScroll = true;
             this.toolStripContainer2.ContentPanel.Controls.Add(this.toolStripContainer1);
-            this.toolStripContainer2.ContentPanel.Size = new System.Drawing.Size(792, 527);
+            this.toolStripContainer2.ContentPanel.Size = new System.Drawing.Size(784, 537);
             this.toolStripContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer2.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer2.Name = "toolStripContainer2";
-            this.toolStripContainer2.Size = new System.Drawing.Size(792, 553);
+            this.toolStripContainer2.Size = new System.Drawing.Size(784, 561);
             this.toolStripContainer2.TabIndex = 7;
             this.toolStripContainer2.Text = "toolStripContainer2";
             // 
@@ -880,7 +880,7 @@ namespace TimeTableManager.UI {
             // FMainForm
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 12);
-            this.ClientSize = new System.Drawing.Size(792, 553);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.toolStripContainer2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FMainForm";

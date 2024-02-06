@@ -1935,6 +1935,14 @@
             <param name="start">開始</param>
             <param name="end">終了</param>
         </member>
+        <member name="M:TimeTableManager.Element.CDefaultFavoriteRandomizer.MemberComparison(TimeTableManager.Element.CMember,TimeTableManager.Element.CMember)">
+            <summary>
+            メンバーの並び順
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
         <member name="M:TimeTableManager.Element.CDefaultFavoriteRandomizer.AutoAllwithChief(TimeTableManager.Element.CScheduledDate)">
             <summary> メンバーとシフトの好みの組み合わせを自動設定してみる。
             </summary>
@@ -5280,7 +5288,7 @@
         </member>
         <member name="P:TimeTableManager.Properties.Resources.Culture">
             <summary>
-              厳密に型指定されたこのリソース クラスを使用して、すべての検索リソースに対し、
+              すべてについて、現在のスレッドの CurrentUICulture プロパティをオーバーライドします
               現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
             </summary>
         </member>
