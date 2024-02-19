@@ -5,10 +5,10 @@ using TimeTableManager.Element;
 namespace TimeTableManager.ElementCollection {
     /// <summary>人員配置の一覧
     /// </summary>
-	public class CRequirePatternsCollection:CAbstractElement {
+	public class BRequirePatternsCollection:BAbstractElement {
 		/// <summary>スケジュール全て 
         /// </summary>
-		override public CTimeTable TimeTable {
+		override public BTimeTable TimeTable {
 			get {
 				return parent;
 			}
@@ -16,26 +16,26 @@ namespace TimeTableManager.ElementCollection {
 		}
 		/// <summary>すべての人員配置 
         /// </summary>
-		private List<CRequirePatterns> allrequires;
+		private List<BRequirePatterns> allrequires;
 		/// <summary>有効な人員配置 
         /// </summary>
-        private List<CRequirePatterns> availables;
+        private List<BRequirePatterns> availables;
 		/// <summary>スケジュールすべて 
         /// </summary>
-		private CTimeTable parent;
+		private BTimeTable parent;
 		/// <summary>有効な人数のコレクション
         /// </summary>
-		public CRequirePatternsCollection(CTimeTable parent):base() {
+		public BRequirePatternsCollection(BTimeTable parent):base() {
 			this.parent = parent;
-            availables = new List<CRequirePatterns>();
-            allrequires = new List<CRequirePatterns>();
+            availables = new List<BRequirePatterns>();
+            allrequires = new List<BRequirePatterns>();
             // ビルトインの追加
-            AddRequirePatterns(CRequirePatterns.NULL);
-            AddRequirePatterns(CRequirePatterns.DAYOFF);
+            AddRequirePatterns(BRequirePatterns.NULL);
+            AddRequirePatterns(BRequirePatterns.DAYOFF);
 		}
 		/// <summary>人員配置の追加
         /// </summary>
-		public virtual void  AddRequirePatterns(CRequirePatterns AddingValue) {
+		public virtual void  AddRequirePatterns(BRequirePatterns AddingValue) {
             // すでに登録済みならIDを再交付
             while (GetByIDorNull(AddingValue.ObjectID) != null && TimeTable != null) {
                 AddingValue.ObjectID = NextID;
@@ -51,14 +51,14 @@ namespace TimeTableManager.ElementCollection {
 		}
 		/// <summary>人員配置の作成
         /// </summary>
-		public virtual CRequirePatterns CreateRequirePatterns() {
-			CRequirePatterns ret = new CRequirePatterns(TimeTable.Patterns, this);
+		public virtual BRequirePatterns CreateRequirePatterns() {
+			BRequirePatterns ret = new BRequirePatterns(TimeTable.Patterns, this);
 			return ret;
 		}
         /// <summary>人員配置の作成
         /// </summary>
-        public virtual CRequirePatterns CreateRequirePatterns(bool init) {
-            CRequirePatterns ret = CreateRequirePatterns();
+        public virtual BRequirePatterns CreateRequirePatterns(bool init) {
+            BRequirePatterns ret = CreateRequirePatterns();
             if (init) {
                 ret.Name = "新しい人員配置";
             }
@@ -66,7 +66,7 @@ namespace TimeTableManager.ElementCollection {
         }
 		/// <summary>人員配置の削除
         /// </summary>
-		public virtual void  DelRequirePatterns(CRequirePatterns requirepatterns) {
+		public virtual void  DelRequirePatterns(BRequirePatterns requirepatterns) {
 			requirepatterns.SetAvailable(false);
 			if (requirepatterns.Removed != null) {
 				availables.Remove(requirepatterns);
@@ -77,14 +77,14 @@ namespace TimeTableManager.ElementCollection {
 		}
 		/// <summary>人員配置の削除
         /// </summary>
-		public virtual void  DelRequirePatterns(CRequirePatterns requirepatterns, bool complete) {
+		public virtual void  DelRequirePatterns(BRequirePatterns requirepatterns, bool complete) {
 			if (!complete) {
 				DelRequirePatterns(requirepatterns);
 			} else {
 				if (requirepatterns.Removed != null) {
 					int sz = parent.Size();
 					for (int i = 0; i < sz; i++) {
-						CRequirePatterns work = parent[i].Require;
+						BRequirePatterns work = parent[i].Require;
 						if (work != null && work.Equals(requirepatterns)) {
 							parent[i].Require = null;
 						}
@@ -98,7 +98,7 @@ namespace TimeTableManager.ElementCollection {
 		}
 		/// <summary>日付を指定して人員配置の削除
         /// </summary>
-		public virtual void  DelRequirePatterns(CRequirePatterns requirepatterns, System.DateTime remove) {
+		public virtual void  DelRequirePatterns(BRequirePatterns requirepatterns, System.DateTime remove) {
 			requirepatterns.SetAvailable(false, remove);
 			if (requirepatterns.Removed != null) {
 				availables.Remove(requirepatterns);
@@ -106,12 +106,12 @@ namespace TimeTableManager.ElementCollection {
 		}
 		/// <summary>人員配置の取得 有効な人員配置のうちn番目の有効人数
         /// </summary>
-		private CRequirePatterns Get_Renamed(int n) {
+		private BRequirePatterns Get_Renamed(int n) {
 			return availables[n];
 		}
 		/// <summary>人員配置の取得 有効な人員配置のうちn番目の有効人数
         /// </summary>
-		private CRequirePatterns Get_Renamed(int n, bool force) {
+		private BRequirePatterns Get_Renamed(int n, bool force) {
 			if (!force) {
 				return Get_Renamed(n);
 			}
@@ -119,31 +119,31 @@ namespace TimeTableManager.ElementCollection {
 		}
 		/// <summary>IDを指定した人員配置の取得 IDを指定して有効・無効にかかわらず人員配置を取得します
         /// </summary>
-		public virtual CRequirePatterns GetByID(long n) {
+		public virtual BRequirePatterns GetByID(long n) {
             // ビルトインのもの
-            if (n == CRequirePatterns.NULL.ObjectID) return CRequirePatterns.NULL;
-            if (n == CRequirePatterns.DAYOFF.ObjectID) return CRequirePatterns.DAYOFF;
+            if (n == BRequirePatterns.NULL.ObjectID) return BRequirePatterns.NULL;
+            if (n == BRequirePatterns.DAYOFF.ObjectID) return BRequirePatterns.DAYOFF;
             // ここから検索
-			CRequirePatterns work = new CRequirePatterns(TimeTable.Patterns, this);
+			BRequirePatterns work = new BRequirePatterns(TimeTable.Patterns, this);
 			work.ObjectID = n;
 			int i = allrequires.BinarySearch(work);
             if (i < 0) {
-                return CRequirePatterns.NULL;
+                return BRequirePatterns.NULL;
             }
 			return allrequires[i];
 		}
         /// <summary>IDを指定した人員配置の取得 IDを指定して有効・無効にかかわらず人員配置を取得します
         /// </summary>
-        public virtual CRequirePatterns GetByIDorNull (long n) {
+        public virtual BRequirePatterns GetByIDorNull (long n) {
             // ここから検索
-            CRequirePatterns work = new CRequirePatterns(TimeTable.Patterns, this);
+            BRequirePatterns work = new BRequirePatterns(TimeTable.Patterns, this);
             work.ObjectID = n;
             int i = allrequires.BinarySearch(work);
             return (i >= 0 ? allrequires[i] : null);
         }
 		/// <summary>人員配置の復活
         /// </summary>
-		public virtual void  RescueRequirePatterns(CRequirePatterns requirepatterns) {
+		public virtual void  RescueRequirePatterns(BRequirePatterns requirepatterns) {
 			if (requirepatterns.Removed != null) {
 				requirepatterns.SetAvailable(true);
 				//UPGRADE_TODO: .NET で メソッド 'java.util.List.add' に相当するメンバは、異なる値を返す可能性があります。 'ms-help://MS.VSCC.2003/commoner/redir/redirect.htm?keyword="jlca1043"'
@@ -165,22 +165,22 @@ namespace TimeTableManager.ElementCollection {
 		}
 		/// <summary>人員配置
 		/// </summary>
-		public CRequirePatterns this[int i] {
+		public BRequirePatterns this[int i] {
 			get {
 				return this.Get_Renamed(i);
 			}
 		}
 		/// <summary>人員配置
 		/// </summary>
-		public CRequirePatterns this[int i, bool force] {
+		public BRequirePatterns this[int i, bool force] {
 			get {
 				return this.Get_Renamed(i, force);
 			}
 		}
 		/// <summary>人員配置
 		/// </summary>
-		public CRequirePatterns GetByName(string name) {
-			CRequirePatterns ret = null;
+		public BRequirePatterns GetByName(string name) {
+			BRequirePatterns ret = null;
 			for (int i = 0; i < Size(true); i++) {
 				if (this[i, true].Name == name) {
 					ret = this[i, true];

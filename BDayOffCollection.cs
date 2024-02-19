@@ -7,26 +7,26 @@ namespace TimeTableManager.ElementCollection {
 	/// <summary>
 	/// DayOffCollection の概要の説明です。
 	/// </summary>
-	public class CDayOffCollection:CAbstractElement {
+	public class BDayOffCollection:BAbstractElement {
 		/// <summary>タイムテーブル
         /// </summary>
-		private CTimeTable root;
+		private BTimeTable root;
 		/// <summary>休日の内部配列
         /// </summary>
-		private List<CDayOff> DayOffs;
+		private List<BDayOff> DayOffs;
 	    /// <summary>コンストラクタ
 	    /// </summary>
 	    /// <param name="parent"></param>
-		public CDayOffCollection(CTimeTable parent) {
+		public BDayOffCollection(BTimeTable parent) {
 			// 
 			// TODO: コンストラクタ ロジックをここに追加してください。
 			//
 			root = parent;
-            DayOffs = new List<CDayOff>();
+            DayOffs = new List<BDayOff>();
 		}
 		/// <summary>休日
 		/// </summary>
-		public CDayOff this[int n] {
+		public BDayOff this[int n] {
 			get {
 				return DayOffs[n];
 			}
@@ -35,8 +35,8 @@ namespace TimeTableManager.ElementCollection {
 		/// </summary>
 		/// <param name="name"></param>
 		/// <returns></returns>
-		public CDayOff GetByName (string name) {
-			CDayOff ret = null;
+		public BDayOff GetByName (string name) {
+			BDayOff ret = null;
 			for (int i = 0; i < Count; i++) {
 				if (this[i].Name == name) {
 					ret = this[i];
@@ -47,7 +47,7 @@ namespace TimeTableManager.ElementCollection {
 		}
 		/// <summary>タイムテーブル
 		/// </summary>
-		public override CTimeTable TimeTable {
+		public override BTimeTable TimeTable {
 			get {
 				return root;
 			}
@@ -67,7 +67,7 @@ namespace TimeTableManager.ElementCollection {
         }
 		/// <summary>休日を追加する
 		/// </summary>
-		public void AddDayOff(CDayOff dayoff) {
+		public void AddDayOff(BDayOff dayoff) {
 			this.DayOffs.Add(dayoff);
             if (TimeTable != null) {
                 TimeTable.NotifyDayOffsEdited(EnumTimeTableElementEventTypes.ElementAdded, dayoff);
@@ -75,16 +75,16 @@ namespace TimeTableManager.ElementCollection {
 		}
 		/// <summary>休日の作成
 		/// </summary>
-		public CDayOff CreateDayOff() {
-			CDayOff RetValue = new CDayOff(this);
+		public BDayOff CreateDayOff() {
+			BDayOff RetValue = new BDayOff(this);
 			return RetValue;
 		}
         /// <summary>新しい休日の作成（初期化つき）
         /// </summary>
         /// <param name="init"></param>
         /// <returns></returns>
-        public CDayOff CreateDayOff(bool init) {
-            CDayOff RetValue = CreateDayOff();
+        public BDayOff CreateDayOff(bool init) {
+            BDayOff RetValue = CreateDayOff();
             if (init) {
                 RetValue.Name = "新しい休日";
                 RetValue.StartDate = System.DateTime.Today;
@@ -95,12 +95,12 @@ namespace TimeTableManager.ElementCollection {
 		/// <summary>休日の削除
 		/// </summary>
 		public void DeleteDayOff(int n) {
-            CDayOff doff = DayOffs[n];
+            BDayOff doff = DayOffs[n];
             DeleteDayOff(doff);
 		}
 		/// <summary>休日の削除
 		/// </summary>
-		public void DeleteDayOff(CDayOff dayoff) {
+		public void DeleteDayOff(BDayOff dayoff) {
 			DayOffs.Remove(dayoff);
             if (TimeTable != null) {
                 TimeTable.NotifyDayOffsEdited(EnumTimeTableElementEventTypes.ElementRemoved, dayoff);
@@ -109,7 +109,7 @@ namespace TimeTableManager.ElementCollection {
 		/// <summary>これは休日か？
 		/// </summary>
 		public bool IsDayOff(DateTime date) {
-			foreach (CDayOff day in this.DayOffs) {
+			foreach (BDayOff day in this.DayOffs) {
 				if (date >= day.StartDate && date <= day.EndDate) {
 					return true;
 				}

@@ -19,7 +19,7 @@ namespace TimeTableManager.UI {
 		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.MonthCalendar monthCalendar1;
 		/// <summary>内部の休日</summary>
-        private CDayOff dayoff;
+        private BDayOff dayoff;
 		/// <summary>
 		/// 必要なデザイナ変数です。
 		/// </summary>
@@ -199,7 +199,7 @@ namespace TimeTableManager.UI {
 		/// <summary>
 		/// 編集する休日
 		/// </summary>
-		public CDayOff DayOff {
+		public BDayOff DayOff {
 			get {
 				return dayoff;
 			}

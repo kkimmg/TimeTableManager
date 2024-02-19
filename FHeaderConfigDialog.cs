@@ -15,11 +15,11 @@ namespace TimeTableManager.UI {
         /// <summary>
         /// タイムテーブル
         /// </summary>
-        private CTimeTable timeTable;
+        private BTimeTable timeTable;
         /// <summary>
         /// タイムテーブル
         /// </summary>
-        public CTimeTable TimeTable {
+        public BTimeTable TimeTable {
             get { return timeTable; }
             set { timeTable = value; }
         }
@@ -59,15 +59,15 @@ namespace TimeTableManager.UI {
         /// <param name="sender">イベントの発生したオブジェクト</param>
         /// <param name="e">発生したイベント</param>
         private void btnOK_Click (object sender, EventArgs e) {
-            CPrintDocumentBody.SetFont(TimeTable, CPrintDocumentHeader.RIT_LEFTFONT, dlgLeftFont.Font);
-            CPrintDocumentBody.SetFont(TimeTable, CPrintDocumentHeader.RIT_CENTERFONT, dlgCenterFont.Font);
-            CPrintDocumentBody.SetFont(TimeTable, CPrintDocumentHeader.RIT_RIGHTFONT, dlgRightFont.Font);
-            TimeTable[CPrintDocumentHeader.RIT_LEFTTEXT] = cmbLeftText.Text;
-            TimeTable[CPrintDocumentHeader.RIT_CENTERTEXT] = cmbCenterText.Text;
-            TimeTable[CPrintDocumentHeader.RIT_RIGHTTEXT] = cmbRightText.Text;
-            TimeTable[CPrintDocumentHeader.RIT_DATEFORMAT] = cmbDateFormat.Text;
-            TimeTable[CPrintDocumentHeader.RIT_PAGEFORMAT] = txtPageFormat.Text;
-            TimeTable[CPrintDocumentHeader.RIT_PAGEALLFORMAT] = txtPageAllFormat.Text;
+            BPrintDocumentBody.SetFont(TimeTable, BPrintDocumentHeader.RIT_LEFTFONT, dlgLeftFont.Font);
+            BPrintDocumentBody.SetFont(TimeTable, BPrintDocumentHeader.RIT_CENTERFONT, dlgCenterFont.Font);
+            BPrintDocumentBody.SetFont(TimeTable, BPrintDocumentHeader.RIT_RIGHTFONT, dlgRightFont.Font);
+            TimeTable[BPrintDocumentHeader.RIT_LEFTTEXT] = cmbLeftText.Text;
+            TimeTable[BPrintDocumentHeader.RIT_CENTERTEXT] = cmbCenterText.Text;
+            TimeTable[BPrintDocumentHeader.RIT_RIGHTTEXT] = cmbRightText.Text;
+            TimeTable[BPrintDocumentHeader.RIT_DATEFORMAT] = cmbDateFormat.Text;
+            TimeTable[BPrintDocumentHeader.RIT_PAGEFORMAT] = txtPageFormat.Text;
+            TimeTable[BPrintDocumentHeader.RIT_PAGEALLFORMAT] = txtPageAllFormat.Text;
         }
         /// <summary>
         /// キャンセル
@@ -84,45 +84,45 @@ namespace TimeTableManager.UI {
         /// <param name="e">発生したイベント</param>
         private void HeaderConfigDialog_Shown (object sender, EventArgs e) {
             // 左
-            dlgLeftFont.Font = CPrintDocumentBody.GetFont(TimeTable, CPrintDocumentHeader.RIT_LEFTFONT);
-            string LeftText = TimeTable[CPrintDocumentHeader.RIT_LEFTTEXT];
+            dlgLeftFont.Font = BPrintDocumentBody.GetFont(TimeTable, BPrintDocumentHeader.RIT_LEFTFONT);
+            string LeftText = TimeTable[BPrintDocumentHeader.RIT_LEFTTEXT];
             if (LeftText != null) {
                 cmbLeftText.Text = LeftText;
             } else {
-                cmbLeftText.Text = CPrintDocumentHeader.RIT_LEFTTEXT_DEFAULT;
+                cmbLeftText.Text = BPrintDocumentHeader.RIT_LEFTTEXT_DEFAULT;
             }
             // 中央
-            dlgCenterFont.Font = CPrintDocumentBody.GetFont(TimeTable, CPrintDocumentHeader.RIT_CENTERFONT);
-            string CenterText = TimeTable[CPrintDocumentHeader.RIT_CENTERTEXT];
+            dlgCenterFont.Font = BPrintDocumentBody.GetFont(TimeTable, BPrintDocumentHeader.RIT_CENTERFONT);
+            string CenterText = TimeTable[BPrintDocumentHeader.RIT_CENTERTEXT];
             if (CenterText != null) {
                 cmbCenterText.Text = CenterText;
             } else {
-                cmbCenterText.Text = CPrintDocumentHeader.RIT_CENTERTEXT_DEFAULT;
+                cmbCenterText.Text = BPrintDocumentHeader.RIT_CENTERTEXT_DEFAULT;
             }
             // 右
-            dlgRightFont.Font = CPrintDocumentBody.GetFont(TimeTable, CPrintDocumentHeader.RIT_RIGHTFONT);
-            string RightText = TimeTable[CPrintDocumentHeader.RIT_RIGHTTEXT];
+            dlgRightFont.Font = BPrintDocumentBody.GetFont(TimeTable, BPrintDocumentHeader.RIT_RIGHTFONT);
+            string RightText = TimeTable[BPrintDocumentHeader.RIT_RIGHTTEXT];
             if (RightText != null) {
                 cmbRightText.Text = RightText;
             } else {
-                cmbRightText.Text = CPrintDocumentHeader.RIT_RIGHTTEXT_DEFAULT;
+                cmbRightText.Text = BPrintDocumentHeader.RIT_RIGHTTEXT_DEFAULT;
             }
             // 日付フォーマット
-            string dateformat = TimeTable[CPrintDocumentHeader.RIT_DATEFORMAT];
+            string dateformat = TimeTable[BPrintDocumentHeader.RIT_DATEFORMAT];
             if (dateformat != null) {
                 cmbDateFormat.Text = dateformat;
             } else {
-                cmbDateFormat.Text = CPrintDocumentHeader.RIT_DATEFORMAT_DEFAULT;
+                cmbDateFormat.Text = BPrintDocumentHeader.RIT_DATEFORMAT_DEFAULT;
             }
             // ページ
-            string pageformt = TimeTable[CPrintDocumentHeader.RIT_PAGE];
+            string pageformt = TimeTable[BPrintDocumentHeader.RIT_PAGE];
             if (pageformt != null) {
                 txtPageFormat.Text = pageformt;
             } else {
                 txtPageFormat.Text = "";
             }
             // 全ページ
-            string pageallformt = TimeTable[CPrintDocumentHeader.RIT_PAGEALL];
+            string pageallformt = TimeTable[BPrintDocumentHeader.RIT_PAGEALL];
             if (pageallformt != null) {
                 txtPageAllFormat.Text = pageallformt;
             } else {

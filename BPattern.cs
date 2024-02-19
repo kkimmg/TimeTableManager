@@ -3,21 +3,21 @@ using TimeTableManager.ElementCollection;
 namespace TimeTableManager.Element {
     /// <summary>勤務シフト
     /// </summary>
-	public class CPattern:CAbstractElement {
+	public class BPattern:BAbstractElement {
         /// <summary>一日中</summary>
         public static readonly TimeSpan AllDay = new TimeSpan(24, 0, 0);
         /// <summary>ゼロ時間</summary>
         public static readonly TimeSpan ZeroDay = TimeSpan.Zero;//new TimeSpan(0, 0, 0);
         /// <summary>休日</summary>
-        public static readonly CPattern DAYOFF = new NOWORK_PATTERN();
+        public static readonly BPattern DAYOFF = new NOWORK_PATTERN();
         /// <summary>複数選択されている場合</summary>
-        public static readonly CPattern MULTI = new MULTI_PATTERN();
+        public static readonly BPattern MULTI = new MULTI_PATTERN();
         /// <summary>ナル値の替わり</summary>
-        public static readonly CPattern NULL = new NULL_PATTERN();
+        public static readonly BPattern NULL = new NULL_PATTERN();
 		/// <summary>勤務シフト名 </summary>
 		private string name;
 		/// <summary>親オブジェクト(シフトコレクション) </summary>
-		private CPatternCollection parent;
+		private BPatternCollection parent;
         /// <summary>開始時間</summary>
         private TimeSpan start;
         /// <summary>開始から終了まで</summary>
@@ -53,7 +53,7 @@ namespace TimeTableManager.Element {
 		/// <summary>
 		/// タイムテーブル
 		/// </summary>
-		override public CTimeTable TimeTable {
+		override public BTimeTable TimeTable {
 			get {
                 if (parent == null) return null;
 				return parent.TimeTable;
@@ -106,19 +106,19 @@ namespace TimeTableManager.Element {
 		/// <summary>
 		/// シフト（コンストラクタ）
 		/// </summary>
-		public CPattern(CPatternCollection collection):base() {
+		public BPattern(BPatternCollection collection):base() {
 			this.parent = collection;
 		}
 		/// <summary>
 		/// シフト（コンストラクタ）
 		/// </summary>
-		public CPattern(CPatternCollection parent, int id):this(parent) {
+		public BPattern(BPatternCollection parent, int id):this(parent) {
 			ObjectID = id;
 		}
 	}
     /// <summary>休みシフト(-9999)
     /// </summary>
-	public class NOWORK_PATTERN : CPattern {
+	public class NOWORK_PATTERN : BPattern {
         /// <summary>コンストラクタ
         /// </summary>
 		public NOWORK_PATTERN():base(null) {
@@ -136,7 +136,7 @@ namespace TimeTableManager.Element {
 		/// </summary>
 		override public TimeSpan Rest {
 			get {
-				return CPattern.ZeroDay;
+				return BPattern.ZeroDay;
 			}
 		}
 		/// <summary>
@@ -144,7 +144,7 @@ namespace TimeTableManager.Element {
 		/// </summary>
 		override public TimeSpan Scope {
 			get {
-				return CPattern.ZeroDay;
+				return BPattern.ZeroDay;
 			}
 			
 		}
@@ -212,7 +212,7 @@ namespace TimeTableManager.Element {
 	}
     /// <summary>複数シフト(-9998)
     /// </summary>
-    public class MULTI_PATTERN : CPattern {
+    public class MULTI_PATTERN : BPattern {
         /// <summary>コンストラクタ
         /// </summary>
         public MULTI_PATTERN ()
@@ -231,7 +231,7 @@ namespace TimeTableManager.Element {
         /// </summary>
         override public TimeSpan Rest {
             get {
-                return CPattern.ZeroDay;
+                return BPattern.ZeroDay;
             }
         }
         /// <summary>
@@ -239,7 +239,7 @@ namespace TimeTableManager.Element {
         /// </summary>
         override public TimeSpan Scope {
             get {
-                return CPattern.ZeroDay;
+                return BPattern.ZeroDay;
             }
         }
         /// <summary>
@@ -306,7 +306,7 @@ namespace TimeTableManager.Element {
     }
     /// <summary>NULLシフト(-10000)
     /// </summary>
-    public class NULL_PATTERN : CPattern {
+    public class NULL_PATTERN : BPattern {
         /// <summary>コンストラクタ
         /// </summary>
         public NULL_PATTERN ()
@@ -325,7 +325,7 @@ namespace TimeTableManager.Element {
         /// </summary>
         override public TimeSpan Rest {
             get {
-                return CPattern.ZeroDay;
+                return BPattern.ZeroDay;
             }
         }
         /// <summary>
@@ -333,7 +333,7 @@ namespace TimeTableManager.Element {
         /// </summary>
         override public TimeSpan Scope {
             get {
-                return CPattern.ZeroDay;
+                return BPattern.ZeroDay;
             }
         }
         /// <summary>

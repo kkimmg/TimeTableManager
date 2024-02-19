@@ -6,7 +6,7 @@ using TimeTableManager.Element;
 namespace TimeTableManager.Printing {
     /// <summary>ページインデックス
     /// </summary>
-    public class CPageIndex {
+    public class BPageIndex {
         #region プライベート
         /// <summary>プレビューの終了日</summary>
         private DateTime end;
@@ -19,11 +19,11 @@ namespace TimeTableManager.Printing {
         /// <summary>
         /// 有効なメンバーの一覧
         /// </summary>
-        private List<CMember> members = new List<CMember>();
+        private List<BMember> members = new List<BMember>();
         /// <summary>
         /// ドキュメント
         /// </summary>
-        private CPrintDocumentBody document;
+        private BPrintDocumentBody document;
         /// <summary>
         /// 次のページ
         /// </summary>
@@ -32,7 +32,7 @@ namespace TimeTableManager.Printing {
         /// <summary>
         /// コンストラクタ 
         /// </summary>
-        public CPageIndex () {
+        public BPageIndex () {
         }
         /// <summary>
         /// ページを計算する
@@ -93,7 +93,7 @@ namespace TimeTableManager.Printing {
         /// </summary>
         /// <param name="i"></param>
         /// <returns></returns>
-        public CMember GetMember (int i) {
+        public BMember GetMember (int i) {
             return members[i];
         }
         /// <summary>
@@ -137,7 +137,7 @@ namespace TimeTableManager.Printing {
         /// <summary>
         /// ドキュメント
         /// </summary>
-        public CPrintDocumentBody Document {
+        public BPrintDocumentBody Document {
             get { return document; }
             set { document = value; }
         }

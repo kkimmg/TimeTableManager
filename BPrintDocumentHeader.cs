@@ -8,7 +8,7 @@ using TimeTableManager.Element;
 namespace TimeTableManager.Printing {
     /// <summary>印刷ドキュメントのヘッダ部分
     /// </summary>
-    public class CPrintDocumentHeader {
+    public class BPrintDocumentHeader {
         #region 印刷レイアウトの保存キー
         /// <summary>印刷レイアウトの保存キー</summary>
         public const string RIT_CENTERBRUSH = "Printing.Header.Brush.CenterBrush";
@@ -67,25 +67,25 @@ namespace TimeTableManager.Printing {
         /// <summary>
         /// タイムテーブル
         /// </summary>
-        private CTimeTable timeTable;
+        private BTimeTable timeTable;
         /// <summary>
         /// ページインデックス
         /// </summary>
-        private CPageIndex page;
+        private BPageIndex page;
         /// <summary>
         /// ドキュメント
         /// </summary>
-        private CPrintDocumentBody document;
+        private BPrintDocumentBody document;
         #endregion
         /// <summary>ページインデックス
         /// </summary>
-        public CPageIndex Page {
+        public BPageIndex Page {
             get { return page; }
             set { page = value; }
         }
         /// <summary>ドキュメント
         /// </summary>
-        public CPrintDocumentBody Document {
+        public BPrintDocumentBody Document {
             get { return document; }
             set { document = value; }
         }
@@ -111,21 +111,21 @@ namespace TimeTableManager.Printing {
         /// </summary>
         public Font LeftFont {
             get {
-                return CPrintDocumentBody.GetFont(TimeTable, RIT_LEFTFONT);
+                return BPrintDocumentBody.GetFont(TimeTable, RIT_LEFTFONT);
             }
         }
         /// <summary>中央フォント
         /// </summary>
         public Font CenterFont {
             get {
-                return CPrintDocumentBody.GetFont(TimeTable, RIT_CENTERFONT);
+                return BPrintDocumentBody.GetFont(TimeTable, RIT_CENTERFONT);
             }
         }
         /// <summary>左側フォント
         /// </summary>
         public Font RightFont {
             get {
-                return CPrintDocumentBody.GetFont(TimeTable, RIT_RIGHTFONT);
+                return BPrintDocumentBody.GetFont(TimeTable, RIT_RIGHTFONT);
             }
         }
         /// <summary>文字列の書式化
@@ -278,7 +278,7 @@ namespace TimeTableManager.Printing {
         /// <summary>
         /// タイムテーブル
         /// </summary>
-        public CTimeTable TimeTable {
+        public BTimeTable TimeTable {
             get { return timeTable; }
             set { 
                 timeTable = value;

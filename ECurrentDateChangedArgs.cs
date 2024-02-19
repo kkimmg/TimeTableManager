@@ -8,18 +8,18 @@ namespace TimeTableManager.UI {
     /// 選択行が変わったのでカレント日が変わった
     /// </summary>
     public class ECurrentDateChangedArgs : EventArgs {
-        private readonly CScheduledDate scheduleDate;
+        private readonly BScheduledDate scheduleDate;
         /// <summary>
         /// カレントのスケジュール日
         /// </summary>
-        public CScheduledDate ScheduleDate {
+        public BScheduledDate ScheduleDate {
             get { return scheduleDate; }
         }
         /// <summary>
         /// コンストラクタ
         /// </summary>
         /// <param name="source"></param>
-        public ECurrentDateChangedArgs (CScheduledDate source) {
+        public ECurrentDateChangedArgs (BScheduledDate source) {
             this.scheduleDate = source;
         }
     }

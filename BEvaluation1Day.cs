@@ -7,9 +7,9 @@ namespace TimeTableManager.Evaluation {
 
     /// <summary>ソート用
     /// </summary>
-    class CPatternComparer1 : IComparer<CPattern> {
+    class BPatternComparer1 : IComparer<BPattern> {
         #region IComparer メンバ
-        public int Compare (CPattern x, CPattern y) {
+        public int Compare (BPattern x, BPattern y) {
             int ret = 0;
             if (x.Start < y.Start) {
                 ret = -1;
@@ -28,7 +28,7 @@ namespace TimeTableManager.Evaluation {
     }
     /// <summary>１日分の評価
     /// </summary>
-    public class CEvaluation1Day {
+    public class BEvaluation1Day {
         private const string msg_space_occurs = "%1～%2に空白が生じています。";
         private const string msg_needs_unmuch_error = "%1が人員配置を満たしていません。（%2人中%3人）";
         private const string msg_needs_unmuch_worning = "%1が人員配置の半分を満たしていません。（%2人中%3人）";
@@ -62,17 +62,17 @@ namespace TimeTableManager.Evaluation {
         }
         /// <summary>スケジュール日
         /// </summary>
-        public readonly CScheduledDate sdate;
+        public readonly BScheduledDate sdate;
         /// <summary>内部リスト
         /// </summary>
-        private List<CEvaluationItem> _items = new List<CEvaluationItem>();
+        private List<BEvaluationItem> _items = new List<BEvaluationItem>();
         /// <summary>メンバー、評価
         /// </summary>
-        private Dictionary<CMember, CEvaluation1Day1Member> _memItems = new Dictionary<CMember, CEvaluation1Day1Member>();
+        private Dictionary<BMember, CEvaluation1Day1Member> _memItems = new Dictionary<BMember, CEvaluation1Day1Member>();
         /// <summary>コンストラクタ
         /// </summary>
         /// <param name="sDate"></param>
-        public CEvaluation1Day (CScheduledDate sDate) {
+        public BEvaluation1Day (BScheduledDate sDate) {
             this.sdate = sDate;
             Check();
         }
@@ -87,7 +87,7 @@ namespace TimeTableManager.Evaluation {
         /// <summary>検証結果の追加
         /// </summary>
         /// <param name="item">検証結果</param>
-        private void AddItem (CEvaluationItem item) {
+        private void AddItem (BEvaluationItem item) {
             Items.Add(item);
             _items.Add(item);
         }
@@ -96,7 +96,7 @@ namespace TimeTableManager.Evaluation {
         /// <param name="result">追加される検証結果</param>
         /// <param name="message">メッセージ</param>
         private void AddItem (EEvaluationResult result, string message) {
-            AddItem(new CEvaluationItem(result, sdate, message));
+            AddItem(new BEvaluationItem(result, sdate, message));
         }
         /// <summary>クリア
         /// </summary>
@@ -126,7 +126,7 @@ namespace TimeTableManager.Evaluation {
         /// <summary>時間中に空白が生じないか？
         /// </summary>
         /// <returns>空白時間のリスト</returns>
-        private List<CTimeSpanSet> CheckSpaces (List<CPattern> patterns) {
+        private List<CTimeSpanSet> CheckSpaces (List<BPattern> patterns) {
             List<CTimeSpanSet> ret = new List<CTimeSpanSet>();
             //List<Pattern> patterns = GetDatePatterns();
             if (patterns.Count > 0) {
@@ -163,10 +163,10 @@ namespace TimeTableManager.Evaluation {
         /// </summary>
         /// <param name="pattern">勤務シフト</param>
         /// <returns>割合</returns>
-        private double CheckPatternMuches (CPattern pattern) {
+        private double CheckPatternMuches (BPattern pattern) {
             double ret = 0;
-            CRequirePatterns require = sdate.Require;
-            if (require == null || require == CRequirePatterns.DAYOFF || require == CRequirePatterns.NULL) {
+            BRequirePatterns require = sdate.Require;
+            if (require == null || require == BRequirePatterns.DAYOFF || require == BRequirePatterns.NULL) {
                 // 休みなら常に条件を満たすことにする（人員配置が０だから）
                 ret = 1.0;
             } else {
@@ -196,15 +196,15 @@ namespace TimeTableManager.Evaluation {
         /// <returns>割合</returns>
         private double CheckPatternMuches () {
             double ret = 0.0;
-            CRequirePatterns require = sdate.Require;
+            BRequirePatterns require = sdate.Require;
             if (require == null) return 1.0;
-            List<CPattern> patterns = new List<CPattern>();
+            List<BPattern> patterns = new List<BPattern>();
             for (int i = 0; i < require.Size(); i++) {
                 patterns.Add(require.GetPattern(i));
             }
             int j = 0;
             for (int i = 0; i < patterns.Count; i++) {
-                CPattern pattern = patterns[i];
+                BPattern pattern = patterns[i];
                 if (pattern.IsAvailable(sdate.Date)) {
                     double work = CheckPatternMuches(pattern);
                     ret += work;
@@ -217,14 +217,14 @@ namespace TimeTableManager.Evaluation {
         /// <summary>スケジュール日に設定されたシフトの一覧
         /// </summary>
         /// <returns>勤務シフトのリスト</returns>
-        private List<CPattern> GetDatePatterns () {
-            List<CPattern> ret = new List<CPattern>();
+        private List<BPattern> GetDatePatterns () {
+            List<BPattern> ret = new List<BPattern>();
             int max = sdate.ValidMemberSize;
             for (int i = 0; i < max; i++) {
-                CMember member = sdate.GetValidMember(i);
-                CSchedule schedule = sdate[member];
+                BMember member = sdate.GetValidMember(i);
+                BSchedule schedule = sdate[member];
                 if (schedule != null) {
-                    CPattern pattern = schedule.Pattern;
+                    BPattern pattern = schedule.Pattern;
                     if (pattern == null || pattern.BuiltIn) {
                     } else {
                         if (!ret.Contains(pattern)) {
@@ -233,19 +233,19 @@ namespace TimeTableManager.Evaluation {
                     }
                 }
             }
-            ret.Sort(new CPatternComparer1());
+            ret.Sort(new BPatternComparer1());
             return ret;
         }
         /// <summary>勤務シフトのメンバー数
         /// </summary>
         /// <param name="pattern">勤務シフト</param>
         /// <returns>勤務シフトに該当するメンバー数</returns>
-        private int GetPatternMemberCount (CPattern pattern) {
+        private int GetPatternMemberCount (BPattern pattern) {
             int ret = 0;
             int max = sdate.ValidMemberSize;
             for (int i = 0; i < max; i++) {
-                CMember member = sdate.GetValidMember(i);
-                CSchedule schedule = sdate[member];
+                BMember member = sdate.GetValidMember(i);
+                BSchedule schedule = sdate[member];
                 if (schedule.Pattern == pattern) {
                     ret++;
                 }
@@ -254,14 +254,14 @@ namespace TimeTableManager.Evaluation {
         }
         /// <summary>タイムテーブル
         /// </summary>
-        private CTimeTable Root {
+        private BTimeTable Root {
             get {
                 return sdate.TimeTable;
             }
         }
         /// <summary>リスト
         /// </summary>
-        private List<CEvaluationItem> Items {
+        private List<BEvaluationItem> Items {
             get {
                 return Root.EvaluationItems;
             }
@@ -271,8 +271,8 @@ namespace TimeTableManager.Evaluation {
         private void CheckMembers () {
             int j = sdate.ValidMemberSize;
             for (int i = 0; i < j; i++) {
-                CSchedule schedule = sdate[i];
-                CMember member = schedule.Member;
+                BSchedule schedule = sdate[i];
+                BMember member = schedule.Member;
                 if (_memItems.ContainsKey(member)) {
                     CEvaluation1Day1Member work = _memItems[member];
                     work.Check();
@@ -294,32 +294,32 @@ namespace TimeTableManager.Evaluation {
         private const string msg_pattern_nomatch = "%1は%2の勤務シフトに含まれません。";
         /// <summary>タイムテーブル
         /// </summary>
-        private CTimeTable Root {
+        private BTimeTable Root {
             get {
                 return _parent.sdate.TimeTable;
             }
         }
         /// <summary>リスト
         /// </summary>
-        private List<CEvaluationItem> Items {
+        private List<BEvaluationItem> Items {
             get {
                 return Root.EvaluationItems;
             }
         }
         /// <summary>内部リスト
         /// </summary>
-        private List<CEvaluationItem> _items = new List<CEvaluationItem>();
+        private List<BEvaluationItem> _items = new List<BEvaluationItem>();
         /// <summary>親オブジェクト
         /// </summary>
-        CEvaluation1Day _parent;
+        BEvaluation1Day _parent;
         /// <summary>メンバー 
         /// </summary>
-        CMember _member;
+        BMember _member;
         /// <summary>コンストラクタ
         /// </summary>
         /// <param name="parent"></param>
         /// <param name="member"></param>
-        public CEvaluation1Day1Member (CEvaluation1Day parent, CMember member) {
+        public CEvaluation1Day1Member (BEvaluation1Day parent, BMember member) {
             _parent = parent;
             _member = member;
             Check();
@@ -342,7 +342,7 @@ namespace TimeTableManager.Evaluation {
         }
         /// <summary>スケジュール日
         /// </summary>
-        private CScheduledDate sdate {
+        private BScheduledDate sdate {
             get {
                 return _parent.sdate;
             }
@@ -350,7 +350,7 @@ namespace TimeTableManager.Evaluation {
         /// <summary>検証結果の追加
         /// </summary>
         /// <param name="item">検証結果</param>
-        private void AddItem (CEvaluationItem item) {
+        private void AddItem (BEvaluationItem item) {
             Items.Add(item);
             _items.Add(item);
         }
@@ -359,14 +359,14 @@ namespace TimeTableManager.Evaluation {
         /// <param name="result">検証結果</param>
         /// <param name="message">メッセージ</param>
         private void AddItem (EEvaluationResult result, string message) {
-            AddItem(new CEvaluationItem(result, sdate, message));
+            AddItem(new BEvaluationItem(result, sdate, message));
         }
         /// <summary>メンバーの連続稼動日数が※1の日数を超えていたら警告
         /// </summary>
         private void CheckContinuas () {
-            CSchedule schedule = sdate[_member];
+            BSchedule schedule = sdate[_member];
             if (schedule == null) return;
-            CPattern pattern = schedule.Pattern;
+            BPattern pattern = schedule.Pattern;
             if (pattern == null || pattern.BuiltIn) return;
 
             // 休み設定
@@ -386,15 +386,15 @@ namespace TimeTableManager.Evaluation {
         /// <summary>メンバーの作業時間の重複（エラー）または※2の時間を満たしていなければ警告
         /// </summary>
         private void CheckSpace () {
-            CSchedule tsche = sdate[_member];
-            CPattern tpatt = tsche.Pattern;
+            BSchedule tsche = sdate[_member];
+            BPattern tpatt = tsche.Pattern;
             if (!(tpatt == null || tpatt.BuiltIn)) {
                 // 今日のシフトが存在する
                 DateTime today = sdate.Date;
                 DateTime yesterday = today.AddDays(-1).Date;
-                CScheduledDate ydate = Root[yesterday];
-                CSchedule ysche = ydate[_member];
-                CPattern ypatt = ysche.Pattern;
+                BScheduledDate ydate = Root[yesterday];
+                BSchedule ysche = ydate[_member];
+                BPattern ypatt = ysche.Pattern;
                 if (!(ypatt == null || ypatt.BuiltIn)) {
                     // 昨日のシフトが存在する！
                     DateTime yend = yesterday + ypatt.End;
@@ -411,8 +411,8 @@ namespace TimeTableManager.Evaluation {
         /// <summary>メンバーがこのパターンを含むかどうかチェックする
         /// </summary>
         private void CheckPattern() {
-            CSchedule tsche = sdate[_member];
-            CPattern tpatt = tsche.Pattern;
+            BSchedule tsche = sdate[_member];
+            BPattern tpatt = tsche.Pattern;
             if (!(tpatt == null || tpatt.BuiltIn)) {
                 if (!_member.Contains(tpatt)) {
                     AddItem(EEvaluationResult.NOTICE, GenerateMessage(msg_pattern_nomatch, new string[] { tpatt.Name, _member.Name}));

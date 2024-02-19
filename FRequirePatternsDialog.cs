@@ -29,10 +29,10 @@ namespace TimeTableManager.UI {
 		}
         /// <summary>人員配置
         /// </summary>
-        private CRequirePatterns require;
+        private BRequirePatterns require;
 		/// <summary>人員配置
 		/// </summary>
-		public CRequirePatterns Require {
+		public BRequirePatterns Require {
 			get {
 				return require;
 			}
@@ -46,9 +46,9 @@ namespace TimeTableManager.UI {
 		private void RequirePatterns2Components() {
 			this.TxtRequireName.Text = this.require.Name;   // 名前
 						// 人員配置の展開
-			CTimeTable table = this.require.TimeTable;
+			BTimeTable table = this.require.TimeTable;
 			for (int i = 0; i < table.Patterns.Size(true); i++) {
-				CPattern pattern = table.Patterns[i, true];
+				BPattern pattern = table.Patterns[i, true];
 				int needs = this.require.GetRequire(pattern);
 				if (!pattern.BuiltIn && (pattern.Removed == null || needs > 0)) {
 					DataRow row = this.TblRequires.NewRow();
@@ -71,7 +71,7 @@ namespace TimeTableManager.UI {
             this.Require.Name = this.TxtRequireName.Text;   // 名前
             foreach (DataRow row in this.TblRequires.Rows) {
                 // 人員配置
-                CPattern pattern = (CPattern)row["ClmPattern"];
+                BPattern pattern = (BPattern)row["ClmPattern"];
                 int curr = (int)row["ClmRequireNum"];
                 this.require.SetRequire(pattern, curr);
             }

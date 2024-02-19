@@ -14,19 +14,19 @@ namespace TimeTableManager.UI {
     public partial class FImportDialog : Form {
         /// <summary>コピーするタイムテーブル
         /// </summary>
-        private CTimeTable source, target;
+        private BTimeTable source, target;
         /// <summary>コピー元のファイル名
         /// </summary>
         private string sourceName;
         /// <summary>コピー先（現在のタイムテーブル）
         /// </summary>
-        public CTimeTable Target {
+        public BTimeTable Target {
             get { return target; }
             set { target = value; }
         }
         /// <summary>コピー元
         /// </summary>
-        public CTimeTable Source {
+        public BTimeTable Source {
             get { return source; }
             set { source = value; }
         }
@@ -57,7 +57,7 @@ namespace TimeTableManager.UI {
         /// </summary>
         private void MakeMembers () {
             for (int i = 0; i < Source.Members.Size(true); i++) {
-                CMember member = Source.Members[i, true];
+                BMember member = Source.Members[i, true];
                 if (!member.BuiltIn) {
                     DataRow dr = TblImportMember.NewRow();
                     dr[ClmImportMember] = member;
@@ -70,7 +70,7 @@ namespace TimeTableManager.UI {
         /// </summary>
         private void MakePatterns () {
             for (int i = 0; i < Source.Patterns.Size(true); i++) {
-                CPattern pattern = Source.Patterns[i, true];
+                BPattern pattern = Source.Patterns[i, true];
                 if (!pattern.BuiltIn) {
                     DataRow dr = TblImportPattern.NewRow();
                     dr[ClmImportPattern] = pattern;
@@ -83,7 +83,7 @@ namespace TimeTableManager.UI {
         /// </summary>
         private void MakeRequires () {
             for (int i = 0; i < Source.Requires.Size(true); i++) {
-                CRequirePatterns requires = Source.Requires[i, true];
+                BRequirePatterns requires = Source.Requires[i, true];
                 if (!requires.BuiltIn) {
                     DataRow dr = TblImportRequires.NewRow();
                     dr[ClmImportRequires] = requires;
@@ -96,7 +96,7 @@ namespace TimeTableManager.UI {
         /// </summary>
         private void MakeDayOffs () {
             for (int i = 0; i < Source.DayOffs.Size(); i++) {
-                CDayOff dayoff = Source.DayOffs[i];
+                BDayOff dayoff = Source.DayOffs[i];
                 DataRow dr = TblImportDayOff.NewRow();
                 dr[ClmImportDayOff] = dayoff;
                 dr[ClmImportDayOffName] = dayoff.Name + (dayoff.Removed == null ? "" : "(削除されています)");
@@ -118,19 +118,19 @@ namespace TimeTableManager.UI {
         private void BtnOK_Click (object sender, EventArgs e) {
             try {
                 foreach (DataRowView view in LstImportMember.CheckedItems) {
-                    CMember item = view.Row["ClmImportMember"] as CMember;
+                    BMember item = view.Row["ClmImportMember"] as BMember;
                     ImportMember(item);
                 }
                 foreach (DataRowView view in LstImportPattern.CheckedItems) {
-                    CPattern item = view.Row["ClmImportPattern"] as CPattern;
+                    BPattern item = view.Row["ClmImportPattern"] as BPattern;
                     ImportPattern(item);
                 }
                 foreach (DataRowView view in LstImportRequires.CheckedItems) {
-                    CRequirePatterns item = view.Row["ClmImportRequires"] as CRequirePatterns;
+                    BRequirePatterns item = view.Row["ClmImportRequires"] as BRequirePatterns;
                     ImportRequires(item);
                 }
                 foreach (DataRowView view in LstImportDayOff.CheckedItems) {
-                    CDayOff item = view.Row["ClmImportDayOff"] as CDayOff;
+                    BDayOff item = view.Row["ClmImportDayOff"] as BDayOff;
                     ImportDayOff(item);
                 }
             } catch (Exception ex) {
@@ -143,9 +143,9 @@ namespace TimeTableManager.UI {
         /// </summary>
         /// <param name="member">インポートするメンバー</param>
         /// <returns>成功：追加したエレメント／不成功：null</returns>
-        private CMember ImportMember (CMember member) {
+        private BMember ImportMember (BMember member) {
             #region 重複チェック
-            CMemberCollection col = Target.Members;
+            BMemberCollection col = Target.Members;
             if (col.GetByName(member.Name) != null) {
                 return null;
             }
@@ -154,16 +154,16 @@ namespace TimeTableManager.UI {
             }
             #endregion
             #region インポート
-            CMember newmember = col.CreateMember(true);
+            BMember newmember = col.CreateMember(true);
             newmember.Name = member.Name;
             newmember.IsChief = member.IsChief;
-            newmember.SetAvailableDay(CTimeTable.tMonday, member.IsAvailableDay(CTimeTable.tMonday));
-            newmember.SetAvailableDay(CTimeTable.tTuesday, member.IsAvailableDay(CTimeTable.tTuesday));
-            newmember.SetAvailableDay(CTimeTable.tWednesday, member.IsAvailableDay(CTimeTable.tWednesday));
-            newmember.SetAvailableDay(CTimeTable.tThursday, member.IsAvailableDay(CTimeTable.tThursday));
-            newmember.SetAvailableDay(CTimeTable.tFriday, member.IsAvailableDay(CTimeTable.tFriday));
-            newmember.SetAvailableDay(CTimeTable.tSaturday, member.IsAvailableDay(CTimeTable.tSaturday));
-            newmember.SetAvailableDay(CTimeTable.tSunday, member.IsAvailableDay(CTimeTable.tSunday));
+            newmember.SetAvailableDay(BTimeTable.tMonday, member.IsAvailableDay(BTimeTable.tMonday));
+            newmember.SetAvailableDay(BTimeTable.tTuesday, member.IsAvailableDay(BTimeTable.tTuesday));
+            newmember.SetAvailableDay(BTimeTable.tWednesday, member.IsAvailableDay(BTimeTable.tWednesday));
+            newmember.SetAvailableDay(BTimeTable.tThursday, member.IsAvailableDay(BTimeTable.tThursday));
+            newmember.SetAvailableDay(BTimeTable.tFriday, member.IsAvailableDay(BTimeTable.tFriday));
+            newmember.SetAvailableDay(BTimeTable.tSaturday, member.IsAvailableDay(BTimeTable.tSaturday));
+            newmember.SetAvailableDay(BTimeTable.tSunday, member.IsAvailableDay(BTimeTable.tSunday));
             newmember.Spacetime = member.Spacetime;
             newmember.Continuas = member.Continuas;
             newmember.Notes = member.Notes + "\nインポートされました。";
@@ -179,9 +179,9 @@ namespace TimeTableManager.UI {
         /// </summary>
         /// <param name="pattern">インポートする勤務シフト</param>
         /// <returns>成功：追加したエレメント／不成功：null</returns>
-        private CPattern ImportPattern (CPattern pattern) {
+        private BPattern ImportPattern (BPattern pattern) {
             #region 重複チェック
-            CPatternCollection col = Target.Patterns;
+            BPatternCollection col = Target.Patterns;
             if (col.GetByName(pattern.Name) != null) {
                 return null;
             }
@@ -190,7 +190,7 @@ namespace TimeTableManager.UI {
             }
             #endregion
             #region インポート
-            CPattern newpattern = col.CreatePattern(true);
+            BPattern newpattern = col.CreatePattern(true);
             newpattern.Name = pattern.Name;
             newpattern.Start = pattern.Start;
             newpattern.Scope = pattern.Scope;
@@ -208,9 +208,9 @@ namespace TimeTableManager.UI {
         /// </summary>
         /// <param name="requires">インポートする人員配置</param>
         /// <returns>成功：追加したエレメント／不成功：null</returns>
-        private CRequirePatterns ImportRequires (CRequirePatterns requires) {
+        private BRequirePatterns ImportRequires (BRequirePatterns requires) {
             #region 重複チェック
-            CRequirePatternsCollection col = Target.Requires;
+            BRequirePatternsCollection col = Target.Requires;
             if (col.GetByName(requires.Name) != null) {
                 return null;
             }
@@ -219,13 +219,13 @@ namespace TimeTableManager.UI {
             }
             #endregion
             #region インポート
-            CRequirePatterns newrequires = col.CreateRequirePatterns(true);
+            BRequirePatterns newrequires = col.CreateRequirePatterns(true);
             newrequires.Name = requires.Name;
             for (int i = 0; i < Source.Patterns.Size(true); i++) {
-                CPattern pattern = Source.Patterns[i, true];
+                BPattern pattern = Source.Patterns[i, true];
                 int needs = requires.GetRequire(pattern);
                 if (!pattern.BuiltIn && (pattern.Removed == null || needs > 0)) {
-                    CPattern newpattern = Target.Patterns.GetByName(pattern.Name);
+                    BPattern newpattern = Target.Patterns.GetByName(pattern.Name);
                     if (newpattern == null) {
                         newpattern = ImportPattern(pattern);
                     }
@@ -245,9 +245,9 @@ namespace TimeTableManager.UI {
         /// </summary>
         /// <param name="dayoff">インポートする休日</param>
         /// <returns>成功：追加したエレメント／不成功：null</returns>
-        private CDayOff ImportDayOff (CDayOff dayoff) {
+        private BDayOff ImportDayOff (BDayOff dayoff) {
             #region 重複チェック
-            CDayOffCollection col = Target.DayOffs;
+            BDayOffCollection col = Target.DayOffs;
             if (col.GetByName(dayoff.Name) != null) {
                 return null;
             }
@@ -256,7 +256,7 @@ namespace TimeTableManager.UI {
             }
             #endregion
             #region インポート
-            CDayOff newdayoff = col.CreateDayOff(true);
+            BDayOff newdayoff = col.CreateDayOff(true);
             newdayoff.Name = dayoff.Name;
             newdayoff.StartDate = dayoff.StartDate;
             newdayoff.EndDate = dayoff.EndDate;

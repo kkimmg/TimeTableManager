@@ -88,7 +88,7 @@
             // ClmImportMember
             // 
             this.ClmImportMember.ColumnName = "ClmImportMember";
-            this.ClmImportMember.DataType = typeof(TimeTableManager.Element.CMember);
+            this.ClmImportMember.DataType = typeof(TimeTableManager.Element.BMember);
             // 
             // ClmImportMemberName
             // 
@@ -110,7 +110,7 @@
             // ClmImportPattern
             // 
             this.ClmImportPattern.ColumnName = "ClmImportPattern";
-            this.ClmImportPattern.DataType = typeof(TimeTableManager.Element.CPattern);
+            this.ClmImportPattern.DataType = typeof(TimeTableManager.Element.BPattern);
             // 
             // ClmImportPatternName
             // 
@@ -132,7 +132,7 @@
             // ClmImportRequires
             // 
             this.ClmImportRequires.ColumnName = "ClmImportRequires";
-            this.ClmImportRequires.DataType = typeof(TimeTableManager.Element.CRequirePatterns);
+            this.ClmImportRequires.DataType = typeof(TimeTableManager.Element.BRequirePatterns);
             // 
             // ClmImportRequiresName
             // 
@@ -154,7 +154,7 @@
             // ClmImportDayOff
             // 
             this.ClmImportDayOff.ColumnName = "ClmImportDayOff";
-            this.ClmImportDayOff.DataType = typeof(TimeTableManager.Element.CDayOff);
+            this.ClmImportDayOff.DataType = typeof(TimeTableManager.Element.BDayOff);
             // 
             // ClmImportDayOffName
             // 

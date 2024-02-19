@@ -109,7 +109,7 @@ namespace TimeTableManager.UI {
         public TimeTableManager.IFavoriteRandomizer Randomizer {
             get {
                 if (randomizer == null) {
-                    randomizer = new TimeTableManager.Element.CDefaultFavoriteRandomizer();
+                    randomizer = new TimeTableManager.Element.BDefaultFavoriteRandomizer();
                 }
                 return this.randomizer;
             }
@@ -119,7 +119,7 @@ namespace TimeTableManager.UI {
         }
         /// <summary>編集中のタイムテーブル
         /// </summary>
-        public CTimeTable TimeTable {
+        public BTimeTable TimeTable {
             get { return timeTable; }
             set { timeTable = value; }
         }
@@ -336,8 +336,8 @@ namespace TimeTableManager.UI {
         /// </summary>
         /// <param name="pFileName">ファイル名</param>
         private void OpenFile(string pFileName) {
-            CLoader saveload = new CLoader();
-            CTimeTable CurrentValue = TimeTable;
+            BLoader saveload = new BLoader();
+            BTimeTable CurrentValue = TimeTable;
             try {
                 TimeTable = saveload.Load(pFileName);
             } catch {
@@ -348,12 +348,12 @@ namespace TimeTableManager.UI {
             }
             this.FileName = pFileName;
             TimeTable.ScheduleEditedEvnetIsValid = false;
-            TimeTable.OnScheduleDateRequirePatternsEdited += new CTimeTable.ScheduleDateRequirePatternsEditedEventHandler(timeTable_OnScheduleDateRequirePatternsEdited);
-            TimeTable.OnScheduleEdited += new CTimeTable.ScheduleEditedEventHandler(timeTable_OnScheduleEdited);
-            TimeTable.OnMembersEdited += new CTimeTable.MembersEditedEventHandler(timeTable_OnMembersEdited);
-            TimeTable.OnPatternsEdited += new CTimeTable.PatternsEditedEventHandler(timeTable_OnPatternsEdited);
-            TimeTable.OnPropertyChanged += new CTimeTable.PropertyChangeEventHandler(timeTable_OnPropertyChanged);
-            TimeTable.OnRequirePatternssEdited += new CTimeTable.RequirePatternssEditedEventHandler(timeTable_OnRequirePatternssEdited);
+            TimeTable.OnScheduleDateRequirePatternsEdited += new BTimeTable.ScheduleDateRequirePatternsEditedEventHandler(timeTable_OnScheduleDateRequirePatternsEdited);
+            TimeTable.OnScheduleEdited += new BTimeTable.ScheduleEditedEventHandler(timeTable_OnScheduleEdited);
+            TimeTable.OnMembersEdited += new BTimeTable.MembersEditedEventHandler(timeTable_OnMembersEdited);
+            TimeTable.OnPatternsEdited += new BTimeTable.PatternsEditedEventHandler(timeTable_OnPatternsEdited);
+            TimeTable.OnPropertyChanged += new BTimeTable.PropertyChangeEventHandler(timeTable_OnPropertyChanged);
+            TimeTable.OnRequirePatternssEdited += new BTimeTable.RequirePatternssEditedEventHandler(timeTable_OnRequirePatternssEdited);
             TimeTable.Refresh();
             DateTime today = System.DateTime.Today;
             DateTime date1 = new DateTime(today.Year, today.Month, 1);
@@ -463,7 +463,7 @@ namespace TimeTableManager.UI {
             TimeSpan end = start + this.TimeTable.Around;
             int sz = this.TimeTable.Patterns.Size();
             for (int i = 0; i < sz; i++) {
-                CPattern pattern = this.TimeTable.Patterns[i];
+                BPattern pattern = this.TimeTable.Patterns[i];
                 if (!pattern.BuiltIn) {
                     if (start > pattern.Start) {
                         start = pattern.Start;
@@ -544,7 +544,7 @@ namespace TimeTableManager.UI {
             DateTime work = this.ScheduleViewer1.StartDate;
             while (!(work > this.ScheduleViewer1.EndDate)) {
                 if (work >= DateTime.Today) {
-                    CScheduledDate date = this.TimeTable[work];
+                    BScheduledDate date = this.TimeTable[work];
                     //Randomizer.AutoAllwithChief(date);
                     date.Auto();
                 }
@@ -593,7 +593,7 @@ namespace TimeTableManager.UI {
                 }
                 CancelDialog.Worker.ReportProgress(row * 100 / itotal); 
                 if (work >= DateTime.Today) {
-                    CScheduledDate date = this.TimeTable[work];
+                    BScheduledDate date = this.TimeTable[work];
                     Randomizer.AutoAllwithChief(this.TimeTable, work);
                     date.Auto();
                 }
@@ -651,7 +651,7 @@ namespace TimeTableManager.UI {
             DateTime WorkStart = work, WorkEnd = work; bool ok = false;
             while (!(work > this.ScheduleViewer1.EndDate)) {
                 if (work >= today && (ScheduleViewer1.IsSelected(row) || row == this.ScheduleViewer1.CurrentRowIndex)) {
-                    CScheduledDate date = this.TimeTable[work];
+                    BScheduledDate date = this.TimeTable[work];
                     Randomizer.AutoAllwithChief(this.TimeTable, work);
                     date.Auto();
                     if (!ok) {
@@ -711,7 +711,7 @@ namespace TimeTableManager.UI {
                 }
                 CancelDialog.Worker.ReportProgress(row * 100 / itotal);
                 if (work >= today && (ScheduleViewer1.IsSelected(row) || row == this.ScheduleViewer1.CurrentRowIndex)) {
-                    CScheduledDate date = this.TimeTable[work];
+                    BScheduledDate date = this.TimeTable[work];
                     Randomizer.AutoAllwithChief(this.TimeTable, work);
                     date.Auto();
                 }
@@ -735,7 +735,7 @@ namespace TimeTableManager.UI {
         /// </summary>
         private void MniSave_Click(object sender, System.EventArgs e) {
             if (this.FileName != "") {
-                CSaver saver = new CSaver();
+                BSaver saver = new BSaver();
                 try {
                     saver.Save(this.FileName, this.TimeTable);
                 }
@@ -759,7 +759,7 @@ namespace TimeTableManager.UI {
         private void MniSaveAs_Click(object sender, System.EventArgs e) {
             if (this.TimeTable != null) {
                 if (this.saveFileDialog1.ShowDialog(this) == DialogResult.OK) {
-                    CSaver saveload = new CSaver();
+                    BSaver saveload = new BSaver();
                     TimeTable.Refresh();
                     string FileName = this.saveFileDialog1.FileName;
                     try {
@@ -808,7 +808,7 @@ namespace TimeTableManager.UI {
             DateTime WorkStart = work, WorkEnd = work; bool ok = false;
             while (!(work > this.ScheduleViewer1.EndDate)) {
                 if (work >= DateTime.Today && (ScheduleViewer1.IsSelected(row) || row == ScheduleViewer1.CurrentRowIndex)) {
-                    CScheduledDate date = this.TimeTable[work];
+                    BScheduledDate date = this.TimeTable[work];
                     date.Require = null;
                     int l = date.ValidMemberSize;
                     for (int i = 0; i < l; i++) {
@@ -845,7 +845,7 @@ namespace TimeTableManager.UI {
             string RowText = "日付\t人員配置";
             for (int i = 0; i < this.ScheduleViewer1.MemberColumnCount; i++) {
                 // このときメンバーを動的は配列に確保する
-                CMember member = this.ScheduleViewer1.GetColumnMember(i);
+                BMember member = this.ScheduleViewer1.GetColumnMember(i);
                 members.Add(member);
                 RowText += "\t" + member.Name;
             }
@@ -855,7 +855,7 @@ namespace TimeTableManager.UI {
                 if ((ScheduleViewer1.IsSelected(row) || row == ScheduleViewer1.CurrentRowIndex)) {
                     // 日付が選択されている
                     AllText += "\n";
-                    CScheduledDate date = this.TimeTable[work];
+                    BScheduledDate date = this.TimeTable[work];
                     RowText = date.Date.ToLongDateString() + "\t";
                     if (date.Require != null) {
                         // 人員配置
@@ -864,10 +864,10 @@ namespace TimeTableManager.UI {
                     for (int i = 0; i < members.Count; i++) {
                         // シフト
                         RowText += "\t";
-                        CMember member = this.ScheduleViewer1.GetColumnMember(i);
-                        CSchedule schedule = date[member];
+                        BMember member = this.ScheduleViewer1.GetColumnMember(i);
+                        BSchedule schedule = date[member];
                         if (schedule != null) {
-                            CPattern pattern = schedule.Pattern;
+                            BPattern pattern = schedule.Pattern;
                             if (pattern != null) {
                                 RowText += pattern.Name;
                             }
@@ -886,7 +886,7 @@ namespace TimeTableManager.UI {
         private void MniPaste_Click(object sender, System.EventArgs e) {
             if (TimeTable == null) return;
             TimeTable.ScheduleEditedEvnetIsValid = false;
-            CSchedule sche = null;
+            BSchedule sche = null;
             IDataObject data = Clipboard.GetDataObject();
             if (data.GetDataPresent(DataFormats.Text)) {
                 string text = (string)data.GetData(DataFormats.Text);
@@ -904,7 +904,7 @@ namespace TimeTableManager.UI {
                             ColStart = 1;
                             // ヘッダ付き
                             for (int i = 1; i < cnt; i++) {
-                                CMember member = this.TimeTable.Members.GetByName(clip[i, 0]);
+                                BMember member = this.TimeTable.Members.GetByName(clip[i, 0]);
                                 if (member != null) {
                                     members.Add(member);
                                 }
@@ -914,7 +914,7 @@ namespace TimeTableManager.UI {
                             ColStart = 0;
                             // ヘッダ付き
                             for (int i = 0; i < cnt; i++) {
-                                CMember member = this.TimeTable.Members.GetByName(clip[i, 0]);
+                                BMember member = this.TimeTable.Members.GetByName(clip[i, 0]);
                                 if (member != null) {
                                     members.Add(member);
                                 }
@@ -924,7 +924,7 @@ namespace TimeTableManager.UI {
                             ColStart = 0;
                             for (int i = 0; i < this.ScheduleViewer1.MemberColumnCount; i++) {
                                 // このときメンバーを動的は配列に確保する
-                                CMember member = this.ScheduleViewer1.GetColumnMember(i);
+                                BMember member = this.ScheduleViewer1.GetColumnMember(i);
                                 members.Add(member);
                             }
                         }
@@ -941,9 +941,9 @@ namespace TimeTableManager.UI {
                                 int l = 0;
                                 for (int k = ColStart; k < clip.GetColumnCount(j) && l < members.Count; k++) {
                                     string cell = clip[k, j];
-                                    CScheduledDate sdate = this.TimeTable[work];
-                                    CRequirePatterns req;
-                                    CPattern pat;
+                                    BScheduledDate sdate = this.TimeTable[work];
+                                    BRequirePatterns req;
+                                    BPattern pat;
                                     if (k == 0) {
                                         #region 1列目
                                         if (RowStart == 1 && clip[k, 0] == "日付") {
@@ -954,9 +954,9 @@ namespace TimeTableManager.UI {
                                             if (req != null) {
                                                 // 通常
                                                 sdate.Require = req;
-                                            } else if (cell == CRequirePatterns.DAYOFF.Name) {
+                                            } else if (cell == BRequirePatterns.DAYOFF.Name) {
                                                 // 休み
-                                                sdate.Require = CRequirePatterns.DAYOFF;
+                                                sdate.Require = BRequirePatterns.DAYOFF;
                                             } else if (cell == "") {
                                                 // 未設定
                                                 sdate.Require = null;
@@ -968,16 +968,16 @@ namespace TimeTableManager.UI {
                                         } else if (RowStart == 1) {
                                             #region 開始行が１で列がメンバー名で始まる
                                             pat = this.TimeTable.Patterns.GetByName(cell);
-                                            CMember member = members[l] as CMember;
+                                            BMember member = members[l] as BMember;
                                             if (pat != null) {
                                                 // シフト
                                                 sche = sdate[member];
                                                 sche.Pattern = pat;
                                                 l++;
-                                            } else if (cell == CPattern.DAYOFF.Name) {
+                                            } else if (cell == BPattern.DAYOFF.Name) {
                                                 // 休み
                                                 sche = sdate[member];
-                                                sche.Pattern = CPattern.DAYOFF;
+                                                sche.Pattern = BPattern.DAYOFF;
                                                 l++;
                                             } else if (cell == "") {
                                                 // 未設定
@@ -996,7 +996,7 @@ namespace TimeTableManager.UI {
                                                 // シフト
                                                 pat = this.TimeTable.Patterns.GetByName(cell);
                                                 if (pat != null) {
-                                                    CMember member = members[l] as CMember;
+                                                    BMember member = members[l] as BMember;
                                                     sche = sdate[member];
                                                     sche.Pattern = pat;
                                                     l++;
@@ -1011,9 +1011,9 @@ namespace TimeTableManager.UI {
                                         if (req != null) {
                                             // 通常
                                             sdate.Require = req;
-                                        } else if (cell == CRequirePatterns.DAYOFF.Name) {
+                                        } else if (cell == BRequirePatterns.DAYOFF.Name) {
                                             // 休み
-                                            sdate.Require = CRequirePatterns.DAYOFF;
+                                            sdate.Require = BRequirePatterns.DAYOFF;
                                         } else if (cell == "") {
                                             // 未設定
                                             sdate.Require = null;
@@ -1027,19 +1027,19 @@ namespace TimeTableManager.UI {
                                         pat = this.TimeTable.Patterns.GetByName(cell);
                                         if (pat != null) {
                                             // 通常のシフト
-                                            CMember member = members[l] as CMember;
+                                            BMember member = members[l] as BMember;
                                             sche = sdate[member];
                                             sche.Pattern = pat;
                                             l++;
-                                        } else if (cell == CPattern.DAYOFF.Name) {
+                                        } else if (cell == BPattern.DAYOFF.Name) {
                                             // 休みシフト
-                                            CMember member = members[l] as CMember;
+                                            BMember member = members[l] as BMember;
                                             sche = sdate[member];
-                                            sche.Pattern = CPattern.DAYOFF;
+                                            sche.Pattern = BPattern.DAYOFF;
                                             l++;
                                         } else if (cell == "") {
                                             // 未設定
-                                            CMember member = members[l] as CMember;
+                                            BMember member = members[l] as BMember;
                                             sche = sdate[member];
                                             sche.Pattern = null;
                                             l++;
@@ -1049,9 +1049,9 @@ namespace TimeTableManager.UI {
                                             if (req != null) {
                                                 // 人員配置
                                                 sdate.Require = req;
-                                            } else if (cell == CRequirePatterns.DAYOFF.Name) {
+                                            } else if (cell == BRequirePatterns.DAYOFF.Name) {
                                                 // 休み
-                                                sdate.Require = CRequirePatterns.DAYOFF;
+                                                sdate.Require = BRequirePatterns.DAYOFF;
                                             } else {
                                                 // 完全なエラー
                                                 return;
@@ -1256,7 +1256,7 @@ namespace TimeTableManager.UI {
             if (OnCurrentDateChanged != null) {
                 if (this.TimeTable != null) {
                     //DateTime date = ScheduleViewer1.CurrentRowDate;
-                    CScheduledDate source = this.TimeTable[date];
+                    BScheduledDate source = this.TimeTable[date];
                     ECurrentDateChangedArgs e = new ECurrentDateChangedArgs(source);
                     OnCurrentDateChanged(this, e);
                 }
@@ -1367,9 +1367,9 @@ namespace TimeTableManager.UI {
         /// </summary>
         private void NewFile() {
             this.FileName = "";
-            TimeTable = new CTimeTable();
+            TimeTable = new BTimeTable();
             TimeTable.ScheduleEditedEvnetIsValid = false;
-            TimeTable.OnScheduleEdited += new CTimeTable.ScheduleEditedEventHandler(timeTable_OnScheduleEdited);
+            TimeTable.OnScheduleEdited += new BTimeTable.ScheduleEditedEventHandler(timeTable_OnScheduleEdited);
             DateTime today = System.DateTime.Today;
             DateTime date1 = new DateTime(today.Year, today.Month, 1);
             DateTime date2 = new DateTime(today.Year, today.Month, DateTime.DaysInMonth(today.Year, today.Month));
@@ -1571,17 +1571,17 @@ namespace TimeTableManager.UI {
         public string FileName {
             get { return fileName; }
         }
-        private readonly CTimeTable timeTable;
+        private readonly BTimeTable timeTable;
         /// <summary>変更されたタイムテーブル
         /// </summary>
-        public CTimeTable TimeTable {
+        public BTimeTable TimeTable {
             get { return timeTable; }
         }
         /// <summary>コンストラクタ
         /// </summary>
         /// <param name="source">タイムテーブル</param>
         /// <param name="name">ファイル名</param>
-        public TimeTableChangedEventArgs(CTimeTable source, string name) {
+        public TimeTableChangedEventArgs(BTimeTable source, string name) {
             this.timeTable = source;
             this.fileName = name;
         }
@@ -1603,12 +1603,12 @@ namespace TimeTableManager.UI {
     /// <summary>タイムテーブルが自動設定された
     /// </summary>
     public class TimeTableAutoEditedEventArgs : EventArgs {
-        private readonly CTimeTable timeTable;
+        private readonly BTimeTable timeTable;
         private readonly TimeTableAutoEditType type;
         private readonly DateTime startDate, endDate;
         /// <summary>自動設定されたタイムテーブル
         /// </summary>
-        public CTimeTable TimeTable {
+        public BTimeTable TimeTable {
             get { return timeTable; }
         }
         /// <summary>イベントタイプ
@@ -1632,7 +1632,7 @@ namespace TimeTableManager.UI {
         /// <param name="Type">イベント種別</param>
         /// <param name="StartDate">イベントの開始日</param>
         /// <param name="EndDate">イベントの終了日</param>
-        public TimeTableAutoEditedEventArgs(CTimeTable source, TimeTableAutoEditType Type, DateTime StartDate, DateTime EndDate) {
+        public TimeTableAutoEditedEventArgs(BTimeTable source, TimeTableAutoEditType Type, DateTime StartDate, DateTime EndDate) {
             this.timeTable = source;
             this.type = Type;
             this.startDate = StartDate;

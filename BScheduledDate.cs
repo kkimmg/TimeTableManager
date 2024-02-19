@@ -6,7 +6,7 @@ namespace TimeTableManager.Element {
 	/// <summary>
 	/// スケジュール化された日付
 	/// </summary>
-	public class CScheduledDate:CAbstractElement {
+	public class BScheduledDate:BAbstractElement {
 		/// <summary>
 		/// 日付
 		/// </summary>
@@ -18,7 +18,7 @@ namespace TimeTableManager.Element {
 				this.date = value.Date;
 				if (timeTable.IsDayOff(value)) {
 					// 休日の場合は無条件に休みの人員配置を設定する
-					Require = CRequirePatterns.DAYOFF;
+					Require = BRequirePatterns.DAYOFF;
 				} else {
 					if (Require == null) {
 						// 人員配置が未設定であるため設定する
@@ -31,7 +31,7 @@ namespace TimeTableManager.Element {
 		/// <summary>
 		/// 人員配置
 		/// </summary>
-		virtual public CRequirePatterns Require {
+		virtual public BRequirePatterns Require {
 			get {
 				return requirepatterns;
 			}
@@ -42,7 +42,7 @@ namespace TimeTableManager.Element {
 				if (value != null) {
 					// お気に入り設定（シフト）
 					for (int i = 0; i < value.Size(); i++) {
-						CPattern pattern = requirepatterns.GetPattern(i);
+						BPattern pattern = requirepatterns.GetPattern(i);
 						PatternToPatternsMember[pattern]= new PatternsMember(this, pattern);
 					}
 				}
@@ -54,7 +54,7 @@ namespace TimeTableManager.Element {
 		/// <summary>
 		/// 親
 		/// </summary>
-		override public CTimeTable TimeTable {
+		override public BTimeTable TimeTable {
 			get {
 				return timeTable;
 			}			
@@ -80,11 +80,11 @@ namespace TimeTableManager.Element {
 		/// メンバーの数
 		/// </summary>
 		private class MemberCount {
-			private void  InitBlock(CScheduledDate enclosingInstance) {
+			private void  InitBlock(BScheduledDate enclosingInstance) {
 				this.enclosingInstance = enclosingInstance;
 			}
-			private CScheduledDate enclosingInstance;
-			public CScheduledDate Enclosing_Instance {
+			private BScheduledDate enclosingInstance;
+			public BScheduledDate Enclosing_Instance {
 				get {
 					return enclosingInstance;
 				}				
@@ -94,13 +94,13 @@ namespace TimeTableManager.Element {
 			/// <summary>勤務シフトに人員配置 </summary>
 			private int[] _max;
 			/// <summary>勤務シフト </summary>
-			private CPattern[] _pt;
+			private BPattern[] _pt;
 			/// <summary>メンバー数の作成</summary>
-			public MemberCount(CScheduledDate enclosingInstance, CRequirePatterns reqpatts) {
+			public MemberCount(BScheduledDate enclosingInstance, BRequirePatterns reqpatts) {
 				InitBlock(enclosingInstance);
 				if (reqpatts != null) {
 					int sz = reqpatts.Size();
-					_pt = new CPattern[sz];
+					_pt = new BPattern[sz];
 					_max = new int[sz];
 					_cnt = new int[sz];
 					for (int i = 0; i < sz; i++) {
@@ -117,7 +117,7 @@ namespace TimeTableManager.Element {
 				_cnt[n]++;
 			}
 			/// <summary>実際に割り当てられた人数の加算</summary>
-			public virtual void  Add(CPattern p) {
+			public virtual void  Add(BPattern p) {
 				Add(Id(p));
 			}
 			/// <summary>人数は追加可能ですか？</summary>
@@ -127,11 +127,11 @@ namespace TimeTableManager.Element {
 				return (_cnt[n] < _max[n]);
 			}
 			/// <summary>人数は追加可能ですか？</summary>
-			public virtual bool Addable(CPattern p) {
+			public virtual bool Addable(BPattern p) {
 				return Addable(Id(p));
 			}
 			/// <summary>このオブジェクト内でのシフトの番号</summary>
-			internal virtual int Id(CPattern p) {
+			internal virtual int Id(BPattern p) {
 				int ret = _pt.Length;
 				for (int i = 0; i < _pt.Length; i++) {
 					if (_pt[i].Equals(p))
@@ -142,36 +142,36 @@ namespace TimeTableManager.Element {
 		}
 		/// <summary> メンバーのシフトに対する希望を管理する</summary>
 		private class MembersPattern {
-			private void  InitBlock(CScheduledDate enclosingInstance) {
+			private void  InitBlock(BScheduledDate enclosingInstance) {
 				this.enclosingInstance = enclosingInstance;
-                _ps = new List<CPattern>();
+                _ps = new List<BPattern>();
 			}
-			private CScheduledDate enclosingInstance;
-			public CScheduledDate Enclosing_Instance {
+			private BScheduledDate enclosingInstance;
+			public BScheduledDate Enclosing_Instance {
 				get {
 					return enclosingInstance;
 				}				
 			}
 			/// <summary>メンバー </summary>
-			private CMember _m;
+			private BMember _m;
 			/// <summary>勤務シフトの希望 </summary>
-			private List<CPattern> _ps; // 	
+			private List<BPattern> _ps; // 	
 			/// <summary>コンストラクタ</summary>
-			public MembersPattern(CScheduledDate enclosingInstance, CMember m):base() {
+			public MembersPattern(BScheduledDate enclosingInstance, BMember m):base() {
 				InitBlock(enclosingInstance);
 				this._m = m;
 			}
 			/// <summary>メンバーの好みのシフト</summary>
-			public virtual CPattern GetPattern(int rank) {
-                CPattern ret = CPattern.NULL;
+			public virtual BPattern GetPattern(int rank) {
+                BPattern ret = BPattern.NULL;
                 if (rank < _ps.Count) {
                     ret = _ps[rank];
                 }
-                if (ret == null) ret = CPattern.NULL;
+                if (ret == null) ret = BPattern.NULL;
 				return ret;
 			}
 			/// <summary>メンバーの好みのシフトをセット</summary>
-			public virtual void  SetPattern(int rank, CPattern pattern) {
+			public virtual void  SetPattern(int rank, BPattern pattern) {
 				if (rank == _ps.Count) {
 					_ps.Add(pattern);
 				} else if (rank > _ps.Count) {
@@ -187,37 +187,37 @@ namespace TimeTableManager.Element {
 		}
 		/// <summary> シフトのメンバーに対する好みを管理する</summary>
 		private class PatternsMember {
-			private void  InitBlock(CScheduledDate enclosingInstance) {
+			private void  InitBlock(BScheduledDate enclosingInstance) {
 				this.enclosingInstance = enclosingInstance;
-				_ms = new List<CMember>();
+				_ms = new List<BMember>();
 			}
-			private CScheduledDate enclosingInstance;
-			public CScheduledDate Enclosing_Instance {
+			private BScheduledDate enclosingInstance;
+			public BScheduledDate Enclosing_Instance {
 				get {
 					return enclosingInstance;
 				}
 				
 			}
 			/// <summary>好みの順番</summary>
-			private List<CMember> _ms; //
+			private List<BMember> _ms; //
 			/// <summary>管理するシフト</summary>
-			private CPattern _p; // 
+			private BPattern _p; // 
 			/// <summary>コンストラクタ</summary>
-			public PatternsMember(CScheduledDate enclosingInstance, CPattern p):base() {
+			public PatternsMember(BScheduledDate enclosingInstance, BPattern p):base() {
 				InitBlock(enclosingInstance);
 				this._p = p;
 			}
 			/// <summary>メンバー</summary>
-			public virtual CMember GetMember(int rank) {
-                CMember ret = CMember.NULL;
+			public virtual BMember GetMember(int rank) {
+                BMember ret = BMember.NULL;
 				if (rank < _ms.Count) {
                     ret = _ms[rank]; 
                 }
-                if (ret == null) ret = CMember.NULL;
+                if (ret == null) ret = BMember.NULL;
 				return ret;
 			}
 			/// <summary>勤務シフトの好みの設定</summary>
-			public virtual void  SetMember(int rank, CMember member) {
+			public virtual void  SetMember(int rank, BMember member) {
 				if (rank == _ms.Count) {
 					_ms.Add(member);
 				} else if (rank > _ms.Count) {
@@ -236,47 +236,47 @@ namespace TimeTableManager.Element {
 		/// <summary>ランダム化に使用する </summary>
 		private static System.Random rnd;
 		/// <summary>メンバーの好み </summary>
-		private Dictionary<CMember, MembersPattern> MemberToMembersPattern;
+		private Dictionary<BMember, MembersPattern> MemberToMembersPattern;
 		/// <summary>勤務シフトの好み </summary>
-		private Dictionary<CPattern, PatternsMember> PatternToPatternsMember;
+		private Dictionary<BPattern, PatternsMember> PatternToPatternsMember;
 		/// <summary>日付 </summary>
 		private System.DateTime date;
 		/// <summary>人員配置のコレクション</summary>
-		private CRequirePatterns requirepatterns;
+		private BRequirePatterns requirepatterns;
 		/// <summary>（親オブジェクトである）タイムテーブル </summary>
-		private CTimeTable timeTable;
+		private BTimeTable timeTable;
 		/// <summary>スケジュールを保存する </summary>
-		private Dictionary<CMember, CSchedule> MemberToSchedule;
+		private Dictionary<BMember, BSchedule> MemberToSchedule;
 		/// <summary>有効なメンバー </summary>
-		private List<CMember> validMembers;
+		private List<BMember> validMembers;
 		/// <summary>スケジュール化された日の作成</summary>
-		public CScheduledDate(System.DateTime date, CTimeTable parent):base() {
+		public BScheduledDate(System.DateTime date, BTimeTable parent):base() {
 			// 保持オブジェクト
 			timeTable = parent;
 			this.date = date;
 			//
 			MakeMembers();
 			// ハッシュテーブル
-			MemberToMembersPattern = new Dictionary<CMember, MembersPattern>();
-            PatternToPatternsMember = new Dictionary<CPattern, PatternsMember>();
+			MemberToMembersPattern = new Dictionary<BMember, MembersPattern>();
+            PatternToPatternsMember = new Dictionary<BPattern, PatternsMember>();
 			// 	
 			if (validMembers == null) {
-				validMembers = new List<CMember>();
+				validMembers = new List<BMember>();
 			}
 			if (MemberToSchedule == null) {
-				MemberToSchedule = new Dictionary<CMember, CSchedule>();
+				MemberToSchedule = new Dictionary<BMember, BSchedule>();
 			}
 		}
 		/// <summary>スケジュール化された日の作成</summary>
-		public CScheduledDate(CTimeTable parent):base() {
+		public BScheduledDate(BTimeTable parent):base() {
 			// 保持オブジェクト
 			timeTable = parent;
 			// ハッシュテーブル
-			MemberToMembersPattern = new Dictionary<CMember, MembersPattern>();
-            PatternToPatternsMember = new Dictionary<CPattern, PatternsMember>();
+			MemberToMembersPattern = new Dictionary<BMember, MembersPattern>();
+            PatternToPatternsMember = new Dictionary<BPattern, PatternsMember>();
 			// 	
-			validMembers = new List<CMember>();
-            MemberToSchedule = new Dictionary<CMember, CSchedule>();
+			validMembers = new List<BMember>();
+            MemberToSchedule = new Dictionary<BMember, BSchedule>();
 		}
 		/// <summary> 設定されたメンバーとシフトに対して組み合わせを作成する</summary>
 		public virtual void  Auto() {
@@ -299,9 +299,9 @@ namespace TimeTableManager.Element {
 						//System.out.println("すでに決定している:" + i + ":" + j);
 					}
 					else {
-						CMember m1 = GetValidMember(j);
+						BMember m1 = GetValidMember(j);
 						// i番目のメンバー
-						CPattern p1 = GetMembersPattern(m1, i2);
+						BPattern p1 = GetMembersPattern(m1, i2);
 						// メンバーがもっとも望むシフト
 						//System.out.println(i + ":" + m1.getName() + ":" + p1);
 						int m1rank = GetMemberRank(p1, m1);
@@ -318,9 +318,9 @@ namespace TimeTableManager.Element {
 							else {
 								// シフトに登録可能な人数外
 								for (int k = 0; k < ValidMemberSize; k++) {
-									CMember compM = GetValidMember(k);
-									CSchedule compS = GetSchedule(compM);
-									CPattern compP = compS.Pattern;
+									BMember compM = GetValidMember(k);
+									BSchedule compS = GetSchedule(compM);
+									BPattern compP = compS.Pattern;
 									if (p1.Equals(compP)) {
 										if (memRnk[k] > m1rank) {
 											//
@@ -343,11 +343,11 @@ namespace TimeTableManager.Element {
 			}
 		}
 		/// <summary>スケジュールの作成</summary>
-		protected internal virtual CSchedule CreateSchedule() {
-			return new CSchedule(this);
+		protected internal virtual BSchedule CreateSchedule() {
+			return new BSchedule(this);
 		}
 		/// <summary>勤務シフトにおけるメンバーのランクを取得する</summary>
-		public virtual int GetMemberRank(CPattern p, CMember m) {
+		public virtual int GetMemberRank(BPattern p, BMember m) {
 			int ret = 0;
 			while (ret < ValidMemberSize) {
 				if (m == null) {
@@ -361,7 +361,7 @@ namespace TimeTableManager.Element {
 			return ret;
 		}
 		/// <summary>メンバーのrank番目に好まれるシフトを取得する</summary>
-		public virtual CPattern GetMembersPattern(CMember m, int rank) {
+		public virtual BPattern GetMembersPattern(BMember m, int rank) {
             MembersPattern mp = null;
 			if (MemberToMembersPattern.ContainsKey(m)) {
                 mp = MemberToMembersPattern[m];
@@ -375,10 +375,10 @@ namespace TimeTableManager.Element {
 		public virtual int GetMemberTotal(TimeSpan time) {
 			int ret = 0;
 			for (int i = 0; i < ValidMemberSize; i++) {
-				CMember member = GetValidMember(i);
-				CSchedule schedule = GetSchedule(member);
+				BMember member = GetValidMember(i);
+				BSchedule schedule = GetSchedule(member);
 				if (schedule != null) {
-                    CPattern pattern = schedule.Pattern;
+                    BPattern pattern = schedule.Pattern;
                     if (pattern != null) {
                         if (pattern.Start <= time && time <= pattern.End) {
                             ret++;
@@ -400,7 +400,7 @@ namespace TimeTableManager.Element {
 			}
 		}
 		/// <summary>勤務シフトのrank番目に好まれるメンバーを取得する</summary>
-		public virtual CMember GetPatternsMember(CPattern p, int rank) {
+		public virtual BMember GetPatternsMember(BPattern p, int rank) {
 			if (p == null) {
 				// シフトがnullのとき
 				return null;
@@ -417,28 +417,28 @@ namespace TimeTableManager.Element {
 		/// <summary>今の人員配置だとこの時間何人くらい必要なんだろう？</summary>
         public virtual int GetPatternTotal (TimeSpan time) {
 			int ret = 0;
-			CRequirePatterns require = Require;
+			BRequirePatterns require = Require;
 			if (require != null) {
 				ret = require.GetPatternTotal(time);
 			}
 			return ret;
 		}
 		/// <summary>メンバーのスケジュールを取得する</summary>
-		private CSchedule GetSchedule(int i) {
-			CMember work = GetValidMember(i);
+		private BSchedule GetSchedule(int i) {
+			BMember work = GetValidMember(i);
 			return GetSchedule(work);
 		}
 		/// <summary>メンバーのスケジュールを取得する</summary>
-		private CSchedule GetSchedule(CMember member) {
+		private BSchedule GetSchedule(BMember member) {
 			if (member == null)
 				return null;
-            CSchedule ret = null;;
+            BSchedule ret = null;;
 			if (MemberToSchedule.ContainsKey(member)) {
                 // 存在する
                 ret = MemberToSchedule[member];
             } else {
 				// メンバーに対応したスケジュールが存在しなければ作成する
-				CSchedule schedule = CreateSchedule();
+				BSchedule schedule = CreateSchedule();
 				schedule.Member = member;
                 if (member.IsAvailable(Date)) {
                     MemberToSchedule[member] = schedule;
@@ -448,7 +448,7 @@ namespace TimeTableManager.Element {
 			return ret;
 		}
 		/// <summary>有効なメンバーの取得</summary>
-		public virtual CMember GetValidMember(int n) {
+		public virtual BMember GetValidMember(int n) {
 			MakeMembers();
 			if (n >= validMembers.Count)
 				return null;
@@ -458,15 +458,15 @@ namespace TimeTableManager.Element {
 		public virtual void  MakeMembers() {
 			if (validMembers == null) {
 				// 配列の再確保
-				validMembers = new List<CMember>();
+				validMembers = new List<BMember>();
 			}
 			if (MemberToSchedule == null) {
-                MemberToSchedule = new Dictionary<CMember, CSchedule>();
+                MemberToSchedule = new Dictionary<BMember, BSchedule>();
 			}
 			//		validMembers.clear(); // 初期化
-			CMemberCollection members = timeTable.Members;
+			BMemberCollection members = timeTable.Members;
 			for (int i = 0; i < members.Size(true); i++) {
-				CMember member1 = members[i, true];
+				BMember member1 = members[i, true];
 				if (member1.IsAvailable(Date)) {
 					if (!validMembers.Contains(member1)) {
 						validMembers.Add(member1);
@@ -480,7 +480,7 @@ namespace TimeTableManager.Element {
 					if (MemberToSchedule.ContainsKey(member1)) {
 						//System.out.println("完全削除４：" + member1.getName());
 						// スケジュールの完全削除
-						CSchedule scd = MemberToSchedule[member1];
+						BSchedule scd = MemberToSchedule[member1];
 						if (scd != null) {
 							//System.out.println("完全削除５：" + member1.getName());
 							MemberToSchedule.Remove(member1);
@@ -488,11 +488,11 @@ namespace TimeTableManager.Element {
 					}
 				}
 			}
-			List<CMember> work = new List<CMember>();
+			List<BMember> work = new List<BMember>();
 			int sz1 = validMembers.Count;
 			for (int i = 0; i < sz1; i++) {
 				//System.out.println("Step1");
-				CMember mem = validMembers[i];
+				BMember mem = validMembers[i];
 				long id = mem.ObjectID;
 				if (members.GetByID(id) == null) {
 					work.Add(mem);
@@ -504,7 +504,7 @@ namespace TimeTableManager.Element {
 			}
 		}
 		/// <summary>勤務シフトに対するメンバーのランクを設定する</summary>
-		public virtual void  SetMemberRank(CPattern p, CMember m, int rank) {
+		public virtual void  SetMemberRank(BPattern p, BMember m, int rank) {
 			if (!p.IsAvailable(Date)) {
 				return ;
 			}
@@ -518,7 +518,7 @@ namespace TimeTableManager.Element {
 			pm.SetMember(rank, m);
 		}
 		/// <summary>メンバーに対するシフトのランクを設定する</summary>
-		public virtual void  SetPatternRank(CMember m, CPattern p, int rank) {
+		public virtual void  SetPatternRank(BMember m, BPattern p, int rank) {
 			if (!m.IsAvailable(Date)) {
 				return ;
 			}
@@ -532,14 +532,14 @@ namespace TimeTableManager.Element {
 			mp.SetPattern(rank, p);
 		}
 		/// <summary>スケジュールをセットする</summary>
-		public virtual void  SetSchedule(CSchedule sc) {
+		public virtual void  SetSchedule(BSchedule sc) {
 			MemberToSchedule[ sc.Member]= sc;
 		}
 		/// <summary>
 		/// スタティック
 		/// 乱数初期化
 		/// </summary>
-		static CScheduledDate() {
+		static BScheduledDate() {
 			rnd = new System.Random();
 		}
         /// <summary>
@@ -547,7 +547,7 @@ namespace TimeTableManager.Element {
         /// </summary>
         /// <param name="member">メンバー</param>
         /// <returns>スケジュール</returns>
-		public CSchedule this[CMember member] {
+		public BSchedule this[BMember member] {
 			get {
 				return GetSchedule(member);
 			}
@@ -557,7 +557,7 @@ namespace TimeTableManager.Element {
         /// </summary>
         /// <param name="i">n番目？</param>
         /// <returns>スケジュール</returns>
-		public CSchedule this[int i] {
+		public BSchedule this[int i] {
 			get {
 				return GetSchedule(i);
 			}
@@ -568,12 +568,12 @@ namespace TimeTableManager.Element {
         /// <param name="member">メンバー</param>
         /// <param name="max">最大値</param>
         /// <returns>メンバーは何日連続で働いているか</returns>
-        public virtual int GetMemberContinues (CMember member, int max) {
+        public virtual int GetMemberContinues (BMember member, int max) {
             int ret = 0;
             DateTime work = this.Date;
             work = work.AddDays(-1);
-            CScheduledDate wDate = TimeTable[work];
-            CPattern pattern = wDate[member].Pattern;
+            BScheduledDate wDate = TimeTable[work];
+            BPattern pattern = wDate[member].Pattern;
             while (pattern != null && !pattern.BuiltIn) {
                 work = work.AddDays(-1);
                 ret++;
@@ -587,13 +587,13 @@ namespace TimeTableManager.Element {
         /// </summary>
         /// <param name="time"></param>
         /// <returns></returns>
-        public virtual List<CMember> GetTime2ValidMember (TimeSpan time) {
-            List<CMember> ret = new List<CMember>();
+        public virtual List<BMember> GetTime2ValidMember (TimeSpan time) {
+            List<BMember> ret = new List<BMember>();
             int max = ValidMemberSize;
             for (int i = 0; i < max; i++) {
-                CMember mbr = GetValidMember(i);
-                CSchedule scd = GetSchedule(mbr);
-                CPattern ptn = scd.Pattern;
+                BMember mbr = GetValidMember(i);
+                BSchedule scd = GetSchedule(mbr);
+                BPattern ptn = scd.Pattern;
                 if (ptn == null) {
                     // 何もしない
                 } else if (ptn.BuiltIn) {
@@ -612,7 +612,7 @@ namespace TimeTableManager.Element {
         /// </summary>
         /// <param name="time"></param>
         /// <returns></returns>
-        public virtual List<CMember> GetTime2ValidMember (DateTime time) {
+        public virtual List<BMember> GetTime2ValidMember (DateTime time) {
             TimeSpan work = time - this.date.Date;
             return GetTime2ValidMember(work);
         }
@@ -624,9 +624,9 @@ namespace TimeTableManager.Element {
             List<TimeSpan> ret = new List<TimeSpan>();
             int max = ValidMemberSize;
             for (int i = 0; i < max; i++) {
-                CMember member = GetValidMember(i);
-                CSchedule schedule = GetSchedule(member);
-                CPattern work = (schedule != null ? schedule.Pattern : null);
+                BMember member = GetValidMember(i);
+                BSchedule schedule = GetSchedule(member);
+                BPattern work = (schedule != null ? schedule.Pattern : null);
                 if (work == null || work.BuiltIn) {
                     // ヌルも同然
                 } else {

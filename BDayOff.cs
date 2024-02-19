@@ -4,15 +4,15 @@ using TimeTableManager.ElementCollection;
 namespace TimeTableManager.Element {
     /// <summary>休日
     /// </summary>
-    public class CDayOff : CAbstractElement {
-        private CDayOffCollection parent;
+    public class BDayOff : BAbstractElement {
+        private BDayOffCollection parent;
         private string name;
         private DateTime start;
         private DateTime end;
         /// <summary>コンストラクタ
         /// </summary>
         /// <param name="parent">休日の一覧</param>
-        public CDayOff (CDayOffCollection parent) {
+        public BDayOff (BDayOffCollection parent) {
             // 
             // TODO: コンストラクタ ロジックをここに追加してください。
             //
@@ -43,7 +43,7 @@ namespace TimeTableManager.Element {
         /// <summary>
         /// タイムテーブル
         /// </summary>
-        public override CTimeTable TimeTable {
+        public override BTimeTable TimeTable {
             get {
                 return parent.TimeTable;
             }

@@ -6,10 +6,10 @@ namespace TimeTableManager.UI {
     /// <summary>選択内容が変わったイベント
     /// </summary>
     public class ESelectionChangedEventArg : EventArgs {
-        private readonly TimeTableManager.Element.CTimeTable timeTable;
+        private readonly TimeTableManager.Element.BTimeTable timeTable;
         /// <summary>タイムテーブル
         /// </summary>
-        public TimeTableManager.Element.CTimeTable TimeTable {
+        public TimeTableManager.Element.BTimeTable TimeTable {
             get { return timeTable; }
         } 
 
@@ -71,7 +71,7 @@ namespace TimeTableManager.UI {
         /// </summary>
         /// <param name="source">イベントの発生元</param>
         /// <param name="table">タイムテーブル</param>
-        public ESelectionChangedEventArg (List<DateTime> source, TimeTableManager.Element.CTimeTable table) {
+        public ESelectionChangedEventArg (List<DateTime> source, TimeTableManager.Element.BTimeTable table) {
             this.selectedDates = source;
             this.timeTable = table;
         }

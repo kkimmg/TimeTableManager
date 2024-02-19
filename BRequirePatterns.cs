@@ -7,32 +7,32 @@ namespace TimeTableManager.Element {
     /// <summary>
     /// 人員配置
     /// </summary>
-    public class CRequirePatterns : CAbstractElement {
+    public class BRequirePatterns : BAbstractElement {
         /// <summary>休みの日
         /// </summary>
-        public static readonly CRequirePatterns DAYOFF = new DAYOFF_REQUIRE();
+        public static readonly BRequirePatterns DAYOFF = new DAYOFF_REQUIRE();
         /// <summary>Nullの代わり
         /// </summary>
-        public static readonly CRequirePatterns NULL = new NULL_REQUIRE();
+        public static readonly BRequirePatterns NULL = new NULL_REQUIRE();
         /// <summary>名前(初期値="")
         /// </summary>
         private string name = "";
         /// <summary>コレクション
         /// </summary>
-        private CRequirePatternsCollection parent;
+        private BRequirePatternsCollection parent;
         /// <summary>勤務シフトのリスト
         /// </summary>
-        private CPatternCollection patternList;
+        private BPatternCollection patternList;
         /// <summary>勤務シフト/人数のセット
         /// </summary>
-        private Dictionary<CPattern, int> Requires = new Dictionary<CPattern, int>();
+        private Dictionary<BPattern, int> Requires = new Dictionary<BPattern, int>();
         /// <summary>展開された人数またはのべ人数
         /// </summary>
         virtual public int ExtractedSize {
             get {
                 int retValue = 0;
                 for (int i = 0; i < Size(); i++) {
-                    CPattern pat = GetPattern(i);
+                    BPattern pat = GetPattern(i);
                     //retValue += (int)Requires[pat];
                     retValue += GetRequire(pat);
                 }
@@ -54,7 +54,7 @@ namespace TimeTableManager.Element {
         }
         /// <summary>タイムテーブル
         /// </summary>
-        override public CTimeTable TimeTable {
+        override public BTimeTable TimeTable {
             get {
                 if (parent == null) return null;
                 return parent.TimeTable;
@@ -66,7 +66,7 @@ namespace TimeTableManager.Element {
             get {
                 int ret = 0;
                 for (int i = 0; i < Size(); i++) {
-                    CPattern pat = GetPattern(i);
+                    BPattern pat = GetPattern(i);
                     //if (pat != null && (int)Requires[pat] > 0) {
                     if (pat != null && GetRequire(pat) > 0) {
                         ret++;
@@ -80,7 +80,7 @@ namespace TimeTableManager.Element {
         /// </summary>
         /// <param name="patternList">勤務シフトのリスト</param>
         /// <param name="parent">タイムテーブル</param>
-        public CRequirePatterns (CPatternCollection patternList, CRequirePatternsCollection parent)
+        public BRequirePatterns (BPatternCollection patternList, BRequirePatternsCollection parent)
             : base() {
             this.patternList = patternList;
             this.parent = parent;
@@ -89,11 +89,11 @@ namespace TimeTableManager.Element {
         /// </summary>
         /// <param name="n">何番目？</param>
         /// <returns>n番目のシフトの人数</returns>
-        public virtual CPattern GetExtractedPattern (int n) {
-            CPattern retValue = null;
+        public virtual BPattern GetExtractedPattern (int n) {
+            BPattern retValue = null;
             int m = 0;
             for (int i = 0; i < Size(); i++) {
-                CPattern pw = GetPattern(i);
+                BPattern pw = GetPattern(i);
                 for (int j = 0; j < Requires[pw]; j++) {
                     if (m == n)
                         retValue = pw;
@@ -106,7 +106,7 @@ namespace TimeTableManager.Element {
         /// </summary>
         /// <param name="n">何番目？</param>
         /// <returns>n番目のシフト</returns>
-        public virtual CPattern GetPattern (int n) {
+        public virtual BPattern GetPattern (int n) {
             return patternList[n];
         }
         /// <summary>指定された時間の稼動中（であるべき）人数
@@ -117,7 +117,7 @@ namespace TimeTableManager.Element {
             int ret = 0;
             int validsize = ValidSize;
             for (int i = 0; i < validsize; i++) {
-                CPattern pattern = GetValid(i);
+                BPattern pattern = GetValid(i);
 
                 if (pattern.Start <= time && time <= pattern.Start + pattern.Scope) {
                     ret += GetRequire(pattern);
@@ -129,7 +129,7 @@ namespace TimeTableManager.Element {
         /// </summary>
         /// <param name="pattern">勤務シフト</param>
         /// <returns>人数</returns>
-        public virtual int GetRequire (CPattern pattern) {
+        public virtual int GetRequire (BPattern pattern) {
             if (!Requires.ContainsKey(pattern)) {
                 return 0;
             }
@@ -139,11 +139,11 @@ namespace TimeTableManager.Element {
         /// </summary>
         /// <param name="n">n番目？</param>
         /// <returns>n番目のシフトの人数</returns>
-        public virtual CPattern GetValid (int n) {
-            CPattern ret = null;
+        public virtual BPattern GetValid (int n) {
+            BPattern ret = null;
             int c = 0;
             for (int i = 0; i < Size(); i++) {
-                CPattern work = GetPattern(i);
+                BPattern work = GetPattern(i);
                 if (GetRequire(work) > 0) {
                     if (c == n)
                         ret = GetPattern(i);
@@ -156,7 +156,7 @@ namespace TimeTableManager.Element {
         /// </summary>
         /// <param name="n">n番目？</param>
         /// <param name="require">n番目の人数</param>
-        public virtual void SetRequire (CPattern n, int require) {
+        public virtual void SetRequire (BPattern n, int require) {
             Requires[n] = require;
         }
         /// <summary>勤務シフトの数
@@ -172,7 +172,7 @@ namespace TimeTableManager.Element {
             List<TimeSpan> ret = new List<TimeSpan>();
             int max = ValidSize;
             for (int i = 0; i < max; i++) {
-                CPattern work = GetValid(i);
+                BPattern work = GetValid(i);
                 TimeSpan start = work.Start;
                 TimeSpan end = work.End;
                 if (!ret.Contains(start)) {
@@ -189,7 +189,7 @@ namespace TimeTableManager.Element {
     }
     /// <summary>休みの日の人員配置
     /// </summary>
-    public class DAYOFF_REQUIRE : CRequirePatterns {
+    public class DAYOFF_REQUIRE : BRequirePatterns {
         /// <summary>コンストラクタ
         /// </summary>
         public DAYOFF_REQUIRE ()
@@ -236,7 +236,7 @@ namespace TimeTableManager.Element {
         /// </summary>
         /// <param name="n">何番目？</param>
         /// <returns>n番目のシフトの人数</returns>
-        public override CPattern GetExtractedPattern (int n) {
+        public override BPattern GetExtractedPattern (int n) {
 
             return null;
         }
@@ -244,7 +244,7 @@ namespace TimeTableManager.Element {
         /// </summary>
         /// <param name="n">何番目？</param>
         /// <returns>n番目のシフト</returns>
-        public override CPattern GetPattern (int n) {
+        public override BPattern GetPattern (int n) {
             return null;
         }
         /// <summary>指定された時間の稼動中（であるべき）人数
@@ -258,21 +258,21 @@ namespace TimeTableManager.Element {
         /// </summary>
         /// <param name="pattern">勤務シフト</param>
         /// <returns>勤務シフトの人数</returns>
-        public override int GetRequire (CPattern pattern) {
+        public override int GetRequire (BPattern pattern) {
             return 0;
         }
         /// <summary>有効な人数
         /// </summary>
         /// <param name="n">n番目？</param>
         /// <returns>n番目のシフトの人数</returns>
-        public override CPattern GetValid (int n) {
+        public override BPattern GetValid (int n) {
             return null;
         }
         /// <summary>人員配置をセットする
         /// </summary>
         /// <param name="n">n番目？</param>
         /// <param name="require">n番目の人数</param>
-        public override void SetRequire (CPattern n, int require) {
+        public override void SetRequire (BPattern n, int require) {
         }
         /// <summary>勤務シフトの数
         /// </summary>
@@ -319,7 +319,7 @@ namespace TimeTableManager.Element {
     }
     /// <summary>Nullの代わり
     /// </summary>
-    public class NULL_REQUIRE : CRequirePatterns {
+    public class NULL_REQUIRE : BRequirePatterns {
         /// <summary>コンストラクタ
         /// </summary>
         public NULL_REQUIRE ()
@@ -368,7 +368,7 @@ namespace TimeTableManager.Element {
         /// </summary>
         /// <param name="n">何番目？</param>
         /// <returns>n番目のシフトの人数</returns>
-        public override CPattern GetExtractedPattern (int n) {
+        public override BPattern GetExtractedPattern (int n) {
 
             return null;
         }
@@ -376,7 +376,7 @@ namespace TimeTableManager.Element {
         /// </summary>
         /// <param name="n">何番目？</param>
         /// <returns>n番目のシフト</returns>
-        public override CPattern GetPattern (int n) {
+        public override BPattern GetPattern (int n) {
             return null;
         }
         /// <summary>指定された時間の稼動中（であるべき）人数
@@ -390,21 +390,21 @@ namespace TimeTableManager.Element {
         /// </summary>
         /// <param name="pattern">勤務シフト</param>
         /// <returns>勤務シフトの人数</returns>
-        public override int GetRequire (CPattern pattern) {
+        public override int GetRequire (BPattern pattern) {
             return 0;
         }
         /// <summary>有効な人数
         /// </summary>
         /// <param name="n">n番目？</param>
         /// <returns>n番目のシフトの人数</returns>
-        public override CPattern GetValid (int n) {
+        public override BPattern GetValid (int n) {
             return null;
         }
         /// <summary>人員配置をセットする
         /// </summary>
         /// <param name="n">n番目？</param>
         /// <param name="require">n番目の人数</param>
-        public override void SetRequire (CPattern n, int require) {
+        public override void SetRequire (BPattern n, int require) {
         }
         /// <summary>勤務シフトの数
         /// </summary>

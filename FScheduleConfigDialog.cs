@@ -14,11 +14,11 @@ namespace TimeTableManager.UI {
     /// ScheduleConfigDialog の概要の説明です。
     /// </summary>
     public partial class FScheduleConfigDialog : System.Windows.Forms.Form {
-        private CTimeTable timeTable;
-        private CTimeTable.DayOffsEditedEventHandler doeehandler;
-        private CTimeTable.MembersEditedEventHandler moeehandler;
-        private CTimeTable.PatternsEditedEventHandler peeehandler;
-        private CTimeTable.RequirePatternssEditedEventHandler rpeehandler;
+        private BTimeTable timeTable;
+        private BTimeTable.DayOffsEditedEventHandler doeehandler;
+        private BTimeTable.MembersEditedEventHandler moeehandler;
+        private BTimeTable.PatternsEditedEventHandler peeehandler;
+        private BTimeTable.RequirePatternssEditedEventHandler rpeehandler;
         /// <summary>コンストラクタ
         /// </summary>
         public FScheduleConfigDialog() {
@@ -30,14 +30,14 @@ namespace TimeTableManager.UI {
             // TODO: InitializeComponent 呼び出しの後に、コンストラクタ コードを追加してください。
             //
             #region データ型
-            this.MemberColumn.DataType = typeof(TimeTableManager.Element.CMember);
-            this.PatternColumn.DataType = typeof(TimeTableManager.Element.CPattern);
-            this.DayOffColumn.DataType = typeof(TimeTableManager.Element.CDayOff);
-            this.RequirePatternsColumn.DataType = typeof(TimeTableManager.Element.CRequirePatterns);
-            this.ClmRM.DataType = typeof(TimeTableManager.Element.CMember);
-            this.ClmRP.DataType = typeof(TimeTableManager.Element.CPattern);
-            this.ClmRD.DataType = typeof(TimeTableManager.Element.CDayOff);
-            this.ClmRR.DataType = typeof(TimeTableManager.Element.CRequirePatterns);
+            this.MemberColumn.DataType = typeof(TimeTableManager.Element.BMember);
+            this.PatternColumn.DataType = typeof(TimeTableManager.Element.BPattern);
+            this.DayOffColumn.DataType = typeof(TimeTableManager.Element.BDayOff);
+            this.RequirePatternsColumn.DataType = typeof(TimeTableManager.Element.BRequirePatterns);
+            this.ClmRM.DataType = typeof(TimeTableManager.Element.BMember);
+            this.ClmRP.DataType = typeof(TimeTableManager.Element.BPattern);
+            this.ClmRD.DataType = typeof(TimeTableManager.Element.BDayOff);
+            this.ClmRR.DataType = typeof(TimeTableManager.Element.BRequirePatterns);
             //this.DayOffStartColumn.DataType = typeof(System.DateTime);
             //this.DayOffEndColumn.DataType = typeof(System.DateTime);
             //this.WeekDayColumn.DataType = typeof(System.DayOfWeek);
@@ -50,35 +50,35 @@ namespace TimeTableManager.UI {
             {
                 this.timeTable.StartTime = this.txtStartTime.Value - txtStartTime.MinDate;
                 this.timeTable.EndTime = this.txtEndTime.Value - txtEndTime.MinDate;
-                this.timeTable.DefaultRequire = this.cmbDefaultRequire.SelectedValue as CRequirePatterns;
-                this.timeTable.SetDefaultRequire(System.DayOfWeek.Monday, this.cmbMondayRequire.SelectedValue as CRequirePatterns);
-                this.timeTable.SetDefaultRequire(System.DayOfWeek.Tuesday, this.cmbTuesdayRequire.SelectedValue as CRequirePatterns);
-                this.timeTable.SetDefaultRequire(System.DayOfWeek.Wednesday, this.cmbWednesdayRequire.SelectedValue as CRequirePatterns);
-                this.timeTable.SetDefaultRequire(System.DayOfWeek.Thursday, this.cmbThursdayRequire.SelectedValue as CRequirePatterns);
-                this.timeTable.SetDefaultRequire(System.DayOfWeek.Friday, this.cmbFridayRequire.SelectedValue as CRequirePatterns);
-                this.timeTable.SetDefaultRequire(System.DayOfWeek.Saturday, this.cmbSaturdayRequire.SelectedValue as CRequirePatterns);
-                this.timeTable.SetDefaultRequire(System.DayOfWeek.Sunday, this.cmbSundayRequire.SelectedValue as CRequirePatterns);
+                this.timeTable.DefaultRequire = this.cmbDefaultRequire.SelectedValue as BRequirePatterns;
+                this.timeTable.SetDefaultRequire(System.DayOfWeek.Monday, this.cmbMondayRequire.SelectedValue as BRequirePatterns);
+                this.timeTable.SetDefaultRequire(System.DayOfWeek.Tuesday, this.cmbTuesdayRequire.SelectedValue as BRequirePatterns);
+                this.timeTable.SetDefaultRequire(System.DayOfWeek.Wednesday, this.cmbWednesdayRequire.SelectedValue as BRequirePatterns);
+                this.timeTable.SetDefaultRequire(System.DayOfWeek.Thursday, this.cmbThursdayRequire.SelectedValue as BRequirePatterns);
+                this.timeTable.SetDefaultRequire(System.DayOfWeek.Friday, this.cmbFridayRequire.SelectedValue as BRequirePatterns);
+                this.timeTable.SetDefaultRequire(System.DayOfWeek.Saturday, this.cmbSaturdayRequire.SelectedValue as BRequirePatterns);
+                this.timeTable.SetDefaultRequire(System.DayOfWeek.Sunday, this.cmbSundayRequire.SelectedValue as BRequirePatterns);
             }
             #endregion
             #region 印刷形式
             {
                 // ヘッダーフォント
-                CPrintDocumentBody.SetFont(TimeTable, CPrintDocumentBody.RIT_HEADERFONT, dlgHeaderFont.Font);
+                BPrintDocumentBody.SetFont(TimeTable, BPrintDocumentBody.RIT_HEADERFONT, dlgHeaderFont.Font);
                 // 日付のフォント
-                CPrintDocumentBody.SetFont(TimeTable, CPrintDocumentBody.RIT_DATEFONT, dlgDateFont.Font);
-                TimeTable[CPrintDocumentBody.RIT_DATEFORMAT] = cmbBodyFormat.Text;
+                BPrintDocumentBody.SetFont(TimeTable, BPrintDocumentBody.RIT_DATEFONT, dlgDateFont.Font);
+                TimeTable[BPrintDocumentBody.RIT_DATEFORMAT] = cmbBodyFormat.Text;
                 // 本体のフォント
-                CPrintDocumentBody.SetFont(TimeTable, CPrintDocumentBody.RIT_BODYFONT, dlgBodyFont.Font);
+                BPrintDocumentBody.SetFont(TimeTable, BPrintDocumentBody.RIT_BODYFONT, dlgBodyFont.Font);
                 // 人員配置を表示する
-                TimeTable[CPrintDocumentBody.RIT_ISDISPLAYREQUIRE] = chkDisplayRequire.Checked.ToString();
+                TimeTable[BPrintDocumentBody.RIT_ISDISPLAYREQUIRE] = chkDisplayRequire.Checked.ToString();
                 // 月で改ページ
-                TimeTable[CPrintDocumentBody.RIT_ISMONTHLY] = chkMonthly.Checked.ToString();
+                TimeTable[BPrintDocumentBody.RIT_ISMONTHLY] = chkMonthly.Checked.ToString();
                 // 行数
-                TimeTable[CPrintDocumentBody.RIT_ROWCOUNT] = nupBreakRow.Value.ToString();
+                TimeTable[BPrintDocumentBody.RIT_ROWCOUNT] = nupBreakRow.Value.ToString();
                 // 列数
-                TimeTable[CPrintDocumentBody.RIT_COLUMNCOUNT] = nupBreakColumn.Value.ToString();
+                TimeTable[BPrintDocumentBody.RIT_COLUMNCOUNT] = nupBreakColumn.Value.ToString();
                 // イメージプリント
-                TimeTable[CPrintDocumentBody.RIT_IMAGEPRINT] = chkImage.Checked.ToString();
+                TimeTable[BPrintDocumentBody.RIT_IMAGEPRINT] = chkImage.Checked.ToString();
             }
             #endregion
         }
@@ -89,7 +89,7 @@ namespace TimeTableManager.UI {
             if (view != null)
             {
 
-                CPattern pattern = view.Row["PatternColumn"] as CPattern;
+                BPattern pattern = view.Row["PatternColumn"] as BPattern;
                 if (pattern != null)
                 {
                     FPatternDialog dialog = new FPatternDialog();
@@ -177,37 +177,37 @@ namespace TimeTableManager.UI {
                     bool bork = false;
                     int iork = 0;
                     // ヘッダフォント
-                    dlgHeaderFont.Font = CPrintDocumentBody.GetFont(TimeTable, CPrintDocumentBody.RIT_HEADERFONT);
+                    dlgHeaderFont.Font = BPrintDocumentBody.GetFont(TimeTable, BPrintDocumentBody.RIT_HEADERFONT);
                     // 日付のフォント
-                    dlgDateFont.Font = CPrintDocumentBody.GetFont(TimeTable, CPrintDocumentBody.RIT_DATEFONT);
-                    work = TimeTable[CPrintDocumentBody.RIT_DATEFORMAT];
+                    dlgDateFont.Font = BPrintDocumentBody.GetFont(TimeTable, BPrintDocumentBody.RIT_DATEFONT);
+                    work = TimeTable[BPrintDocumentBody.RIT_DATEFORMAT];
                     if (work != null) {
                         cmbBodyFormat.Text = work;
                     } else {
-                        cmbBodyFormat.Text = CPrintDocumentBody.RIT_DATEFORMAT_DEFAULT;
+                        cmbBodyFormat.Text = BPrintDocumentBody.RIT_DATEFORMAT_DEFAULT;
                     }
                     // 本体のフォント
-                    dlgBodyFont.Font = CPrintDocumentBody.GetFont(TimeTable, CPrintDocumentBody.RIT_BODYFONT);
+                    dlgBodyFont.Font = BPrintDocumentBody.GetFont(TimeTable, BPrintDocumentBody.RIT_BODYFONT);
                     // 人員配置を表示する
-                    work = TimeTable[CPrintDocumentBody.RIT_ISDISPLAYREQUIRE];
-                    bork = CPrintDocumentBody.RIT_ISDISPLAYREQUIRE_DEFAULT;
+                    work = TimeTable[BPrintDocumentBody.RIT_ISDISPLAYREQUIRE];
+                    bork = BPrintDocumentBody.RIT_ISDISPLAYREQUIRE_DEFAULT;
                     if (work != null) {
                         if (!(bool.TryParse(work, out bork))) {
-                            bork = CPrintDocumentBody.RIT_ISDISPLAYREQUIRE_DEFAULT;
+                            bork = BPrintDocumentBody.RIT_ISDISPLAYREQUIRE_DEFAULT;
                         }
                     }
                     chkDisplayRequire.Checked = bork;
                     // 月で改ページ
-                    work = TimeTable[CPrintDocumentBody.RIT_ISMONTHLY];
-                    bork = CPrintDocumentBody.RIT_ISMONTHLY_DEFAULT;
+                    work = TimeTable[BPrintDocumentBody.RIT_ISMONTHLY];
+                    bork = BPrintDocumentBody.RIT_ISMONTHLY_DEFAULT;
                     if (work != null) {
                         if (!(bool.TryParse(work, out bork))) {
-                            bork = CPrintDocumentBody.RIT_ISMONTHLY_DEFAULT;
+                            bork = BPrintDocumentBody.RIT_ISMONTHLY_DEFAULT;
                         }
                     }
                     chkMonthly.Checked = bork;
                     // 行数
-                    work = TimeTable[CPrintDocumentBody.RIT_ROWCOUNT];
+                    work = TimeTable[BPrintDocumentBody.RIT_ROWCOUNT];
                     iork = 0;
                     if (work != null) {
                         if (!(int.TryParse(work, out iork))) {
@@ -216,7 +216,7 @@ namespace TimeTableManager.UI {
                     }
                     nupBreakRow.Value = iork;
                     // 列数
-                    work = TimeTable[CPrintDocumentBody.RIT_COLUMNCOUNT];
+                    work = TimeTable[BPrintDocumentBody.RIT_COLUMNCOUNT];
                     iork = 0;
                     if (work != null) {
                         if (!(int.TryParse(work, out iork))) {
@@ -225,11 +225,11 @@ namespace TimeTableManager.UI {
                     }
                     nupBreakColumn.Value = iork;
                     // イメージプリント
-                    work = TimeTable[CPrintDocumentBody.RIT_IMAGEPRINT];
-                    bork = CPrintDocumentBody.RIT_IMAGEPRINT_DEFAULT;
+                    work = TimeTable[BPrintDocumentBody.RIT_IMAGEPRINT];
+                    bork = BPrintDocumentBody.RIT_IMAGEPRINT_DEFAULT;
                     if (work != null) {
                         if (!(bool.TryParse(work, out bork))) {
-                            bork = CPrintDocumentBody.RIT_IMAGEPRINT_DEFAULT;
+                            bork = BPrintDocumentBody.RIT_IMAGEPRINT_DEFAULT;
                         }
                     }
                     chkImage.Checked = bork;
@@ -271,7 +271,7 @@ namespace TimeTableManager.UI {
             table.Clear();
             int size = timeTable.Requires.Size(true);
             for (int i = 0; i < size; i++) {
-                CRequirePatterns require = timeTable.Requires[i, true];
+                BRequirePatterns require = timeTable.Requires[i, true];
                 if (require.Removed == null) {
                     object[] rowdata = { require, require.Name };
                     table.Rows.Add(rowdata);
@@ -283,7 +283,7 @@ namespace TimeTableManager.UI {
         /// <param name="table">データテーブル</param>
         /// <param name="combo">コンボボックス</param>
         /// <param name="require">人員配置</param>
-        private void SetUpDefaultRequireCombo(DataTable table, ComboBox combo, CRequirePatterns require) {
+        private void SetUpDefaultRequireCombo(DataTable table, ComboBox combo, BRequirePatterns require) {
             int i = 0;
             foreach (DataRow drv in table.Rows) {
                 if (drv[0] == require) {
@@ -316,7 +316,7 @@ namespace TimeTableManager.UI {
                     {
                         for (int i = 0; i < j; i++)
                         {
-                            CMember member = timeTable.Members[i, true];
+                            BMember member = timeTable.Members[i, true];
                             if (member.Removed == null && !member.BuiltIn)
                             {
                                 member.AddPattern(dialog.Pattern);
@@ -330,7 +330,7 @@ namespace TimeTableManager.UI {
                 DataRowView view = (DataRowView)this.lstPatterns.SelectedItem;
                 if (view != null)
                 {
-                    CPattern pattern = view.Row["PatternColumn"] as CPattern;
+                    BPattern pattern = view.Row["PatternColumn"] as BPattern;
                     if (pattern != null)
                     {
                         FPatternDialog dialog = new FPatternDialog();
@@ -348,7 +348,7 @@ namespace TimeTableManager.UI {
                 DataRowView view = (DataRowView)this.lstPatterns.SelectedItem;
                 if (view != null)
                 {
-                    CPattern pattern = view.Row["PatternColumn"] as CPattern;
+                    BPattern pattern = view.Row["PatternColumn"] as BPattern;
                     if (pattern != null)
                     {
                         FPatternDialog dialog = new FPatternDialog();
@@ -374,7 +374,7 @@ namespace TimeTableManager.UI {
             this.PatternTable.Clear();
             int patsize = timeTable.Patterns.Size(true);
             for (int i = 0; i < patsize; i++) {
-                CPattern pat = timeTable.Patterns[i, true];
+                BPattern pat = timeTable.Patterns[i, true];
                 if (!pat.BuiltIn && pat.Removed == null) {
                     DataRow row = this.PatternTable.NewRow();
                     row["PatternColumn"] = pat;
@@ -392,7 +392,7 @@ namespace TimeTableManager.UI {
                     MessageBox.Show(this, "メンバーは%1人までしか登録できません。".Replace("%1", FMainForm.MaxItemCount.ToString()), "メンバーの追加の上限", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                     return;
                 }
-                CMember workval = timeTable.Members.CreateMember(true);
+                BMember workval = timeTable.Members.CreateMember(true);
                 FMemberDialog dialog = new FMemberDialog();
                 dialog.Member = workval;//sAll.Members.CreateMember()
                 if (dialog.ShowDialog(this) == DialogResult.OK) {
@@ -406,7 +406,7 @@ namespace TimeTableManager.UI {
                 DataRowView view = (DataRowView)this.lstMembers.SelectedItem;
                 if (view != null)
                 {
-                    CMember Member = view.Row["MemberColumn"] as CMember;
+                    BMember Member = view.Row["MemberColumn"] as BMember;
                     if (Member != null)
                     {
                         FMemberDialog dialog = new FMemberDialog();
@@ -425,7 +425,7 @@ namespace TimeTableManager.UI {
                 DataRowView view = (DataRowView)this.lstMembers.SelectedItem;
                 if (view != null)
                 {
-                    CMember Member = view.Row["MemberColumn"] as CMember;
+                    BMember Member = view.Row["MemberColumn"] as BMember;
                     if (Member != null)
                     {
                         //if (MessageBox.Show(this, Member.Name + "を削除しますか？", "メンバーの削除", MessageBoxButtons.YesNo, MessageBoxIcon.Question,MessageBoxDefaultButton.Button1) == DialogResult.Yes) {
@@ -453,7 +453,7 @@ namespace TimeTableManager.UI {
             this.MemberTable.Clear();
             int memsize = timeTable.Members.Size(true);
             for (int i = 0; i < memsize; i++) {
-                CMember mem = timeTable.Members[i, true];
+                BMember mem = timeTable.Members[i, true];
                 if (mem.Removed == null) {
                     DataRow row = this.MemberTable.NewRow();
                     row["MemberColumn"] = mem;
@@ -468,7 +468,7 @@ namespace TimeTableManager.UI {
             DataRowView view = (DataRowView)this.lstMembers.SelectedItem;
             if (view != null)
             {
-                CMember Member = view.Row["MemberColumn"] as CMember;
+                BMember Member = view.Row["MemberColumn"] as BMember;
                 if (Member != null)
                 {
                     FMemberDialog dialog = new FMemberDialog();
@@ -481,7 +481,7 @@ namespace TimeTableManager.UI {
                         int memsize = timeTable.Members.Size();
                         for (int i = 0; i < memsize; i++)
                         {
-                            CMember mem = timeTable.Members[i];
+                            BMember mem = timeTable.Members[i];
                             DataRow row = this.MemberTable.NewRow();
                             row["MemberColumn"] = mem;
                             row["MemberName"] = mem.Name;
@@ -497,7 +497,7 @@ namespace TimeTableManager.UI {
             this.DayOffTable.Clear();
             int offsize = timeTable.DayOffs.Size();
             for (int i = 0; i < offsize; i++) {
-                CDayOff off = timeTable.DayOffs[i];
+                BDayOff off = timeTable.DayOffs[i];
                 DataRow row = this.DayOffTable.NewRow();
                 row["DayOffColumn"] = off;
                 row["DayOffNameColumn"] = off.Name;
@@ -530,7 +530,7 @@ namespace TimeTableManager.UI {
                 if (view != null)
                 {
                     DataRow row = view.Row;
-                    dialog.DayOff = row["DayOffColumn"] as CDayOff;
+                    dialog.DayOff = row["DayOffColumn"] as BDayOff;
                     if (dialog.ShowDialog(this) == DialogResult.OK)
                     {
                         // 一覧の再作成
@@ -544,7 +544,7 @@ namespace TimeTableManager.UI {
                 if (view != null)
                 {
                     DataRow row = view.Row;
-                    CDayOff dayoff = row["DayOffColumn"] as CDayOff;
+                    BDayOff dayoff = row["DayOffColumn"] as BDayOff;
                     string message = "休日：" + dayoff.Name + "(" +
                         (dayoff.StartDate == dayoff.EndDate ?
                         dayoff.StartDate.ToShortDateString() :
@@ -566,7 +566,7 @@ namespace TimeTableManager.UI {
             this.RequirePatternsTable.Clear();
             int reqsize = timeTable.Requires.Size(true);
             for (int i = 0; i < reqsize; i++) {
-                CRequirePatterns req = timeTable.Requires[i, true];
+                BRequirePatterns req = timeTable.Requires[i, true];
                 if (!req.BuiltIn && req.Removed == null) {
                     DataRow row = this.RequirePatternsTable.NewRow();
                     row["RequirePatternsColumn"] = req;
@@ -604,7 +604,7 @@ namespace TimeTableManager.UI {
                 if (view != null)
                 {
                     DataRow row = view.Row;
-                    CRequirePatterns require = row["RequirePatternsColumn"] as CRequirePatterns;
+                    BRequirePatterns require = row["RequirePatternsColumn"] as BRequirePatterns;
                     if (require != null)
                     {
                         dialog.Require = require;
@@ -624,7 +624,7 @@ namespace TimeTableManager.UI {
                 if (view != null)
                 {
                     DataRow row = view.Row;
-                    CRequirePatterns require = row["RequirePatternsColumn"] as CRequirePatterns;
+                    BRequirePatterns require = row["RequirePatternsColumn"] as BRequirePatterns;
                     require.SetAvailable(false);
                     dialog.Require = require;
                     if (require != null)
@@ -655,7 +655,7 @@ namespace TimeTableManager.UI {
             if (view != null)
             {
                 DataRow row = view.Row;
-                dialog.Require = row["RequirePatternsColumn"] as CRequirePatterns;
+                dialog.Require = row["RequirePatternsColumn"] as BRequirePatterns;
                 if (dialog.ShowDialog(this) == DialogResult.OK)
                 {
                     //
@@ -670,13 +670,13 @@ namespace TimeTableManager.UI {
             DataRowView view = (DataRowView)this.lstMembers.SelectedItem;
             if (view != null)
             {
-                CMember member = view.Row["MemberColumn"] as CMember;
+                BMember member = view.Row["MemberColumn"] as BMember;
                 if (member != null)
                 {
-                    CMember prev = null;
+                    BMember prev = null;
                     for (int i = 0; i < timeTable.Members.Size(); i++)
                     {
-                        CMember work = timeTable.Members[i];
+                        BMember work = timeTable.Members[i];
                         if (work.Priority < member.Priority)
                         {
                             prev = work;
@@ -693,7 +693,7 @@ namespace TimeTableManager.UI {
                         int memsize = timeTable.Members.Size();
                         for (int i = 0; i < memsize; i++)
                         {
-                            CMember mem = timeTable.Members[i];
+                            BMember mem = timeTable.Members[i];
                             DataRow row = this.MemberTable.NewRow();
                             row["MemberColumn"] = mem;
                             row["MemberName"] = mem.Name;
@@ -714,13 +714,13 @@ namespace TimeTableManager.UI {
             DataRowView view = (DataRowView)this.lstMembers.SelectedItem;
             if (view != null)
             {
-                CMember member = view.Row["MemberColumn"] as CMember;
+                BMember member = view.Row["MemberColumn"] as BMember;
                 if (member != null)
                 {
-                    CMember prev = null;
+                    BMember prev = null;
                     for (int i = 0; i < timeTable.Members.Size(); i++)
                     {
-                        CMember work = timeTable.Members[i];
+                        BMember work = timeTable.Members[i];
                         if (work.Priority > member.Priority)
                         {
                             prev = work;
@@ -738,7 +738,7 @@ namespace TimeTableManager.UI {
                         int memsize = timeTable.Members.Size();
                         for (int i = 0; i < memsize; i++)
                         {
-                            CMember mem = timeTable.Members[i];
+                            BMember mem = timeTable.Members[i];
                             DataRow row = this.MemberTable.NewRow();
                             row["MemberColumn"] = mem;
                             row["MemberName"] = mem.Name;
@@ -755,19 +755,19 @@ namespace TimeTableManager.UI {
         }
         /// <summary>タイムテーブルの設定／取得
         /// </summary>
-        public CTimeTable TimeTable {
+        public BTimeTable TimeTable {
             get {
                 return timeTable;
             }
             set {
                 this.timeTable = value;
-                doeehandler = new CTimeTable.DayOffsEditedEventHandler(timeTable_OnDayOffsEdited);
+                doeehandler = new BTimeTable.DayOffsEditedEventHandler(timeTable_OnDayOffsEdited);
                 timeTable.OnDayOffsEdited += doeehandler;
-                moeehandler = new CTimeTable.MembersEditedEventHandler(timeTable_OnMembersEdited);
+                moeehandler = new BTimeTable.MembersEditedEventHandler(timeTable_OnMembersEdited);
                 timeTable.OnMembersEdited += moeehandler;
-                peeehandler = new CTimeTable.PatternsEditedEventHandler(timeTable_OnPatternsEdited);
+                peeehandler = new BTimeTable.PatternsEditedEventHandler(timeTable_OnPatternsEdited);
                 timeTable.OnPatternsEdited += peeehandler;
-                rpeehandler = new CTimeTable.RequirePatternssEditedEventHandler(timeTable_OnRequirePatternssEdited);
+                rpeehandler = new BTimeTable.RequirePatternssEditedEventHandler(timeTable_OnRequirePatternssEdited);
                 timeTable.OnRequirePatternssEdited += rpeehandler;
             }
         }
@@ -893,7 +893,7 @@ namespace TimeTableManager.UI {
             if (view != null)
             {
                 DataRow row = view.Row;
-                dialog.DayOff = row["DayOffColumn"] as CDayOff;
+                dialog.DayOff = row["DayOffColumn"] as BDayOff;
                 if (dialog.ShowDialog(this) == DialogResult.OK)
                 {
                     //
@@ -912,7 +912,7 @@ namespace TimeTableManager.UI {
             TblRemovedMembers.Clear();
             size = timeTable.Members.Size(true);
             for (int i = 0; i < size; i++) {
-                CMember member= timeTable.Members[i, true];
+                BMember member= timeTable.Members[i, true];
                 if (member.Removed != null) {
                     object[] rowdata = { member, member.Name };
                     TblRemovedMembers.Rows.Add(rowdata);
@@ -922,7 +922,7 @@ namespace TimeTableManager.UI {
             TblRemovedPatterns.Clear();
             size = timeTable.Patterns.Size(true);
             for (int i = 0; i < size; i++) {
-                CPattern pattern = timeTable.Patterns[i, true];
+                BPattern pattern = timeTable.Patterns[i, true];
                 if (pattern.Removed != null) {
                     object[] rowdata = { pattern, pattern.Name };
                     TblRemovedPatterns.Rows.Add(rowdata);
@@ -932,7 +932,7 @@ namespace TimeTableManager.UI {
             TblRemovedRequires.Clear();
             size = timeTable.Requires.Size(true);
             for (int i = 0; i < size; i++) {
-                CRequirePatterns require = timeTable.Requires[i, true];
+                BRequirePatterns require = timeTable.Requires[i, true];
                 if (require.Removed != null) {
                     object[] rowdata = { require, require.Name };
                     TblRemovedRequires.Rows.Add(rowdata);
@@ -944,7 +944,7 @@ namespace TimeTableManager.UI {
         /// <param name="sender">イベントの発生したオブジェクト</param>
         /// <param name="e">発生したイベント</param>
         private void BtnResqMember_Click(object sender, EventArgs e) {
-            CMember member = CmbRemovedMember.SelectedValue as CMember;
+            BMember member = CmbRemovedMember.SelectedValue as BMember;
             if (member != null && timeTable.Members.Size() < FMainForm.MaxItemCount) {
                 timeTable.Members.RescueMember(member);
             }
@@ -954,7 +954,7 @@ namespace TimeTableManager.UI {
         /// <param name="sender">イベントの発生したオブジェクト</param>
         /// <param name="e">発生したイベント</param>
         private void BtnResqPattern_Click(object sender, EventArgs e) {
-            CPattern pattern = CmbRemovedPattern.SelectedValue as CPattern;
+            BPattern pattern = CmbRemovedPattern.SelectedValue as BPattern;
             if (pattern != null && timeTable.Patterns.Size() < FMainForm.MaxItemCount) {
                 timeTable.Patterns.RescuePattern(pattern);
             }
@@ -964,7 +964,7 @@ namespace TimeTableManager.UI {
         /// <param name="sender">イベントの発生したオブジェクト</param>
         /// <param name="e">発生したイベント</param>
         private void BtnResqRequire_Click(object sender, EventArgs e) {
-            CRequirePatterns require = CmbRemovedRequires.SelectedValue as CRequirePatterns;
+            BRequirePatterns require = CmbRemovedRequires.SelectedValue as BRequirePatterns;
             if (require != null && timeTable.Requires.Size() < FMainForm.MaxItemCount) {
                 timeTable.Requires.RescueRequirePatterns(require);
             }
@@ -975,8 +975,8 @@ namespace TimeTableManager.UI {
         /// <param name="e">発生したイベント</param>
         private void BtnImport_Click (object sender, EventArgs e) {
             if (DlgImportFile.ShowDialog(this) == DialogResult.OK) {
-                TimeTableManager.IO.CLoader loader = new TimeTableManager.IO.CLoader();
-                CTimeTable source = loader.Load(DlgImportFile.FileName);
+                TimeTableManager.IO.BLoader loader = new TimeTableManager.IO.BLoader();
+                BTimeTable source = loader.Load(DlgImportFile.FileName);
                 FImportDialog DlgImport = new FImportDialog();
                 DlgImport.SourceName = DlgImportFile.FileName;
                 DlgImport.Source = source;
@@ -999,7 +999,7 @@ namespace TimeTableManager.UI {
                 string prefix = "BKUP" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".125";
                 saveFileDialog1.FileName = prefix;
                 if (saveFileDialog1.ShowDialog(this) == DialogResult.OK) {
-                    TimeTableManager.IO.CSaver saver = new TimeTableManager.IO.CSaver();
+                    TimeTableManager.IO.BSaver saver = new TimeTableManager.IO.BSaver();
                     saver.Save(saveFileDialog1.FileName, TimeTable);
                 } else {
                     // これもキャンセル
@@ -1016,9 +1016,9 @@ namespace TimeTableManager.UI {
             double add = Decimal.ToDouble(NudPrevDate.Value);
             DateTime deldate = DateTime.Today.AddDays(-add);
             #region 日付
-            List<CScheduledDate> rdates = new List<CScheduledDate>();
+            List<BScheduledDate> rdates = new List<BScheduledDate>();
             for (int i = 0; i < TimeTable.Size(); i++) {
-                CScheduledDate sdate = TimeTable[i];
+                BScheduledDate sdate = TimeTable[i];
                 if (sdate.Date <= deldate) {
                     rdates.Add(sdate);
                 }
@@ -1028,9 +1028,9 @@ namespace TimeTableManager.UI {
             }
             #endregion
             #region 休日
-            List<CDayOff> rdayoffs = new List<CDayOff>();
+            List<BDayOff> rdayoffs = new List<BDayOff>();
             for (int i = 0; i < TimeTable.DayOffs.Size(); i++) {
-                CDayOff off = TimeTable.DayOffs[i];
+                BDayOff off = TimeTable.DayOffs[i];
                 if (off.Removed != null) {
                     if (off.Removed <= deldate) {
                         rdayoffs.Add(off);
@@ -1042,9 +1042,9 @@ namespace TimeTableManager.UI {
             }
             #endregion
             #region 削除済みメンバー
-            List<CMember> rmembers = new List<CMember>();
+            List<BMember> rmembers = new List<BMember>();
             for (int i = 0; i < TimeTable.Members.Size(true); i++) {
-                CMember member = TimeTable.Members[i, true];
+                BMember member = TimeTable.Members[i, true];
                 if (member.Removed != null) {
                     if (member.Removed <= deldate) {
                         rmembers.Add(member);
@@ -1056,9 +1056,9 @@ namespace TimeTableManager.UI {
             }
             #endregion
             #region 削除済み人員配置
-            List<CPattern> rpatterns = new List<CPattern>();
+            List<BPattern> rpatterns = new List<BPattern>();
             for (int i = 0; i < TimeTable.Patterns.Size(true); i++) {
-                CPattern pattern = TimeTable.Patterns[i, true];
+                BPattern pattern = TimeTable.Patterns[i, true];
                 if (pattern.Removed != null) {
                     if (pattern.Removed <= deldate) {
                         rpatterns.Add(pattern);
@@ -1070,9 +1070,9 @@ namespace TimeTableManager.UI {
             }
             #endregion
             #region 削除済み勤務シフト
-            List<CRequirePatterns> rrequiress = new List<CRequirePatterns>();
+            List<BRequirePatterns> rrequiress = new List<BRequirePatterns>();
             for (int i = 0; i < TimeTable.Requires.Size(true); i++) {
-                CRequirePatterns requires = TimeTable.Requires[i, true];
+                BRequirePatterns requires = TimeTable.Requires[i, true];
                 if (requires.Removed != null) {
                     if (requires.Removed <= deldate) {
                         rrequiress.Add(requires);

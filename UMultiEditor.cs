@@ -27,23 +27,23 @@ namespace TimeTableManager.Component {
         private TimeTableManager.UI.FMainForm mainForm;
         /// <summary>タイムテーブル
         /// </summary>
-        private CTimeTable timeTable;
+        private BTimeTable timeTable;
         /// <summary>選択された日付
         /// </summary>
         private List<DateTime> dates;
         /// <summary>メンバーの一覧
         /// </summary>
-        private List<CMember> members;
+        private List<BMember> members;
         /// <summary>勤務シフトのラッパー
         /// </summary>
         private class PatternWrapper {
-            private CPattern pattern = CPattern.NULL;
+            private BPattern pattern = BPattern.NULL;
             private TimeSpan startTime = TimeSpan.Zero;
             private TimeSpan endTime = TimeSpan.Zero;
             private string notes = "";
             /// <summary>勤務シフト
             /// </summary>
-            public CPattern Pattern {
+            public BPattern Pattern {
                 get { return pattern; }
                 set { pattern = value; }
             }
@@ -59,7 +59,7 @@ namespace TimeTableManager.Component {
             /// </summary>
             public TimeSpan EndTime {
                 get {
-                    if (pattern == null || (pattern.BuiltIn && pattern != CPattern.MULTI)) {
+                    if (pattern == null || (pattern.BuiltIn && pattern != BPattern.MULTI)) {
                         return StartTime;
                     }
                     while (StartTime > endTime) {
@@ -82,7 +82,7 @@ namespace TimeTableManager.Component {
         }
         /// <summary>勤務シフトのラッパー
         /// </summary>
-        private Dictionary<CMember, PatternWrapper> Member2PatternWrapper = new Dictionary<CMember, PatternWrapper>();
+        private Dictionary<BMember, PatternWrapper> Member2PatternWrapper = new Dictionary<BMember, PatternWrapper>();
         /// <summary>開始時間
         /// </summary>
         private TimeSpan TableStart;    // 開始時間
@@ -151,15 +151,15 @@ namespace TimeTableManager.Component {
         }
         /// <summary>タイムテーブル
         /// </summary>
-        public CTimeTable TimeTable {
+        public BTimeTable TimeTable {
             get { return timeTable; }
             set {
                 if (timeTable != value) {
                     timeTable = value;
                     if (timeTable != null) {
-                        timeTable.OnMembersEdited += new CTimeTable.MembersEditedEventHandler(timeTable_OnMembersEdited);
-                        timeTable.OnPatternsEdited += new CTimeTable.PatternsEditedEventHandler(timeTable_OnPatternsEdited);
-                        timeTable.OnScheduleEdited += new CTimeTable.ScheduleEditedEventHandler(timeTable_OnScheduleEdited);
+                        timeTable.OnMembersEdited += new BTimeTable.MembersEditedEventHandler(timeTable_OnMembersEdited);
+                        timeTable.OnPatternsEdited += new BTimeTable.PatternsEditedEventHandler(timeTable_OnPatternsEdited);
+                        timeTable.OnScheduleEdited += new BTimeTable.ScheduleEditedEventHandler(timeTable_OnScheduleEdited);
                         this.BodyTable.ContextMenuStrip = this.CmsBodyTable;
                     }
                 }
@@ -263,7 +263,7 @@ namespace TimeTableManager.Component {
                 // 期間中有効なメンバーのみ
                 int size = TimeTable.Members.Size(true);
                 for (int i = 0; i < size; i++) {
-                    CMember member = TimeTable.Members[i, true];
+                    BMember member = TimeTable.Members[i, true];
                     if (member.IsAvailable(StartDate, EndDate)) {
                         Members.Add(member);
                         SetUpMember2Pattern(member);
@@ -280,20 +280,20 @@ namespace TimeTableManager.Component {
                 // 期間中有効なシフトのみ
                 int size = TimeTable.Patterns.Size(true);
                 for (int i = 0; i < size; i++) {
-                    CPattern pattern = TimeTable.Patterns[i, true];
+                    BPattern pattern = TimeTable.Patterns[i, true];
                     if (pattern.IsAvailable(StartDate, EndDate)) {
                         TblPattern.Rows.Add(pattern, pattern.Name);
                     }
                 }
-                TblPattern.Rows.Add(CPattern.MULTI, CPattern.MULTI.Name);
+                TblPattern.Rows.Add(BPattern.MULTI, BPattern.MULTI.Name);
             }
         }
         /// <summary>メンバーの就業状態の作成
         /// </summary>
         /// <param name="member"></param>
-        private void SetUpMember2Pattern (CMember member) {
+        private void SetUpMember2Pattern (BMember member) {
             PatternWrapper wrapper = new PatternWrapper();
-            wrapper.Pattern = CPattern.NULL;
+            wrapper.Pattern = BPattern.NULL;
             wrapper.StartTime = TimeSpan.MaxValue;
             wrapper.EndTime = TimeSpan.MinValue;
             if ((member == null) || (Dates.Count <= 0) || (TimeTable == null)) {
@@ -306,9 +306,9 @@ namespace TimeTableManager.Component {
                 // 繰り返し
                 int i = 0;
                 foreach (DateTime date in Dates) {
-                    CScheduledDate sdate = TimeTable[date];
-                    CSchedule schedule = sdate[member];
-                    CPattern work = schedule.Pattern;
+                    BScheduledDate sdate = TimeTable[date];
+                    BSchedule schedule = sdate[member];
+                    BPattern work = schedule.Pattern;
                     if (i == 0) {
                         // 最初のシフト
                         wrapper.Pattern = work;
@@ -325,7 +325,7 @@ namespace TimeTableManager.Component {
                             wrapper.Notes += "," + schedule.Notes;
                         }
                         // 複数選択されている
-                        wrapper.Pattern = CPattern.MULTI;
+                        wrapper.Pattern = BPattern.MULTI;
                         if (work != null && !work.BuiltIn) {
                             if (wrapper.StartTime > work.Start) {
                                 wrapper.StartTime = work.Start;
@@ -348,11 +348,11 @@ namespace TimeTableManager.Component {
         }
         /// <summary>メンバーの一覧
         /// </summary>
-        private List<CMember> Members {
+        private List<BMember> Members {
             get {
                 if (members == null) {
                     // nullなら初期化
-                    members = new List<CMember>();
+                    members = new List<BMember>();
                 }
                 return members;
             }
@@ -383,7 +383,7 @@ namespace TimeTableManager.Component {
         public UMultiEditor () {
             InitializeComponent();
             // 都合による表示
-            this.ClmDsPattern.DataType = typeof(CPattern);
+            this.ClmDsPattern.DataType = typeof(BPattern);
             this.ClmPattern.CellTemplate = new PatternCell();
             this.ClmPattern.DataSource = this.DsPatten;
             this.ClmPattern.ValueMember = "TblPattern.ClmDsPattern";
@@ -402,7 +402,7 @@ namespace TimeTableManager.Component {
         /// <param name="e">発生したイベント</param>
         private void BodyTable_CellValueNeeded (object sender, DataGridViewCellValueEventArgs e) {
             if (e.RowIndex >= Members.Count) return;// 行数を超えている
-            CMember member = Members[e.RowIndex];
+            BMember member = Members[e.RowIndex];
             switch (e.ColumnIndex) {
                 case 0:
                     e.Value = member.Name;
@@ -424,18 +424,18 @@ namespace TimeTableManager.Component {
         /// <param name="sender">イベントの発生したオブジェクト</param>
         /// <param name="e">発生したイベント</param>
         private void BodyTable_CellValuePushed (object sender, DataGridViewCellValueEventArgs e) {
-            CMember member = Members[e.RowIndex];
+            BMember member = Members[e.RowIndex];
             switch (e.ColumnIndex) {
                 case 0:
                     break;
                 case 1:
                     if (this.TimeTable == null) return;
-                    CPattern pattern = e.Value as CPattern;
-                    if (pattern == CPattern.MULTI) return;
+                    BPattern pattern = e.Value as BPattern;
+                    if (pattern == BPattern.MULTI) return;
                     foreach (DateTime date in Dates) {
                         if (date >= DateTime.Today) {
-                            CScheduledDate sdate = this.TimeTable[date];
-                            CSchedule sche = sdate[member];
+                            BScheduledDate sdate = this.TimeTable[date];
+                            BSchedule sche = sdate[member];
                             sche.Pattern = pattern;
                         }
                     }
@@ -447,8 +447,8 @@ namespace TimeTableManager.Component {
                         if (val == null) val = "";
                         if (this.TimeTable != null) {
                             DateTime date = StartDate;
-                            CScheduledDate sdate = this.TimeTable[date];
-                            CSchedule sche = sdate[member];
+                            BScheduledDate sdate = this.TimeTable[date];
+                            BSchedule sche = sdate[member];
                             sche.Notes = val;
                             //sche.SetProperty("notes", val);
                             this.timeTable.NotifyScheduleEdited(sche);
@@ -519,7 +519,7 @@ namespace TimeTableManager.Component {
         private void PaintBarColumn (object sender, DataGridViewCellPaintingEventArgs e) {
             if (TimeTable != null) {
                 e.Paint(e.CellBounds, e.PaintParts);
-                CMember member = Members[e.RowIndex];
+                BMember member = Members[e.RowIndex];
                 PatternWrapper wrapper = Member2PatternWrapper[member];
                 e.Handled = true;
                 float WidthOf1Hour = e.CellBounds.Width / (TotalHours);              // １時間の幅
@@ -536,7 +536,7 @@ namespace TimeTableManager.Component {
                     work = work.Add(TimeSpan.FromHours(1.0));
                 }
                 #endregion
-                if (wrapper.Pattern == CPattern.NULL || wrapper.Pattern == CPattern.DAYOFF) {
+                if (wrapper.Pattern == BPattern.NULL || wrapper.Pattern == BPattern.DAYOFF) {
                     // 休みなら処理しない
                     if (BarLabelStatus == EnumBarLabelStatus.Creating && CurrentRowIndex == e.RowIndex) {
                         float WorkW = (MovingPoint.X > StartPoint.X ? MovingPoint.X - StartPoint.X : StartPoint.X - MovingPoint.X);
@@ -622,9 +622,9 @@ namespace TimeTableManager.Component {
         /// <param name="e">発生したイベント</param>
         private void BodyTable_CellMouseMove (object sender, DataGridViewCellMouseEventArgs e) {
             if (this.TimeTable != null && e.RowIndex >= 0 && e.ColumnIndex == 2 && Editable) {
-                CMember member = this.Members[e.RowIndex];
+                BMember member = this.Members[e.RowIndex];
                 PatternWrapper wrapper = Member2PatternWrapper[member];
-                if (wrapper.Pattern != null && (!wrapper.Pattern.BuiltIn || wrapper.Pattern == CPattern.MULTI) && BarLabelStatus == EnumBarLabelStatus.None) {
+                if (wrapper.Pattern != null && (!wrapper.Pattern.BuiltIn || wrapper.Pattern == BPattern.MULTI) && BarLabelStatus == EnumBarLabelStatus.None) {
                     Rectangle CellBounds1 = BodyTable.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false);
                     Rectangle CellBounds2 = new Rectangle(new Point(0, 0), CellBounds1.Size);
                     RectangleF rect = GetPattern2Rect(CellBounds2, wrapper);
@@ -657,10 +657,10 @@ namespace TimeTableManager.Component {
             this.BarLabelStatus = EnumBarLabelStatus.None;
             CurrentRowIndex = e.RowIndex;
             if (this.TimeTable != null && CurrentRowIndex >= 0 && e.ColumnIndex == 2 && Editable) {
-                CMember member = this.Members[CurrentRowIndex];
+                BMember member = this.Members[CurrentRowIndex];
                 PatternWrapper wrapper = Member2PatternWrapper[member];
                 Rectangle CellBounds1 = BodyTable.GetCellDisplayRectangle(e.ColumnIndex, CurrentRowIndex, false);
-                if (wrapper.Pattern != null && (!wrapper.Pattern.BuiltIn || wrapper.Pattern == CPattern.MULTI)) {
+                if (wrapper.Pattern != null && (!wrapper.Pattern.BuiltIn || wrapper.Pattern == BPattern.MULTI)) {
                     Rectangle CellBounds2 = new Rectangle(new Point(0, 0), CellBounds1.Size);
                     RectangleF rect = GetPattern2Rect(CellBounds2, wrapper);
                     if (rect.Top < e.Y && e.Y < rect.Bottom) {
@@ -706,7 +706,7 @@ namespace TimeTableManager.Component {
                 TimeSpan Span = GetXSpan2TimeSpan(CellBounds1.Width, StartPoint.X, e.X);
                 if ((Span > TimeSpan.Zero ? Span.TotalHours > Half : Span.TotalHours < -Half)) {
                     Rectangle CellBounds2 = new Rectangle(new Point(0, 0), CellBounds1.Size);
-                    CMember member = this.Members[e.RowIndex];
+                    BMember member = this.Members[e.RowIndex];
                     PatternWrapper wrapper;
                     TimeSpan SpanStart = TimeSpan.Zero, SpanEnd = TimeSpan.Zero, SpanRest = TimeSpan.Zero;
                     switch (CurrentStatus) {
@@ -774,11 +774,11 @@ namespace TimeTableManager.Component {
         /// <param name="Span1"></param>
         /// <param name="Span2"></param>
         /// <param name="Rest"></param>
-        private void CreatePattern (CMember member, TimeSpan Span1, TimeSpan Span2, TimeSpan Rest) {
+        private void CreatePattern (BMember member, TimeSpan Span1, TimeSpan Span2, TimeSpan Rest) {
             double dSpan1 = (long)(Span1.TotalHours / UMultiEditor.Threshold.TotalHours);
             double dSpan2 = (long)(Span2.TotalHours / UMultiEditor.Threshold.TotalHours);
             double dSpan3 = dSpan2 - dSpan1;
-            CPattern newpattern = this.TimeTable.Patterns.CreatePattern();
+            BPattern newpattern = this.TimeTable.Patterns.CreatePattern();
             //newpattern.Name = "新しい作業用のシフト（" + dates[0].ToShortDateString() + (dates.Count <= 1 ? "" : "～" + dates[dates.Count - 1].ToShortDateString()) + "）";
             newpattern.Name = NewPatternName.Replace("%1", dates[0].ToShortDateString() + (dates.Count <= 1 ? "" : "～" + dates[dates.Count - 1].ToShortDateString()));
             newpattern.Start = TimeSpan.FromHours(dSpan1 * UMultiEditor.Threshold.TotalHours);
@@ -792,7 +792,7 @@ namespace TimeTableManager.Component {
                 TimeTable.Patterns.AddPattern(dialog.Pattern);
                 foreach (DateTime date in dates) {
                     if (date >= DateTime.Today) {
-                        CScheduledDate sdate = TimeTable[date];
+                        BScheduledDate sdate = TimeTable[date];
                         sdate[member].Pattern = dialog.Pattern;
                     }
                 }
@@ -808,7 +808,7 @@ namespace TimeTableManager.Component {
         /// <param name="e">発生したイベント</param>
         private void BodyTable_CellMouseDoubleClick (object sender, DataGridViewCellMouseEventArgs e) {
             if (e.RowIndex >= 0) {
-                CMember member = this.Members[e.RowIndex];
+                BMember member = this.Members[e.RowIndex];
                 switch (e.ColumnIndex) {
                     case 0:
                         // メンバーの修正
@@ -821,7 +821,7 @@ namespace TimeTableManager.Component {
                     case 1:
                         // シフトの修正
                         PatternWrapper wrapper = Member2PatternWrapper[member];
-                        CPattern pattern = wrapper.Pattern;
+                        BPattern pattern = wrapper.Pattern;
                         if (pattern != null && !pattern.BuiltIn) {
                             TimeTableManager.UI.FPatternDialog dialogP = new TimeTableManager.UI.FPatternDialog();
                             dialogP.Pattern = pattern;
@@ -848,7 +848,7 @@ namespace TimeTableManager.Component {
         private void TsmiAddMember_Click (object sender, EventArgs e) {
             if (this.TimeTable == null) return;
             if (this.TimeTable.Members.Size() >= TimeTableManager.UI.FMainForm.MaxItemCount) return;
-            CMember member = this.TimeTable.Members.CreateMember(true);
+            BMember member = this.TimeTable.Members.CreateMember(true);
             TimeTableManager.UI.FMemberDialog dialog = new TimeTableManager.UI.FMemberDialog();
             dialog.Member = member;
             if (dialog.ShowDialog(this.MainForm) == DialogResult.OK) {
@@ -860,7 +860,7 @@ namespace TimeTableManager.Component {
         /// <param name="sender">イベントの発生したオブジェクト</param>
         /// <param name="e">発生したイベント</param>
         private void TsmiEditMember_Click (object sender, EventArgs e) {
-            CMember member = this.Members[CurrentRowIndex];
+            BMember member = this.Members[CurrentRowIndex];
             TimeTableManager.UI.FMemberDialog dialog = new TimeTableManager.UI.FMemberDialog();
             dialog.Member = member;
             if (dialog.ShowDialog(this.MainForm) == DialogResult.OK) {
@@ -873,7 +873,7 @@ namespace TimeTableManager.Component {
         /// <param name="sender">イベントの発生したオブジェクト</param>
         /// <param name="e">発生したイベント</param>
         private void TsmiRemoveMember_Click (object sender, EventArgs e) {
-            CMember member = this.Members[CurrentRowIndex];
+            BMember member = this.Members[CurrentRowIndex];
             TimeTableManager.UI.FMemberDialog dialog = new TimeTableManager.UI.FMemberDialog();
             dialog.Member = member;
             member.SetAvailable(false, StartDate.AddDays(-1.0));
@@ -891,7 +891,7 @@ namespace TimeTableManager.Component {
         private void TsmiAddPattern_Click (object sender, EventArgs e) {
             if (this.TimeTable == null) return;
             if (this.TimeTable.Patterns.Size() >= TimeTableManager.UI.FMainForm.MaxItemCount) return;
-            CPattern pattern = this.TimeTable.Patterns.CreatePattern(true);
+            BPattern pattern = this.TimeTable.Patterns.CreatePattern(true);
             TimeTableManager.UI.FPatternDialog dialog = new TimeTableManager.UI.FPatternDialog();
             dialog.Pattern = pattern;
             if (dialog.ShowDialog(this.MainForm) == DialogResult.OK) {
@@ -903,9 +903,9 @@ namespace TimeTableManager.Component {
         /// <param name="sender">イベントの発生したオブジェクト</param>
         /// <param name="e">発生したイベント</param>
         private void TsmiEditPattern_Click (object sender, EventArgs e) {
-            CMember member = this.Members[CurrentRowIndex];
+            BMember member = this.Members[CurrentRowIndex];
             PatternWrapper wrapper = Member2PatternWrapper[member];
-            CPattern pattern = wrapper.Pattern;
+            BPattern pattern = wrapper.Pattern;
             if (pattern != null && !pattern.BuiltIn) {
                 TimeTableManager.UI.FPatternDialog dialog = new TimeTableManager.UI.FPatternDialog();
                 dialog.Pattern = pattern;
@@ -919,9 +919,9 @@ namespace TimeTableManager.Component {
         /// <param name="sender">イベントの発生したオブジェクト</param>
         /// <param name="e">発生したイベント</param>
         private void TsmiRemovePattern_Click (object sender, EventArgs e) {
-            CMember member = this.Members[CurrentRowIndex];
+            BMember member = this.Members[CurrentRowIndex];
             PatternWrapper wrapper = Member2PatternWrapper[member];
-            CPattern pattern = wrapper.Pattern;
+            BPattern pattern = wrapper.Pattern;
             if (pattern != null && !pattern.BuiltIn) {
                 TimeTableManager.UI.FPatternDialog dialog = new TimeTableManager.UI.FPatternDialog();
                 dialog.Pattern = pattern;

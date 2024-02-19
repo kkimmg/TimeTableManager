@@ -4,6 +4,240 @@
         <name>TimeTableManager</name>
     </assembly>
     <members>
+        <member name="T:TimeTableManager.Evaluation.EEvaluationResult">
+            <summary>
+            評価結果
+            </summary>
+        </member>
+        <member name="F:TimeTableManager.Evaluation.EEvaluationResult.OK">
+            <summary>問題なし</summary>
+        </member>
+        <member name="F:TimeTableManager.Evaluation.EEvaluationResult.NOTICE">
+            <summary>注意</summary>
+        </member>
+        <member name="F:TimeTableManager.Evaluation.EEvaluationResult.WORNING">
+            <summary>警告</summary>
+        </member>
+        <member name="F:TimeTableManager.Evaluation.EEvaluationResult.ERROR">
+            <summary>エラー</summary>
+        </member>
+        <member name="T:TimeTableManager.Evaluation.BEvaluationItem">
+            <summary>
+            評価内容
+            </summary>
+        </member>
+        <member name="P:TimeTableManager.Evaluation.BEvaluationItem.NextID">
+            <summary>次のIDを発布する
+            </summary>
+        </member>
+        <member name="M:TimeTableManager.Evaluation.BEvaluationItem.#ctor(TimeTableManager.Evaluation.EEvaluationResult,TimeTableManager.Element.BScheduledDate,System.String)">
+            <summary>コンストラクタ
+            </summary>
+            <param name="Result">評価結果</param>
+            <param name="Date">日付</param>
+            <param name="Message">メッセージ</param>
+        </member>
+        <member name="P:TimeTableManager.Evaluation.BEvaluationItem.Id">
+            <summary>ID
+            </summary>
+        </member>
+        <member name="P:TimeTableManager.Evaluation.BEvaluationItem.Result">
+            <summary>評価結果
+            </summary>
+        </member>
+        <member name="P:TimeTableManager.Evaluation.BEvaluationItem.Date">
+            <summary>日付
+            </summary>
+        </member>
+        <member name="P:TimeTableManager.Evaluation.BEvaluationItem.Message">
+            <summary>メッセージ
+            </summary>
+        </member>
+        <member name="T:TimeTableManager.Evaluation.BPatternComparer1">
+            <summary>ソート用
+            </summary>
+        </member>
+        <member name="T:TimeTableManager.Evaluation.BEvaluation1Day">
+            <summary>１日分の評価
+            </summary>
+        </member>
+        <member name="T:TimeTableManager.Evaluation.BEvaluation1Day.CTimeSpanSet">
+            <summary>タイムスパンのセットまたは空白
+            </summary>
+        </member>
+        <member name="M:TimeTableManager.Evaluation.BEvaluation1Day.CTimeSpanSet.#ctor(System.TimeSpan,System.TimeSpan)">
+            <summary>コンストラクタ
+            </summary>
+            <param name="Start"></param>
+            <param name="End"></param>
+        </member>
+        <member name="P:TimeTableManager.Evaluation.BEvaluation1Day.CTimeSpanSet.Start">
+            <summary>空白の始まり
+            </summary>
+        </member>
+        <member name="P:TimeTableManager.Evaluation.BEvaluation1Day.CTimeSpanSet.End">
+            <summary>空白の終わり
+            </summary>
+        </member>
+        <member name="F:TimeTableManager.Evaluation.BEvaluation1Day.sdate">
+            <summary>スケジュール日
+            </summary>
+        </member>
+        <member name="F:TimeTableManager.Evaluation.BEvaluation1Day._items">
+            <summary>内部リスト
+            </summary>
+        </member>
+        <member name="F:TimeTableManager.Evaluation.BEvaluation1Day._memItems">
+            <summary>メンバー、評価
+            </summary>
+        </member>
+        <member name="M:TimeTableManager.Evaluation.BEvaluation1Day.#ctor(TimeTableManager.Element.BScheduledDate)">
+            <summary>コンストラクタ
+            </summary>
+            <param name="sDate"></param>
+        </member>
+        <member name="M:TimeTableManager.Evaluation.BEvaluation1Day.Check">
+            <summary>ここで検証
+            </summary>
+        </member>
+        <member name="M:TimeTableManager.Evaluation.BEvaluation1Day.AddItem(TimeTableManager.Evaluation.BEvaluationItem)">
+            <summary>検証結果の追加
+            </summary>
+            <param name="item">検証結果</param>
+        </member>
+        <member name="M:TimeTableManager.Evaluation.BEvaluation1Day.AddItem(TimeTableManager.Evaluation.EEvaluationResult,System.String)">
+            <summary>検証結果の追加
+            </summary>
+            <param name="result">追加される検証結果</param>
+            <param name="message">メッセージ</param>
+        </member>
+        <member name="M:TimeTableManager.Evaluation.BEvaluation1Day.Clear">
+            <summary>クリア
+            </summary>
+        </member>
+        <member name="M:TimeTableManager.Evaluation.BEvaluation1Day.GenerateMessage(System.String,System.String[])">
+            <summary>メッセージに変換する
+            </summary>
+            <param name="message">メッセージ</param>
+            <param name="param">メッセージ</param>
+            <returns></returns>
+        </member>
+        <member name="M:TimeTableManager.Evaluation.BEvaluation1Day.CheckSpaces(System.Collections.Generic.List{TimeTableManager.Element.BPattern})">
+            <summary>時間中に空白が生じないか？
+            </summary>
+            <returns>空白時間のリスト</returns>
+        </member>
+        <member name="M:TimeTableManager.Evaluation.BEvaluation1Day.CheckSpaces">
+            <summary>時間中に空白が生じないか？
+            </summary>
+            <returns>空白時間のリスト</returns>
+        </member>
+        <member name="M:TimeTableManager.Evaluation.BEvaluation1Day.CheckPatternMuches(TimeTableManager.Element.BPattern)">
+            <summary>勤務シフトに対してマッチしているか？
+            </summary>
+            <param name="pattern">勤務シフト</param>
+            <returns>割合</returns>
+        </member>
+        <member name="M:TimeTableManager.Evaluation.BEvaluation1Day.CheckPatternMuches">
+            <summary>勤務シフトに対してマッチしているか？（１日単位で）
+            </summary>
+            <returns>割合</returns>
+        </member>
+        <member name="M:TimeTableManager.Evaluation.BEvaluation1Day.GetDatePatterns">
+            <summary>スケジュール日に設定されたシフトの一覧
+            </summary>
+            <returns>勤務シフトのリスト</returns>
+        </member>
+        <member name="M:TimeTableManager.Evaluation.BEvaluation1Day.GetPatternMemberCount(TimeTableManager.Element.BPattern)">
+            <summary>勤務シフトのメンバー数
+            </summary>
+            <param name="pattern">勤務シフト</param>
+            <returns>勤務シフトに該当するメンバー数</returns>
+        </member>
+        <member name="P:TimeTableManager.Evaluation.BEvaluation1Day.Root">
+            <summary>タイムテーブル
+            </summary>
+        </member>
+        <member name="P:TimeTableManager.Evaluation.BEvaluation1Day.Items">
+            <summary>リスト
+            </summary>
+        </member>
+        <member name="M:TimeTableManager.Evaluation.BEvaluation1Day.CheckMembers">
+            <summary>メンバーごとのチェック
+            </summary>
+        </member>
+        <member name="T:TimeTableManager.Evaluation.CEvaluation1Day1Member">
+            <summary>１日分、１メンバー分の評価
+            </summary>
+        </member>
+        <member name="P:TimeTableManager.Evaluation.CEvaluation1Day1Member.Root">
+            <summary>タイムテーブル
+            </summary>
+        </member>
+        <member name="P:TimeTableManager.Evaluation.CEvaluation1Day1Member.Items">
+            <summary>リスト
+            </summary>
+        </member>
+        <member name="F:TimeTableManager.Evaluation.CEvaluation1Day1Member._items">
+            <summary>内部リスト
+            </summary>
+        </member>
+        <member name="F:TimeTableManager.Evaluation.CEvaluation1Day1Member._parent">
+            <summary>親オブジェクト
+            </summary>
+        </member>
+        <member name="F:TimeTableManager.Evaluation.CEvaluation1Day1Member._member">
+            <summary>メンバー 
+            </summary>
+        </member>
+        <member name="M:TimeTableManager.Evaluation.CEvaluation1Day1Member.#ctor(TimeTableManager.Evaluation.BEvaluation1Day,TimeTableManager.Element.BMember)">
+            <summary>コンストラクタ
+            </summary>
+            <param name="parent"></param>
+            <param name="member"></param>
+        </member>
+        <member name="M:TimeTableManager.Evaluation.CEvaluation1Day1Member.Check">
+            <summary>チェックする
+            </summary>
+        </member>
+        <member name="M:TimeTableManager.Evaluation.CEvaluation1Day1Member.Clear">
+            <summary>クリア
+            </summary>
+        </member>
+        <member name="P:TimeTableManager.Evaluation.CEvaluation1Day1Member.sdate">
+            <summary>スケジュール日
+            </summary>
+        </member>
+        <member name="M:TimeTableManager.Evaluation.CEvaluation1Day1Member.AddItem(TimeTableManager.Evaluation.BEvaluationItem)">
+            <summary>検証結果の追加
+            </summary>
+            <param name="item">検証結果</param>
+        </member>
+        <member name="M:TimeTableManager.Evaluation.CEvaluation1Day1Member.AddItem(TimeTableManager.Evaluation.EEvaluationResult,System.String)">
+            <summary>検証結果の追加
+            </summary>
+            <param name="result">検証結果</param>
+            <param name="message">メッセージ</param>
+        </member>
+        <member name="M:TimeTableManager.Evaluation.CEvaluation1Day1Member.CheckContinuas">
+            <summary>メンバーの連続稼動日数が※1の日数を超えていたら警告
+            </summary>
+        </member>
+        <member name="M:TimeTableManager.Evaluation.CEvaluation1Day1Member.CheckSpace">
+            <summary>メンバーの作業時間の重複（エラー）または※2の時間を満たしていなければ警告
+            </summary>
+        </member>
+        <member name="M:TimeTableManager.Evaluation.CEvaluation1Day1Member.CheckPattern">
+            <summary>メンバーがこのパターンを含むかどうかチェックする
+            </summary>
+        </member>
+        <member name="M:TimeTableManager.Evaluation.CEvaluation1Day1Member.GenerateMessage(System.String,System.String[])">
+            <summary>メッセージに変換する
+            </summary>
+            <param name="message"></param>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
         <member name="F:TimeTableManager.UI.FAboutBox.components">
             <summary>
             必要なデザイナ変数です。
@@ -30,7 +264,7 @@
             カレントのスケジュール日
             </summary>
         </member>
-        <member name="M:TimeTableManager.UI.ECurrentDateChangedArgs.#ctor(TimeTableManager.Element.CScheduledDate)">
+        <member name="M:TimeTableManager.UI.ECurrentDateChangedArgs.#ctor(TimeTableManager.Element.BScheduledDate)">
             <summary>
             コンストラクタ
             </summary>
@@ -71,7 +305,7 @@
             <param name="i"></param>
             <returns></returns>
         </member>
-        <member name="M:TimeTableManager.UI.ESelectionChangedEventArg.#ctor(System.Collections.Generic.List{System.DateTime},TimeTableManager.Element.CTimeTable)">
+        <member name="M:TimeTableManager.UI.ESelectionChangedEventArg.#ctor(System.Collections.Generic.List{System.DateTime},TimeTableManager.Element.BTimeTable)">
             <summary>
             コンストラクタ
             </summary>
@@ -135,7 +369,7 @@
             <param name="sender">イベント発生元</param>
             <param name="e">発生したイベント</param>
         </member>
-        <member name="M:TimeTableManager.UI.FCSVExport.ReturnDate(System.DateTime,TimeTableManager.Element.CMember,System.Boolean)">
+        <member name="M:TimeTableManager.UI.FCSVExport.ReturnDate(System.DateTime,TimeTableManager.Element.BMember,System.Boolean)">
             <summary>日付を返す
             </summary>
             <param name="date"></param>
@@ -149,7 +383,7 @@
             <param name="column"></param>
             <returns></returns>
         </member>
-        <member name="M:TimeTableManager.UI.FCSVExport.ReturnRequireName(System.DateTime,TimeTableManager.Element.CMember,System.Boolean)">
+        <member name="M:TimeTableManager.UI.FCSVExport.ReturnRequireName(System.DateTime,TimeTableManager.Element.BMember,System.Boolean)">
             <summary>人員配置名を返す
             </summary>
             <param name="date"></param>
@@ -157,7 +391,7 @@
             <param name="head"></param>
             <returns></returns>
         </member>
-        <member name="M:TimeTableManager.UI.FCSVExport.ReturnPatternName(System.DateTime,TimeTableManager.Element.CMember,System.Boolean)">
+        <member name="M:TimeTableManager.UI.FCSVExport.ReturnPatternName(System.DateTime,TimeTableManager.Element.BMember,System.Boolean)">
             <summary>勤務シフト名を返す
             </summary>
             <param name="date"></param>
@@ -165,7 +399,7 @@
             <param name="head"></param>
             <returns></returns>
         </member>
-        <member name="M:TimeTableManager.UI.FCSVExport.ReturnPatternStart(System.DateTime,TimeTableManager.Element.CMember,System.Boolean)">
+        <member name="M:TimeTableManager.UI.FCSVExport.ReturnPatternStart(System.DateTime,TimeTableManager.Element.BMember,System.Boolean)">
             <summary>勤務シフト開始を返す
             </summary>
             <param name="date"></param>
@@ -173,7 +407,7 @@
             <param name="head"></param>
             <returns></returns>
         </member>
-        <member name="M:TimeTableManager.UI.FCSVExport.ReturnPatternLength(System.DateTime,TimeTableManager.Element.CMember,System.Boolean)">
+        <member name="M:TimeTableManager.UI.FCSVExport.ReturnPatternLength(System.DateTime,TimeTableManager.Element.BMember,System.Boolean)">
             <summary>勤務シフトの長さを返す
             </summary>
             <param name="date"></param>
@@ -181,7 +415,7 @@
             <param name="head"></param>
             <returns></returns>
         </member>
-        <member name="M:TimeTableManager.UI.FCSVExport.ReturnPatternEnd(System.DateTime,TimeTableManager.Element.CMember,System.Boolean)">
+        <member name="M:TimeTableManager.UI.FCSVExport.ReturnPatternEnd(System.DateTime,TimeTableManager.Element.BMember,System.Boolean)">
             <summary>勤務シフトの終了を返す
             </summary>
             <param name="date"></param>
@@ -502,25 +736,25 @@
             <param name="sender">イベント発生元</param>
             <param name="e">発生したイベント</param>
         </member>
-        <member name="M:TimeTableManager.UI.FImportDialog.ImportMember(TimeTableManager.Element.CMember)">
+        <member name="M:TimeTableManager.UI.FImportDialog.ImportMember(TimeTableManager.Element.BMember)">
             <summary>メンバーのインポート
             </summary>
             <param name="member">インポートするメンバー</param>
             <returns>成功：追加したエレメント／不成功：null</returns>
         </member>
-        <member name="M:TimeTableManager.UI.FImportDialog.ImportPattern(TimeTableManager.Element.CPattern)">
+        <member name="M:TimeTableManager.UI.FImportDialog.ImportPattern(TimeTableManager.Element.BPattern)">
             <summary>勤務シフトのインポート
             </summary>
             <param name="pattern">インポートする勤務シフト</param>
             <returns>成功：追加したエレメント／不成功：null</returns>
         </member>
-        <member name="M:TimeTableManager.UI.FImportDialog.ImportRequires(TimeTableManager.Element.CRequirePatterns)">
+        <member name="M:TimeTableManager.UI.FImportDialog.ImportRequires(TimeTableManager.Element.BRequirePatterns)">
             <summary>人員配置のインポート
             </summary>
             <param name="requires">インポートする人員配置</param>
             <returns>成功：追加したエレメント／不成功：null</returns>
         </member>
-        <member name="M:TimeTableManager.UI.FImportDialog.ImportDayOff(TimeTableManager.Element.CDayOff)">
+        <member name="M:TimeTableManager.UI.FImportDialog.ImportDayOff(TimeTableManager.Element.BDayOff)">
             <summary>休日のインポート
             </summary>
             <param name="dayoff">インポートする休日</param>
@@ -1109,7 +1343,7 @@
             <summary>変更されたタイムテーブル
             </summary>
         </member>
-        <member name="M:TimeTableManager.UI.TimeTableChangedEventArgs.#ctor(TimeTableManager.Element.CTimeTable,System.String)">
+        <member name="M:TimeTableManager.UI.TimeTableChangedEventArgs.#ctor(TimeTableManager.Element.BTimeTable,System.String)">
             <summary>コンストラクタ
             </summary>
             <param name="source">タイムテーブル</param>
@@ -1154,7 +1388,7 @@
             <summary>自動設定の終了
             </summary>
         </member>
-        <member name="M:TimeTableManager.UI.TimeTableAutoEditedEventArgs.#ctor(TimeTableManager.Element.CTimeTable,TimeTableManager.UI.TimeTableAutoEditType,System.DateTime,System.DateTime)">
+        <member name="M:TimeTableManager.UI.TimeTableAutoEditedEventArgs.#ctor(TimeTableManager.Element.BTimeTable,TimeTableManager.UI.TimeTableAutoEditType,System.DateTime,System.DateTime)">
             <summary>コンストラクタ
             </summary>
             <param name="source">イベントの発生元（タイムテーブル）</param>
@@ -1474,7 +1708,7 @@
             </summary>
             <param name="table"></param>
         </member>
-        <member name="M:TimeTableManager.UI.FScheduleConfigDialog.SetUpDefaultRequireCombo(System.Data.DataTable,System.Windows.Forms.ComboBox,TimeTableManager.Element.CRequirePatterns)">
+        <member name="M:TimeTableManager.UI.FScheduleConfigDialog.SetUpDefaultRequireCombo(System.Data.DataTable,System.Windows.Forms.ComboBox,TimeTableManager.Element.BRequirePatterns)">
             <summary>人員配置コンボボックスをセットアップする
             </summary>
             <param name="table">データテーブル</param>
@@ -1729,205 +1963,205 @@
             コード エディタで変更しないでください。
             </summary>
         </member>
-        <member name="T:TimeTableManager.CAbstractElement">
+        <member name="T:TimeTableManager.BAbstractElement">
             <summary>タイムテーブルを構成する要素の共通部分
             </summary>
         </member>
-        <member name="F:TimeTableManager.CAbstractElement.NullDate">
+        <member name="F:TimeTableManager.BAbstractElement.NullDate">
             <summary>ヌル日付の代わり
             </summary>
         </member>
-        <member name="F:TimeTableManager.CAbstractElement.created">
+        <member name="F:TimeTableManager.BAbstractElement.created">
             <summary>作成日
             </summary>
         </member>
-        <member name="F:TimeTableManager.CAbstractElement.objectID">
+        <member name="F:TimeTableManager.BAbstractElement.objectID">
             <summary>オブジェクトID
             </summary>
         </member>
-        <member name="F:TimeTableManager.CAbstractElement.properties">
+        <member name="F:TimeTableManager.BAbstractElement.properties">
             <summary>プロパティ
             </summary>
         </member>
-        <member name="F:TimeTableManager.CAbstractElement.removed">
+        <member name="F:TimeTableManager.BAbstractElement.removed">
             <summary>削除日
             </summary>
         </member>
-        <member name="M:TimeTableManager.CAbstractElement.#ctor">
+        <member name="M:TimeTableManager.BAbstractElement.#ctor">
             <summary>コンストラクタ
             </summary>
         </member>
-        <member name="P:TimeTableManager.CAbstractElement.Created">
+        <member name="P:TimeTableManager.BAbstractElement.Created">
             <summary>作成日
             </summary>
         </member>
-        <member name="P:TimeTableManager.CAbstractElement.NextID">
+        <member name="P:TimeTableManager.BAbstractElement.NextID">
             <summary>次のID
             </summary>
         </member>
-        <member name="M:TimeTableManager.CAbstractElement.GetEnumerator">
+        <member name="M:TimeTableManager.BAbstractElement.GetEnumerator">
             <summary>プロパティのキーの一覧
             </summary>
             <returns>プロパティのキーの一覧</returns>
         </member>
-        <member name="P:TimeTableManager.CAbstractElement.Removed">
+        <member name="P:TimeTableManager.BAbstractElement.Removed">
             <summary>削除日
             </summary>
         </member>
-        <member name="M:TimeTableManager.CAbstractElement.GetProperty(System.String)">
+        <member name="M:TimeTableManager.BAbstractElement.GetProperty(System.String)">
             <summary>プロパティ
             </summary>
             <param name="key">キー</param>
             <returns>値</returns>
         </member>
-        <member name="M:TimeTableManager.CAbstractElement.IsAvailable(System.DateTime)">
+        <member name="M:TimeTableManager.BAbstractElement.IsAvailable(System.DateTime)">
             <summary>このエレメントは有効か？
             </summary>
             <param name="now">日付</param>
             <returns></returns>
         </member>
-        <member name="M:TimeTableManager.CAbstractElement.IsAvailable(System.DateTime,System.DateTime)">
+        <member name="M:TimeTableManager.BAbstractElement.IsAvailable(System.DateTime,System.DateTime)">
             <summary>このエレメントは有効か？
             </summary>
             <param name="param0">開始</param>
             <param name="param1">終了</param>
             <returns></returns>
         </member>
-        <member name="M:TimeTableManager.CAbstractElement.SetAvailable(System.Boolean)">
+        <member name="M:TimeTableManager.BAbstractElement.SetAvailable(System.Boolean)">
             <summary>このエレメントは有効かどうかを設定する
             </summary>
             <param name="available">有効／無効の設定</param>
         </member>
-        <member name="M:TimeTableManager.CAbstractElement.SetAvailable(System.Boolean,System.DateTime)">
+        <member name="M:TimeTableManager.BAbstractElement.SetAvailable(System.Boolean,System.DateTime)">
             <summary>このエレメントは有効かどうかを設定する
             </summary>
             <param name="available">有効／無効の設定</param>
             <param name="removed">無効になった日付</param>
         </member>
-        <member name="M:TimeTableManager.CAbstractElement.SetProperty(System.String,System.String)">
+        <member name="M:TimeTableManager.BAbstractElement.SetProperty(System.String,System.String)">
             <summary>プロパティのセット
             </summary>
             <param name="key">キー</param>
             <param name="pValue">値</param>
         </member>
-        <member name="P:TimeTableManager.CAbstractElement.TimeTable">
+        <member name="P:TimeTableManager.BAbstractElement.TimeTable">
             <summary>タイムテーブル
             </summary>
         </member>
-        <member name="M:TimeTableManager.CAbstractElement.CompareTo(System.Object)">
+        <member name="M:TimeTableManager.BAbstractElement.CompareTo(System.Object)">
             <summary>比較する
             </summary>
             <param name="obj">比較対照</param>
             <returns>1:thisが大きい,2:objが大きい,0:等しい</returns>
         </member>
-        <member name="P:TimeTableManager.CAbstractElement.ObjectID">
+        <member name="P:TimeTableManager.BAbstractElement.ObjectID">
             <summary>オブジェクトID
             </summary>
         </member>
-        <member name="P:TimeTableManager.CAbstractElement.Item(System.String)">
+        <member name="P:TimeTableManager.BAbstractElement.Item(System.String)">
             <summary>プロパティ
             </summary>
         </member>
-        <member name="F:TimeTableManager.CAbstractElement.notes">
+        <member name="F:TimeTableManager.BAbstractElement.notes">
             <summary>メモ
             </summary>
         </member>
-        <member name="P:TimeTableManager.CAbstractElement.Notes">
+        <member name="P:TimeTableManager.BAbstractElement.Notes">
             <summary>メモ
             </summary>
         </member>
-        <member name="P:TimeTableManager.CAbstractElement.BuiltIn">
+        <member name="P:TimeTableManager.BAbstractElement.BuiltIn">
             <summary>これはビルトインオブジェクトですか？
             </summary>
         </member>
-        <member name="T:TimeTableManager.Element.CDayOff">
+        <member name="T:TimeTableManager.Element.BDayOff">
             <summary>休日
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CDayOff.#ctor(TimeTableManager.ElementCollection.CDayOffCollection)">
+        <member name="M:TimeTableManager.Element.BDayOff.#ctor(TimeTableManager.ElementCollection.BDayOffCollection)">
             <summary>コンストラクタ
             </summary>
             <param name="parent">休日の一覧</param>
         </member>
-        <member name="P:TimeTableManager.Element.CDayOff.StartDate">
+        <member name="P:TimeTableManager.Element.BDayOff.StartDate">
             <summary>
             休日の開始
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CDayOff.EndDate">
+        <member name="P:TimeTableManager.Element.BDayOff.EndDate">
             <summary>
             休日の終了
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CDayOff.TimeTable">
+        <member name="P:TimeTableManager.Element.BDayOff.TimeTable">
             <summary>
             タイムテーブル
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CDayOff.Name">
+        <member name="P:TimeTableManager.Element.BDayOff.Name">
             <summary>
             休日の名称
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CDayOff.Removed">
+        <member name="P:TimeTableManager.Element.BDayOff.Removed">
             <summary>
             削除日
             </summary>
         </member>
-        <member name="T:TimeTableManager.Element.CDefaultFavoriteRandomizer">
+        <member name="T:TimeTableManager.Element.BDefaultFavoriteRandomizer">
             <summary>ランダム化する（デフォルト）
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CDefaultFavoriteRandomizer.RANDNAME">
+        <member name="F:TimeTableManager.Element.BDefaultFavoriteRandomizer.RANDNAME">
             <summary>名称
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CDefaultFavoriteRandomizer.table">
+        <member name="F:TimeTableManager.Element.BDefaultFavoriteRandomizer.table">
             <summary>タイムテーブル
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CDefaultFavoriteRandomizer.random">
+        <member name="F:TimeTableManager.Element.BDefaultFavoriteRandomizer.random">
             <summary>乱数発生装置
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CDefaultFavoriteRandomizer.#ctor">
+        <member name="M:TimeTableManager.Element.BDefaultFavoriteRandomizer.#ctor">
             <summary>コンストラクタ
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CDefaultFavoriteRandomizer.Name">
+        <member name="P:TimeTableManager.Element.BDefaultFavoriteRandomizer.Name">
             <summary>名称
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CDefaultFavoriteRandomizer.dayAfter">
+        <member name="F:TimeTableManager.Element.BDefaultFavoriteRandomizer.dayAfter">
             <summary>当日からこの日数分は自動設定しない
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CDefaultFavoriteRandomizer.DayAfter">
+        <member name="P:TimeTableManager.Element.BDefaultFavoriteRandomizer.DayAfter">
             <summary>当日からこの日数分は自動設定しない
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CDefaultFavoriteRandomizer.Random1">
+        <member name="P:TimeTableManager.Element.BDefaultFavoriteRandomizer.Random1">
             <summary> 乱数発生装置
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CDefaultFavoriteRandomizer.Table">
+        <member name="P:TimeTableManager.Element.BDefaultFavoriteRandomizer.Table">
             <summary>タイムテーブル
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CDefaultFavoriteRandomizer.AutoAllwithChief(TimeTableManager.Element.CTimeTable,System.DateTime)">
+        <member name="M:TimeTableManager.Element.BDefaultFavoriteRandomizer.AutoAllwithChief(TimeTableManager.Element.BTimeTable,System.DateTime)">
             <summary>自動設定する
             </summary>
             <param name="ptable">設定するタイムテーブル</param>
             <param name="Adate">開始</param>
         </member>
-        <member name="M:TimeTableManager.Element.CDefaultFavoriteRandomizer.AutoAllwithChief(TimeTableManager.Element.CTimeTable,System.DateTime,System.DateTime)">
+        <member name="M:TimeTableManager.Element.BDefaultFavoriteRandomizer.AutoAllwithChief(TimeTableManager.Element.BTimeTable,System.DateTime,System.DateTime)">
             <summary>自動設定する
             </summary>
             <param name="ptable">設定するタイムテーブル</param>
             <param name="start">開始</param>
             <param name="end">終了</param>
         </member>
-        <member name="M:TimeTableManager.Element.CDefaultFavoriteRandomizer.AutoAllwithChief(TimeTableManager.Element.CTimeTable,System.DateTime,System.DateTime,System.DateTime)">
+        <member name="M:TimeTableManager.Element.BDefaultFavoriteRandomizer.AutoAllwithChief(TimeTableManager.Element.BTimeTable,System.DateTime,System.DateTime,System.DateTime)">
             <summary>自動設定する
             </summary>
             <param name="ptable">設定するタイムテーブル</param>
@@ -1935,7 +2169,7 @@
             <param name="start">開始</param>
             <param name="end">終了</param>
         </member>
-        <member name="M:TimeTableManager.Element.CDefaultFavoriteRandomizer.MemberComparison(TimeTableManager.Element.CMember,TimeTableManager.Element.CMember)">
+        <member name="M:TimeTableManager.Element.BDefaultFavoriteRandomizer.MemberComparison(TimeTableManager.Element.BMember,TimeTableManager.Element.BMember)">
             <summary>
             メンバーの並び順
             </summary>
@@ -1943,30 +2177,30 @@
             <param name="y"></param>
             <returns></returns>
         </member>
-        <member name="M:TimeTableManager.Element.CDefaultFavoriteRandomizer.AutoAllwithChief(TimeTableManager.Element.CScheduledDate)">
+        <member name="M:TimeTableManager.Element.BDefaultFavoriteRandomizer.AutoAllwithChief(TimeTableManager.Element.BScheduledDate)">
             <summary> メンバーとシフトの好みの組み合わせを自動設定してみる。
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CDefaultFavoriteRandomizer.SetFavoriteMemberStand(TimeTableManager.Element.CScheduledDate,TimeTableManager.Element.CMember)">
+        <member name="M:TimeTableManager.Element.BDefaultFavoriteRandomizer.SetFavoriteMemberStand(TimeTableManager.Element.BScheduledDate,TimeTableManager.Element.BMember)">
             <summary> メンバーのシフトの好みを自動設定する
             </summary>
             <param name="sDate">スケジュール化された（自動設定対象の）日付</param>
             <param name="member">設定するメンバー</param>
         </member>
-        <member name="M:TimeTableManager.Element.CDefaultFavoriteRandomizer.SetFavoriteMemberStand(TimeTableManager.Element.CScheduledDate,TimeTableManager.Element.CMember,System.Boolean)">
+        <member name="M:TimeTableManager.Element.BDefaultFavoriteRandomizer.SetFavoriteMemberStand(TimeTableManager.Element.BScheduledDate,TimeTableManager.Element.BMember,System.Boolean)">
             <summary> メンバーのシフトの好みを自動設定する
             </summary>
             <param name="sDate">スケジュール化された（自動設定対象の）日付</param>
             <param name="member">設定するメンバー</param>
             <param name="force">休みを気にするかどうか</param>
         </member>
-        <member name="M:TimeTableManager.Element.CDefaultFavoriteRandomizer.SetFavoritePatternStand(TimeTableManager.Element.CScheduledDate,TimeTableManager.Element.CPattern)">
+        <member name="M:TimeTableManager.Element.BDefaultFavoriteRandomizer.SetFavoritePatternStand(TimeTableManager.Element.BScheduledDate,TimeTableManager.Element.BPattern)">
             <summary> シフトのメンバーの好みを自動設定する
             </summary>
             <param name="sDate">スケジュール化された（自動設定対象の）日付</param>
             <param name="pattern">設定するシフト</param>
         </member>
-        <member name="M:TimeTableManager.Element.CDefaultFavoriteRandomizer.CopyFavorites(TimeTableManager.Element.CScheduledDate,TimeTableManager.Element.CScheduledDate)">
+        <member name="M:TimeTableManager.Element.BDefaultFavoriteRandomizer.CopyFavorites(TimeTableManager.Element.BScheduledDate,TimeTableManager.Element.BScheduledDate)">
             <summary>好みをコピーする
             </summary>
             <param name="src">元</param>
@@ -1984,7 +2218,7 @@
             <summary>名称
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CMonthlyFavoriteRandomizer.AutoAllwithChief(TimeTableManager.Element.CScheduledDate)">
+        <member name="M:TimeTableManager.Element.CMonthlyFavoriteRandomizer.AutoAllwithChief(TimeTableManager.Element.BScheduledDate)">
             <summary>オーバーライド
             </summary>
             <param name="sDate"></param>
@@ -2001,7 +2235,7 @@
             <summary>名称
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CWeeklyFavoriteRandomizer.AutoAllwithChief(TimeTableManager.Element.CScheduledDate)">
+        <member name="M:TimeTableManager.Element.CWeeklyFavoriteRandomizer.AutoAllwithChief(TimeTableManager.Element.BScheduledDate)">
             <summary>オーバーライド
             </summary>
             <param name="sDate"></param>
@@ -2018,166 +2252,166 @@
             <summary>名称
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CMonthlyWeeklyFavoriteRandomizer.AutoAllwithChief(TimeTableManager.Element.CScheduledDate)">
+        <member name="M:TimeTableManager.Element.CMonthlyWeeklyFavoriteRandomizer.AutoAllwithChief(TimeTableManager.Element.BScheduledDate)">
             <summary>オーバーライド
             </summary>
             <param name="sDate"></param>
         </member>
-        <member name="T:TimeTableManager.Element.CMember">
+        <member name="T:TimeTableManager.Element.BMember">
             <summary>メンバー
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CMember.NULL">
+        <member name="F:TimeTableManager.Element.BMember.NULL">
             <summary>ナル値の替わり
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CMember.name">
+        <member name="F:TimeTableManager.Element.BMember.name">
             <summary>メンバー名 
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CMember.IsChief">
+        <member name="F:TimeTableManager.Element.BMember.IsChief">
             <summary>このメンバーはチーフかどうか 
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CMember.expectedRest">
+        <member name="F:TimeTableManager.Element.BMember.expectedRest">
             <summary>このメンバーの休みの割合の期待値 
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CMember.expectedWork">
+        <member name="F:TimeTableManager.Element.BMember.expectedWork">
             <summary>このメンバーの勤務時間の平均の期待値 
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CMember.parent">
+        <member name="F:TimeTableManager.Element.BMember.parent">
             <summary>メンバーコレクション 
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CMember.priority">
+        <member name="F:TimeTableManager.Element.BMember.priority">
             <summary>このメンバーの表示順 
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CMember.selectedpatterns">
+        <member name="F:TimeTableManager.Element.BMember.selectedpatterns">
             <summary>このメンバーが就労可能なシフト 
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CMember.availDay">
+        <member name="F:TimeTableManager.Element.BMember.availDay">
             <summary>稼働日
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CMember.continuas">
+        <member name="F:TimeTableManager.Element.BMember.continuas">
             <summary>連続稼働日
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CMember.spacetime">
+        <member name="F:TimeTableManager.Element.BMember.spacetime">
             <summary>稼動間隔
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CMember.ExpectedRest">
+        <member name="P:TimeTableManager.Element.BMember.ExpectedRest">
             <summary>休みの割合
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CMember.ExpectedWork">
+        <member name="P:TimeTableManager.Element.BMember.ExpectedWork">
             <summary>稼働時間
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CMember.Name">
+        <member name="P:TimeTableManager.Element.BMember.Name">
             <summary>メンバー名
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CMember.PatternSize">
+        <member name="P:TimeTableManager.Element.BMember.PatternSize">
             <summary>勤務シフト数
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CMember.Priority">
+        <member name="P:TimeTableManager.Element.BMember.Priority">
             <summary>優先順位
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CMember.TimeTable">
+        <member name="P:TimeTableManager.Element.BMember.TimeTable">
             <summary>スケジュール全て 
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CMember.#ctor(TimeTableManager.ElementCollection.CMemberCollection)">
+        <member name="M:TimeTableManager.Element.BMember.#ctor(TimeTableManager.ElementCollection.BMemberCollection)">
             <summary>コンストラクタ
             </summary>
             <param name="parent">メンバーコレクション</param>
         </member>
-        <member name="M:TimeTableManager.Element.CMember.#ctor(TimeTableManager.ElementCollection.CMemberCollection,System.Int64)">
+        <member name="M:TimeTableManager.Element.BMember.#ctor(TimeTableManager.ElementCollection.BMemberCollection,System.Int64)">
             <summary>コンストラクタ
             </summary>
             <param name="parent">メンバーコレクション</param>
             <param name="id">メンバーのID</param>
         </member>
-        <member name="M:TimeTableManager.Element.CMember.AddPattern(TimeTableManager.Element.CPattern)">
+        <member name="M:TimeTableManager.Element.BMember.AddPattern(TimeTableManager.Element.BPattern)">
             <summary>勤務シフトの追加
             </summary>
             <param name="pattern">追加するシフト</param>
         </member>
-        <member name="M:TimeTableManager.Element.CMember.GetPattern(System.Int32)">
+        <member name="M:TimeTableManager.Element.BMember.GetPattern(System.Int32)">
             <summary>勤務シフトの取得
             </summary>
             <param name="n">n番目</param>
             <returns>勤務シフト</returns>
         </member>
-        <member name="M:TimeTableManager.Element.CMember.RemovePattern(TimeTableManager.Element.CPattern)">
+        <member name="M:TimeTableManager.Element.BMember.RemovePattern(TimeTableManager.Element.BPattern)">
             <summary>勤務シフトの削除
             </summary>
             <param name="pattern">削除するシフト</param>
         </member>
-        <member name="P:TimeTableManager.Element.CMember.Item(System.Int32)">
+        <member name="P:TimeTableManager.Element.BMember.Item(System.Int32)">
             <summary>勤務シフト
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CMember.ClearPatterns">
+        <member name="M:TimeTableManager.Element.BMember.ClearPatterns">
             <summary>勤務シフトをクリアする
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CMember.Contains(TimeTableManager.Element.CPattern)">
+        <member name="M:TimeTableManager.Element.BMember.Contains(TimeTableManager.Element.BPattern)">
             <summary>勤務シフトを含んでいるか？
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CMember.IsAvailableDay(System.Int32)">
+        <member name="M:TimeTableManager.Element.BMember.IsAvailableDay(System.Int32)">
             <summary>指定された曜日は稼働日かどうか
             </summary>
             <param name="weekday">曜日をあらわすint</param>
             <returns>true:稼働日 false:休み</returns>
         </member>
-        <member name="M:TimeTableManager.Element.CMember.SetAvailableDay(System.Int32,System.Boolean)">
+        <member name="M:TimeTableManager.Element.BMember.SetAvailableDay(System.Int32,System.Boolean)">
             <summary>指定された曜日を稼働日とするかどうか
             </summary>
             <param name="weekday">曜日をあらわすint</param>
             <param name="available">true:稼働日 false:休み</param>
         </member>
-        <member name="M:TimeTableManager.Element.CMember.IsAvalableDay(System.DayOfWeek)">
+        <member name="M:TimeTableManager.Element.BMember.IsAvalableDay(System.DayOfWeek)">
             <summary>指定された曜日は稼働日かどうか
             </summary>
             <param name="weekday">曜日</param>
             <returns>true:稼働日 false:休み</returns>
         </member>
-        <member name="M:TimeTableManager.Element.CMember.SetAvailableDay(System.DayOfWeek,System.Boolean)">
+        <member name="M:TimeTableManager.Element.BMember.SetAvailableDay(System.DayOfWeek,System.Boolean)">
             <summary>指定された曜日を稼働日とするかどうか
             </summary>
             <param name="weekday">曜日</param>
             <param name="available">true:稼働日 false:休み</param>
         </member>
-        <member name="M:TimeTableManager.Element.CMember.IsAvalableDay(System.DateTime)">
+        <member name="M:TimeTableManager.Element.BMember.IsAvalableDay(System.DateTime)">
             <summary>指定された日は稼働日かどうか
             </summary>
             <param name="date">日付</param>
             <returns>true:稼働日 false:休み</returns>
         </member>
-        <member name="P:TimeTableManager.Element.CMember.Continuas">
+        <member name="P:TimeTableManager.Element.BMember.Continuas">
             <summary>連続して稼動してよい日数
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CMember.Spacetime">
+        <member name="P:TimeTableManager.Element.BMember.Spacetime">
             <summary>稼動間隔
             稼動と稼動の間に必要な時間
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CMember.ContinuasInt">
+        <member name="P:TimeTableManager.Element.BMember.ContinuasInt">
             <summary>連続して稼動してよい日数
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CMember.SpacetimeInt">
+        <member name="P:TimeTableManager.Element.BMember.SpacetimeInt">
             <summary>稼動間隔
             稼動と稼動の間に必要な時間
             </summary>
@@ -2194,86 +2428,86 @@
             <summary>名無しの権兵衛
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.NULL_MEMBER.AddPattern(TimeTableManager.Element.CPattern)">
+        <member name="M:TimeTableManager.Element.NULL_MEMBER.AddPattern(TimeTableManager.Element.BPattern)">
             <summary>勤務シフトの追加不可
             </summary>
             <param name="pattern">勤務シフト</param>
         </member>
-        <member name="T:TimeTableManager.Element.CPattern">
+        <member name="T:TimeTableManager.Element.BPattern">
             <summary>勤務シフト
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CPattern.AllDay">
+        <member name="F:TimeTableManager.Element.BPattern.AllDay">
             <summary>一日中</summary>
         </member>
-        <member name="F:TimeTableManager.Element.CPattern.ZeroDay">
+        <member name="F:TimeTableManager.Element.BPattern.ZeroDay">
             <summary>ゼロ時間</summary>
         </member>
-        <member name="F:TimeTableManager.Element.CPattern.DAYOFF">
+        <member name="F:TimeTableManager.Element.BPattern.DAYOFF">
             <summary>休日</summary>
         </member>
-        <member name="F:TimeTableManager.Element.CPattern.MULTI">
+        <member name="F:TimeTableManager.Element.BPattern.MULTI">
             <summary>複数選択されている場合</summary>
         </member>
-        <member name="F:TimeTableManager.Element.CPattern.NULL">
+        <member name="F:TimeTableManager.Element.BPattern.NULL">
             <summary>ナル値の替わり</summary>
         </member>
-        <member name="F:TimeTableManager.Element.CPattern.name">
+        <member name="F:TimeTableManager.Element.BPattern.name">
             <summary>勤務シフト名 </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CPattern.parent">
+        <member name="F:TimeTableManager.Element.BPattern.parent">
             <summary>親オブジェクト(シフトコレクション) </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CPattern.start">
+        <member name="F:TimeTableManager.Element.BPattern.start">
             <summary>開始時間</summary>
         </member>
-        <member name="F:TimeTableManager.Element.CPattern.scope">
+        <member name="F:TimeTableManager.Element.BPattern.scope">
             <summary>開始から終了まで</summary>
         </member>
-        <member name="F:TimeTableManager.Element.CPattern.rest">
+        <member name="F:TimeTableManager.Element.BPattern.rest">
             <summary>休憩時間</summary>
         </member>
-        <member name="P:TimeTableManager.Element.CPattern.Name">
+        <member name="P:TimeTableManager.Element.BPattern.Name">
             <summary>
             シフト名
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CPattern.Rest">
+        <member name="P:TimeTableManager.Element.BPattern.Rest">
             <summary>
             休憩時間
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CPattern.TimeTable">
+        <member name="P:TimeTableManager.Element.BPattern.TimeTable">
             <summary>
             タイムテーブル
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CPattern.Scope">
+        <member name="P:TimeTableManager.Element.BPattern.Scope">
             <summary>
             期間の取得
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CPattern.Start">
+        <member name="P:TimeTableManager.Element.BPattern.Start">
             <summary>
             開始時刻
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CPattern.End">
+        <member name="P:TimeTableManager.Element.BPattern.End">
             <summary>
             終了時刻
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CPattern.Over">
+        <member name="P:TimeTableManager.Element.BPattern.Over">
             <returns>
             日付を超えているかどうか
             </returns>
         </member>
-        <member name="M:TimeTableManager.Element.CPattern.#ctor(TimeTableManager.ElementCollection.CPatternCollection)">
+        <member name="M:TimeTableManager.Element.BPattern.#ctor(TimeTableManager.ElementCollection.BPatternCollection)">
             <summary>
             シフト（コンストラクタ）
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CPattern.#ctor(TimeTableManager.ElementCollection.CPatternCollection,System.Int32)">
+        <member name="M:TimeTableManager.Element.BPattern.#ctor(TimeTableManager.ElementCollection.BPatternCollection,System.Int32)">
             <summary>
             シフト（コンストラクタ）
             </summary>
@@ -2464,99 +2698,99 @@
             <param name="param1">日付にかかわらない</param>
             <returns>常に有効</returns>
         </member>
-        <member name="T:TimeTableManager.Element.CRequirePatterns">
+        <member name="T:TimeTableManager.Element.BRequirePatterns">
             <summary>
             人員配置
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CRequirePatterns.DAYOFF">
+        <member name="F:TimeTableManager.Element.BRequirePatterns.DAYOFF">
             <summary>休みの日
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CRequirePatterns.NULL">
+        <member name="F:TimeTableManager.Element.BRequirePatterns.NULL">
             <summary>Nullの代わり
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CRequirePatterns.name">
+        <member name="F:TimeTableManager.Element.BRequirePatterns.name">
             <summary>名前(初期値="")
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CRequirePatterns.parent">
+        <member name="F:TimeTableManager.Element.BRequirePatterns.parent">
             <summary>コレクション
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CRequirePatterns.patternList">
+        <member name="F:TimeTableManager.Element.BRequirePatterns.patternList">
             <summary>勤務シフトのリスト
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CRequirePatterns.Requires">
+        <member name="F:TimeTableManager.Element.BRequirePatterns.Requires">
             <summary>勤務シフト/人数のセット
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CRequirePatterns.ExtractedSize">
+        <member name="P:TimeTableManager.Element.BRequirePatterns.ExtractedSize">
             <summary>展開された人数またはのべ人数
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CRequirePatterns.Name">
+        <member name="P:TimeTableManager.Element.BRequirePatterns.Name">
             <summary>名前
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CRequirePatterns.TimeTable">
+        <member name="P:TimeTableManager.Element.BRequirePatterns.TimeTable">
             <summary>タイムテーブル
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CRequirePatterns.ValidSize">
+        <member name="P:TimeTableManager.Element.BRequirePatterns.ValidSize">
             <summary>人数が０より大きいシフトの数
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CRequirePatterns.#ctor(TimeTableManager.ElementCollection.CPatternCollection,TimeTableManager.ElementCollection.CRequirePatternsCollection)">
+        <member name="M:TimeTableManager.Element.BRequirePatterns.#ctor(TimeTableManager.ElementCollection.BPatternCollection,TimeTableManager.ElementCollection.BRequirePatternsCollection)">
             <summary>コンストラクタ
             </summary>
             <param name="patternList">勤務シフトのリスト</param>
             <param name="parent">タイムテーブル</param>
         </member>
-        <member name="M:TimeTableManager.Element.CRequirePatterns.GetExtractedPattern(System.Int32)">
+        <member name="M:TimeTableManager.Element.BRequirePatterns.GetExtractedPattern(System.Int32)">
             <summary>展開された人数
             </summary>
             <param name="n">何番目？</param>
             <returns>n番目のシフトの人数</returns>
         </member>
-        <member name="M:TimeTableManager.Element.CRequirePatterns.GetPattern(System.Int32)">
+        <member name="M:TimeTableManager.Element.BRequirePatterns.GetPattern(System.Int32)">
             <summary>勤務シフト
             </summary>
             <param name="n">何番目？</param>
             <returns>n番目のシフト</returns>
         </member>
-        <member name="M:TimeTableManager.Element.CRequirePatterns.GetPatternTotal(System.TimeSpan)">
+        <member name="M:TimeTableManager.Element.BRequirePatterns.GetPatternTotal(System.TimeSpan)">
             <summary>指定された時間の稼動中（であるべき）人数
             </summary>
             <param name="time">時間（時刻）</param>
             <returns>指定された時間の稼動中（であるべき）人数</returns>
         </member>
-        <member name="M:TimeTableManager.Element.CRequirePatterns.GetRequire(TimeTableManager.Element.CPattern)">
+        <member name="M:TimeTableManager.Element.BRequirePatterns.GetRequire(TimeTableManager.Element.BPattern)">
             <summary>ターンの人数
             </summary>
             <param name="pattern">勤務シフト</param>
             <returns>人数</returns>
         </member>
-        <member name="M:TimeTableManager.Element.CRequirePatterns.GetValid(System.Int32)">
+        <member name="M:TimeTableManager.Element.BRequirePatterns.GetValid(System.Int32)">
             <summary>有効な人数
             </summary>
             <param name="n">n番目？</param>
             <returns>n番目のシフトの人数</returns>
         </member>
-        <member name="M:TimeTableManager.Element.CRequirePatterns.SetRequire(TimeTableManager.Element.CPattern,System.Int32)">
+        <member name="M:TimeTableManager.Element.BRequirePatterns.SetRequire(TimeTableManager.Element.BPattern,System.Int32)">
             <summary>人員配置をセットする
             </summary>
             <param name="n">n番目？</param>
             <param name="require">n番目の人数</param>
         </member>
-        <member name="M:TimeTableManager.Element.CRequirePatterns.Size">
+        <member name="M:TimeTableManager.Element.BRequirePatterns.Size">
             <summary>勤務シフトの数
             </summary>
             <returns>勤務シフトの数</returns>
         </member>
-        <member name="M:TimeTableManager.Element.CRequirePatterns.GetPeriodTimes">
+        <member name="M:TimeTableManager.Element.BRequirePatterns.GetPeriodTimes">
             <summary>区切りになる時間
             </summary>
             <returns>タイムスパンの配列</returns>
@@ -2603,7 +2837,7 @@
             <param name="time">時間（時刻）</param>
             <returns>指定された時間の稼動中（であるべき）人数</returns>
         </member>
-        <member name="M:TimeTableManager.Element.DAYOFF_REQUIRE.GetRequire(TimeTableManager.Element.CPattern)">
+        <member name="M:TimeTableManager.Element.DAYOFF_REQUIRE.GetRequire(TimeTableManager.Element.BPattern)">
             <summary>勤務シフトの人数を取得する
             </summary>
             <param name="pattern">勤務シフト</param>
@@ -2615,7 +2849,7 @@
             <param name="n">n番目？</param>
             <returns>n番目のシフトの人数</returns>
         </member>
-        <member name="M:TimeTableManager.Element.DAYOFF_REQUIRE.SetRequire(TimeTableManager.Element.CPattern,System.Int32)">
+        <member name="M:TimeTableManager.Element.DAYOFF_REQUIRE.SetRequire(TimeTableManager.Element.BPattern,System.Int32)">
             <summary>人員配置をセットする
             </summary>
             <param name="n">n番目？</param>
@@ -2693,7 +2927,7 @@
             <param name="time">時間（時刻）</param>
             <returns>指定された時間の稼動中（であるべき）人数</returns>
         </member>
-        <member name="M:TimeTableManager.Element.NULL_REQUIRE.GetRequire(TimeTableManager.Element.CPattern)">
+        <member name="M:TimeTableManager.Element.NULL_REQUIRE.GetRequire(TimeTableManager.Element.BPattern)">
             <summary>勤務シフトの人数を取得する
             </summary>
             <param name="pattern">勤務シフト</param>
@@ -2705,7 +2939,7 @@
             <param name="n">n番目？</param>
             <returns>n番目のシフトの人数</returns>
         </member>
-        <member name="M:TimeTableManager.Element.NULL_REQUIRE.SetRequire(TimeTableManager.Element.CPattern,System.Int32)">
+        <member name="M:TimeTableManager.Element.NULL_REQUIRE.SetRequire(TimeTableManager.Element.BPattern,System.Int32)">
             <summary>人員配置をセットする
             </summary>
             <param name="n">n番目？</param>
@@ -2741,252 +2975,252 @@
             <param name="param1">日付にかかわらない</param>
             <returns>常に有効</returns>
         </member>
-        <member name="T:TimeTableManager.Element.CSchedule">
+        <member name="T:TimeTableManager.Element.BSchedule">
             <summary>メンバーと勤務シフトの組み合わせ
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CSchedule.Member">
+        <member name="P:TimeTableManager.Element.BSchedule.Member">
             <summary>メンバー
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CSchedule.Pattern">
+        <member name="P:TimeTableManager.Element.BSchedule.Pattern">
             <summary>勤務シフト
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CSchedule.StartTime">
+        <member name="P:TimeTableManager.Element.BSchedule.StartTime">
             <summary>開始時間
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CSchedule.EndTime">
+        <member name="P:TimeTableManager.Element.BSchedule.EndTime">
             <summary>終了時間
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CSchedule.TimeTable">
+        <member name="P:TimeTableManager.Element.BSchedule.TimeTable">
             <summary>タイムテーブル
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CSchedule.Date">
+        <member name="P:TimeTableManager.Element.BSchedule.Date">
             <summary>スケジュールの火
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CSchedule.member">
+        <member name="F:TimeTableManager.Element.BSchedule.member">
             <summary>このスケジュールのメンバー 
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CSchedule.parent">
+        <member name="F:TimeTableManager.Element.BSchedule.parent">
             <summary>このスケジュールを格納する日付 
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CSchedule.pattern">
+        <member name="F:TimeTableManager.Element.BSchedule.pattern">
             <summary>このスケジュールのシフト 
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CSchedule.#ctor(TimeTableManager.Element.CScheduledDate)">
+        <member name="M:TimeTableManager.Element.BSchedule.#ctor(TimeTableManager.Element.BScheduledDate)">
             <summary>コンストラクタ
             </summary>
             <param name="Parent">この組み合わせを保持する日付</param>
         </member>
-        <member name="P:TimeTableManager.Element.CSchedule.Notes">
+        <member name="P:TimeTableManager.Element.BSchedule.Notes">
             <summary>メモ
             </summary>
         </member>
-        <member name="T:TimeTableManager.Element.CScheduledDate">
+        <member name="T:TimeTableManager.Element.BScheduledDate">
             <summary>
             スケジュール化された日付
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CScheduledDate.Date">
+        <member name="P:TimeTableManager.Element.BScheduledDate.Date">
             <summary>
             日付
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CScheduledDate.Require">
+        <member name="P:TimeTableManager.Element.BScheduledDate.Require">
             <summary>
             人員配置
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CScheduledDate.TimeTable">
+        <member name="P:TimeTableManager.Element.BScheduledDate.TimeTable">
             <summary>
             親
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CScheduledDate.ValidMemberSize">
+        <member name="P:TimeTableManager.Element.BScheduledDate.ValidMemberSize">
             <summary>
             有効なメンバーの数
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CScheduledDate.DayOff">
+        <member name="P:TimeTableManager.Element.BScheduledDate.DayOff">
             <summary>
             今日は休みか？
             </summary>
         </member>
-        <member name="T:TimeTableManager.Element.CScheduledDate.MemberCount">
+        <member name="T:TimeTableManager.Element.BScheduledDate.MemberCount">
             <summary>
             メンバーの数
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CScheduledDate.MemberCount._cnt">
+        <member name="F:TimeTableManager.Element.BScheduledDate.MemberCount._cnt">
             <summary>字際にシフトに割り当てられた人数 </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CScheduledDate.MemberCount._max">
+        <member name="F:TimeTableManager.Element.BScheduledDate.MemberCount._max">
             <summary>勤務シフトに人員配置 </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CScheduledDate.MemberCount._pt">
+        <member name="F:TimeTableManager.Element.BScheduledDate.MemberCount._pt">
             <summary>勤務シフト </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CScheduledDate.MemberCount.#ctor(TimeTableManager.Element.CScheduledDate,TimeTableManager.Element.CRequirePatterns)">
+        <member name="M:TimeTableManager.Element.BScheduledDate.MemberCount.#ctor(TimeTableManager.Element.BScheduledDate,TimeTableManager.Element.BRequirePatterns)">
             <summary>メンバー数の作成</summary>
         </member>
-        <member name="M:TimeTableManager.Element.CScheduledDate.MemberCount.Add(System.Int32)">
+        <member name="M:TimeTableManager.Element.BScheduledDate.MemberCount.Add(System.Int32)">
             <summary>実際に割り当てられた人数の加算</summary>
         </member>
-        <member name="M:TimeTableManager.Element.CScheduledDate.MemberCount.Add(TimeTableManager.Element.CPattern)">
+        <member name="M:TimeTableManager.Element.BScheduledDate.MemberCount.Add(TimeTableManager.Element.BPattern)">
             <summary>実際に割り当てられた人数の加算</summary>
         </member>
-        <member name="M:TimeTableManager.Element.CScheduledDate.MemberCount.Addable(System.Int32)">
+        <member name="M:TimeTableManager.Element.BScheduledDate.MemberCount.Addable(System.Int32)">
             <summary>人数は追加可能ですか？</summary>
         </member>
-        <member name="M:TimeTableManager.Element.CScheduledDate.MemberCount.Addable(TimeTableManager.Element.CPattern)">
+        <member name="M:TimeTableManager.Element.BScheduledDate.MemberCount.Addable(TimeTableManager.Element.BPattern)">
             <summary>人数は追加可能ですか？</summary>
         </member>
-        <member name="M:TimeTableManager.Element.CScheduledDate.MemberCount.Id(TimeTableManager.Element.CPattern)">
+        <member name="M:TimeTableManager.Element.BScheduledDate.MemberCount.Id(TimeTableManager.Element.BPattern)">
             <summary>このオブジェクト内でのシフトの番号</summary>
         </member>
-        <member name="T:TimeTableManager.Element.CScheduledDate.MembersPattern">
+        <member name="T:TimeTableManager.Element.BScheduledDate.MembersPattern">
             <summary> メンバーのシフトに対する希望を管理する</summary>
         </member>
-        <member name="F:TimeTableManager.Element.CScheduledDate.MembersPattern._m">
+        <member name="F:TimeTableManager.Element.BScheduledDate.MembersPattern._m">
             <summary>メンバー </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CScheduledDate.MembersPattern._ps">
+        <member name="F:TimeTableManager.Element.BScheduledDate.MembersPattern._ps">
             <summary>勤務シフトの希望 </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CScheduledDate.MembersPattern.#ctor(TimeTableManager.Element.CScheduledDate,TimeTableManager.Element.CMember)">
+        <member name="M:TimeTableManager.Element.BScheduledDate.MembersPattern.#ctor(TimeTableManager.Element.BScheduledDate,TimeTableManager.Element.BMember)">
             <summary>コンストラクタ</summary>
         </member>
-        <member name="M:TimeTableManager.Element.CScheduledDate.MembersPattern.GetPattern(System.Int32)">
+        <member name="M:TimeTableManager.Element.BScheduledDate.MembersPattern.GetPattern(System.Int32)">
             <summary>メンバーの好みのシフト</summary>
         </member>
-        <member name="M:TimeTableManager.Element.CScheduledDate.MembersPattern.SetPattern(System.Int32,TimeTableManager.Element.CPattern)">
+        <member name="M:TimeTableManager.Element.BScheduledDate.MembersPattern.SetPattern(System.Int32,TimeTableManager.Element.BPattern)">
             <summary>メンバーの好みのシフトをセット</summary>
         </member>
-        <member name="T:TimeTableManager.Element.CScheduledDate.PatternsMember">
+        <member name="T:TimeTableManager.Element.BScheduledDate.PatternsMember">
             <summary> シフトのメンバーに対する好みを管理する</summary>
         </member>
-        <member name="F:TimeTableManager.Element.CScheduledDate.PatternsMember._ms">
+        <member name="F:TimeTableManager.Element.BScheduledDate.PatternsMember._ms">
             <summary>好みの順番</summary>
         </member>
-        <member name="F:TimeTableManager.Element.CScheduledDate.PatternsMember._p">
+        <member name="F:TimeTableManager.Element.BScheduledDate.PatternsMember._p">
             <summary>管理するシフト</summary>
         </member>
-        <member name="M:TimeTableManager.Element.CScheduledDate.PatternsMember.#ctor(TimeTableManager.Element.CScheduledDate,TimeTableManager.Element.CPattern)">
+        <member name="M:TimeTableManager.Element.BScheduledDate.PatternsMember.#ctor(TimeTableManager.Element.BScheduledDate,TimeTableManager.Element.BPattern)">
             <summary>コンストラクタ</summary>
         </member>
-        <member name="M:TimeTableManager.Element.CScheduledDate.PatternsMember.GetMember(System.Int32)">
+        <member name="M:TimeTableManager.Element.BScheduledDate.PatternsMember.GetMember(System.Int32)">
             <summary>メンバー</summary>
         </member>
-        <member name="M:TimeTableManager.Element.CScheduledDate.PatternsMember.SetMember(System.Int32,TimeTableManager.Element.CMember)">
+        <member name="M:TimeTableManager.Element.BScheduledDate.PatternsMember.SetMember(System.Int32,TimeTableManager.Element.BMember)">
             <summary>勤務シフトの好みの設定</summary>
         </member>
-        <member name="F:TimeTableManager.Element.CScheduledDate.DATE_FORMAT">
+        <member name="F:TimeTableManager.Element.BScheduledDate.DATE_FORMAT">
             <summary>ノードに保存する際の日付の表現形式 </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CScheduledDate.rnd">
+        <member name="F:TimeTableManager.Element.BScheduledDate.rnd">
             <summary>ランダム化に使用する </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CScheduledDate.MemberToMembersPattern">
+        <member name="F:TimeTableManager.Element.BScheduledDate.MemberToMembersPattern">
             <summary>メンバーの好み </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CScheduledDate.PatternToPatternsMember">
+        <member name="F:TimeTableManager.Element.BScheduledDate.PatternToPatternsMember">
             <summary>勤務シフトの好み </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CScheduledDate.date">
+        <member name="F:TimeTableManager.Element.BScheduledDate.date">
             <summary>日付 </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CScheduledDate.requirepatterns">
+        <member name="F:TimeTableManager.Element.BScheduledDate.requirepatterns">
             <summary>人員配置のコレクション</summary>
         </member>
-        <member name="F:TimeTableManager.Element.CScheduledDate.timeTable">
+        <member name="F:TimeTableManager.Element.BScheduledDate.timeTable">
             <summary>（親オブジェクトである）タイムテーブル </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CScheduledDate.MemberToSchedule">
+        <member name="F:TimeTableManager.Element.BScheduledDate.MemberToSchedule">
             <summary>スケジュールを保存する </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CScheduledDate.validMembers">
+        <member name="F:TimeTableManager.Element.BScheduledDate.validMembers">
             <summary>有効なメンバー </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CScheduledDate.#ctor(System.DateTime,TimeTableManager.Element.CTimeTable)">
+        <member name="M:TimeTableManager.Element.BScheduledDate.#ctor(System.DateTime,TimeTableManager.Element.BTimeTable)">
             <summary>スケジュール化された日の作成</summary>
         </member>
-        <member name="M:TimeTableManager.Element.CScheduledDate.#ctor(TimeTableManager.Element.CTimeTable)">
+        <member name="M:TimeTableManager.Element.BScheduledDate.#ctor(TimeTableManager.Element.BTimeTable)">
             <summary>スケジュール化された日の作成</summary>
         </member>
-        <member name="M:TimeTableManager.Element.CScheduledDate.Auto">
+        <member name="M:TimeTableManager.Element.BScheduledDate.Auto">
             <summary> 設定されたメンバーとシフトに対して組み合わせを作成する</summary>
         </member>
-        <member name="M:TimeTableManager.Element.CScheduledDate.CreateSchedule">
+        <member name="M:TimeTableManager.Element.BScheduledDate.CreateSchedule">
             <summary>スケジュールの作成</summary>
         </member>
-        <member name="M:TimeTableManager.Element.CScheduledDate.GetMemberRank(TimeTableManager.Element.CPattern,TimeTableManager.Element.CMember)">
+        <member name="M:TimeTableManager.Element.BScheduledDate.GetMemberRank(TimeTableManager.Element.BPattern,TimeTableManager.Element.BMember)">
             <summary>勤務シフトにおけるメンバーのランクを取得する</summary>
         </member>
-        <member name="M:TimeTableManager.Element.CScheduledDate.GetMembersPattern(TimeTableManager.Element.CMember,System.Int32)">
+        <member name="M:TimeTableManager.Element.BScheduledDate.GetMembersPattern(TimeTableManager.Element.BMember,System.Int32)">
             <summary>メンバーのrank番目に好まれるシフトを取得する</summary>
         </member>
-        <member name="M:TimeTableManager.Element.CScheduledDate.GetMemberTotal(System.TimeSpan)">
+        <member name="M:TimeTableManager.Element.BScheduledDate.GetMemberTotal(System.TimeSpan)">
             <summary>メンバーの合計 指定した時間で働く予定の人数</summary>
         </member>
-        <member name="P:TimeTableManager.Element.CScheduledDate.ObjectID">
+        <member name="P:TimeTableManager.Element.BScheduledDate.ObjectID">
             <summary>このオブジェクトのIDは内部日付を"yyyyMMdd"で変換したint型とする</summary>
         </member>
-        <member name="M:TimeTableManager.Element.CScheduledDate.GetPatternsMember(TimeTableManager.Element.CPattern,System.Int32)">
+        <member name="M:TimeTableManager.Element.BScheduledDate.GetPatternsMember(TimeTableManager.Element.BPattern,System.Int32)">
             <summary>勤務シフトのrank番目に好まれるメンバーを取得する</summary>
         </member>
-        <member name="M:TimeTableManager.Element.CScheduledDate.GetPatternTotal(System.TimeSpan)">
+        <member name="M:TimeTableManager.Element.BScheduledDate.GetPatternTotal(System.TimeSpan)">
             <summary>今の人員配置だとこの時間何人くらい必要なんだろう？</summary>
         </member>
-        <member name="M:TimeTableManager.Element.CScheduledDate.GetSchedule(System.Int32)">
+        <member name="M:TimeTableManager.Element.BScheduledDate.GetSchedule(System.Int32)">
             <summary>メンバーのスケジュールを取得する</summary>
         </member>
-        <member name="M:TimeTableManager.Element.CScheduledDate.GetSchedule(TimeTableManager.Element.CMember)">
+        <member name="M:TimeTableManager.Element.BScheduledDate.GetSchedule(TimeTableManager.Element.BMember)">
             <summary>メンバーのスケジュールを取得する</summary>
         </member>
-        <member name="M:TimeTableManager.Element.CScheduledDate.GetValidMember(System.Int32)">
+        <member name="M:TimeTableManager.Element.BScheduledDate.GetValidMember(System.Int32)">
             <summary>有効なメンバーの取得</summary>
         </member>
-        <member name="M:TimeTableManager.Element.CScheduledDate.MakeMembers">
+        <member name="M:TimeTableManager.Element.BScheduledDate.MakeMembers">
             <summary>有効なメンバーの設定</summary>
         </member>
-        <member name="M:TimeTableManager.Element.CScheduledDate.SetMemberRank(TimeTableManager.Element.CPattern,TimeTableManager.Element.CMember,System.Int32)">
+        <member name="M:TimeTableManager.Element.BScheduledDate.SetMemberRank(TimeTableManager.Element.BPattern,TimeTableManager.Element.BMember,System.Int32)">
             <summary>勤務シフトに対するメンバーのランクを設定する</summary>
         </member>
-        <member name="M:TimeTableManager.Element.CScheduledDate.SetPatternRank(TimeTableManager.Element.CMember,TimeTableManager.Element.CPattern,System.Int32)">
+        <member name="M:TimeTableManager.Element.BScheduledDate.SetPatternRank(TimeTableManager.Element.BMember,TimeTableManager.Element.BPattern,System.Int32)">
             <summary>メンバーに対するシフトのランクを設定する</summary>
         </member>
-        <member name="M:TimeTableManager.Element.CScheduledDate.SetSchedule(TimeTableManager.Element.CSchedule)">
+        <member name="M:TimeTableManager.Element.BScheduledDate.SetSchedule(TimeTableManager.Element.BSchedule)">
             <summary>スケジュールをセットする</summary>
         </member>
-        <member name="M:TimeTableManager.Element.CScheduledDate.#cctor">
+        <member name="M:TimeTableManager.Element.BScheduledDate.#cctor">
             <summary>
             スタティック
             乱数初期化
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CScheduledDate.Item(TimeTableManager.Element.CMember)">
+        <member name="P:TimeTableManager.Element.BScheduledDate.Item(TimeTableManager.Element.BMember)">
             <summary>
             スケジュール
             </summary>
             <param name="member">メンバー</param>
             <returns>スケジュール</returns>
         </member>
-        <member name="P:TimeTableManager.Element.CScheduledDate.Item(System.Int32)">
+        <member name="P:TimeTableManager.Element.BScheduledDate.Item(System.Int32)">
             <summary>
             スケジュール
             </summary>
             <param name="i">n番目？</param>
             <returns>スケジュール</returns>
         </member>
-        <member name="M:TimeTableManager.Element.CScheduledDate.GetMemberContinues(TimeTableManager.Element.CMember,System.Int32)">
+        <member name="M:TimeTableManager.Element.BScheduledDate.GetMemberContinues(TimeTableManager.Element.BMember,System.Int32)">
             <summary>
             メンバーは何日連続で働いているか？
             </summary>
@@ -2994,363 +3228,363 @@
             <param name="max">最大値</param>
             <returns>メンバーは何日連続で働いているか</returns>
         </member>
-        <member name="M:TimeTableManager.Element.CScheduledDate.GetTime2ValidMember(System.TimeSpan)">
+        <member name="M:TimeTableManager.Element.BScheduledDate.GetTime2ValidMember(System.TimeSpan)">
             <summary>
             稼動中のメンバーの数
             </summary>
             <param name="time"></param>
             <returns></returns>
         </member>
-        <member name="M:TimeTableManager.Element.CScheduledDate.GetTime2ValidMember(System.DateTime)">
+        <member name="M:TimeTableManager.Element.BScheduledDate.GetTime2ValidMember(System.DateTime)">
             <summary>
             稼動中のメンバーの数
             </summary>
             <param name="time"></param>
             <returns></returns>
         </member>
-        <member name="M:TimeTableManager.Element.CScheduledDate.GetPeriodTimes">
+        <member name="M:TimeTableManager.Element.BScheduledDate.GetPeriodTimes">
             <summary>
             区切りになる時間
             </summary>
             <returns>タイムスパンの配列</returns>
         </member>
-        <member name="T:TimeTableManager.Element.CTimeTable">
+        <member name="T:TimeTableManager.Element.BTimeTable">
             <summary>タイムテーブル
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CTimeTable.InitBlock">
+        <member name="M:TimeTableManager.Element.BTimeTable.InitBlock">
             <summary>初期化処理
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CTimeTable.Dates">
+        <member name="P:TimeTableManager.Element.BTimeTable.Dates">
             <summary>日付の一覧
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CTimeTable.Members">
+        <member name="P:TimeTableManager.Element.BTimeTable.Members">
             <summary>メンバーの一覧
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CTimeTable.Patterns">
+        <member name="P:TimeTableManager.Element.BTimeTable.Patterns">
             <summary>勤務シフトの一覧
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CTimeTable.DayOffs">
+        <member name="P:TimeTableManager.Element.BTimeTable.DayOffs">
             <summary>休日の一覧
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CTimeTable.Requires">
+        <member name="P:TimeTableManager.Element.BTimeTable.Requires">
             <summary>人員配置の一覧
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CTimeTable.Over">
+        <member name="P:TimeTableManager.Element.BTimeTable.Over">
             <summary>このタイムテーブルは日付をまたぐ
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CTimeTable.id">
+        <member name="F:TimeTableManager.Element.BTimeTable.id">
             <summary>現在のID
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CTimeTable.CurrentID">
+        <member name="P:TimeTableManager.Element.BTimeTable.CurrentID">
             <summary>現在のID
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CTimeTable.NextID">
+        <member name="P:TimeTableManager.Element.BTimeTable.NextID">
             <summary>次のID
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CTimeTable.keepRequire">
+        <member name="F:TimeTableManager.Element.BTimeTable.keepRequire">
             <summary>人員配置を保持するかどうか
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CTimeTable.dates">
+        <member name="F:TimeTableManager.Element.BTimeTable.dates">
             <summary>日付の一覧
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CTimeTable.members">
+        <member name="F:TimeTableManager.Element.BTimeTable.members">
             <summary>メンバーの一覧
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CTimeTable.daysoff">
+        <member name="F:TimeTableManager.Element.BTimeTable.daysoff">
             <summary>休日の一覧
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CTimeTable.patterns">
+        <member name="F:TimeTableManager.Element.BTimeTable.patterns">
             <summary>勤務シフトの一覧
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CTimeTable.requires">
+        <member name="F:TimeTableManager.Element.BTimeTable.requires">
             <summary>人員配置の一覧
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CTimeTable.defaultRequire">
+        <member name="F:TimeTableManager.Element.BTimeTable.defaultRequire">
             <summary>デフォルトの人員配置
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CTimeTable.defaults">
+        <member name="F:TimeTableManager.Element.BTimeTable.defaults">
             <summary>デフォルトの人員配置
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CTimeTable.start">
+        <member name="F:TimeTableManager.Element.BTimeTable.start">
             <summary>開始時間
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CTimeTable.around">
+        <member name="F:TimeTableManager.Element.BTimeTable.around">
             <summary>営業時間の終了
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CTimeTable.#ctor">
+        <member name="M:TimeTableManager.Element.BTimeTable.#ctor">
             <summary>コンストラクタ
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CTimeTable.Delete(System.DateTime)">
+        <member name="M:TimeTableManager.Element.BTimeTable.Delete(System.DateTime)">
             <summary>
             日付を削除する
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CTimeTable.Delete(System.Int32)">
+        <member name="M:TimeTableManager.Element.BTimeTable.Delete(System.Int32)">
             <summary>
             日付を削除する
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CTimeTable.DefaultRequire">
+        <member name="P:TimeTableManager.Element.BTimeTable.DefaultRequire">
             <summary>
             デフォルトの人員配置
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CTimeTable.tMonday">
+        <member name="F:TimeTableManager.Element.BTimeTable.tMonday">
             <summary>月曜日</summary>
         </member>
-        <member name="F:TimeTableManager.Element.CTimeTable.tTuesday">
+        <member name="F:TimeTableManager.Element.BTimeTable.tTuesday">
             <summary>火曜日</summary>
         </member>
-        <member name="F:TimeTableManager.Element.CTimeTable.tWednesday">
+        <member name="F:TimeTableManager.Element.BTimeTable.tWednesday">
             <summary>水曜日</summary>
         </member>
-        <member name="F:TimeTableManager.Element.CTimeTable.tThursday">
+        <member name="F:TimeTableManager.Element.BTimeTable.tThursday">
             <summary>木曜日</summary>
         </member>
-        <member name="F:TimeTableManager.Element.CTimeTable.tFriday">
+        <member name="F:TimeTableManager.Element.BTimeTable.tFriday">
             <summary>金曜日</summary>
         </member>
-        <member name="F:TimeTableManager.Element.CTimeTable.tSaturday">
+        <member name="F:TimeTableManager.Element.BTimeTable.tSaturday">
             <summary>土曜日</summary>
         </member>
-        <member name="F:TimeTableManager.Element.CTimeTable.tSunday">
+        <member name="F:TimeTableManager.Element.BTimeTable.tSunday">
             <summary>日曜日</summary>
         </member>
-        <member name="M:TimeTableManager.Element.CTimeTable.DayOfWeek2Int(System.DayOfWeek)">
+        <member name="M:TimeTableManager.Element.BTimeTable.DayOfWeek2Int(System.DayOfWeek)">
             <summary>
             曜日（int→DayoOfWeek）
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CTimeTable.Int2DayOfWeek(System.Int32)">
+        <member name="M:TimeTableManager.Element.BTimeTable.Int2DayOfWeek(System.Int32)">
             <summary>
             曜日（DayoOfWeek→int）
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CTimeTable.GetDefaultRequire(System.DayOfWeek)">
+        <member name="M:TimeTableManager.Element.BTimeTable.GetDefaultRequire(System.DayOfWeek)">
             <summary>人員配置
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CTimeTable.SetDefaultRequire(System.DayOfWeek,TimeTableManager.Element.CRequirePatterns)">
+        <member name="M:TimeTableManager.Element.BTimeTable.SetDefaultRequire(System.DayOfWeek,TimeTableManager.Element.BRequirePatterns)">
             <summary>人員配置
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CTimeTable.GetDefaultRequire(System.Int32)">
+        <member name="M:TimeTableManager.Element.BTimeTable.GetDefaultRequire(System.Int32)">
             <summary>曜日ごとの人員配置
             </summary>
             <param name="weekday">曜日</param>
             <returns>人員配置</returns>
         </member>
-        <member name="M:TimeTableManager.Element.CTimeTable.SetDefaultRequire(System.Int32,TimeTableManager.Element.CRequirePatterns)">
+        <member name="M:TimeTableManager.Element.BTimeTable.SetDefaultRequire(System.Int32,TimeTableManager.Element.BRequirePatterns)">
             <summary>
             人員配置
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CTimeTable.IsDayOff(System.DateTime)">
+        <member name="M:TimeTableManager.Element.BTimeTable.IsDayOff(System.DateTime)">
             <summary>
             該当する日付が休日かどうか判定する.
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CTimeTable.StartTime">
+        <member name="P:TimeTableManager.Element.BTimeTable.StartTime">
             <summary>営業開始時刻
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CTimeTable.EndTime">
+        <member name="P:TimeTableManager.Element.BTimeTable.EndTime">
             <summary>営業終了時刻
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CTimeTable.Around">
+        <member name="P:TimeTableManager.Element.BTimeTable.Around">
             <summary>営業時間
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CTimeTable.Size">
+        <member name="M:TimeTableManager.Element.BTimeTable.Size">
             <summary>
             読み込み済みの日付の数
             </summary>
             <returns></returns>
         </member>
-        <member name="P:TimeTableManager.Element.CTimeTable.KeepRequire">
+        <member name="P:TimeTableManager.Element.BTimeTable.KeepRequire">
             <summary>
             人員配置を保持するかどうか
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CTimeTable.Item(System.Int32)">
+        <member name="P:TimeTableManager.Element.BTimeTable.Item(System.Int32)">
             <summary>
             人員配置
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CTimeTable.Item(System.DateTime)">
+        <member name="P:TimeTableManager.Element.BTimeTable.Item(System.DateTime)">
             <summary>
             人員配置
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CTimeTable.GetEnumerator">
+        <member name="M:TimeTableManager.Element.BTimeTable.GetEnumerator">
             <summary>プロパティキーの一覧
             </summary>
             <returns></returns>
         </member>
-        <member name="P:TimeTableManager.Element.CTimeTable.Item(System.String)">
+        <member name="P:TimeTableManager.Element.BTimeTable.Item(System.String)">
             <summary>
             プロパティ
             </summary>
         </member>
-        <member name="T:TimeTableManager.Element.CTimeTable.PropertyChangeEventHandler">
+        <member name="T:TimeTableManager.Element.BTimeTable.PropertyChangeEventHandler">
             <summary>
             休日が変更された
             </summary>
             <param name="sender">イベントの発生したオブジェクト</param>
             <param name="e">発生したイベント</param>
         </member>
-        <member name="E:TimeTableManager.Element.CTimeTable.OnPropertyChanged">
+        <member name="E:TimeTableManager.Element.BTimeTable.OnPropertyChanged">
             <summary>
             休日が変更された
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CTimeTable.Refresh">
+        <member name="M:TimeTableManager.Element.BTimeTable.Refresh">
             <summary>
             リフレッシュ
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CTimeTable.ScheduleEditedEvnetIsValid">
+        <member name="P:TimeTableManager.Element.BTimeTable.ScheduleEditedEvnetIsValid">
             <summary>
             スケジュールが変更されたらイベントを発生する
             </summary>
         </member>
-        <member name="T:TimeTableManager.Element.CTimeTable.ScheduleEditedEventHandler">
+        <member name="T:TimeTableManager.Element.BTimeTable.ScheduleEditedEventHandler">
             <summary>
             スケジュールが変更されたよ
             </summary>
             <param name="sender">イベントの発生したオブジェクト</param>
             <param name="e">発生したイベント</param>
         </member>
-        <member name="E:TimeTableManager.Element.CTimeTable.OnScheduleEdited">
+        <member name="E:TimeTableManager.Element.BTimeTable.OnScheduleEdited">
             <summary>
             スケジュールが変更された
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CTimeTable.NotifyScheduleEdited(TimeTableManager.Element.CSchedule)">
+        <member name="M:TimeTableManager.Element.BTimeTable.NotifyScheduleEdited(TimeTableManager.Element.BSchedule)">
             <summary>
             スケジュールが変更された
             </summary>
             <param name="param"></param>
         </member>
-        <member name="T:TimeTableManager.Element.CTimeTable.PatternsEditedEventHandler">
+        <member name="T:TimeTableManager.Element.BTimeTable.PatternsEditedEventHandler">
             <summary>
             シフトが変更された
             </summary>
             <param name="sender">イベントの発生したオブジェクト</param>
             <param name="e">発生したイベント</param>
         </member>
-        <member name="E:TimeTableManager.Element.CTimeTable.OnPatternsEdited">
+        <member name="E:TimeTableManager.Element.BTimeTable.OnPatternsEdited">
             <summary>
             シフトが変更された
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CTimeTable.NotifyPatternsEdited(TimeTableManager.Element.EnumTimeTableElementEventTypes,TimeTableManager.Element.CPattern)">
+        <member name="M:TimeTableManager.Element.BTimeTable.NotifyPatternsEdited(TimeTableManager.Element.EnumTimeTableElementEventTypes,TimeTableManager.Element.BPattern)">
             <summary>
             シフトが変更された
             </summary>
             <param name="type"></param>
             <param name="source"></param>
         </member>
-        <member name="T:TimeTableManager.Element.CTimeTable.MembersEditedEventHandler">
+        <member name="T:TimeTableManager.Element.BTimeTable.MembersEditedEventHandler">
             <summary>
             メンバーが変更された
             </summary>
             <param name="sender">イベントの発生したオブジェクト</param>
             <param name="e">発生したイベント</param>
         </member>
-        <member name="E:TimeTableManager.Element.CTimeTable.OnMembersEdited">
+        <member name="E:TimeTableManager.Element.BTimeTable.OnMembersEdited">
             <summary>
             メンバーが変更された
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CTimeTable.NotifyMembersEdited(TimeTableManager.Element.EnumTimeTableElementEventTypes,TimeTableManager.Element.CMember)">
+        <member name="M:TimeTableManager.Element.BTimeTable.NotifyMembersEdited(TimeTableManager.Element.EnumTimeTableElementEventTypes,TimeTableManager.Element.BMember)">
             <summary>
             メンバーが変更された
             </summary>
             <param name="type"></param>
             <param name="source"></param>
         </member>
-        <member name="T:TimeTableManager.Element.CTimeTable.RequirePatternssEditedEventHandler">
+        <member name="T:TimeTableManager.Element.BTimeTable.RequirePatternssEditedEventHandler">
             <summary>
             人員配置が変更された
             </summary>
             <param name="sender">イベントの発生したオブジェクト</param>
             <param name="e">発生したイベント</param>
         </member>
-        <member name="E:TimeTableManager.Element.CTimeTable.OnRequirePatternssEdited">
+        <member name="E:TimeTableManager.Element.BTimeTable.OnRequirePatternssEdited">
             <summary>
             人員配置が変更された
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CTimeTable.NotifyRequirePatternssEdited(TimeTableManager.Element.EnumTimeTableElementEventTypes,TimeTableManager.Element.CRequirePatterns)">
+        <member name="M:TimeTableManager.Element.BTimeTable.NotifyRequirePatternssEdited(TimeTableManager.Element.EnumTimeTableElementEventTypes,TimeTableManager.Element.BRequirePatterns)">
             <summary>
             人員配置が変更された
             </summary>
             <param name="type"></param>
             <param name="source"></param>
         </member>
-        <member name="T:TimeTableManager.Element.CTimeTable.DayOffsEditedEventHandler">
+        <member name="T:TimeTableManager.Element.BTimeTable.DayOffsEditedEventHandler">
             <summary>
             休日が変更された
             </summary>
             <param name="sender">イベントの発生したオブジェクト</param>
             <param name="e">発生したイベント</param>
         </member>
-        <member name="E:TimeTableManager.Element.CTimeTable.OnDayOffsEdited">
+        <member name="E:TimeTableManager.Element.BTimeTable.OnDayOffsEdited">
             <summary>
             休日が変更された
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CTimeTable.NotifyDayOffsEdited(TimeTableManager.Element.EnumTimeTableElementEventTypes,TimeTableManager.Element.CDayOff)">
+        <member name="M:TimeTableManager.Element.BTimeTable.NotifyDayOffsEdited(TimeTableManager.Element.EnumTimeTableElementEventTypes,TimeTableManager.Element.BDayOff)">
             <summary>
             休日が変更された
             </summary>
             <param name="type"></param>
             <param name="source"></param>
         </member>
-        <member name="T:TimeTableManager.Element.CTimeTable.ScheduleDateRequirePatternsEditedEventHandler">
+        <member name="T:TimeTableManager.Element.BTimeTable.ScheduleDateRequirePatternsEditedEventHandler">
             <summary>
             スケジュール日の人員配置が変更された
             </summary>
         </member>
-        <member name="E:TimeTableManager.Element.CTimeTable.OnScheduleDateRequirePatternsEdited">
+        <member name="E:TimeTableManager.Element.BTimeTable.OnScheduleDateRequirePatternsEdited">
             <summary>
             スケジュール日の人員配置が変更された
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.CTimeTable.NotifyScheduleDateRequirePatternsEdited(TimeTableManager.Element.CScheduledDate,TimeTableManager.Element.CRequirePatterns)">
+        <member name="M:TimeTableManager.Element.BTimeTable.NotifyScheduleDateRequirePatternsEdited(TimeTableManager.Element.BScheduledDate,TimeTableManager.Element.BRequirePatterns)">
             <summary>
             スケジュール日の人員配置が変更された
             </summary>
         </member>
-        <member name="F:TimeTableManager.Element.CTimeTable.evaluationItems">
+        <member name="F:TimeTableManager.Element.BTimeTable.evaluationItems">
             <summary>評価の一覧
             </summary>
         </member>
-        <member name="P:TimeTableManager.Element.CTimeTable.EvaluationItems">
+        <member name="P:TimeTableManager.Element.BTimeTable.EvaluationItems">
             <summary> 評価の一覧
             </summary>
         </member>
@@ -3382,7 +3616,7 @@
             変更されたスケジュール
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.EScheduleEditedEventArgs.#ctor(TimeTableManager.Element.CSchedule)">
+        <member name="M:TimeTableManager.Element.EScheduleEditedEventArgs.#ctor(TimeTableManager.Element.BSchedule)">
             <summary>
             コンストラクタ
             </summary>
@@ -3400,7 +3634,7 @@
             <summary>イベントの発生元である勤務シフト
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.EPatternsEditedEventArgs.#ctor(TimeTableManager.Element.EnumTimeTableElementEventTypes,TimeTableManager.Element.CPattern)">
+        <member name="M:TimeTableManager.Element.EPatternsEditedEventArgs.#ctor(TimeTableManager.Element.EnumTimeTableElementEventTypes,TimeTableManager.Element.BPattern)">
             <summary>コンストラクタ
             </summary>
             <param name="EventType">イベント種別</param>
@@ -3418,7 +3652,7 @@
             <summary>イベントの発生源であるメンバー
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.EMembersEditedEventArgs.#ctor(TimeTableManager.Element.EnumTimeTableElementEventTypes,TimeTableManager.Element.CMember)">
+        <member name="M:TimeTableManager.Element.EMembersEditedEventArgs.#ctor(TimeTableManager.Element.EnumTimeTableElementEventTypes,TimeTableManager.Element.BMember)">
             <summary>コンストラクタ
             </summary>
             <param name="EventType">イベント種別</param>
@@ -3436,7 +3670,7 @@
             <summary>イベントの発生元となる人員配置
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.ERequirePatternssEditedEventArgs.#ctor(TimeTableManager.Element.EnumTimeTableElementEventTypes,TimeTableManager.Element.CRequirePatterns)">
+        <member name="M:TimeTableManager.Element.ERequirePatternssEditedEventArgs.#ctor(TimeTableManager.Element.EnumTimeTableElementEventTypes,TimeTableManager.Element.BRequirePatterns)">
             <summary>コンストラクタ
             </summary>
             <param name="EventType">イベント種別</param>
@@ -3454,7 +3688,7 @@
             <summary>イベントの発生した休日
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.EDayOffsEditedEventArgs.#ctor(TimeTableManager.Element.EnumTimeTableElementEventTypes,TimeTableManager.Element.CDayOff)">
+        <member name="M:TimeTableManager.Element.EDayOffsEditedEventArgs.#ctor(TimeTableManager.Element.EnumTimeTableElementEventTypes,TimeTableManager.Element.BDayOff)">
             <summary>コンストラクタ
             </summary>
             <param name="EventType">イベント種別</param>
@@ -3490,7 +3724,7 @@
             <summary>人員配置
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.EScheduleDateRequirePatternsEditedEventArgs.#ctor(TimeTableManager.Element.CScheduledDate,TimeTableManager.Element.CRequirePatterns)">
+        <member name="M:TimeTableManager.Element.EScheduleDateRequirePatternsEditedEventArgs.#ctor(TimeTableManager.Element.BScheduledDate,TimeTableManager.Element.BRequirePatterns)">
             <summary>コンストラクタ
             </summary>
             <param name="SDate">スケジュール日</param>
@@ -3508,404 +3742,404 @@
             <summary>イベントの発生した分析要素
             </summary>
         </member>
-        <member name="M:TimeTableManager.Element.EEvaluationItemEditedEventArgs.#ctor(TimeTableManager.Element.EnumTimeTableElementEventTypes,TimeTableManager.Evaluation.CEvaluationItem)">
+        <member name="M:TimeTableManager.Element.EEvaluationItemEditedEventArgs.#ctor(TimeTableManager.Element.EnumTimeTableElementEventTypes,TimeTableManager.Evaluation.BEvaluationItem)">
             <summary>コンストラクタ
             </summary>
             <param name="EventType">イベント種別</param>
             <param name="EventSource">発生源</param>
         </member>
-        <member name="T:TimeTableManager.ElementCollection.CDayOffCollection">
+        <member name="T:TimeTableManager.ElementCollection.BDayOffCollection">
             <summary>
             DayOffCollection の概要の説明です。
             </summary>
         </member>
-        <member name="F:TimeTableManager.ElementCollection.CDayOffCollection.root">
+        <member name="F:TimeTableManager.ElementCollection.BDayOffCollection.root">
             <summary>タイムテーブル
             </summary>
         </member>
-        <member name="F:TimeTableManager.ElementCollection.CDayOffCollection.DayOffs">
+        <member name="F:TimeTableManager.ElementCollection.BDayOffCollection.DayOffs">
             <summary>休日の内部配列
             </summary>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CDayOffCollection.#ctor(TimeTableManager.Element.CTimeTable)">
+        <member name="M:TimeTableManager.ElementCollection.BDayOffCollection.#ctor(TimeTableManager.Element.BTimeTable)">
             <summary>コンストラクタ
             </summary>
             <param name="parent"></param>
         </member>
-        <member name="P:TimeTableManager.ElementCollection.CDayOffCollection.Item(System.Int32)">
+        <member name="P:TimeTableManager.ElementCollection.BDayOffCollection.Item(System.Int32)">
             <summary>休日
             </summary>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CDayOffCollection.GetByName(System.String)">
+        <member name="M:TimeTableManager.ElementCollection.BDayOffCollection.GetByName(System.String)">
             <summary>名前から取得
             </summary>
             <param name="name"></param>
             <returns></returns>
         </member>
-        <member name="P:TimeTableManager.ElementCollection.CDayOffCollection.TimeTable">
+        <member name="P:TimeTableManager.ElementCollection.BDayOffCollection.TimeTable">
             <summary>タイムテーブル
             </summary>
         </member>
-        <member name="P:TimeTableManager.ElementCollection.CDayOffCollection.Count">
+        <member name="P:TimeTableManager.ElementCollection.BDayOffCollection.Count">
             <summary>サイズ
             </summary>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CDayOffCollection.Size">
+        <member name="M:TimeTableManager.ElementCollection.BDayOffCollection.Size">
             <summary>サイズ
             </summary>
             <returns>登録されている休日の数</returns>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CDayOffCollection.AddDayOff(TimeTableManager.Element.CDayOff)">
+        <member name="M:TimeTableManager.ElementCollection.BDayOffCollection.AddDayOff(TimeTableManager.Element.BDayOff)">
             <summary>休日を追加する
             </summary>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CDayOffCollection.CreateDayOff">
+        <member name="M:TimeTableManager.ElementCollection.BDayOffCollection.CreateDayOff">
             <summary>休日の作成
             </summary>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CDayOffCollection.CreateDayOff(System.Boolean)">
+        <member name="M:TimeTableManager.ElementCollection.BDayOffCollection.CreateDayOff(System.Boolean)">
             <summary>新しい休日の作成（初期化つき）
             </summary>
             <param name="init"></param>
             <returns></returns>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CDayOffCollection.DeleteDayOff(System.Int32)">
+        <member name="M:TimeTableManager.ElementCollection.BDayOffCollection.DeleteDayOff(System.Int32)">
             <summary>休日の削除
             </summary>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CDayOffCollection.DeleteDayOff(TimeTableManager.Element.CDayOff)">
+        <member name="M:TimeTableManager.ElementCollection.BDayOffCollection.DeleteDayOff(TimeTableManager.Element.BDayOff)">
             <summary>休日の削除
             </summary>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CDayOffCollection.IsDayOff(System.DateTime)">
+        <member name="M:TimeTableManager.ElementCollection.BDayOffCollection.IsDayOff(System.DateTime)">
             <summary>これは休日か？
             </summary>
         </member>
-        <member name="T:TimeTableManager.ElementCollection.CPriorityComparer">
+        <member name="T:TimeTableManager.ElementCollection.BPriorityComparer">
             <summary>
             優先順位によるソート発生器
             </summary>
         </member>
-        <member name="T:TimeTableManager.ElementCollection.CMemberCollection">
+        <member name="T:TimeTableManager.ElementCollection.BMemberCollection">
             <summary>メンバーの一覧
             </summary>
         </member>
-        <member name="F:TimeTableManager.ElementCollection.CMemberCollection.InRefresh">
+        <member name="F:TimeTableManager.ElementCollection.BMemberCollection.InRefresh">
             <summary>リフレッシュの多重処理防止
             </summary>
         </member>
-        <member name="P:TimeTableManager.ElementCollection.CMemberCollection.TimeTable">
+        <member name="P:TimeTableManager.ElementCollection.BMemberCollection.TimeTable">
             <summary>スケジュール全て 
             </summary>
         </member>
-        <member name="F:TimeTableManager.ElementCollection.CMemberCollection.availables">
+        <member name="F:TimeTableManager.ElementCollection.BMemberCollection.availables">
             <summary>現在有効なメンバー（優先順位順） 
             </summary>
         </member>
-        <member name="F:TimeTableManager.ElementCollection.CMemberCollection.members">
+        <member name="F:TimeTableManager.ElementCollection.BMemberCollection.members">
             <summary>すべてのメンバー（キー順） 
             </summary>
         </member>
-        <member name="F:TimeTableManager.ElementCollection.CMemberCollection.parent">
+        <member name="F:TimeTableManager.ElementCollection.BMemberCollection.parent">
             <summary>スケジュール </summary>
         </member>
-        <member name="F:TimeTableManager.ElementCollection.CMemberCollection.priorities">
+        <member name="F:TimeTableManager.ElementCollection.BMemberCollection.priorities">
             <summary>すべてのメンバー（優先順位順） 
             </summary>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CMemberCollection.#ctor(TimeTableManager.Element.CTimeTable)">
+        <member name="M:TimeTableManager.ElementCollection.BMemberCollection.#ctor(TimeTableManager.Element.BTimeTable)">
             <summary>メンバーコレクション
             </summary>
             <param name="parent">スケジュール</param>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CMemberCollection.AddMember(TimeTableManager.Element.CMember)">
+        <member name="M:TimeTableManager.ElementCollection.BMemberCollection.AddMember(TimeTableManager.Element.BMember)">
             <summary>メンバーの追加
             </summary>
             <param name="member">追加するメンバー</param>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CMemberCollection.Refresh">
+        <member name="M:TimeTableManager.ElementCollection.BMemberCollection.Refresh">
             <summary>内部コレクションの再ソート
             </summary>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CMemberCollection.RefreshPriority">
+        <member name="M:TimeTableManager.ElementCollection.BMemberCollection.RefreshPriority">
             <summary>優先順位の再設定
             </summary>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CMemberCollection.CreateMember">
+        <member name="M:TimeTableManager.ElementCollection.BMemberCollection.CreateMember">
             <summary>メンバーの作成
             </summary>
             <returns>新しいメンバー</returns>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CMemberCollection.CreateMember(System.Boolean)">
+        <member name="M:TimeTableManager.ElementCollection.BMemberCollection.CreateMember(System.Boolean)">
             <summary>メンバーの作成（初期化機能つき）
             </summary>
             <returns>新しいメンバー</returns>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CMemberCollection.DelMember(TimeTableManager.Element.CMember)">
+        <member name="M:TimeTableManager.ElementCollection.BMemberCollection.DelMember(TimeTableManager.Element.BMember)">
             <summary>メンバーの削除
             </summary>
             <param name="member">削除するメンバー</param>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CMemberCollection.DelMember(TimeTableManager.Element.CMember,System.Boolean)">
+        <member name="M:TimeTableManager.ElementCollection.BMemberCollection.DelMember(TimeTableManager.Element.BMember,System.Boolean)">
             <summary>メンバーの削除
             </summary>
             <param name="member">削除するメンバー</param>
             <param name="complete">完全削除かどうか</param>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CMemberCollection.GetMember(System.Int32)">
+        <member name="M:TimeTableManager.ElementCollection.BMemberCollection.GetMember(System.Int32)">
             <summary>メンバーの取得
             </summary>
             <param name="n">n番目のメンバー</param>
             <returns>メンバー</returns>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CMemberCollection.GetMember(System.Int32,System.Boolean)">
+        <member name="M:TimeTableManager.ElementCollection.BMemberCollection.GetMember(System.Int32,System.Boolean)">
             <summary>メンバーの取得
             </summary>
             <param name="n">n番目のメンバー</param>
             <param name="force">削除されたものも含む</param>
             <returns>メンバー</returns>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CMemberCollection.GetByID(System.Int64)">
+        <member name="M:TimeTableManager.ElementCollection.BMemberCollection.GetByID(System.Int64)">
             <summary>メンバーの取得（IDによる）
             </summary>
             <param name="n">メンバーのObjectID</param>
             <returns>メンバー</returns>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CMemberCollection.GetLastPriority">
+        <member name="M:TimeTableManager.ElementCollection.BMemberCollection.GetLastPriority">
             <summary>最後の優先順位
             </summary>
             <returns>最後の優先順位</returns>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CMemberCollection.GetLastPriority(System.Boolean)">
+        <member name="M:TimeTableManager.ElementCollection.BMemberCollection.GetLastPriority(System.Boolean)">
             <summary>最後の優先順位
             </summary>
             <returns>最後の優先順位</returns>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CMemberCollection.RescueMember(TimeTableManager.Element.CMember)">
+        <member name="M:TimeTableManager.ElementCollection.BMemberCollection.RescueMember(TimeTableManager.Element.BMember)">
             <summary>メンバーの復活
             </summary>
             <param name="member">復活するメンバー</param>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CMemberCollection.Size">
+        <member name="M:TimeTableManager.ElementCollection.BMemberCollection.Size">
             <summary>メンバー数（有効なもののみ）
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CMemberCollection.Size(System.Boolean)">
+        <member name="M:TimeTableManager.ElementCollection.BMemberCollection.Size(System.Boolean)">
             <summary>メンバー数
             </summary>
             <param name="force"></param>
             <returns></returns>
         </member>
-        <member name="P:TimeTableManager.ElementCollection.CMemberCollection.Item(System.Int32)">
+        <member name="P:TimeTableManager.ElementCollection.BMemberCollection.Item(System.Int32)">
             <summary>メンバーの取得
             </summary>
             <param name="i"></param>
             <returns></returns>
         </member>
-        <member name="P:TimeTableManager.ElementCollection.CMemberCollection.Item(System.Int32,System.Boolean)">
+        <member name="P:TimeTableManager.ElementCollection.BMemberCollection.Item(System.Int32,System.Boolean)">
             <summary>メンバーの取得
             </summary>
             <param name="i">i番目</param>
             <param name="force">削除済みのアイテムを含む</param>
             <returns></returns>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CMemberCollection.GetByName(System.String)">
+        <member name="M:TimeTableManager.ElementCollection.BMemberCollection.GetByName(System.String)">
             <summary>名前から取得する
             </summary>
             <param name="name"></param>
             <returns></returns>
         </member>
-        <member name="T:TimeTableManager.ElementCollection.CPatternCollection">
+        <member name="T:TimeTableManager.ElementCollection.BPatternCollection">
             <summary>パターンの一覧
             </summary>
         </member>
-        <member name="P:TimeTableManager.ElementCollection.CPatternCollection.TimeTable">
+        <member name="P:TimeTableManager.ElementCollection.BPatternCollection.TimeTable">
             <summary>スケジュール全て 
             </summary>
         </member>
-        <member name="F:TimeTableManager.ElementCollection.CPatternCollection.availables">
+        <member name="F:TimeTableManager.ElementCollection.BPatternCollection.availables">
             <summary>有効なシフト 
             </summary>
         </member>
-        <member name="F:TimeTableManager.ElementCollection.CPatternCollection.parent">
+        <member name="F:TimeTableManager.ElementCollection.BPatternCollection.parent">
             <summary>スケジュール 
             </summary>
         </member>
-        <member name="F:TimeTableManager.ElementCollection.CPatternCollection.patterns">
+        <member name="F:TimeTableManager.ElementCollection.BPatternCollection.patterns">
             <summary>すべてのシフト 
             </summary>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CPatternCollection.#ctor(TimeTableManager.Element.CTimeTable)">
+        <member name="M:TimeTableManager.ElementCollection.BPatternCollection.#ctor(TimeTableManager.Element.BTimeTable)">
             <summary>勤務シフトコレクションの作成
             </summary>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CPatternCollection.AddPattern(TimeTableManager.Element.CPattern)">
+        <member name="M:TimeTableManager.ElementCollection.BPatternCollection.AddPattern(TimeTableManager.Element.BPattern)">
             <summary>勤務シフトの追加
             </summary>
             <param name="pattern"></param>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CPatternCollection.CreatePattern">
+        <member name="M:TimeTableManager.ElementCollection.BPatternCollection.CreatePattern">
             <summary>勤務シフトの作成
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CPatternCollection.CreatePattern(System.Boolean)">
+        <member name="M:TimeTableManager.ElementCollection.BPatternCollection.CreatePattern(System.Boolean)">
             <summary>勤務シフトの作成
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CPatternCollection.DelPattern(TimeTableManager.Element.CPattern)">
+        <member name="M:TimeTableManager.ElementCollection.BPatternCollection.DelPattern(TimeTableManager.Element.BPattern)">
             <summary>勤務シフトの削除
             </summary>
             <param name="pattern">削除するシフト</param>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CPatternCollection.DelPattern(TimeTableManager.Element.CPattern,System.Boolean)">
+        <member name="M:TimeTableManager.ElementCollection.BPatternCollection.DelPattern(TimeTableManager.Element.BPattern,System.Boolean)">
             <summary>勤務シフトの完全削除
             </summary>
             <param name="pattern">削除するシフト</param>
             <param name="complete">完全に削除するかどうか</param>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CPatternCollection.GetPattern(System.Int32)">
+        <member name="M:TimeTableManager.ElementCollection.BPatternCollection.GetPattern(System.Int32)">
             <summary>勤務シフトの取得
             </summary>
             <param name="n"></param>
             <returns></returns>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CPatternCollection.GetPattern(System.Int32,System.Boolean)">
+        <member name="M:TimeTableManager.ElementCollection.BPatternCollection.GetPattern(System.Int32,System.Boolean)">
             <summary>勤務シフトの取得
             </summary>
             <param name="n"></param>
             <param name="force"></param>
             <returns></returns>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CPatternCollection.GetByID(System.Int64)">
+        <member name="M:TimeTableManager.ElementCollection.BPatternCollection.GetByID(System.Int64)">
             <summary>勤務シフトの取得
             </summary>
             <param name="n"></param>
             <returns></returns>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CPatternCollection.GetByIDorNull(System.Int64)">
+        <member name="M:TimeTableManager.ElementCollection.BPatternCollection.GetByIDorNull(System.Int64)">
             <summary>勤務シフトの取得（なかったらヌル）
             </summary>
             <param name="n"></param>
             <returns></returns>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CPatternCollection.RescuePattern(TimeTableManager.Element.CPattern)">
+        <member name="M:TimeTableManager.ElementCollection.BPatternCollection.RescuePattern(TimeTableManager.Element.BPattern)">
             <summary>勤務シフトの復活
             </summary>
             <param name="pattern"></param>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CPatternCollection.Size">
+        <member name="M:TimeTableManager.ElementCollection.BPatternCollection.Size">
             <summary>有効なシフトの数</summary>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CPatternCollection.Size(System.Boolean)">
+        <member name="M:TimeTableManager.ElementCollection.BPatternCollection.Size(System.Boolean)">
             <summary>有効/無効なシフトの数</summary>
         </member>
-        <member name="P:TimeTableManager.ElementCollection.CPatternCollection.Item(System.Int32)">
+        <member name="P:TimeTableManager.ElementCollection.BPatternCollection.Item(System.Int32)">
             <summary>勤務シフトの取得
             </summary>
             <param name="i"></param>
             <returns></returns>
         </member>
-        <member name="P:TimeTableManager.ElementCollection.CPatternCollection.Item(System.Int32,System.Boolean)">
+        <member name="P:TimeTableManager.ElementCollection.BPatternCollection.Item(System.Int32,System.Boolean)">
             <summary>勤務シフトの取得
             </summary>
             <param name="i"></param>
             <param name="force"></param>
             <returns></returns>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CPatternCollection.GetByName(System.String)">
+        <member name="M:TimeTableManager.ElementCollection.BPatternCollection.GetByName(System.String)">
             <summary>勤務シフトの取得
             </summary>
             <param name="name"></param>
             <returns></returns>
         </member>
-        <member name="T:TimeTableManager.ElementCollection.CRequirePatternsCollection">
+        <member name="T:TimeTableManager.ElementCollection.BRequirePatternsCollection">
             <summary>人員配置の一覧
             </summary>
         </member>
-        <member name="P:TimeTableManager.ElementCollection.CRequirePatternsCollection.TimeTable">
+        <member name="P:TimeTableManager.ElementCollection.BRequirePatternsCollection.TimeTable">
             <summary>スケジュール全て 
             </summary>
         </member>
-        <member name="F:TimeTableManager.ElementCollection.CRequirePatternsCollection.allrequires">
+        <member name="F:TimeTableManager.ElementCollection.BRequirePatternsCollection.allrequires">
             <summary>すべての人員配置 
             </summary>
         </member>
-        <member name="F:TimeTableManager.ElementCollection.CRequirePatternsCollection.availables">
+        <member name="F:TimeTableManager.ElementCollection.BRequirePatternsCollection.availables">
             <summary>有効な人員配置 
             </summary>
         </member>
-        <member name="F:TimeTableManager.ElementCollection.CRequirePatternsCollection.parent">
+        <member name="F:TimeTableManager.ElementCollection.BRequirePatternsCollection.parent">
             <summary>スケジュールすべて 
             </summary>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CRequirePatternsCollection.#ctor(TimeTableManager.Element.CTimeTable)">
+        <member name="M:TimeTableManager.ElementCollection.BRequirePatternsCollection.#ctor(TimeTableManager.Element.BTimeTable)">
             <summary>有効な人数のコレクション
             </summary>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CRequirePatternsCollection.AddRequirePatterns(TimeTableManager.Element.CRequirePatterns)">
+        <member name="M:TimeTableManager.ElementCollection.BRequirePatternsCollection.AddRequirePatterns(TimeTableManager.Element.BRequirePatterns)">
             <summary>人員配置の追加
             </summary>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CRequirePatternsCollection.CreateRequirePatterns">
+        <member name="M:TimeTableManager.ElementCollection.BRequirePatternsCollection.CreateRequirePatterns">
             <summary>人員配置の作成
             </summary>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CRequirePatternsCollection.CreateRequirePatterns(System.Boolean)">
+        <member name="M:TimeTableManager.ElementCollection.BRequirePatternsCollection.CreateRequirePatterns(System.Boolean)">
             <summary>人員配置の作成
             </summary>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CRequirePatternsCollection.DelRequirePatterns(TimeTableManager.Element.CRequirePatterns)">
+        <member name="M:TimeTableManager.ElementCollection.BRequirePatternsCollection.DelRequirePatterns(TimeTableManager.Element.BRequirePatterns)">
             <summary>人員配置の削除
             </summary>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CRequirePatternsCollection.DelRequirePatterns(TimeTableManager.Element.CRequirePatterns,System.Boolean)">
+        <member name="M:TimeTableManager.ElementCollection.BRequirePatternsCollection.DelRequirePatterns(TimeTableManager.Element.BRequirePatterns,System.Boolean)">
             <summary>人員配置の削除
             </summary>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CRequirePatternsCollection.DelRequirePatterns(TimeTableManager.Element.CRequirePatterns,System.DateTime)">
+        <member name="M:TimeTableManager.ElementCollection.BRequirePatternsCollection.DelRequirePatterns(TimeTableManager.Element.BRequirePatterns,System.DateTime)">
             <summary>日付を指定して人員配置の削除
             </summary>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CRequirePatternsCollection.Get_Renamed(System.Int32)">
+        <member name="M:TimeTableManager.ElementCollection.BRequirePatternsCollection.Get_Renamed(System.Int32)">
             <summary>人員配置の取得 有効な人員配置のうちn番目の有効人数
             </summary>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CRequirePatternsCollection.Get_Renamed(System.Int32,System.Boolean)">
+        <member name="M:TimeTableManager.ElementCollection.BRequirePatternsCollection.Get_Renamed(System.Int32,System.Boolean)">
             <summary>人員配置の取得 有効な人員配置のうちn番目の有効人数
             </summary>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CRequirePatternsCollection.GetByID(System.Int64)">
+        <member name="M:TimeTableManager.ElementCollection.BRequirePatternsCollection.GetByID(System.Int64)">
             <summary>IDを指定した人員配置の取得 IDを指定して有効・無効にかかわらず人員配置を取得します
             </summary>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CRequirePatternsCollection.GetByIDorNull(System.Int64)">
+        <member name="M:TimeTableManager.ElementCollection.BRequirePatternsCollection.GetByIDorNull(System.Int64)">
             <summary>IDを指定した人員配置の取得 IDを指定して有効・無効にかかわらず人員配置を取得します
             </summary>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CRequirePatternsCollection.RescueRequirePatterns(TimeTableManager.Element.CRequirePatterns)">
+        <member name="M:TimeTableManager.ElementCollection.BRequirePatternsCollection.RescueRequirePatterns(TimeTableManager.Element.BRequirePatterns)">
             <summary>人員配置の復活
             </summary>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CRequirePatternsCollection.Size">
+        <member name="M:TimeTableManager.ElementCollection.BRequirePatternsCollection.Size">
             <summary>このコレクションのサイズ
             </summary>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CRequirePatternsCollection.Size(System.Boolean)">
+        <member name="M:TimeTableManager.ElementCollection.BRequirePatternsCollection.Size(System.Boolean)">
             <summary>このコレクションのサイズ
             </summary>
         </member>
-        <member name="P:TimeTableManager.ElementCollection.CRequirePatternsCollection.Item(System.Int32)">
+        <member name="P:TimeTableManager.ElementCollection.BRequirePatternsCollection.Item(System.Int32)">
             <summary>人員配置
             </summary>
         </member>
-        <member name="P:TimeTableManager.ElementCollection.CRequirePatternsCollection.Item(System.Int32,System.Boolean)">
+        <member name="P:TimeTableManager.ElementCollection.BRequirePatternsCollection.Item(System.Int32,System.Boolean)">
             <summary>人員配置
             </summary>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CRequirePatternsCollection.GetByName(System.String)">
+        <member name="M:TimeTableManager.ElementCollection.BRequirePatternsCollection.GetByName(System.String)">
             <summary>人員配置
             </summary>
         </member>
@@ -3917,486 +4151,252 @@
             <summary>ソート用
             </summary>
         </member>
-        <member name="T:TimeTableManager.ElementCollection.CScheduledDateCollection">
+        <member name="T:TimeTableManager.ElementCollection.BScheduledDateCollection">
             <summary>スケジュール日のコレクション
             </summary>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CScheduledDateCollection.InitBlock">
+        <member name="M:TimeTableManager.ElementCollection.BScheduledDateCollection.InitBlock">
             <summary>初期化処理
             </summary>
         </member>
-        <member name="P:TimeTableManager.ElementCollection.CScheduledDateCollection.TimeTable">
+        <member name="P:TimeTableManager.ElementCollection.BScheduledDateCollection.TimeTable">
             <summary>スケジュールすべて</summary>
         </member>
-        <member name="F:TimeTableManager.ElementCollection.CScheduledDateCollection.timeTable">
+        <member name="F:TimeTableManager.ElementCollection.BScheduledDateCollection.timeTable">
             <summary>スケジュールすべて </summary>
         </member>
-        <member name="F:TimeTableManager.ElementCollection.CScheduledDateCollection.schedules">
+        <member name="F:TimeTableManager.ElementCollection.BScheduledDateCollection.schedules">
             <summary>スケジュール（オブジェクトID順） </summary>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CScheduledDateCollection.#ctor(TimeTableManager.Element.CTimeTable)">
+        <member name="M:TimeTableManager.ElementCollection.BScheduledDateCollection.#ctor(TimeTableManager.Element.BTimeTable)">
             <summary>XMLノードよりスケジュール化された日付のコレクションを作成する</summary>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CScheduledDateCollection.AddScheduleDate(TimeTableManager.Element.CScheduledDate)">
+        <member name="M:TimeTableManager.ElementCollection.BScheduledDateCollection.AddScheduleDate(TimeTableManager.Element.BScheduledDate)">
             <summary>スケジュール日の追加</summary>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CScheduledDateCollection.CreateScheduledDate(System.DateTime)">
+        <member name="M:TimeTableManager.ElementCollection.BScheduledDateCollection.CreateScheduledDate(System.DateTime)">
             <summary>スケジュール日の作成</summary>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CScheduledDateCollection.DelScheduledDate(TimeTableManager.Element.CScheduledDate)">
+        <member name="M:TimeTableManager.ElementCollection.BScheduledDateCollection.DelScheduledDate(TimeTableManager.Element.BScheduledDate)">
             <summary>スケジュール日の削除
             </summary>
             <param name="d">削除するスケジュール日</param>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CScheduledDateCollection.GetScheduledDate(System.DateTime)">
+        <member name="M:TimeTableManager.ElementCollection.BScheduledDateCollection.GetScheduledDate(System.DateTime)">
             <summary>スケジュール日の取得
             </summary>
             <param name="n">日付</param>
             <returns>スケジュール日</returns>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CScheduledDateCollection.GetScheduledDate(System.Int32)">
+        <member name="M:TimeTableManager.ElementCollection.BScheduledDateCollection.GetScheduledDate(System.Int32)">
             <summary>スケジュール日の取得
             </summary>
             <param name="n">n番目のスケジュール日</param>
             <returns>n番目のスケジュール日</returns>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CScheduledDateCollection.GetByID(System.Int32)">
+        <member name="M:TimeTableManager.ElementCollection.BScheduledDateCollection.GetByID(System.Int32)">
             <summary>IDによるスケジュール日の取得
             </summary>
             <param name="index">ID</param>
             <returns>スケジュール日</returns>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CScheduledDateCollection.Size">
+        <member name="M:TimeTableManager.ElementCollection.BScheduledDateCollection.Size">
             <summary>サイズ
             </summary>
             <returns>サイズ</returns>
         </member>
-        <member name="P:TimeTableManager.ElementCollection.CScheduledDateCollection.Count">
+        <member name="P:TimeTableManager.ElementCollection.BScheduledDateCollection.Count">
             <summary>含まれる要素の数=Size()
             </summary>
         </member>
-        <member name="P:TimeTableManager.ElementCollection.CScheduledDateCollection.Item(System.Int32)">
+        <member name="P:TimeTableManager.ElementCollection.BScheduledDateCollection.Item(System.Int32)">
             <summary>スケジュール日の取得
             </summary>
             <param name="n">n番目のスケジュール日</param>
             <returns>n番目のスケジュール日</returns>
         </member>
-        <member name="P:TimeTableManager.ElementCollection.CScheduledDateCollection.Item(System.DateTime)">
+        <member name="P:TimeTableManager.ElementCollection.BScheduledDateCollection.Item(System.DateTime)">
             <summary>日付によるスケジュール日の所得
             </summary>
             <param name="d">日付</param>
             <returns>スケジュール日</returns>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CScheduledDateCollection.Sort2">
+        <member name="M:TimeTableManager.ElementCollection.BScheduledDateCollection.Sort2">
             <summary>内部ソートの呼び出し
             </summary>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CScheduledDateCollection.ClearMember(TimeTableManager.Element.CMember,System.DateTime)">
+        <member name="M:TimeTableManager.ElementCollection.BScheduledDateCollection.ClearMember(TimeTableManager.Element.BMember,System.DateTime)">
             <summary>メンバーの削除
             </summary>
             <param name="member">削除するメンバー</param>
             <param name="date">削除する日</param>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CScheduledDateCollection.ClearMember(TimeTableManager.Element.CMember)">
+        <member name="M:TimeTableManager.ElementCollection.BScheduledDateCollection.ClearMember(TimeTableManager.Element.BMember)">
             <summary>メンバーの削除
             </summary>
             <param name="member">削除するメンバー</param>
         </member>
-        <member name="M:TimeTableManager.ElementCollection.CScheduledDateCollection.timeTable_OnMembersEdited(System.Object,TimeTableManager.Element.EMembersEditedEventArgs)">
+        <member name="M:TimeTableManager.ElementCollection.BScheduledDateCollection.timeTable_OnMembersEdited(System.Object,TimeTableManager.Element.EMembersEditedEventArgs)">
             <summary>メンバーが削除された
             </summary>
             <param name="sender">タイムテーブル</param>
             <param name="e">イベント</param>
         </member>
-        <member name="T:TimeTableManager.Evaluation.CPatternComparer1">
-            <summary>ソート用
-            </summary>
-        </member>
-        <member name="T:TimeTableManager.Evaluation.CEvaluation1Day">
-            <summary>１日分の評価
-            </summary>
-        </member>
-        <member name="T:TimeTableManager.Evaluation.CEvaluation1Day.CTimeSpanSet">
-            <summary>タイムスパンのセットまたは空白
-            </summary>
-        </member>
-        <member name="M:TimeTableManager.Evaluation.CEvaluation1Day.CTimeSpanSet.#ctor(System.TimeSpan,System.TimeSpan)">
-            <summary>コンストラクタ
-            </summary>
-            <param name="Start"></param>
-            <param name="End"></param>
-        </member>
-        <member name="P:TimeTableManager.Evaluation.CEvaluation1Day.CTimeSpanSet.Start">
-            <summary>空白の始まり
-            </summary>
-        </member>
-        <member name="P:TimeTableManager.Evaluation.CEvaluation1Day.CTimeSpanSet.End">
-            <summary>空白の終わり
-            </summary>
-        </member>
-        <member name="F:TimeTableManager.Evaluation.CEvaluation1Day.sdate">
-            <summary>スケジュール日
-            </summary>
-        </member>
-        <member name="F:TimeTableManager.Evaluation.CEvaluation1Day._items">
-            <summary>内部リスト
-            </summary>
-        </member>
-        <member name="F:TimeTableManager.Evaluation.CEvaluation1Day._memItems">
-            <summary>メンバー、評価
-            </summary>
-        </member>
-        <member name="M:TimeTableManager.Evaluation.CEvaluation1Day.#ctor(TimeTableManager.Element.CScheduledDate)">
-            <summary>コンストラクタ
-            </summary>
-            <param name="sDate"></param>
-        </member>
-        <member name="M:TimeTableManager.Evaluation.CEvaluation1Day.Check">
-            <summary>ここで検証
-            </summary>
-        </member>
-        <member name="M:TimeTableManager.Evaluation.CEvaluation1Day.AddItem(TimeTableManager.Evaluation.CEvaluationItem)">
-            <summary>検証結果の追加
-            </summary>
-            <param name="item">検証結果</param>
-        </member>
-        <member name="M:TimeTableManager.Evaluation.CEvaluation1Day.AddItem(TimeTableManager.Evaluation.EEvaluationResult,System.String)">
-            <summary>検証結果の追加
-            </summary>
-            <param name="result">追加される検証結果</param>
-            <param name="message">メッセージ</param>
-        </member>
-        <member name="M:TimeTableManager.Evaluation.CEvaluation1Day.Clear">
-            <summary>クリア
-            </summary>
-        </member>
-        <member name="M:TimeTableManager.Evaluation.CEvaluation1Day.GenerateMessage(System.String,System.String[])">
-            <summary>メッセージに変換する
-            </summary>
-            <param name="message">メッセージ</param>
-            <param name="param">メッセージ</param>
-            <returns></returns>
-        </member>
-        <member name="M:TimeTableManager.Evaluation.CEvaluation1Day.CheckSpaces(System.Collections.Generic.List{TimeTableManager.Element.CPattern})">
-            <summary>時間中に空白が生じないか？
-            </summary>
-            <returns>空白時間のリスト</returns>
-        </member>
-        <member name="M:TimeTableManager.Evaluation.CEvaluation1Day.CheckSpaces">
-            <summary>時間中に空白が生じないか？
-            </summary>
-            <returns>空白時間のリスト</returns>
-        </member>
-        <member name="M:TimeTableManager.Evaluation.CEvaluation1Day.CheckPatternMuches(TimeTableManager.Element.CPattern)">
-            <summary>勤務シフトに対してマッチしているか？
-            </summary>
-            <param name="pattern">勤務シフト</param>
-            <returns>割合</returns>
-        </member>
-        <member name="M:TimeTableManager.Evaluation.CEvaluation1Day.CheckPatternMuches">
-            <summary>勤務シフトに対してマッチしているか？（１日単位で）
-            </summary>
-            <returns>割合</returns>
-        </member>
-        <member name="M:TimeTableManager.Evaluation.CEvaluation1Day.GetDatePatterns">
-            <summary>スケジュール日に設定されたシフトの一覧
-            </summary>
-            <returns>勤務シフトのリスト</returns>
-        </member>
-        <member name="M:TimeTableManager.Evaluation.CEvaluation1Day.GetPatternMemberCount(TimeTableManager.Element.CPattern)">
-            <summary>勤務シフトのメンバー数
-            </summary>
-            <param name="pattern">勤務シフト</param>
-            <returns>勤務シフトに該当するメンバー数</returns>
-        </member>
-        <member name="P:TimeTableManager.Evaluation.CEvaluation1Day.Root">
-            <summary>タイムテーブル
-            </summary>
-        </member>
-        <member name="P:TimeTableManager.Evaluation.CEvaluation1Day.Items">
-            <summary>リスト
-            </summary>
-        </member>
-        <member name="M:TimeTableManager.Evaluation.CEvaluation1Day.CheckMembers">
-            <summary>メンバーごとのチェック
-            </summary>
-        </member>
-        <member name="T:TimeTableManager.Evaluation.CEvaluation1Day1Member">
-            <summary>１日分、１メンバー分の評価
-            </summary>
-        </member>
-        <member name="P:TimeTableManager.Evaluation.CEvaluation1Day1Member.Root">
-            <summary>タイムテーブル
-            </summary>
-        </member>
-        <member name="P:TimeTableManager.Evaluation.CEvaluation1Day1Member.Items">
-            <summary>リスト
-            </summary>
-        </member>
-        <member name="F:TimeTableManager.Evaluation.CEvaluation1Day1Member._items">
-            <summary>内部リスト
-            </summary>
-        </member>
-        <member name="F:TimeTableManager.Evaluation.CEvaluation1Day1Member._parent">
-            <summary>親オブジェクト
-            </summary>
-        </member>
-        <member name="F:TimeTableManager.Evaluation.CEvaluation1Day1Member._member">
-            <summary>メンバー 
-            </summary>
-        </member>
-        <member name="M:TimeTableManager.Evaluation.CEvaluation1Day1Member.#ctor(TimeTableManager.Evaluation.CEvaluation1Day,TimeTableManager.Element.CMember)">
-            <summary>コンストラクタ
-            </summary>
-            <param name="parent"></param>
-            <param name="member"></param>
-        </member>
-        <member name="M:TimeTableManager.Evaluation.CEvaluation1Day1Member.Check">
-            <summary>チェックする
-            </summary>
-        </member>
-        <member name="M:TimeTableManager.Evaluation.CEvaluation1Day1Member.Clear">
-            <summary>クリア
-            </summary>
-        </member>
-        <member name="P:TimeTableManager.Evaluation.CEvaluation1Day1Member.sdate">
-            <summary>スケジュール日
-            </summary>
-        </member>
-        <member name="M:TimeTableManager.Evaluation.CEvaluation1Day1Member.AddItem(TimeTableManager.Evaluation.CEvaluationItem)">
-            <summary>検証結果の追加
-            </summary>
-            <param name="item">検証結果</param>
-        </member>
-        <member name="M:TimeTableManager.Evaluation.CEvaluation1Day1Member.AddItem(TimeTableManager.Evaluation.EEvaluationResult,System.String)">
-            <summary>検証結果の追加
-            </summary>
-            <param name="result">検証結果</param>
-            <param name="message">メッセージ</param>
-        </member>
-        <member name="M:TimeTableManager.Evaluation.CEvaluation1Day1Member.CheckContinuas">
-            <summary>メンバーの連続稼動日数が※1の日数を超えていたら警告
-            </summary>
-        </member>
-        <member name="M:TimeTableManager.Evaluation.CEvaluation1Day1Member.CheckSpace">
-            <summary>メンバーの作業時間の重複（エラー）または※2の時間を満たしていなければ警告
-            </summary>
-        </member>
-        <member name="M:TimeTableManager.Evaluation.CEvaluation1Day1Member.CheckPattern">
-            <summary>メンバーがこのパターンを含むかどうかチェックする
-            </summary>
-        </member>
-        <member name="M:TimeTableManager.Evaluation.CEvaluation1Day1Member.GenerateMessage(System.String,System.String[])">
-            <summary>メッセージに変換する
-            </summary>
-            <param name="message"></param>
-            <param name="param"></param>
-            <returns></returns>
-        </member>
-        <member name="T:TimeTableManager.Evaluation.EEvaluationResult">
-            <summary>
-            評価結果
-            </summary>
-        </member>
-        <member name="F:TimeTableManager.Evaluation.EEvaluationResult.OK">
-            <summary>問題なし</summary>
-        </member>
-        <member name="F:TimeTableManager.Evaluation.EEvaluationResult.NOTICE">
-            <summary>注意</summary>
-        </member>
-        <member name="F:TimeTableManager.Evaluation.EEvaluationResult.WORNING">
-            <summary>警告</summary>
-        </member>
-        <member name="F:TimeTableManager.Evaluation.EEvaluationResult.ERROR">
-            <summary>エラー</summary>
-        </member>
-        <member name="T:TimeTableManager.Evaluation.CEvaluationItem">
-            <summary>
-            評価内容
-            </summary>
-        </member>
-        <member name="P:TimeTableManager.Evaluation.CEvaluationItem.NextID">
-            <summary>次のIDを発布する
-            </summary>
-        </member>
-        <member name="M:TimeTableManager.Evaluation.CEvaluationItem.#ctor(TimeTableManager.Evaluation.EEvaluationResult,TimeTableManager.Element.CScheduledDate,System.String)">
-            <summary>コンストラクタ
-            </summary>
-            <param name="Result">評価結果</param>
-            <param name="Date">日付</param>
-            <param name="Message">メッセージ</param>
-        </member>
-        <member name="P:TimeTableManager.Evaluation.CEvaluationItem.Id">
-            <summary>ID
-            </summary>
-        </member>
-        <member name="P:TimeTableManager.Evaluation.CEvaluationItem.Result">
-            <summary>評価結果
-            </summary>
-        </member>
-        <member name="P:TimeTableManager.Evaluation.CEvaluationItem.Date">
-            <summary>日付
-            </summary>
-        </member>
-        <member name="P:TimeTableManager.Evaluation.CEvaluationItem.Message">
-            <summary>メッセージ
-            </summary>
-        </member>
-        <member name="T:TimeTableManager.IO.CLoader">
+        <member name="T:TimeTableManager.IO.BLoader">
             <summary>ローダー
             </summary>
         </member>
-        <member name="M:TimeTableManager.IO.CLoader.#ctor">
+        <member name="M:TimeTableManager.IO.BLoader.#ctor">
             <summary>コンストラクタ
             </summary>
         </member>
-        <member name="M:TimeTableManager.IO.CLoader.Load(System.String)">
+        <member name="M:TimeTableManager.IO.BLoader.Load(System.String)">
             <summary>ロードメイン
             </summary>
         </member>
-        <member name="M:TimeTableManager.IO.CLoader.LoadPatterns(System.Xml.XmlElement,TimeTableManager.Element.CTimeTable)">
+        <member name="M:TimeTableManager.IO.BLoader.LoadPatterns(System.Xml.XmlElement,TimeTableManager.Element.BTimeTable)">
             <summary>勤務シフトのロード
             </summary>
         </member>
-        <member name="M:TimeTableManager.IO.CLoader.LoadDayOffs(System.Xml.XmlElement,TimeTableManager.Element.CTimeTable)">
+        <member name="M:TimeTableManager.IO.BLoader.LoadDayOffs(System.Xml.XmlElement,TimeTableManager.Element.BTimeTable)">
             <summary>休日のロード
             </summary>
         </member>
-        <member name="M:TimeTableManager.IO.CLoader.LoadMembers(System.Xml.XmlElement,TimeTableManager.Element.CTimeTable)">
+        <member name="M:TimeTableManager.IO.BLoader.LoadMembers(System.Xml.XmlElement,TimeTableManager.Element.BTimeTable)">
             <summary>メンバーのロード
             </summary>
         </member>
-        <member name="M:TimeTableManager.IO.CLoader.LoadRequirePatterns(System.Xml.XmlElement,TimeTableManager.Element.CTimeTable)">
+        <member name="M:TimeTableManager.IO.BLoader.LoadRequirePatterns(System.Xml.XmlElement,TimeTableManager.Element.BTimeTable)">
             <summary>人員配置のロード
             </summary>
         </member>
-        <member name="M:TimeTableManager.IO.CLoader.LoadScheduledDate(System.Xml.XmlElement,TimeTableManager.Element.CTimeTable)">
+        <member name="M:TimeTableManager.IO.BLoader.LoadScheduledDate(System.Xml.XmlElement,TimeTableManager.Element.BTimeTable)">
             <summary>日付のロード
             </summary>
         </member>
-        <member name="M:TimeTableManager.IO.CLoader.LoadTmElement(System.Xml.XmlElement,TimeTableManager.ITimeTableElement)">
+        <member name="M:TimeTableManager.IO.BLoader.LoadTmElement(System.Xml.XmlElement,TimeTableManager.ITimeTableElement)">
             <summary>エレメントのロード
             </summary>
         </member>
-        <member name="T:TimeTableManager.IO.CSaver">
+        <member name="T:TimeTableManager.IO.BSaver">
             <summary>
             Domに保存する
             </summary>
         </member>
-        <member name="F:TimeTableManager.IO.CSaver.DATEFORMAT">
+        <member name="F:TimeTableManager.IO.BSaver.DATEFORMAT">
             <summary>日付の保存形式
             </summary>
         </member>
-        <member name="M:TimeTableManager.IO.CSaver.#ctor">
+        <member name="M:TimeTableManager.IO.BSaver.#ctor">
             <summary>コンストラクタ
             </summary>
         </member>
-        <member name="M:TimeTableManager.IO.CSaver.Save(System.String,TimeTableManager.Element.CTimeTable)">
+        <member name="M:TimeTableManager.IO.BSaver.Save(System.String,TimeTableManager.Element.BTimeTable)">
             <summary>セーブメイン
             </summary>
         </member>
-        <member name="M:TimeTableManager.IO.CSaver.SavePatterns(System.Xml.XmlDocument,TimeTableManager.Element.CTimeTable)">
+        <member name="M:TimeTableManager.IO.BSaver.SavePatterns(System.Xml.XmlDocument,TimeTableManager.Element.BTimeTable)">
             <summary>勤務シフトのセーブ
             </summary>
         </member>
-        <member name="M:TimeTableManager.IO.CSaver.SaveDayOffs(System.Xml.XmlDocument,TimeTableManager.Element.CTimeTable)">
+        <member name="M:TimeTableManager.IO.BSaver.SaveDayOffs(System.Xml.XmlDocument,TimeTableManager.Element.BTimeTable)">
             <summary>休日のセーブ
             </summary>
         </member>
-        <member name="M:TimeTableManager.IO.CSaver.SaveMembers(System.Xml.XmlDocument,TimeTableManager.Element.CTimeTable)">
+        <member name="M:TimeTableManager.IO.BSaver.SaveMembers(System.Xml.XmlDocument,TimeTableManager.Element.BTimeTable)">
             <summary>メンバーのセーブ
             </summary>
         </member>
-        <member name="M:TimeTableManager.IO.CSaver.SaveRequirePatterns(System.Xml.XmlDocument,TimeTableManager.Element.CTimeTable)">
+        <member name="M:TimeTableManager.IO.BSaver.SaveRequirePatterns(System.Xml.XmlDocument,TimeTableManager.Element.BTimeTable)">
             <summary>人員配置のセーブ
             </summary>
         </member>
-        <member name="M:TimeTableManager.IO.CSaver.SaveScheduledDate(System.Xml.XmlDocument,System.Xml.XmlElement,TimeTableManager.Element.CTimeTable)">
+        <member name="M:TimeTableManager.IO.BSaver.SaveScheduledDate(System.Xml.XmlDocument,System.Xml.XmlElement,TimeTableManager.Element.BTimeTable)">
             <summary>日付のセーブ
             </summary>
         </member>
-        <member name="M:TimeTableManager.IO.CSaver.SaveTmElement(System.Xml.XmlDocument,System.Xml.XmlElement,TimeTableManager.ITimeTableElement)">
+        <member name="M:TimeTableManager.IO.BSaver.SaveTmElement(System.Xml.XmlDocument,System.Xml.XmlElement,TimeTableManager.ITimeTableElement)">
             <summary>エレメントのセーブ
             </summary>
         </member>
-        <member name="T:TimeTableManager.Printing.CPageIndex">
+        <member name="T:TimeTableManager.Printing.BPageIndex">
             <summary>ページインデックス
             </summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPageIndex.end">
+        <member name="F:TimeTableManager.Printing.BPageIndex.end">
             <summary>プレビューの終了日</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPageIndex.start">
+        <member name="F:TimeTableManager.Printing.BPageIndex.start">
             <summary>プレビューの開始日</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPageIndex.memberStartIndex">
+        <member name="F:TimeTableManager.Printing.BPageIndex.memberStartIndex">
             <summary>開始メンバー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPageIndex.memberEndIndex">
+        <member name="F:TimeTableManager.Printing.BPageIndex.memberEndIndex">
             <summary>終了メンバー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPageIndex.members">
+        <member name="F:TimeTableManager.Printing.BPageIndex.members">
             <summary>
             有効なメンバーの一覧
             </summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPageIndex.document">
+        <member name="F:TimeTableManager.Printing.BPageIndex.document">
             <summary>
             ドキュメント
             </summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPageIndex.hasMorePage">
+        <member name="F:TimeTableManager.Printing.BPageIndex.hasMorePage">
             <summary>
             次のページ
             </summary>
         </member>
-        <member name="M:TimeTableManager.Printing.CPageIndex.#ctor">
+        <member name="M:TimeTableManager.Printing.BPageIndex.#ctor">
             <summary>
             コンストラクタ 
             </summary>
         </member>
-        <member name="M:TimeTableManager.Printing.CPageIndex.CalcPage">
+        <member name="M:TimeTableManager.Printing.BPageIndex.CalcPage">
             <summary>
             ページを計算する
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TimeTableManager.Printing.CPageIndex.GetMember(System.Int32)">
+        <member name="M:TimeTableManager.Printing.BPageIndex.GetMember(System.Int32)">
             <summary>
             メンバーの取得
             </summary>
             <param name="i"></param>
             <returns></returns>
         </member>
-        <member name="P:TimeTableManager.Printing.CPageIndex.MemberCount">
+        <member name="P:TimeTableManager.Printing.BPageIndex.MemberCount">
             <summary>
             メンバー数
             </summary>
             <returns></returns>
         </member>
-        <member name="P:TimeTableManager.Printing.CPageIndex.DateCount">
+        <member name="P:TimeTableManager.Printing.BPageIndex.DateCount">
             <summary>
             日数
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPageIndex.Start">
+        <member name="P:TimeTableManager.Printing.BPageIndex.Start">
             <summary>プレビューの開始日</summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPageIndex.End">
+        <member name="P:TimeTableManager.Printing.BPageIndex.End">
             <summary>プレビューの終了日</summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPageIndex.MemberStartIndex">
+        <member name="P:TimeTableManager.Printing.BPageIndex.MemberStartIndex">
             <summary>開始メンバー</summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPageIndex.MemberEndIndex">
+        <member name="P:TimeTableManager.Printing.BPageIndex.MemberEndIndex">
             <summary>終了メンバー</summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPageIndex.Document">
+        <member name="P:TimeTableManager.Printing.BPageIndex.Document">
             <summary>
             ドキュメント
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPageIndex.HasMorePage">
+        <member name="P:TimeTableManager.Printing.BPageIndex.HasMorePage">
             <summary>
             次のページ
             </summary>
@@ -4420,366 +4420,366 @@
         <member name="F:TimeTableManager.Printing.EPrintMargin.MARGIN_CENTER">
             <summary>中央寄せ</summary>
         </member>
-        <member name="T:TimeTableManager.Printing.CPrintDocumentBody">
+        <member name="T:TimeTableManager.Printing.BPrintDocumentBody">
             <summary>
             印刷ドキュメント
             </summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.RIT_IMAGEPRINT">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.RIT_IMAGEPRINT">
             <summary>印刷設定の保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.RIT_IMAGEPRINT_DEFAULT">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.RIT_IMAGEPRINT_DEFAULT">
             <summary>印刷設定の保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.RIT_ISDISPLAYREQUIRE">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.RIT_ISDISPLAYREQUIRE">
             <summary>印刷設定の保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.RIT_ISDISPLAYREQUIRE_DEFAULT">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.RIT_ISDISPLAYREQUIRE_DEFAULT">
             <summary>印刷設定の保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.RIT_ISMONTHLY">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.RIT_ISMONTHLY">
             <summary>印刷設定の保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.RIT_ISMONTHLY_DEFAULT">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.RIT_ISMONTHLY_DEFAULT">
             <summary>印刷設定の保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.RIT_ROWCOUNT">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.RIT_ROWCOUNT">
             <summary>印刷設定の保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.RIT_COLUMNCOUNT">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.RIT_COLUMNCOUNT">
             <summary>印刷設定の保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.RIT_BODYBRUSH">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.RIT_BODYBRUSH">
             <summary>印刷設定の保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.RIT_DATEBRUSH">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.RIT_DATEBRUSH">
             <summary>印刷設定の保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.RIT_DATEBRUSHHOL">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.RIT_DATEBRUSHHOL">
             <summary>印刷設定の保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.RIT_DATEBRUSHSAT">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.RIT_DATEBRUSHSAT">
             <summary>印刷設定の保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.RIT_DATEBRUSHSUN">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.RIT_DATEBRUSHSUN">
             <summary>印刷設定の保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.RIT_HEADERBRUSH">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.RIT_HEADERBRUSH">
             <summary>印刷設定の保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.RIT_DATECOLUMNWIDTH">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.RIT_DATECOLUMNWIDTH">
             <summary>印刷設定の保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.RIT_REQUIRECOLUMNWIDTH">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.RIT_REQUIRECOLUMNWIDTH">
             <summary>印刷設定の保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.RIT_TABLEHEADERHIGHT">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.RIT_TABLEHEADERHIGHT">
             <summary>印刷設定の保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.RIT_BODYFONT">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.RIT_BODYFONT">
             <summary>印刷設定の保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.RIT_DATEFONT">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.RIT_DATEFONT">
             <summary>印刷設定の保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.RIT_HEADERFONT">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.RIT_HEADERFONT">
             <summary>印刷設定の保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.RIT_DATEFORMAT">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.RIT_DATEFORMAT">
             <summary>印刷設定の保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.RIT_DATEFORMAT_DEFAULT">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.RIT_DATEFORMAT_DEFAULT">
             <summary>印刷設定の保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.RIT_DATEHEADERFORMAT">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.RIT_DATEHEADERFORMAT">
             <summary>印刷設定の保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.POSTFIX_FONTNAME">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.POSTFIX_FONTNAME">
             <summary>印刷設定の保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.POSTFIX_FONTSIZE">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.POSTFIX_FONTSIZE">
             <summary>印刷設定の保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.POSTFIX_FONTSTYLE">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.POSTFIX_FONTSTYLE">
             <summary>印刷設定の保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.STYLE_BOLD">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.STYLE_BOLD">
             <summary>印刷設定の保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.STYLE_ITALIC">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.STYLE_ITALIC">
             <summary>印刷設定の保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.STYLE_REGULAR">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.STYLE_REGULAR">
             <summary>印刷設定の保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.STYLE_STRICKEOUT">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.STYLE_STRICKEOUT">
             <summary>印刷設定の保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.STYLE_UNDERLINE">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.STYLE_UNDERLINE">
             <summary>印刷設定の保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.timeTable">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.timeTable">
             <summary>
             タイムテーブル
             </summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.index">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.index">
             <summary>
             ページインデックス 
             </summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.start">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.start">
             <summary>
             開始
             </summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.end">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.end">
             <summary>
             終了 
             </summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.header">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.header">
             <summary>
             ヘッダー部 
             </summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.footer">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.footer">
             <summary>
             フッター部 
             </summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.members">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.members">
             <summary>
             有効なメンバーの一覧
             </summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.pages">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.pages">
             <summary>
             ページインデックス
             </summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.dateColumnWidth">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.dateColumnWidth">
             <summary>
             日付の列の幅
             </summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.requireColumnWidth">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.requireColumnWidth">
             <summary>
             人員配置の列の幅
             </summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.tableHeaderHight">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.tableHeaderHight">
             <summary>
             テーブルのヘッダー部分の高さ
             </summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.headerBrush">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.headerBrush">
             <summary>
             行ヘッダーの色
             </summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.bodyBrush">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.bodyBrush">
             <summary>
             行の色
             </summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.dateBrush">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.dateBrush">
             <summary>
             日付の色
             </summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.dateBrushSat">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.dateBrushSat">
             <summary>
             日付の色（日曜日）
             </summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.dateBrushSun">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.dateBrushSun">
             <summary>
             日付の色（土曜日）
             </summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.dateBrushHol">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.dateBrushHol">
             <summary>
             日付の色（休日）
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentBody.HeaderBrush">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentBody.HeaderBrush">
             <summary>
             行ヘッダーの色
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentBody.HeaderFont">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentBody.HeaderFont">
             <summary>
             行ヘッダーのフォント
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentBody.BodyBrush">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentBody.BodyBrush">
             <summary>
             行の色
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentBody.BodyFont">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentBody.BodyFont">
             <summary>
             行のフォント
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentBody.DateBrush">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentBody.DateBrush">
             <summary>
             行のフォント
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentBody.DateBrushSat">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentBody.DateBrushSat">
             <summary>
             日付の色（日曜日）
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentBody.DateBrushSun">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentBody.DateBrushSun">
             <summary>
             日付の色（日曜日）
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentBody.DateBrushHol">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentBody.DateBrushHol">
             <summary>
             日付の色（休日）
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentBody.DateFont">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentBody.DateFont">
             <summary>
             日付のフォント
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentBody.DateFormat">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentBody.DateFormat">
             <summary>
             日付のフォーマット
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentBody.ImagePrint">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentBody.ImagePrint">
             <summary>
             イメージで出力する
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentBody.DateColumnWidth">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentBody.DateColumnWidth">
             <summary>
             日付の列の幅
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentBody.RequireColumnWidth">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentBody.RequireColumnWidth">
             <summary>
             人員配置の列の幅
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentBody.IsDisplayRequire">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentBody.IsDisplayRequire">
             <summary>
             人員配置を表示するか？
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentBody.TableHeaderHight">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentBody.TableHeaderHight">
             <summary>
             テーブルのヘッダー部分の高さ
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentBody.Header">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentBody.Header">
             <summary>
             ヘッダー部
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentBody.Footer">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentBody.Footer">
             <summary>
             フッター部
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentBody.TimeTable">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentBody.TimeTable">
             <summary>
             タイムテーブル
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentBody.Index">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentBody.Index">
             <summary>
             ページインデックス
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentBody.PageCount">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentBody.PageCount">
             <summary>
             ページ数
             </summary>
         </member>
-        <member name="M:TimeTableManager.Printing.CPrintDocumentBody.OnBeginPrint(System.Drawing.Printing.PrintEventArgs)">
+        <member name="M:TimeTableManager.Printing.BPrintDocumentBody.OnBeginPrint(System.Drawing.Printing.PrintEventArgs)">
             <summary>
             印刷初期化
             </summary>
             <param name="e">発生したイベント</param>
         </member>
-        <member name="M:TimeTableManager.Printing.CPrintDocumentBody.OnPrintPage(System.Drawing.Printing.PrintPageEventArgs)">
+        <member name="M:TimeTableManager.Printing.BPrintDocumentBody.OnPrintPage(System.Drawing.Printing.PrintPageEventArgs)">
             <summary>
             印刷
             </summary>
             <param name="e">発生したイベント</param>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.pen">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.pen">
             <summary>
             罫線を書くペン
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentBody.Pen">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentBody.Pen">
             <summary>
             罫線を書くペン
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentBody.MaxMember">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentBody.MaxMember">
             <summary>
             １ページあたりの最大のメンバー数
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentBody.MaxDates">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentBody.MaxDates">
             <summary>
             １ページあたりの最大の日数
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentBody.Monthly">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentBody.Monthly">
             <summary>
             月ごとに改ページする
             </summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.CachedStart">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.CachedStart">
             <summary>
             キャッシュされた開始とスタート
             </summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentBody.CachedEnd">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentBody.CachedEnd">
             <summary>
             キャッシュされた開始とスタート
             </summary>
         </member>
-        <member name="M:TimeTableManager.Printing.CPrintDocumentBody.PaintBody(System.Drawing.Graphics,System.Drawing.Printing.PrintPageEventArgs)">
+        <member name="M:TimeTableManager.Printing.BPrintDocumentBody.PaintBody(System.Drawing.Graphics,System.Drawing.Printing.PrintPageEventArgs)">
             <summary>印刷・ボディ部分
             </summary>
             <param name="g">グラフィックスオブジェクト</param>
             <param name="e">イベント</param>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentBody.Start">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentBody.Start">
             <summary>
             開始
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentBody.End">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentBody.End">
             <summary>
             終了
             </summary>
         </member>
-        <member name="M:TimeTableManager.Printing.CPrintDocumentBody.GetMember(System.Int32)">
+        <member name="M:TimeTableManager.Printing.BPrintDocumentBody.GetMember(System.Int32)">
             <summary>
             メンバーの取得
             </summary>
             <param name="i"></param>
             <returns></returns>
         </member>
-        <member name="M:TimeTableManager.Printing.CPrintDocumentBody.GetMemberCount">
+        <member name="M:TimeTableManager.Printing.BPrintDocumentBody.GetMemberCount">
             <summary>
             メンバー数
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TimeTableManager.Printing.CPrintDocumentBody.DrawString(System.Drawing.Graphics,System.String,System.Drawing.Font,System.Drawing.Brush,System.Single,System.Single,System.Single,TimeTableManager.Printing.EPrintMargin)">
+        <member name="M:TimeTableManager.Printing.BPrintDocumentBody.DrawString(System.Drawing.Graphics,System.String,System.Drawing.Font,System.Drawing.Brush,System.Single,System.Single,System.Single,TimeTableManager.Printing.EPrintMargin)">
             <summary>
             指定したマージンでテキストを描画する
             </summary>
@@ -4792,7 +4792,7 @@
             <param name="top">上位置</param>
             <param name="margin">配置</param>
         </member>
-        <member name="M:TimeTableManager.Printing.CPrintDocumentBody.DrawString(System.Drawing.Graphics,System.String,System.Drawing.Font,System.Drawing.Brush,System.Single,System.Single,System.Single,System.Single,TimeTableManager.Printing.EPrintMargin,TimeTableManager.Printing.EPrintMargin)">
+        <member name="M:TimeTableManager.Printing.BPrintDocumentBody.DrawString(System.Drawing.Graphics,System.String,System.Drawing.Font,System.Drawing.Brush,System.Single,System.Single,System.Single,System.Single,TimeTableManager.Printing.EPrintMargin,TimeTableManager.Printing.EPrintMargin)">
             <summary>
             指定したマージンでテキストを描画する
             </summary>
@@ -4807,14 +4807,14 @@
             <param name="vmargin">配置(横)</param>
             <param name="hmargin">配置(縦)</param>
         </member>
-        <member name="M:TimeTableManager.Printing.CPrintDocumentBody.GetFont(TimeTableManager.Element.CTimeTable,System.String)">
+        <member name="M:TimeTableManager.Printing.BPrintDocumentBody.GetFont(TimeTableManager.Element.BTimeTable,System.String)">
             <summary>タイムテーブルに登録されたフォントの取得
             </summary>
             <param name="timetable">タイムテーブル</param>
             <param name="key">キー</param>
             <returns></returns>
         </member>
-        <member name="M:TimeTableManager.Printing.CPrintDocumentBody.SetFont(TimeTableManager.Element.CTimeTable,System.String,System.Drawing.Font)">
+        <member name="M:TimeTableManager.Printing.BPrintDocumentBody.SetFont(TimeTableManager.Element.BTimeTable,System.String,System.Drawing.Font)">
             <summary>
             タイムテーブルにフォントをセットする
             </summary>
@@ -4822,272 +4822,272 @@
             <param name="key">キー</param>
             <param name="font">値</param>
         </member>
-        <member name="T:TimeTableManager.Printing.CPrintDocumentFooter">
+        <member name="T:TimeTableManager.Printing.BPrintDocumentFooter">
             <summary>印刷フッタ
             </summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentFooter.RIT_FONT">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentFooter.RIT_FONT">
             <summary>印刷機能のプロパティキー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentFooter.RIT_COLUMN">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentFooter.RIT_COLUMN">
             <summary>印刷機能のプロパティキー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentFooter.RIT_FORMAT">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentFooter.RIT_FORMAT">
             <summary>印刷機能のプロパティキー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentFooter.RIT_COLUMN_DEFAULT">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentFooter.RIT_COLUMN_DEFAULT">
             <summary>印刷機能のデフォルト</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentFooter.RID_FORMAT_DEFAULT">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentFooter.RID_FORMAT_DEFAULT">
             <summary>印刷機能のデフォルト</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentFooter.height">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentFooter.height">
             <summary>高さ
             </summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentFooter.brush">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentFooter.brush">
             <summary>色
             </summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentFooter.timeTable">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentFooter.timeTable">
             <summary>タイムテーブル
             </summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentFooter.document">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentFooter.document">
             <summary>ドキュメント
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentFooter.ColumnCount">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentFooter.ColumnCount">
             <summary>
             列数
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentFooter.Document">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentFooter.Document">
             <summary>
             ドキュメント
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentFooter.Format">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentFooter.Format">
             <summary>
             書式
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentFooter.Brush">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentFooter.Brush">
             <summary>
             ブラシ
             </summary>        
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentFooter.Font">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentFooter.Font">
             <summary>
             左側フォント
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentFooter.Height">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentFooter.Height">
             <summary>
             高さ
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentFooter.Patterns">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentFooter.Patterns">
             <summary>パターンの一覧
             </summary>
         </member>
-        <member name="M:TimeTableManager.Printing.CPrintDocumentFooter.GetHeight(System.Drawing.Graphics)">
+        <member name="M:TimeTableManager.Printing.BPrintDocumentFooter.GetHeight(System.Drawing.Graphics)">
             <summary>
             高さ
             </summary>
             <param name="g">グラフィックスオブジェクト</param>
             <returns>フッタの高さ</returns>
         </member>
-        <member name="M:TimeTableManager.Printing.CPrintDocumentFooter.Paint(System.Drawing.Graphics,System.Drawing.Printing.PrintPageEventArgs)">
+        <member name="M:TimeTableManager.Printing.BPrintDocumentFooter.Paint(System.Drawing.Graphics,System.Drawing.Printing.PrintPageEventArgs)">
             <summary>描画
             </summary>
             <param name="g">グラフィックスオブジェクト</param>
             <param name="e">発生したイベント</param>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentFooter.TimeTable">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentFooter.TimeTable">
             <summary>
             タイムテーブル
             </summary>
         </member>
-        <member name="T:TimeTableManager.Printing.CPrintDocumentHeader">
+        <member name="T:TimeTableManager.Printing.BPrintDocumentHeader">
             <summary>印刷ドキュメントのヘッダ部分
             </summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentHeader.RIT_CENTERBRUSH">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentHeader.RIT_CENTERBRUSH">
             <summary>印刷レイアウトの保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentHeader.RIT_LEFTBRUSH">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentHeader.RIT_LEFTBRUSH">
             <summary>印刷レイアウトの保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentHeader.RIT_RIGHTBRUSH">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentHeader.RIT_RIGHTBRUSH">
             <summary>印刷レイアウトの保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentHeader.RIT_CENTERFONT">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentHeader.RIT_CENTERFONT">
             <summary>印刷レイアウトの保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentHeader.RIT_LEFTFONT">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentHeader.RIT_LEFTFONT">
             <summary>印刷レイアウトの保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentHeader.RIT_RIGHTFONT">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentHeader.RIT_RIGHTFONT">
             <summary>印刷レイアウトの保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentHeader.RIT_CENTERTEXT">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentHeader.RIT_CENTERTEXT">
             <summary>印刷レイアウトの保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentHeader.RIT_LEFTTEXT">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentHeader.RIT_LEFTTEXT">
             <summary>印刷レイアウトの保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentHeader.RIT_RIGHTTEXT">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentHeader.RIT_RIGHTTEXT">
             <summary>印刷レイアウトの保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentHeader.RIT_LEFTTEXT_DEFAULT">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentHeader.RIT_LEFTTEXT_DEFAULT">
             <summary>印刷レイアウトの保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentHeader.RIT_CENTERTEXT_DEFAULT">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentHeader.RIT_CENTERTEXT_DEFAULT">
             <summary>印刷レイアウトの保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentHeader.RIT_RIGHTTEXT_DEFAULT">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentHeader.RIT_RIGHTTEXT_DEFAULT">
             <summary>印刷レイアウトの保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentHeader.RIT_DATEFORMAT_DEFAULT">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentHeader.RIT_DATEFORMAT_DEFAULT">
             <summary>印刷レイアウトの保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentHeader.RIT_DATEFORMAT">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentHeader.RIT_DATEFORMAT">
             <summary>印刷レイアウトの保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentHeader.RIT_PAGEFORMAT">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentHeader.RIT_PAGEFORMAT">
             <summary>印刷レイアウトの保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentHeader.RIT_PAGEALLFORMAT">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentHeader.RIT_PAGEALLFORMAT">
             <summary>印刷レイアウトの保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentHeader.RIT_START_DATE">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentHeader.RIT_START_DATE">
             <summary>印刷レイアウトの保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentHeader.RIT_END_DATE">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentHeader.RIT_END_DATE">
             <summary>印刷レイアウトの保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentHeader.RIT_PAGE_START_DATE">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentHeader.RIT_PAGE_START_DATE">
             <summary>印刷レイアウトの保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentHeader.RIT_PAGE_END_DATE">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentHeader.RIT_PAGE_END_DATE">
             <summary>印刷レイアウトの保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentHeader.RIT_PAGE">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentHeader.RIT_PAGE">
             <summary>印刷レイアウトの保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentHeader.RIT_PAGEALL">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentHeader.RIT_PAGEALL">
             <summary>印刷レイアウトの保存キー</summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentHeader.height">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentHeader.height">
             <summary>
             高さ
             </summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentHeader.leftBrush">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentHeader.leftBrush">
             <summary>
             色
             </summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentHeader.centerBrush">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentHeader.centerBrush">
             <summary>
             色
             </summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentHeader.rightBrush">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentHeader.rightBrush">
             <summary>
             色
             </summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentHeader.timeTable">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentHeader.timeTable">
             <summary>
             タイムテーブル
             </summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentHeader.page">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentHeader.page">
             <summary>
             ページインデックス
             </summary>
         </member>
-        <member name="F:TimeTableManager.Printing.CPrintDocumentHeader.document">
+        <member name="F:TimeTableManager.Printing.BPrintDocumentHeader.document">
             <summary>
             ドキュメント
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentHeader.Page">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentHeader.Page">
             <summary>ページインデックス
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentHeader.Document">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentHeader.Document">
             <summary>ドキュメント
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentHeader.RightBrush">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentHeader.RightBrush">
             <summary>右側のブラシオブジェクト
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentHeader.CenterBrush">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentHeader.CenterBrush">
             <summary>中央のブラシオブジェクト
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentHeader.LeftBrush">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentHeader.LeftBrush">
             <summary>左側のブラシオブジェクト
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentHeader.LeftFont">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentHeader.LeftFont">
             <summary>左側フォント
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentHeader.CenterFont">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentHeader.CenterFont">
             <summary>中央フォント
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentHeader.RightFont">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentHeader.RightFont">
             <summary>左側フォント
             </summary>
         </member>
-        <member name="M:TimeTableManager.Printing.CPrintDocumentHeader.FormatText2Text(System.String)">
+        <member name="M:TimeTableManager.Printing.BPrintDocumentHeader.FormatText2Text(System.String)">
             <summary>文字列の書式化
             含まれる日付等を設定した内容でフォーマットする
             </summary>
             <param name="format">書式化される文字列</param>
             <returns>書式化された文字列</returns>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentHeader.LeftText">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentHeader.LeftText">
             <summary>
             左側のテキスト
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentHeader.CenterText">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentHeader.CenterText">
             <summary>
             中央のテキスト
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentHeader.RightText">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentHeader.RightText">
             <summary>
             右側のテキスト
             </summary>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentHeader.Height">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentHeader.Height">
             <summary>
             高さ
             </summary>
         </member>
-        <member name="M:TimeTableManager.Printing.CPrintDocumentHeader.GetHeight(System.Drawing.Graphics)">
+        <member name="M:TimeTableManager.Printing.BPrintDocumentHeader.GetHeight(System.Drawing.Graphics)">
             <summary>
             高さ
             </summary>
             <param name="g">グラフィックスオブジェクト</param>
             <returns></returns>
         </member>
-        <member name="M:TimeTableManager.Printing.CPrintDocumentHeader.Paint(System.Drawing.Graphics,System.Drawing.Printing.PrintPageEventArgs)">
+        <member name="M:TimeTableManager.Printing.BPrintDocumentHeader.Paint(System.Drawing.Graphics,System.Drawing.Printing.PrintPageEventArgs)">
             <summary>
             描画
             </summary>
             <param name="g">グラフィックオブジェクト</param>
             <param name="e">イベント発生源</param>
         </member>
-        <member name="P:TimeTableManager.Printing.CPrintDocumentHeader.TimeTable">
+        <member name="P:TimeTableManager.Printing.BPrintDocumentHeader.TimeTable">
             <summary>
             タイムテーブル
             </summary>
@@ -5139,20 +5139,20 @@
             <summary>当日からこの日数は自動設定しない
             </summary>
         </member>
-        <member name="M:TimeTableManager.IFavoriteRandomizer.AutoAllwithChief(TimeTableManager.Element.CTimeTable,System.DateTime)">
+        <member name="M:TimeTableManager.IFavoriteRandomizer.AutoAllwithChief(TimeTableManager.Element.BTimeTable,System.DateTime)">
             <summary>自動設定する
             </summary>
             <param name="table">設定するタイムテーブル</param>
             <param name="Adate">開始</param>
         </member>
-        <member name="M:TimeTableManager.IFavoriteRandomizer.AutoAllwithChief(TimeTableManager.Element.CTimeTable,System.DateTime,System.DateTime)">
+        <member name="M:TimeTableManager.IFavoriteRandomizer.AutoAllwithChief(TimeTableManager.Element.BTimeTable,System.DateTime,System.DateTime)">
             <summary>自動設定する
             </summary>
             <param name="table">設定するタイムテーブル</param>
             <param name="start">開始</param>
             <param name="end">終了</param>
         </member>
-        <member name="M:TimeTableManager.IFavoriteRandomizer.AutoAllwithChief(TimeTableManager.Element.CTimeTable,System.DateTime,System.DateTime,System.DateTime)">
+        <member name="M:TimeTableManager.IFavoriteRandomizer.AutoAllwithChief(TimeTableManager.Element.BTimeTable,System.DateTime,System.DateTime,System.DateTime)">
             <summary>自動設定する
             </summary>
             <param name="table">設定するタイムテーブル</param>
@@ -5177,7 +5177,7 @@
             </summary>
             <param name="owner">親画面</param>
         </member>
-        <member name="M:TimeTableManager.Plugin.IPlugin.DoSomething(TimeTableManager.Element.CTimeTable,System.DateTime,System.DateTime)">
+        <member name="M:TimeTableManager.Plugin.IPlugin.DoSomething(TimeTableManager.Element.BTimeTable,System.DateTime,System.DateTime)">
             <summary>画面上で何かする
             （メインウインドウは初期化の時点でBindMainWindowされているといいなあ）
             </summary>
@@ -5685,7 +5685,7 @@
             <summary>勤務シフトの一覧の作成
             </summary>
         </member>
-        <member name="M:TimeTableManager.Component.UMultiEditor.SetUpMember2Pattern(TimeTableManager.Element.CMember)">
+        <member name="M:TimeTableManager.Component.UMultiEditor.SetUpMember2Pattern(TimeTableManager.Element.BMember)">
             <summary>メンバーの就業状態の作成
             </summary>
             <param name="member"></param>
@@ -5789,7 +5789,7 @@
             <param name="X2"></param>
             <returns></returns>
         </member>
-        <member name="M:TimeTableManager.Component.UMultiEditor.CreatePattern(TimeTableManager.Element.CMember,System.TimeSpan,System.TimeSpan,System.TimeSpan)">
+        <member name="M:TimeTableManager.Component.UMultiEditor.CreatePattern(TimeTableManager.Element.BMember,System.TimeSpan,System.TimeSpan,System.TimeSpan)">
             <summary>勤務シフトを作成する
             </summary>
             <param name="member"></param>

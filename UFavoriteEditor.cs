@@ -12,20 +12,20 @@ namespace TimeTableManager.Component {
     /// </summary>
     public partial class UFavoriteEditor : UserControl {
         private TimeTableManager.UI.FMainForm mainForm;
-        private CTimeTable timeTable;
-        private List<CMember> members;
-        private List<CPattern> patterns;
-        private CScheduledDate sdate;
+        private BTimeTable timeTable;
+        private List<BMember> members;
+        private List<BPattern> patterns;
+        private BScheduledDate sdate;
         /// <summary>乱数化されたスケジュール日の表示／編集コンポーネント
         /// </summary>
         public UFavoriteEditor () {
             InitializeComponent();
             // コレクションの初期化
-            members = new List<CMember>();
-            patterns = new List<CPattern>();
+            members = new List<BMember>();
+            patterns = new List<BPattern>();
             // データ型の設定
-            ClmMember.DataType = typeof(CMember);
-            ClmPattern.DataType = typeof(CPattern);
+            ClmMember.DataType = typeof(BMember);
+            ClmPattern.DataType = typeof(BPattern);
             //
         }
         /// <summary>メインフォーム
@@ -69,13 +69,13 @@ namespace TimeTableManager.Component {
         }
         /// <summary>タイムテーブル
         /// </summary>
-        public CTimeTable TimeTable {
+        public BTimeTable TimeTable {
             get { return timeTable; }
             set {
                 if (timeTable != value) {
                     timeTable = value;
                     this.Date = this.Date;
-                    timeTable.OnScheduleEdited += new CTimeTable.ScheduleEditedEventHandler(timeTable_OnScheduleEdited);
+                    timeTable.OnScheduleEdited += new BTimeTable.ScheduleEditedEventHandler(timeTable_OnScheduleEdited);
                 }                
             }
         }
@@ -89,7 +89,7 @@ namespace TimeTableManager.Component {
         /// <summary>
         /// 日付の設定
         /// </summary>
-        public CScheduledDate Date {
+        public BScheduledDate Date {
             get {
                 return sdate;
             }
@@ -124,10 +124,10 @@ namespace TimeTableManager.Component {
             }
             DsMembers.Clear();
             members.Clear();
-            TblMembers.Rows.Add(CMember.NULL, CMember.NULL.Name);
+            TblMembers.Rows.Add(BMember.NULL, BMember.NULL.Name);
             int j = 0;
             for (int i = 0; i < TimeTable.Members.Size(true); i++) {
-                CMember member = TimeTable.Members[i, true];
+                BMember member = TimeTable.Members[i, true];
                 if (member.IsAvailable(sdate.Date) && !member.BuiltIn) {
                     members.Add(member);
                     // データセットの設定
@@ -161,7 +161,7 @@ namespace TimeTableManager.Component {
             patterns.Clear();
             int j = 0;
             for (int i = 0; i < TimeTable.Patterns.Size(true); i++) {
-                CPattern pattern = TimeTable.Patterns[i, true];
+                BPattern pattern = TimeTable.Patterns[i, true];
                     if (pattern.IsAvailable(sdate.Date) && !pattern.BuiltIn) {
                         patterns.Add(pattern);
                         // データセットの設定
@@ -214,27 +214,27 @@ namespace TimeTableManager.Component {
 
         private void MemberPatternView_CellValueNeeded (object sender, DataGridViewCellValueEventArgs e) {
             if (e.RowIndex >= this.members.Count) return; // 行数オーバー
-            CMember member = members[e.RowIndex];
+            BMember member = members[e.RowIndex];
             if (e.ColumnIndex == 0) {
                 // 1列目はメンバー
                 e.Value = member.Name;
             } else {
                 // 2列目以降は好みの順番（シフト）
                 int index = e.ColumnIndex - 1;
-                CPattern pattern = sdate.GetMembersPattern(member, index);
+                BPattern pattern = sdate.GetMembersPattern(member, index);
                 e.Value = pattern;
             }
         }
 
         private void MemberPatternView_CellValuePushed (object sender, DataGridViewCellValueEventArgs e) {
-            CMember member = members[e.RowIndex];
+            BMember member = members[e.RowIndex];
             if (e.ColumnIndex == 0) {
                 // 1列目はメンバー（なにもしない）
             } else {
                 // 2列目以降は好みの順番（シフト）
                 int index = e.ColumnIndex - 1;
-                if (e.Value is CPattern) {
-                    CPattern pattern = e.Value as CPattern;
+                if (e.Value is BPattern) {
+                    BPattern pattern = e.Value as BPattern;
                     sdate.SetPatternRank(member, pattern, index);
                 }
             }
@@ -242,27 +242,27 @@ namespace TimeTableManager.Component {
 
         private void PatternMemberView_CellValueNeeded (object sender, DataGridViewCellValueEventArgs e) {
             if (e.RowIndex >= this.patterns.Count) return; // 行数オーバー
-            CPattern pattern = patterns[e.RowIndex];
+            BPattern pattern = patterns[e.RowIndex];
             if (e.ColumnIndex == 0) {
                 // 一列目はシフト
                 e.Value = pattern.Name;
             } else {
                 // 2列目以降は好みの順番（シフト）
                 int index = e.ColumnIndex - 1;
-                CMember member = sdate.GetPatternsMember(pattern, index);
+                BMember member = sdate.GetPatternsMember(pattern, index);
                 e.Value = member;
             }
         }
 
         private void PatternMemberView_CellValuePushed (object sender, DataGridViewCellValueEventArgs e) {
-            CPattern pattern = patterns[e.RowIndex];
+            BPattern pattern = patterns[e.RowIndex];
             if (e.ColumnIndex == 0) {
                 // 一列目はシフト（なにもしない）
             } else {
                 // 2列目以降は好みの順番（シフト）
                 int index = e.ColumnIndex - 1;
-                if (e.Value is CMember) {
-                    CMember member = e.Value as CMember;
+                if (e.Value is BMember) {
+                    BMember member = e.Value as BMember;
                     sdate.SetMemberRank(pattern, member, index);
                 }
             }
@@ -308,9 +308,9 @@ namespace TimeTableManager.Component {
               TypeConverter valueTypeConverter,
               TypeConverter formattedValueTypeConverter,
               DataGridViewDataErrorContexts context) {
-            CMember ret = null;
-            if (value != null && value is CMember) {
-                ret = value as CMember;
+            BMember ret = null;
+            if (value != null && value is BMember) {
+                ret = value as BMember;
             }
             return (ret == null) ? "" : ret.Name;
         }

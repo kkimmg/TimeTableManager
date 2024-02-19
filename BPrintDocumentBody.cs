@@ -23,7 +23,7 @@ namespace TimeTableManager.Printing {
     /// <summary>
     /// 印刷ドキュメント
     /// </summary>
-    public class CPrintDocumentBody : System.Drawing.Printing.PrintDocument {
+    public class BPrintDocumentBody : System.Drawing.Printing.PrintDocument {
         #region リテラル
         /// <summary>印刷設定の保存キー</summary>
         public const string RIT_IMAGEPRINT = "Printing.bool.ImagePrint";
@@ -92,7 +92,7 @@ namespace TimeTableManager.Printing {
         /// <summary>
         /// タイムテーブル
         /// </summary>
-        private TimeTableManager.Element.CTimeTable timeTable;
+        private TimeTableManager.Element.BTimeTable timeTable;
         /// <summary>
         /// ページインデックス 
         /// </summary>
@@ -108,19 +108,19 @@ namespace TimeTableManager.Printing {
         /// <summary>
         /// ヘッダー部 
         /// </summary>
-        private CPrintDocumentHeader header = new CPrintDocumentHeader();
+        private BPrintDocumentHeader header = new BPrintDocumentHeader();
         /// <summary>
         /// フッター部 
         /// </summary>
-        private CPrintDocumentFooter footer = new CPrintDocumentFooter();
+        private BPrintDocumentFooter footer = new BPrintDocumentFooter();
         /// <summary>
         /// 有効なメンバーの一覧
         /// </summary>
-        private List<CMember> members = new List<CMember>();
+        private List<BMember> members = new List<BMember>();
         /// <summary>
         /// ページインデックス
         /// </summary>
-        private List<CPageIndex> pages = new List<CPageIndex>();
+        private List<BPageIndex> pages = new List<BPageIndex>();
         /// <summary>
         /// 日付の列の幅
         /// </summary>
@@ -230,9 +230,9 @@ namespace TimeTableManager.Printing {
         /// </summary>
         public string DateFormat {
             get {
-                string work = TimeTable[CPrintDocumentBody.RIT_DATEFORMAT];
+                string work = TimeTable[BPrintDocumentBody.RIT_DATEFORMAT];
                 if (work == null) {
-                    work = CPrintDocumentBody.RIT_DATEFORMAT_DEFAULT;
+                    work = BPrintDocumentBody.RIT_DATEFORMAT_DEFAULT;
                 }
                 return work; 
             }
@@ -242,11 +242,11 @@ namespace TimeTableManager.Printing {
         /// </summary>
         public bool ImagePrint {
             get {
-                string work = TimeTable[CPrintDocumentBody.RIT_IMAGEPRINT];
-                bool bork = CPrintDocumentBody.RIT_IMAGEPRINT_DEFAULT;
+                string work = TimeTable[BPrintDocumentBody.RIT_IMAGEPRINT];
+                bool bork = BPrintDocumentBody.RIT_IMAGEPRINT_DEFAULT;
                 if (work != null) {
                     if (!(bool.TryParse(work, out bork))) {
-                        bork = CPrintDocumentBody.RIT_IMAGEPRINT_DEFAULT;
+                        bork = BPrintDocumentBody.RIT_IMAGEPRINT_DEFAULT;
                     }
                 }
                 return bork;
@@ -271,11 +271,11 @@ namespace TimeTableManager.Printing {
         /// </summary>
         public bool IsDisplayRequire {
             get {
-                string work = TimeTable[CPrintDocumentBody.RIT_ISDISPLAYREQUIRE];
-                bool bork = CPrintDocumentBody.RIT_ISDISPLAYREQUIRE_DEFAULT;
+                string work = TimeTable[BPrintDocumentBody.RIT_ISDISPLAYREQUIRE];
+                bool bork = BPrintDocumentBody.RIT_ISDISPLAYREQUIRE_DEFAULT;
                 if (work != null) {
                     if (!(bool.TryParse(work, out bork))) {
-                        bork = CPrintDocumentBody.RIT_ISDISPLAYREQUIRE_DEFAULT;
+                        bork = BPrintDocumentBody.RIT_ISDISPLAYREQUIRE_DEFAULT;
                     }
                 }
                 return bork;
@@ -292,21 +292,21 @@ namespace TimeTableManager.Printing {
         /// <summary>
         /// ヘッダー部
         /// </summary>
-        public CPrintDocumentHeader Header {
+        public BPrintDocumentHeader Header {
             get { return header; }
             set { header = value; }
         }
         /// <summary>
         /// フッター部
         /// </summary>
-        public CPrintDocumentFooter Footer {
+        public BPrintDocumentFooter Footer {
             get { return footer; }
             set { footer = value; }
         }
         /// <summary>
         /// タイムテーブル
         /// </summary>
-        public TimeTableManager.Element.CTimeTable TimeTable {
+        public TimeTableManager.Element.BTimeTable TimeTable {
             get {
                 return timeTable;
             }
@@ -346,7 +346,7 @@ namespace TimeTableManager.Printing {
             members.Clear();
             int z = TimeTable.Members.Size(true);
             for (int i = 0; i < z; i++) {
-                CMember member = TimeTable.Members[i, true];
+                BMember member = TimeTable.Members[i, true];
                 if (member.IsAvailable(Start) || member.IsAvailable(End)) {
                     members.Add(member);
                 }
@@ -356,12 +356,12 @@ namespace TimeTableManager.Printing {
             pages.Clear();
             bool cont1 = true;
             DateTime k = Start;
-            CPageIndex page = null;
+            BPageIndex page = null;
             while (cont1) {
                 int j = 0;
                 bool cont2 = true;
                 while (cont2) {
-                    page = new CPageIndex();
+                    page = new BPageIndex();
                     page.Document = this;
                     page.Start = k;
                     page.MemberStartIndex = j;
@@ -424,7 +424,7 @@ namespace TimeTableManager.Printing {
         /// </summary>
         public int MaxMember {
             get {
-                string work = TimeTable[CPrintDocumentBody.RIT_COLUMNCOUNT];
+                string work = TimeTable[BPrintDocumentBody.RIT_COLUMNCOUNT];
                 int iork = 0;
                 if (work != null) {
                     if (!(int.TryParse(work, out iork))) {
@@ -439,7 +439,7 @@ namespace TimeTableManager.Printing {
         /// </summary>
         public int MaxDates {
             get {
-                string work = TimeTable[CPrintDocumentBody.RIT_ROWCOUNT];
+                string work = TimeTable[BPrintDocumentBody.RIT_ROWCOUNT];
                 int iork = 0;
                 if (work != null) {
                     if (!(int.TryParse(work, out iork))) {
@@ -454,11 +454,11 @@ namespace TimeTableManager.Printing {
         /// </summary>
         public Boolean Monthly {
             get {
-                string work = TimeTable[CPrintDocumentBody.RIT_ISMONTHLY];
-                bool bork = CPrintDocumentBody.RIT_ISMONTHLY_DEFAULT;
+                string work = TimeTable[BPrintDocumentBody.RIT_ISMONTHLY];
+                bool bork = BPrintDocumentBody.RIT_ISMONTHLY_DEFAULT;
                 if (work != null) {
                     if (!(bool.TryParse(work, out bork))) {
-                        bork = CPrintDocumentBody.RIT_ISMONTHLY_DEFAULT;
+                        bork = BPrintDocumentBody.RIT_ISMONTHLY_DEFAULT;
                     }
                 }
                 return bork;
@@ -490,7 +490,7 @@ namespace TimeTableManager.Printing {
             //
             g.DrawRectangle(this.Pen, rect.Left, rect.Top, rect.Width, rect.Height);
             //
-            CPageIndex page = pages[index];
+            BPageIndex page = pages[index];
             // 決め打ちできる罫線を引く
             float DateRight = rect.Left + RequireColumnWidth;
             g.DrawLine(this.Pen, DateRight, rect.Top, DateRight, rect.Bottom);
@@ -518,7 +518,7 @@ namespace TimeTableManager.Printing {
                 float WorkLeft = MemberColumnBase + MemberColumnWidth * i;
                 float WorkRight = MemberColumnBase + MemberColumnWidth * (i + 1);
                 //
-                CMember member = this.TimeTable.Members[page.MemberStartIndex + i];
+                BMember member = this.TimeTable.Members[page.MemberStartIndex + i];
                 DrawString(g, member.Name, HeaderFont, HeaderBrush, WorkLeft, WorkRight, rect.Top, tableHeaderHight, EPrintMargin.MARGIN_CENTER, EPrintMargin.MARGIN_CENTER);
             }
             // 日数に応じた罫線を引く
@@ -537,7 +537,7 @@ namespace TimeTableManager.Printing {
                 // 日付
                 DrawString(g, WorkDate.ToString(DateFormat), System.Windows.Forms.Control.DefaultFont, Brushes.Black, rect.Left, DateRight, WorkTop, DateRowHeight, EPrintMargin.MARGIN_CENTER, EPrintMargin.MARGIN_CENTER);
                 // スケジュール日
-                CScheduledDate sdate = this.TimeTable[WorkDate];
+                BScheduledDate sdate = this.TimeTable[WorkDate];
                 if (IsDisplayRequire) {
                     if (sdate.Require != null) {
                         DrawString(g, sdate.Require.Name, BodyFont, BodyBrush, DateRight, RequireRight, WorkTop, DateRowHeight, EPrintMargin.MARGIN_CENTER, EPrintMargin.MARGIN_CENTER);
@@ -548,9 +548,9 @@ namespace TimeTableManager.Printing {
                     float WorkLeft = MemberColumnBase + MemberColumnWidth * j;
                     float WorkRight = MemberColumnBase + MemberColumnWidth * (j + 1);
                     //
-                    CMember member = this.TimeTable.Members[page.MemberStartIndex + j];
-                    CSchedule schedule = sdate[member];
-                    CPattern pattern = (schedule != null ? schedule.Pattern : null);
+                    BMember member = this.TimeTable.Members[page.MemberStartIndex + j];
+                    BSchedule schedule = sdate[member];
+                    BPattern pattern = (schedule != null ? schedule.Pattern : null);
                     if (pattern != null) {
                         DrawString(g, pattern.Name, BodyFont, BodyBrush, WorkLeft, WorkRight, WorkTop, DateRowHeight, EPrintMargin.MARGIN_CENTER, EPrintMargin.MARGIN_CENTER);
                     }
@@ -586,7 +586,7 @@ namespace TimeTableManager.Printing {
         /// </summary>
         /// <param name="i"></param>
         /// <returns></returns>
-        public CMember GetMember (int i) {
+        public BMember GetMember (int i) {
             return members[i];
         }
         /// <summary>
@@ -660,7 +660,7 @@ namespace TimeTableManager.Printing {
         /// <param name="timetable">タイムテーブル</param>
         /// <param name="key">キー</param>
         /// <returns></returns>
-        public static Font GetFont (CTimeTable timetable, string key) {
+        public static Font GetFont (BTimeTable timetable, string key) {
             Font font = System.Windows.Forms.Control.DefaultFont;
             string stfontname = timetable[key + POSTFIX_FONTNAME];
             string stfontsize = timetable[key + POSTFIX_FONTSIZE];
@@ -718,7 +718,7 @@ namespace TimeTableManager.Printing {
         /// <param name="timetable">タイムテーブル</param>
         /// <param name="key">キー</param>
         /// <param name="font">値</param>
-        public static void SetFont (CTimeTable timetable, string key, Font font) {
+        public static void SetFont (BTimeTable timetable, string key, Font font) {
             if (font != null) {
                 timetable[key + POSTFIX_FONTNAME] = font.Name;
                 timetable[key + POSTFIX_FONTSIZE] = font.Size.ToString();

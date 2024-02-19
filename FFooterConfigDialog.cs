@@ -14,11 +14,11 @@ namespace TimeTableManager.UI {
         /// <summary>
         /// タイムテーブル
         /// </summary>
-        private TimeTableManager.Element.CTimeTable timeTable;
+        private TimeTableManager.Element.BTimeTable timeTable;
         /// <summary>
         /// タイムテーブル
         /// </summary>
-        public TimeTableManager.Element.CTimeTable TimeTable {
+        public TimeTableManager.Element.BTimeTable TimeTable {
             get { return timeTable; }
             set { timeTable = value; }
         }
@@ -41,9 +41,9 @@ namespace TimeTableManager.UI {
         /// <param name="sender">イベントの発生したオブジェクト</param>
         /// <param name="e">発生したイベント</param>
         private void btnOK_Click (object sender, EventArgs e) {
-            CPrintDocumentBody.SetFont(TimeTable, CPrintDocumentFooter.RIT_FONT, dlgFont.Font);
-            TimeTable[CPrintDocumentFooter.RIT_FORMAT] = cmbFormat.Text;
-            TimeTable[CPrintDocumentFooter.RIT_COLUMN] = nupColumnCount.Value.ToString();
+            BPrintDocumentBody.SetFont(TimeTable, BPrintDocumentFooter.RIT_FONT, dlgFont.Font);
+            TimeTable[BPrintDocumentFooter.RIT_FORMAT] = cmbFormat.Text;
+            TimeTable[BPrintDocumentFooter.RIT_COLUMN] = nupColumnCount.Value.ToString();
         }
         /// <summary>
         /// キャンセル
@@ -59,21 +59,21 @@ namespace TimeTableManager.UI {
         /// <param name="sender">イベントの発生したオブジェクト</param>
         /// <param name="e">発生したイベント</param>
         private void FooterConfigDialog_Shown (object sender, EventArgs e) {
-            dlgFont.Font = CPrintDocumentBody.GetFont(TimeTable, CPrintDocumentFooter.RIT_FONT);
+            dlgFont.Font = BPrintDocumentBody.GetFont(TimeTable, BPrintDocumentFooter.RIT_FONT);
             // 書式
-            string format = TimeTable[CPrintDocumentFooter.RIT_FORMAT];
+            string format = TimeTable[BPrintDocumentFooter.RIT_FORMAT];
             if (format == null) {
-                format = CPrintDocumentFooter.RID_FORMAT_DEFAULT;
+                format = BPrintDocumentFooter.RID_FORMAT_DEFAULT;
             } else if (format.Trim().Length == 0) {
-                format = CPrintDocumentFooter.RID_FORMAT_DEFAULT;
+                format = BPrintDocumentFooter.RID_FORMAT_DEFAULT;
             }
             cmbFormat.Text = format;
             // 列数
-            string column = TimeTable[CPrintDocumentFooter.RIT_COLUMN];
-            int icolumn = CPrintDocumentFooter.RIT_COLUMN_DEFAULT;
+            string column = TimeTable[BPrintDocumentFooter.RIT_COLUMN];
+            int icolumn = BPrintDocumentFooter.RIT_COLUMN_DEFAULT;
             if (column != null) {
                 if (!(int.TryParse(column, out icolumn))) {
-                    icolumn = CPrintDocumentFooter.RIT_COLUMN_DEFAULT;
+                    icolumn = BPrintDocumentFooter.RIT_COLUMN_DEFAULT;
                 }
             }
             nupColumnCount.Value = icolumn;

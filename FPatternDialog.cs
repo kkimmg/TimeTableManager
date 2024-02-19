@@ -11,7 +11,7 @@ namespace TimeTableManager.UI {
     public partial class FPatternDialog : System.Windows.Forms.Form {
         /// <summary>勤務シフト
         /// </summary>
-        private TimeTableManager.Element.CPattern pattern;
+        private TimeTableManager.Element.BPattern pattern;
         /// <summary>コンストラクタ
         /// </summary>
         public FPatternDialog () {
@@ -37,7 +37,7 @@ namespace TimeTableManager.UI {
         }
         /// <summary>勤務シフト
         /// </summary>
-        public TimeTableManager.Element.CPattern Pattern {
+        public TimeTableManager.Element.BPattern Pattern {
             get {
                 return pattern;
             }

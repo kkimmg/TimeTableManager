@@ -21,18 +21,18 @@ namespace TimeTableManager.Element {
     /// <summary>スケジュールが編集された
     /// </summary>
     public class EScheduleEditedEventArgs : EventArgs {
-        private readonly CSchedule schedule;
+        private readonly BSchedule schedule;
         /// <summary>
         /// 変更されたスケジュール
         /// </summary>
-        public CSchedule Schedule {
+        public BSchedule Schedule {
             get { return schedule; }
         } 
         /// <summary>
         /// コンストラクタ
         /// </summary>
         /// <param name="param"></param>
-        public EScheduleEditedEventArgs (CSchedule param) {
+        public EScheduleEditedEventArgs (BSchedule param) {
             this.schedule = param;
         }
     }
@@ -40,7 +40,7 @@ namespace TimeTableManager.Element {
     /// </summary>
     public class EPatternsEditedEventArgs : EventArgs {
         private EnumTimeTableElementEventTypes type;
-        private readonly CPattern source;
+        private readonly BPattern source;
         /// <summary>イベントの種別
         /// </summary>
         public EnumTimeTableElementEventTypes Type {
@@ -48,14 +48,14 @@ namespace TimeTableManager.Element {
         }
         /// <summary>イベントの発生元である勤務シフト
         /// </summary>
-        public CPattern Source {
+        public BPattern Source {
             get { return source; }
         }
         /// <summary>コンストラクタ
         /// </summary>
         /// <param name="EventType">イベント種別</param>
         /// <param name="EventSource">イベントの発生元</param>
-        public EPatternsEditedEventArgs (EnumTimeTableElementEventTypes EventType, CPattern EventSource) {
+        public EPatternsEditedEventArgs (EnumTimeTableElementEventTypes EventType, BPattern EventSource) {
             this.type = EventType;
             this.source = EventSource;
         }
@@ -64,7 +64,7 @@ namespace TimeTableManager.Element {
     /// </summary>
     public class EMembersEditedEventArgs : EventArgs {
         private EnumTimeTableElementEventTypes type;
-        private readonly CMember source;
+        private readonly BMember source;
         /// <summary>イベント種別
         /// </summary>
         public EnumTimeTableElementEventTypes Type {
@@ -72,14 +72,14 @@ namespace TimeTableManager.Element {
         }
         /// <summary>イベントの発生源であるメンバー
         /// </summary>
-        public CMember Source {
+        public BMember Source {
             get { return source; }
         }
         /// <summary>コンストラクタ
         /// </summary>
         /// <param name="EventType">イベント種別</param>
         /// <param name="EventSource">発生源</param>
-        public EMembersEditedEventArgs (EnumTimeTableElementEventTypes EventType, CMember EventSource) {
+        public EMembersEditedEventArgs (EnumTimeTableElementEventTypes EventType, BMember EventSource) {
             this.type = EventType;
             this.source = EventSource;
         }
@@ -88,7 +88,7 @@ namespace TimeTableManager.Element {
     /// </summary>
     public class ERequirePatternssEditedEventArgs : EventArgs {
         private EnumTimeTableElementEventTypes type;
-        private readonly CRequirePatterns source;
+        private readonly BRequirePatterns source;
         /// <summary>イベント種別
         /// </summary>
         public EnumTimeTableElementEventTypes Type {
@@ -96,14 +96,14 @@ namespace TimeTableManager.Element {
         }
         /// <summary>イベントの発生元となる人員配置
         /// </summary>
-        public CRequirePatterns Source {
+        public BRequirePatterns Source {
             get { return source; }
         }
         /// <summary>コンストラクタ
         /// </summary>
         /// <param name="EventType">イベント種別</param>
         /// <param name="EventSource">発生源</param>
-        public ERequirePatternssEditedEventArgs (EnumTimeTableElementEventTypes EventType, CRequirePatterns EventSource) {
+        public ERequirePatternssEditedEventArgs (EnumTimeTableElementEventTypes EventType, BRequirePatterns EventSource) {
             this.type = EventType;
             this.source = EventSource;
         }
@@ -112,7 +112,7 @@ namespace TimeTableManager.Element {
     /// </summary>
     public class EDayOffsEditedEventArgs : EventArgs {
         private EnumTimeTableElementEventTypes type;
-        private readonly CDayOff source;
+        private readonly BDayOff source;
         /// <summary>イベント種別
         /// </summary>
         public EnumTimeTableElementEventTypes Type {
@@ -120,14 +120,14 @@ namespace TimeTableManager.Element {
         }
         /// <summary>イベントの発生した休日
         /// </summary>
-        public CDayOff Source {
+        public BDayOff Source {
             get { return source; }
         }
         /// <summary>コンストラクタ
         /// </summary>
         /// <param name="EventType">イベント種別</param>
         /// <param name="EventSource">発生源</param>
-        public EDayOffsEditedEventArgs (EnumTimeTableElementEventTypes EventType, CDayOff EventSource) {
+        public EDayOffsEditedEventArgs (EnumTimeTableElementEventTypes EventType, BDayOff EventSource) {
             this.type = EventType;
             this.source = EventSource;
         }
@@ -162,23 +162,23 @@ namespace TimeTableManager.Element {
     /// <summary>スケジュール日の人員配置が変更された
     /// </summary>
     public class EScheduleDateRequirePatternsEditedEventArgs : EventArgs {
-        private readonly CScheduledDate sdate;
-        private readonly CRequirePatterns require;
+        private readonly BScheduledDate sdate;
+        private readonly BRequirePatterns require;
         /// <summary>スケジュール日
         /// </summary>
-        public CScheduledDate ScheduledDate {
+        public BScheduledDate ScheduledDate {
             get { return sdate; }
         }
         /// <summary>人員配置
         /// </summary>
-        public CRequirePatterns RequirePatterns {
+        public BRequirePatterns RequirePatterns {
             get { return require; }
         }
         /// <summary>コンストラクタ
         /// </summary>
         /// <param name="SDate">スケジュール日</param>
         /// <param name="Requires">人員配置</param>
-        public EScheduleDateRequirePatternsEditedEventArgs (CScheduledDate SDate, CRequirePatterns Requires) {
+        public EScheduleDateRequirePatternsEditedEventArgs (BScheduledDate SDate, BRequirePatterns Requires) {
             this.sdate = SDate;
             this.require = Requires;
         }
@@ -187,7 +187,7 @@ namespace TimeTableManager.Element {
     /// </summary>
     public class EEvaluationItemEditedEventArgs : EventArgs {
         private EnumTimeTableElementEventTypes type;
-        private readonly CEvaluationItem source;
+        private readonly BEvaluationItem source;
         /// <summary>イベント種別
         /// </summary>
         public EnumTimeTableElementEventTypes Type {
@@ -195,14 +195,14 @@ namespace TimeTableManager.Element {
         }
         /// <summary>イベントの発生した分析要素
         /// </summary>
-        public CEvaluationItem Source {
+        public BEvaluationItem Source {
             get { return source; }
         }
         /// <summary>コンストラクタ
         /// </summary>
         /// <param name="EventType">イベント種別</param>
         /// <param name="EventSource">発生源</param>
-        public EEvaluationItemEditedEventArgs (EnumTimeTableElementEventTypes EventType, CEvaluationItem EventSource) {
+        public EEvaluationItemEditedEventArgs (EnumTimeTableElementEventTypes EventType, BEvaluationItem EventSource) {
             this.type = EventType;
             this.source = EventSource;
         }

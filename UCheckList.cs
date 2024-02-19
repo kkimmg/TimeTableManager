@@ -24,25 +24,25 @@ namespace TimeTableManager.Component {
         /// <summary>
         /// 評価の一覧？
         /// </summary>
-        private Dictionary<CScheduledDate, CEvaluation1Day> items = new Dictionary<CScheduledDate, CEvaluation1Day>();
+        private Dictionary<BScheduledDate, BEvaluation1Day> items = new Dictionary<BScheduledDate, BEvaluation1Day>();
         #region タイムテーブルについて
-        private CTimeTable timeTable;
+        private BTimeTable timeTable;
         /// <summary>タイムテーブル
         /// </summary>
-        public CTimeTable TimeTable {
+        public BTimeTable TimeTable {
             get {
                 return timeTable;
             }
             set {
                 timeTable = value;
                 if (timeTable != null) {
-                    timeTable.OnScheduleDateRequirePatternsEdited += new CTimeTable.ScheduleDateRequirePatternsEditedEventHandler(root_OnScheduleDateRequirePatternsEdited);
-                    timeTable.OnScheduleEdited += new CTimeTable.ScheduleEditedEventHandler(root_OnScheduleEdited);
+                    timeTable.OnScheduleDateRequirePatternsEdited += new BTimeTable.ScheduleDateRequirePatternsEditedEventHandler(root_OnScheduleDateRequirePatternsEdited);
+                    timeTable.OnScheduleEdited += new BTimeTable.ScheduleEditedEventHandler(root_OnScheduleEdited);
                     timeTable.EvaluationItems.Clear();
                 }
             }
         }
-        private List<CEvaluationItem> ItemList {
+        private List<BEvaluationItem> ItemList {
             get {
                 return TimeTable.EvaluationItems;
             }
@@ -99,12 +99,12 @@ namespace TimeTableManager.Component {
             if (TimeTable == null) return;
             DateTime work = (LoopStart >= DateTime.Today ? LoopStart : DateTime.Today);
             while (work <= LoopEnd && bw.CancellationPending != true) {
-                CScheduledDate sdate = TimeTable[work.Date];
+                BScheduledDate sdate = TimeTable[work.Date];
                 if (items.ContainsKey(sdate)) {
-                    CEvaluation1Day e1d = items[sdate];
+                    BEvaluation1Day e1d = items[sdate];
                     e1d.Check();
                 } else {
-                    CEvaluation1Day e1d = new CEvaluation1Day(sdate);
+                    BEvaluation1Day e1d = new BEvaluation1Day(sdate);
                     items.Add(sdate, e1d);
                     e1d.Check();
                 }
@@ -163,10 +163,10 @@ namespace TimeTableManager.Component {
         /// <param name="e">発生したイベント</param>
         private void ListGrid_CellValueNeeded (object sender, DataGridViewCellValueEventArgs e) {
             if (TimeTable == null) return;
-            List<CEvaluationItem> lst = TimeTable.EvaluationItems;
+            List<BEvaluationItem> lst = TimeTable.EvaluationItems;
             int row = e.RowIndex;
             if (row >= lst.Count) return;
-            CEvaluationItem item = lst[row];
+            BEvaluationItem item = lst[row];
             if (e.ColumnIndex == 0) {
                 //switch (item.Result) {
                 //    case EvaluationResult.NOTICE:
@@ -213,10 +213,10 @@ namespace TimeTableManager.Component {
         /// <param name="sender">イベントの発生したオブジェクト</param>
         /// <param name="e">発生したイベント</param>
         private void ListGrid_CellDoubleClick (object sender, DataGridViewCellEventArgs e) {
-            List<CEvaluationItem> lst = TimeTable.EvaluationItems;
+            List<BEvaluationItem> lst = TimeTable.EvaluationItems;
             int row = e.RowIndex;
             if (row >= 0 && row < lst.Count) {
-                CEvaluationItem item = lst[row];
+                BEvaluationItem item = lst[row];
                 this.MainForm.SetSelectedDate(item.Date.Date);
             }
         }
@@ -254,8 +254,8 @@ namespace TimeTableManager.Component {
               TypeConverter formattedValueTypeConverter,
               DataGridViewDataErrorContexts context) {
             string ret = "";
-            if (value != null && value is CEvaluationItem) {
-                CEvaluationItem item = value as CEvaluationItem;
+            if (value != null && value is BEvaluationItem) {
+                BEvaluationItem item = value as BEvaluationItem;
                 switch (item.Result) {
                     case EEvaluationResult.NOTICE:
                         ret = "低";

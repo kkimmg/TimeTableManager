@@ -40,7 +40,7 @@ namespace TimeTableManager.UI {
             } else if (this.RdoMonthlyWeekly.Checked) {
                 form.Randomizer = new CMonthlyWeeklyFavoriteRandomizer();
             } else {
-                form.Randomizer = new CDefaultFavoriteRandomizer();
+                form.Randomizer = new BDefaultFavoriteRandomizer();
             }
             #endregion
             // 当時からこの日数分は自動設定しない

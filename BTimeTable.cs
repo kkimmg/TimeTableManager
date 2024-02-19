@@ -6,43 +6,43 @@ using TimeTableManager.Evaluation;
 namespace TimeTableManager.Element {
     /// <summary>タイムテーブル
     /// </summary>
-    public class CTimeTable {
+    public class BTimeTable {
         private System.Collections.Specialized.NameValueCollection Properties;
         /// <summary>初期化処理
         /// </summary>
         private void InitBlock () {
-            defaults = new CRequirePatterns[7];
+            defaults = new BRequirePatterns[7];
             Properties = new System.Collections.Specialized.NameValueCollection();
         }
         /// <summary>日付の一覧
         /// </summary>
-        public CScheduledDateCollection Dates {
+        public BScheduledDateCollection Dates {
             get { return dates; }
         }
         /// <summary>メンバーの一覧
         /// </summary>
-        virtual public CMemberCollection Members {
+        virtual public BMemberCollection Members {
             get {
                 return members;
             }
         }
         /// <summary>勤務シフトの一覧
         /// </summary>
-        virtual public CPatternCollection Patterns {
+        virtual public BPatternCollection Patterns {
             get {
                 return patterns;
             }
         }
         /// <summary>休日の一覧
         /// </summary>
-        public CDayOffCollection DayOffs {
+        public BDayOffCollection DayOffs {
             get {
                 return daysoff;
             }
         }
         /// <summary>人員配置の一覧
         /// </summary>
-        virtual public CRequirePatternsCollection Requires {
+        virtual public BRequirePatternsCollection Requires {
             get {
                 return requires;
             }
@@ -84,27 +84,27 @@ namespace TimeTableManager.Element {
         #region 一覧
         /// <summary>日付の一覧
         /// </summary>
-        private CScheduledDateCollection dates;
+        private BScheduledDateCollection dates;
         /// <summary>メンバーの一覧
         /// </summary>
-        private CMemberCollection members;
+        private BMemberCollection members;
         /// <summary>休日の一覧
         /// </summary>
-        private CDayOffCollection daysoff;
+        private BDayOffCollection daysoff;
         /// <summary>勤務シフトの一覧
         /// </summary>
-        private CPatternCollection patterns;
+        private BPatternCollection patterns;
         /// <summary>人員配置の一覧
         /// </summary>
-        private CRequirePatternsCollection requires;
+        private BRequirePatternsCollection requires;
         #endregion
         #region デフォルトの人員配置
         /// <summary>デフォルトの人員配置
         /// </summary>
-        private CRequirePatterns defaultRequire = null;
+        private BRequirePatterns defaultRequire = null;
         /// <summary>デフォルトの人員配置
         /// </summary>
-        private CRequirePatterns[] defaults;
+        private BRequirePatterns[] defaults;
         #endregion
         #region 営業時間の開始終了
         /// <summary>開始時間
@@ -116,15 +116,15 @@ namespace TimeTableManager.Element {
         #endregion
         /// <summary>コンストラクタ
         /// </summary>
-        public CTimeTable ()
+        public BTimeTable ()
             : base() {
             InitBlock();
             //DayOffs = new DayOffCollection(this);
-            members = new CMemberCollection(this);
-            patterns = new CPatternCollection(this);
-            daysoff = new CDayOffCollection(this);
-            requires = new CRequirePatternsCollection(this);
-            dates = new CScheduledDateCollection(this);
+            members = new BMemberCollection(this);
+            patterns = new BPatternCollection(this);
+            daysoff = new BDayOffCollection(this);
+            requires = new BRequirePatternsCollection(this);
+            dates = new BScheduledDateCollection(this);
         }
         /// <summary>
         /// 日付を削除する
@@ -141,7 +141,7 @@ namespace TimeTableManager.Element {
         /// <summary>
         /// デフォルトの人員配置
         /// </summary>
-        public CRequirePatterns DefaultRequire {
+        public BRequirePatterns DefaultRequire {
             get {
                 return defaultRequire;
             }
@@ -209,13 +209,13 @@ namespace TimeTableManager.Element {
         }
         /// <summary>人員配置
         /// </summary>
-        public CRequirePatterns GetDefaultRequire (System.DayOfWeek weekday) {
+        public BRequirePatterns GetDefaultRequire (System.DayOfWeek weekday) {
             int wday = DayOfWeek2Int(weekday);
             return GetDefaultRequire(wday);
         }
         /// <summary>人員配置
         /// </summary>
-        public void SetDefaultRequire (System.DayOfWeek weekday, CRequirePatterns value) {
+        public void SetDefaultRequire (System.DayOfWeek weekday, BRequirePatterns value) {
             int wday = DayOfWeek2Int(weekday);
             defaults[wday] = value;
         }
@@ -223,8 +223,8 @@ namespace TimeTableManager.Element {
         /// </summary>
         /// <param name="weekday">曜日</param>
         /// <returns>人員配置</returns>
-        public CRequirePatterns GetDefaultRequire (int weekday) {
-            CRequirePatterns ret = null;
+        public BRequirePatterns GetDefaultRequire (int weekday) {
+            BRequirePatterns ret = null;
             ret = defaults[weekday];
             if (ret == null) {
                 ret = DefaultRequire;
@@ -234,7 +234,7 @@ namespace TimeTableManager.Element {
         /// <summary>
         /// 人員配置
         /// </summary>
-        public void SetDefaultRequire (int weekday, CRequirePatterns value) {
+        public void SetDefaultRequire (int weekday, BRequirePatterns value) {
             defaults[weekday] = value;
         }
 
@@ -303,7 +303,7 @@ namespace TimeTableManager.Element {
         /// <summary>
         /// 人員配置
         /// </summary>
-        public CScheduledDate this[int n] {
+        public BScheduledDate this[int n] {
             get {
                 return dates[n];
             }
@@ -311,7 +311,7 @@ namespace TimeTableManager.Element {
         /// <summary>
         /// 人員配置
         /// </summary>
-        public CScheduledDate this[DateTime n] {
+        public BScheduledDate this[DateTime n] {
             get {
                 return dates[n];
             }
@@ -383,7 +383,7 @@ namespace TimeTableManager.Element {
         /// スケジュールが変更された
         /// </summary>
         /// <param name="param"></param>
-        public void NotifyScheduleEdited (CSchedule param) {
+        public void NotifyScheduleEdited (BSchedule param) {
             if (OnScheduleEdited != null && ScheduleEditedEvnetIsValid) {
                 EScheduleEditedEventArgs e = new EScheduleEditedEventArgs(param);
                 OnScheduleEdited(this, e);
@@ -404,7 +404,7 @@ namespace TimeTableManager.Element {
         /// </summary>
         /// <param name="type"></param>
         /// <param name="source"></param>
-        public void NotifyPatternsEdited (EnumTimeTableElementEventTypes type, CPattern source) {
+        public void NotifyPatternsEdited (EnumTimeTableElementEventTypes type, BPattern source) {
             if (OnPatternsEdited != null && scheduleEditedEvnetIsValid) {
                 EPatternsEditedEventArgs e = new EPatternsEditedEventArgs(type, source);
                 OnPatternsEdited(this, e);
@@ -425,7 +425,7 @@ namespace TimeTableManager.Element {
         /// </summary>
         /// <param name="type"></param>
         /// <param name="source"></param>
-        public void NotifyMembersEdited (EnumTimeTableElementEventTypes type, CMember source) {
+        public void NotifyMembersEdited (EnumTimeTableElementEventTypes type, BMember source) {
             if (OnMembersEdited != null && scheduleEditedEvnetIsValid) {
                 //Members.Refresh();
                 EMembersEditedEventArgs e = new EMembersEditedEventArgs(type, source);
@@ -447,7 +447,7 @@ namespace TimeTableManager.Element {
         /// </summary>
         /// <param name="type"></param>
         /// <param name="source"></param>
-        public void NotifyRequirePatternssEdited (EnumTimeTableElementEventTypes type, CRequirePatterns source) {
+        public void NotifyRequirePatternssEdited (EnumTimeTableElementEventTypes type, BRequirePatterns source) {
             if (OnRequirePatternssEdited != null && scheduleEditedEvnetIsValid) {
                 ERequirePatternssEditedEventArgs e = new ERequirePatternssEditedEventArgs(type, source);
                 OnRequirePatternssEdited(this, e);
@@ -468,7 +468,7 @@ namespace TimeTableManager.Element {
         /// </summary>
         /// <param name="type"></param>
         /// <param name="source"></param>
-        public void NotifyDayOffsEdited (EnumTimeTableElementEventTypes type, CDayOff source) {
+        public void NotifyDayOffsEdited (EnumTimeTableElementEventTypes type, BDayOff source) {
             if (OnDayOffsEdited != null && scheduleEditedEvnetIsValid) {
                 EDayOffsEditedEventArgs e = new EDayOffsEditedEventArgs(type, source);
                 OnDayOffsEdited(this, e);
@@ -485,7 +485,7 @@ namespace TimeTableManager.Element {
         /// <summary>
         /// スケジュール日の人員配置が変更された
         /// </summary>
-        public void NotifyScheduleDateRequirePatternsEdited (CScheduledDate param0, CRequirePatterns param1) {
+        public void NotifyScheduleDateRequirePatternsEdited (BScheduledDate param0, BRequirePatterns param1) {
             if (OnDayOffsEdited != null && scheduleEditedEvnetIsValid) {
                 EScheduleDateRequirePatternsEditedEventArgs e = new EScheduleDateRequirePatternsEditedEventArgs(param0, param1);
                 OnScheduleDateRequirePatternsEdited(this, e);
@@ -493,10 +493,10 @@ namespace TimeTableManager.Element {
         }
         /// <summary>評価の一覧
         /// </summary>
-        private List<CEvaluationItem> evaluationItems = new List<CEvaluationItem>();
+        private List<BEvaluationItem> evaluationItems = new List<BEvaluationItem>();
         /// <summary> 評価の一覧
         /// </summary>
-        public List<CEvaluationItem> EvaluationItems {
+        public List<BEvaluationItem> EvaluationItems {
             get {
                 return evaluationItems;
             }

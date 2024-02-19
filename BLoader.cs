@@ -5,18 +5,18 @@ using TimeTableManager.Element;
 namespace TimeTableManager.IO {
     /// <summary>ローダー
     /// </summary>
-    public class CLoader {
+    public class BLoader {
         /// <summary>コンストラクタ
         /// </summary>
-        public CLoader () {
+        public BLoader () {
             // 
             // TODO: コンストラクタ ロジックをここに追加してください。
             //
         }
         /// <summary>ロードメイン
         /// </summary>
-        public CTimeTable Load (string file) {
-            CTimeTable ret = new CTimeTable();
+        public BTimeTable Load (string file) {
+            BTimeTable ret = new BTimeTable();
             ret.ScheduleEditedEvnetIsValid = false;
             XmlDocument doc = new XmlDocument();
             doc.Load(file);
@@ -57,7 +57,7 @@ namespace TimeTableManager.IO {
                     string text = cNode.InnerText;
                     int requireid = int.Parse(text);
                     if (requireid > 0) {
-                        CRequirePatterns require = ret.Requires.GetByID(requireid);
+                        BRequirePatterns require = ret.Requires.GetByID(requireid);
                         if (require != null) {
                             ret.DefaultRequire = require;
                         }
@@ -73,7 +73,7 @@ namespace TimeTableManager.IO {
                         //= (int.TryParse(text1,) ? int.Parse(text1) : 0);
                         //int requireid = int.Parse(text2);
                         if (weekdayid >= 0) {
-                            CRequirePatterns require = ret.Requires.GetByID(requireid);
+                            BRequirePatterns require = ret.Requires.GetByID(requireid);
                             if (require != null) {
                                 ret.SetDefaultRequire(weekdayid, require);
                             }
@@ -97,12 +97,12 @@ namespace TimeTableManager.IO {
         }
         /// <summary>勤務シフトのロード
         /// </summary>
-        public void LoadPatterns (XmlElement element, CTimeTable all) {
+        public void LoadPatterns (XmlElement element, BTimeTable all) {
             XmlElement pNode = element.FirstChild as XmlElement;
             while (pNode != null) {
                 if (pNode.Name == "pattern") {
                     // シフト
-                    CPattern pattern = all.Patterns.CreatePattern();
+                    BPattern pattern = all.Patterns.CreatePattern();
                     LoadTmElement(pNode, pattern);
                     pattern.Name = pNode.GetAttribute("name");
                     TimeSpan work1, work4, work5;
@@ -118,12 +118,12 @@ namespace TimeTableManager.IO {
         }
         /// <summary>休日のロード
         /// </summary>
-        public void LoadDayOffs (XmlElement element, CTimeTable all) {
+        public void LoadDayOffs (XmlElement element, BTimeTable all) {
             XmlElement pNode = element.FirstChild as XmlElement;
             while (pNode != null) {
                 if (pNode.Name == "dayoff") {
                     // 休日
-                    CDayOff dayoff = all.DayOffs.CreateDayOff();
+                    BDayOff dayoff = all.DayOffs.CreateDayOff();
                     LoadTmElement(pNode, dayoff);
                     dayoff.Name = pNode.GetAttribute("name");
                     dayoff.StartDate = DateTime.Parse(pNode.GetAttribute("start"));
@@ -136,12 +136,12 @@ namespace TimeTableManager.IO {
         }
         /// <summary>メンバーのロード
         /// </summary>
-        public void LoadMembers (XmlElement element, CTimeTable all) {
+        public void LoadMembers (XmlElement element, BTimeTable all) {
             XmlElement pNode = element.FirstChild as XmlElement;
             while (pNode != null) {
                 if (pNode.Name == "member") {
                     // メンバー
-                    CMember member = all.Members.CreateMember();
+                    BMember member = all.Members.CreateMember();
                     LoadTmElement(pNode, member);
                     member.Name = pNode.GetAttribute("name");
                     #region チーフですか？
@@ -175,39 +175,39 @@ namespace TimeTableManager.IO {
                     #region 稼働日
                     bool bWork = true;
                     if (bool.TryParse(pNode.GetAttribute("avl-monday"), out bWork)) {
-                        member.SetAvailableDay(CTimeTable.tMonday, bWork);
+                        member.SetAvailableDay(BTimeTable.tMonday, bWork);
                     } else {
-                        member.SetAvailableDay(CTimeTable.tMonday, true);
+                        member.SetAvailableDay(BTimeTable.tMonday, true);
                     }
                     if (bool.TryParse(pNode.GetAttribute("avl-tuesday"), out bWork)) {
-                        member.SetAvailableDay(CTimeTable.tTuesday, bWork);
+                        member.SetAvailableDay(BTimeTable.tTuesday, bWork);
                     } else {
-                        member.SetAvailableDay(CTimeTable.tTuesday, true);
+                        member.SetAvailableDay(BTimeTable.tTuesday, true);
                     }
                     if (bool.TryParse(pNode.GetAttribute("avl-wednesday"), out bWork)) {
-                        member.SetAvailableDay(CTimeTable.tWednesday, bWork);
+                        member.SetAvailableDay(BTimeTable.tWednesday, bWork);
                     } else {
-                        member.SetAvailableDay(CTimeTable.tWednesday, true);
+                        member.SetAvailableDay(BTimeTable.tWednesday, true);
                     }
                     if (bool.TryParse(pNode.GetAttribute("avl-thursday"), out bWork)) {
-                        member.SetAvailableDay(CTimeTable.tThursday, bWork);
+                        member.SetAvailableDay(BTimeTable.tThursday, bWork);
                     } else {
-                        member.SetAvailableDay(CTimeTable.tThursday, true);
+                        member.SetAvailableDay(BTimeTable.tThursday, true);
                     }
                     if (bool.TryParse(pNode.GetAttribute("avl-friday"), out bWork)) {
-                        member.SetAvailableDay(CTimeTable.tFriday, bWork);
+                        member.SetAvailableDay(BTimeTable.tFriday, bWork);
                     } else {
-                        member.SetAvailableDay(CTimeTable.tFriday, true);
+                        member.SetAvailableDay(BTimeTable.tFriday, true);
                     }
                     if (bool.TryParse(pNode.GetAttribute("avl-saturday"), out bWork)) {
-                        member.SetAvailableDay(CTimeTable.tSaturday, bWork);
+                        member.SetAvailableDay(BTimeTable.tSaturday, bWork);
                     } else {
-                        member.SetAvailableDay(CTimeTable.tSaturday, true);
+                        member.SetAvailableDay(BTimeTable.tSaturday, true);
                     }
                     if (bool.TryParse(pNode.GetAttribute("avl-sunday"), out bWork)) {
-                        member.SetAvailableDay(CTimeTable.tSunday, bWork);
+                        member.SetAvailableDay(BTimeTable.tSunday, bWork);
                     } else {
-                        member.SetAvailableDay(CTimeTable.tSunday, true);
+                        member.SetAvailableDay(BTimeTable.tSunday, true);
                     }
                     #endregion
                     #region 稼動間隔
@@ -231,11 +231,11 @@ namespace TimeTableManager.IO {
         }
         /// <summary>人員配置のロード
         /// </summary>
-        public void LoadRequirePatterns (XmlElement element, CTimeTable all) {
+        public void LoadRequirePatterns (XmlElement element, BTimeTable all) {
             XmlElement pNode = element.FirstChild as XmlElement;
             while (pNode != null) {
                 if (pNode.Name == "require") {
-                    CRequirePatterns require = all.Requires.CreateRequirePatterns();
+                    BRequirePatterns require = all.Requires.CreateRequirePatterns();
                     LoadTmElement(pNode, require);
                     require.Name = pNode.GetAttribute("name");
                     // 利用できるシフト
@@ -245,7 +245,7 @@ namespace TimeTableManager.IO {
                             //
                             int patternid = int.Parse(tNode.GetAttribute("patternid"));
                             int requirenum = int.Parse(tNode.GetAttribute("requirenums"));
-                            CPattern pattern = all.Patterns.GetByID(patternid);
+                            BPattern pattern = all.Patterns.GetByID(patternid);
                             require.SetRequire(pattern, requirenum);
                         }
                         //
@@ -261,9 +261,9 @@ namespace TimeTableManager.IO {
         }
         /// <summary>日付のロード
         /// </summary>
-        public void LoadScheduledDate (XmlElement element, CTimeTable all) {
+        public void LoadScheduledDate (XmlElement element, BTimeTable all) {
             DateTime date = DateTime.Parse(element.GetAttribute("date"));
-            CScheduledDate scheduleddate = all.Dates.CreateScheduledDate(date);
+            BScheduledDate scheduleddate = all.Dates.CreateScheduledDate(date);
             if (date.Year == 2007 && date.Month == 4 && date.Day == 28) {
                 System.Console.WriteLine("ここだ！");
             }
@@ -272,16 +272,16 @@ namespace TimeTableManager.IO {
             // 人員配置
             if (req != null) {
                 int wid = int.Parse(req.Value);
-                CRequirePatterns reqobj = all.Requires.GetByID(wid);
+                BRequirePatterns reqobj = all.Requires.GetByID(wid);
                 scheduleddate.Require = reqobj;
             } else {
-                scheduleddate.Require = CRequirePatterns.NULL;
+                scheduleddate.Require = BRequirePatterns.NULL;
             }
             XmlElement pNode = element.FirstChild as XmlElement;
             while (pNode != null) {
                 if (pNode.Name == "schedule") {
                     // スケジュール 
-                    CSchedule schedule = scheduleddate.CreateSchedule();
+                    BSchedule schedule = scheduleddate.CreateSchedule();
                     LoadTmElement(pNode, schedule);
                     string membertxt = pNode.GetAttribute("member");
                     if (membertxt.Trim().Length > 0) {
@@ -317,7 +317,7 @@ namespace TimeTableManager.IO {
             if (att != null) {
                 obj.Removed = DateTime.Parse(att.Value);
             } else {
-                obj.Removed = CAbstractElement.NullDate;
+                obj.Removed = BAbstractElement.NullDate;
             }
             XmlElement pNode = element.FirstChild as XmlElement;
             while (pNode != null) {

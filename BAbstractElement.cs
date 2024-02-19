@@ -3,7 +3,7 @@ using TimeTableManager.Element;
 namespace TimeTableManager {
     /// <summary>タイムテーブルを構成する要素の共通部分
     /// </summary>
-	public abstract class CAbstractElement : ITimeTableElement, IComparable {
+	public abstract class BAbstractElement : ITimeTableElement, IComparable {
 		/// <summary>ヌル日付の代わり
 		/// </summary>
         public static readonly DateTime? NullDate = null;
@@ -21,7 +21,7 @@ namespace TimeTableManager {
 		private System.DateTime? removed = NullDate;
         /// <summary>コンストラクタ
         /// </summary>
-		public CAbstractElement() {
+		public BAbstractElement() {
 			properties = new System.Collections.Specialized.NameValueCollection();
 		}
         /// <summary>作成日
@@ -125,7 +125,7 @@ namespace TimeTableManager {
 		}
         /// <summary>タイムテーブル
         /// </summary>
-		public abstract CTimeTable TimeTable {
+		public abstract BTimeTable TimeTable {
 			get;
 		}
         /// <summary>比較する

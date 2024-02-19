@@ -2,17 +2,17 @@ using System;
 namespace TimeTableManager.Element {
     /// <summary>メンバーと勤務シフトの組み合わせ
     /// </summary>
-	public class CSchedule:CAbstractElement {
+	public class BSchedule:BAbstractElement {
 		/// <summary>メンバー
 		/// </summary>
-		virtual public CMember Member {
+		virtual public BMember Member {
 			get {
-                if (this.member == null) this.member = CMember.NULL;
+                if (this.member == null) this.member = BMember.NULL;
 				return member;
 			}
 			set {
 				this.member = value;
-                if (value == null) this.member = CMember.NULL;
+                if (value == null) this.member = BMember.NULL;
                 //if (Root != null) {
                 //    if (Root.ScheduleEditedEvnetIsValid) {
                 //        Root.ScheduleEdited(this);
@@ -22,15 +22,15 @@ namespace TimeTableManager.Element {
 		}
 		/// <summary>勤務シフト
 		/// </summary>
-		virtual public CPattern Pattern {
+		virtual public BPattern Pattern {
 			get {
-                if (this.pattern == null) this.pattern = CPattern.NULL;
+                if (this.pattern == null) this.pattern = BPattern.NULL;
                 if (Date != null) {
                     if (!pattern.IsAvailable(Date.Date)) {
-                        this.pattern = CPattern.NULL;
+                        this.pattern = BPattern.NULL;
                     }
                     if (!member.IsAvailable(Date.Date)) {
-                        this.pattern = CPattern.NULL;
+                        this.pattern = BPattern.NULL;
                     }
                 }
 				return pattern;
@@ -38,7 +38,7 @@ namespace TimeTableManager.Element {
 			set {
                 bool Changing = (this.pattern != value);
 				this.pattern = value;
-                if (value == null) this.pattern = CPattern.NULL;
+                if (value == null) this.pattern = BPattern.NULL;
                 if (TimeTable != null && Changing) {
                     if (TimeTable.ScheduleEditedEvnetIsValid) {
                         TimeTable.NotifyScheduleEdited(this);
@@ -69,31 +69,31 @@ namespace TimeTableManager.Element {
 		}
 		/// <summary>タイムテーブル
 		/// </summary>
-		override public CTimeTable TimeTable {
+		override public BTimeTable TimeTable {
 			get {
 				return parent.TimeTable;
 			}
 		}
 		/// <summary>スケジュールの火
 		/// </summary>
-		public CScheduledDate Date {
+		public BScheduledDate Date {
 			get {
 				return parent;
 			}
 		}
 		/// <summary>このスケジュールのメンバー 
         /// </summary>
-		private CMember member; // = new Member();
+		private BMember member; // = new Member();
 		/// <summary>このスケジュールを格納する日付 
         /// </summary>
-		private CScheduledDate parent;
+		private BScheduledDate parent;
 		/// <summary>このスケジュールのシフト 
         /// </summary>
-		private CPattern pattern; 
+		private BPattern pattern; 
 		/// <summary>コンストラクタ
 		/// </summary>
 		/// <param name="Parent">この組み合わせを保持する日付</param>
-		public CSchedule(CScheduledDate Parent):base() {
+		public BSchedule(BScheduledDate Parent):base() {
 			this.parent = Parent;
 		}
         /// <summary>メモ

@@ -12,7 +12,7 @@ namespace TimeTableManager.UI {
 	public partial class FMemberDialog : System.Windows.Forms.Form {
         /// <summary>編集するメンバー
         /// </summary>
-		private TimeTableManager.Element.CMember member;
+		private TimeTableManager.Element.BMember member;
         /// <summary>コンストラクタ
         /// </summary>
 		public FMemberDialog() {
@@ -27,7 +27,7 @@ namespace TimeTableManager.UI {
 		}
         /// <summary>メンバー
         /// </summary>
-		public TimeTableManager.Element.CMember Member {
+		public TimeTableManager.Element.BMember Member {
 			get {
 				return member;
 			}
@@ -64,10 +64,10 @@ namespace TimeTableManager.UI {
             }
 			// シフトの一覧
 			this.TblPatterns.Clear();
-			CTimeTable timetable = Member.TimeTable;
-			CPatternCollection patterns = timetable.Patterns;
+			BTimeTable timetable = Member.TimeTable;
+			BPatternCollection patterns = timetable.Patterns;
 			for (int i = 0; i < patterns.Size(); i++) {
-				CPattern pattern = patterns[i];
+				BPattern pattern = patterns[i];
 				if (!pattern.BuiltIn) {
 					System.Data.DataRow row = this.TblPatterns.NewRow();
 					row["ClmPattern"] = pattern;
@@ -79,7 +79,7 @@ namespace TimeTableManager.UI {
 			this.LstPatterns.ClearSelected();
 			for (int i = 0; i < this.TblPatterns.Rows.Count; i++) {
 				System.Data.DataRow row = this.TblPatterns.Rows[i];
-				CPattern pattern = row["ClmPattern"] as CPattern;
+				BPattern pattern = row["ClmPattern"] as BPattern;
 				if (Member.Contains(pattern)) {
                     this.LstPatterns.SetItemChecked(i, true);
 				} else {
@@ -87,13 +87,13 @@ namespace TimeTableManager.UI {
 				}
 			}
             // 稼働日
-            chkMonday.Checked = Member.IsAvailableDay(CTimeTable.tMonday);
-            chkTuesday.Checked = Member.IsAvailableDay(CTimeTable.tTuesday);
-            chkWednesday.Checked = Member.IsAvailableDay(CTimeTable.tWednesday);
-            chkThursday.Checked = Member.IsAvailableDay(CTimeTable.tThursday);
-            chkFriday.Checked = Member.IsAvailableDay(CTimeTable.tFriday);
-            chkSaturday.Checked = Member.IsAvailableDay(CTimeTable.tSaturday);
-            chkSunday.Checked = Member.IsAvailableDay(CTimeTable.tSunday);
+            chkMonday.Checked = Member.IsAvailableDay(BTimeTable.tMonday);
+            chkTuesday.Checked = Member.IsAvailableDay(BTimeTable.tTuesday);
+            chkWednesday.Checked = Member.IsAvailableDay(BTimeTable.tWednesday);
+            chkThursday.Checked = Member.IsAvailableDay(BTimeTable.tThursday);
+            chkFriday.Checked = Member.IsAvailableDay(BTimeTable.tFriday);
+            chkSaturday.Checked = Member.IsAvailableDay(BTimeTable.tSaturday);
+            chkSunday.Checked = Member.IsAvailableDay(BTimeTable.tSunday);
             // めも
             txtNotes.Text = Member.Notes;
             // 稼動間隔
@@ -119,17 +119,17 @@ namespace TimeTableManager.UI {
 			this.Member.ClearPatterns();    // とりあえず最初にクリア
             foreach (System.Data.DataRowView view in this.LstPatterns.CheckedItems) {
                 // そのあとで有効なものを追加する
-				CPattern pattern = view.Row["ClmPattern"] as CPattern;
+				BPattern pattern = view.Row["ClmPattern"] as BPattern;
 				this.Member.AddPattern(pattern);
 			}
             // 稼働日
-            Member.SetAvailableDay(CTimeTable.tMonday, chkMonday.Checked);
-            Member.SetAvailableDay(CTimeTable.tTuesday, chkTuesday.Checked);
-            Member.SetAvailableDay(CTimeTable.tWednesday, chkWednesday.Checked);
-            Member.SetAvailableDay(CTimeTable.tThursday, chkThursday.Checked);
-            Member.SetAvailableDay(CTimeTable.tFriday, chkFriday.Checked);
-            Member.SetAvailableDay(CTimeTable.tSaturday, chkSaturday.Checked);
-            Member.SetAvailableDay(CTimeTable.tSunday, chkSunday.Checked);
+            Member.SetAvailableDay(BTimeTable.tMonday, chkMonday.Checked);
+            Member.SetAvailableDay(BTimeTable.tTuesday, chkTuesday.Checked);
+            Member.SetAvailableDay(BTimeTable.tWednesday, chkWednesday.Checked);
+            Member.SetAvailableDay(BTimeTable.tThursday, chkThursday.Checked);
+            Member.SetAvailableDay(BTimeTable.tFriday, chkFriday.Checked);
+            Member.SetAvailableDay(BTimeTable.tSaturday, chkSaturday.Checked);
+            Member.SetAvailableDay(BTimeTable.tSunday, chkSunday.Checked);
             // 稼動間隔
             Member.Spacetime = dtpSpace.Value.TimeOfDay;
             // 連続稼働日

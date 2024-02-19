@@ -28,7 +28,7 @@ namespace TimeTableManager {
 		}
 		/// <summary>スケジュール全て
 		/// </summary>
-		CTimeTable TimeTable {
+		BTimeTable TimeTable {
 			get;				
 		}
 		/// <summary>オブジェクトID

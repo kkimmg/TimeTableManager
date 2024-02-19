@@ -82,7 +82,7 @@ namespace TimeTableManager.UI {
         private UCheckList checkList1;
         private ToolStripSeparator toolStripSeparator5;
         private ToolStripMenuItem MniRecentFile;
-        private TimeTableManager.Printing.CPrintDocumentBody ttmPrintDocumentSt11;
+        private TimeTableManager.Printing.BPrintDocumentBody ttmPrintDocumentSt11;
         #region Windows フォーム デザイナで生成されたコード
         /// <summary>
         /// デザイナ サポートに必要なメソッドです。このメソッドの内容を
@@ -91,8 +91,8 @@ namespace TimeTableManager.UI {
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FMainForm));
-            TimeTableManager.Printing.CPrintDocumentFooter cPrintDocumentFooter1 = new TimeTableManager.Printing.CPrintDocumentFooter();
-            TimeTableManager.Printing.CPrintDocumentHeader cPrintDocumentHeader1 = new TimeTableManager.Printing.CPrintDocumentHeader();
+            TimeTableManager.Printing.BPrintDocumentFooter cPrintDocumentFooter1 = new TimeTableManager.Printing.BPrintDocumentFooter();
+            TimeTableManager.Printing.BPrintDocumentHeader cPrintDocumentHeader1 = new TimeTableManager.Printing.BPrintDocumentHeader();
             this.panelMain = new System.Windows.Forms.Panel();
             this.SptBody = new System.Windows.Forms.SplitContainer();
             this.tabMain = new System.Windows.Forms.TabControl();
@@ -164,7 +164,7 @@ namespace TimeTableManager.UI {
             this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
             this.TbbConfig = new System.Windows.Forms.ToolStripButton();
             this.toolStripContainer2 = new System.Windows.Forms.ToolStripContainer();
-            this.ttmPrintDocumentSt11 = new TimeTableManager.Printing.CPrintDocumentBody();
+            this.ttmPrintDocumentSt11 = new TimeTableManager.Printing.BPrintDocumentBody();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
             this.panelMain.SuspendLayout();
@@ -940,7 +940,7 @@ namespace TimeTableManager.UI {
         private TimeTableManager.IFavoriteRandomizer randomizer;
         /// <summary>編集中のタイムテーブル
         /// </summary>
-        private CTimeTable timeTable;
+        private BTimeTable timeTable;
         /// <summary>編集中のタイムテーブルのファイル名
         /// </summary>
         private string fileName;
@@ -952,7 +952,7 @@ namespace TimeTableManager.UI {
         private System.Collections.Generic.List<MenuItem> resentItems;
         /// <summary>うーむ
         /// </summary>
-        private List<CScheduledDate> selectedDates = new List<CScheduledDate>();
+        private List<BScheduledDate> selectedDates = new List<BScheduledDate>();
         /// <summary>この以後は次の月にする
         /// </summary>
         private int nextMonthDay = 0;

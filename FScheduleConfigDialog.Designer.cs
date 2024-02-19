@@ -403,7 +403,7 @@ namespace TimeTableManager.UI {
             // 
             this.PatternColumn.Caption = "Pattern";
             this.PatternColumn.ColumnName = "PatternColumn";
-            this.PatternColumn.DataType = typeof(TimeTableManager.Element.CPattern);
+            this.PatternColumn.DataType = typeof(TimeTableManager.Element.BPattern);
             // 
             // PatternNameColumn
             // 
@@ -493,7 +493,7 @@ namespace TimeTableManager.UI {
             // MemberColumn
             // 
             this.MemberColumn.ColumnName = "MemberColumn";
-            this.MemberColumn.DataType = typeof(TimeTableManager.Element.CMember);
+            this.MemberColumn.DataType = typeof(TimeTableManager.Element.BMember);
             // 
             // MemberNameColumn
             // 
@@ -612,7 +612,7 @@ namespace TimeTableManager.UI {
             // 
             this.RequirePatternsColumn.Caption = "人員配置";
             this.RequirePatternsColumn.ColumnName = "RequirePatternsColumn";
-            this.RequirePatternsColumn.DataType = typeof(TimeTableManager.Element.CRequirePatterns);
+            this.RequirePatternsColumn.DataType = typeof(TimeTableManager.Element.BRequirePatterns);
             // 
             // RequirePatternsNameColumn
             // 
@@ -814,7 +814,7 @@ namespace TimeTableManager.UI {
             // DefaultRequireColumn
             // 
             this.DefaultRequireColumn.ColumnName = "DefaultRequireColumn";
-            this.DefaultRequireColumn.DataType = typeof(TimeTableManager.Element.CRequirePatterns);
+            this.DefaultRequireColumn.DataType = typeof(TimeTableManager.Element.BRequirePatterns);
             // 
             // DefaultRequireNameColumn
             // 
@@ -830,7 +830,7 @@ namespace TimeTableManager.UI {
             // MonRequireColumn
             // 
             this.MonRequireColumn.ColumnName = "MonRequireColumn";
-            this.MonRequireColumn.DataType = typeof(TimeTableManager.Element.CRequirePatterns);
+            this.MonRequireColumn.DataType = typeof(TimeTableManager.Element.BRequirePatterns);
             // 
             // MonRequireNameColumn
             // 
@@ -846,7 +846,7 @@ namespace TimeTableManager.UI {
             // TueRequireColumn
             // 
             this.TueRequireColumn.ColumnName = "TueRequireColumn";
-            this.TueRequireColumn.DataType = typeof(TimeTableManager.Element.CRequirePatterns);
+            this.TueRequireColumn.DataType = typeof(TimeTableManager.Element.BRequirePatterns);
             // 
             // TueRequireNameColumn
             // 
@@ -862,7 +862,7 @@ namespace TimeTableManager.UI {
             // WedRequireColumn
             // 
             this.WedRequireColumn.ColumnName = "WedRequireColumn";
-            this.WedRequireColumn.DataType = typeof(TimeTableManager.Element.CRequirePatterns);
+            this.WedRequireColumn.DataType = typeof(TimeTableManager.Element.BRequirePatterns);
             // 
             // WedRequireNameColumn
             // 
@@ -878,7 +878,7 @@ namespace TimeTableManager.UI {
             // ThuRequireColumn
             // 
             this.ThuRequireColumn.ColumnName = "ThuRequireColumn";
-            this.ThuRequireColumn.DataType = typeof(TimeTableManager.Element.CRequirePatterns);
+            this.ThuRequireColumn.DataType = typeof(TimeTableManager.Element.BRequirePatterns);
             // 
             // ThuRequireNameColumn
             // 
@@ -894,7 +894,7 @@ namespace TimeTableManager.UI {
             // FriRequireColumn
             // 
             this.FriRequireColumn.ColumnName = "FriRequireColumn";
-            this.FriRequireColumn.DataType = typeof(TimeTableManager.Element.CRequirePatterns);
+            this.FriRequireColumn.DataType = typeof(TimeTableManager.Element.BRequirePatterns);
             // 
             // FriRequireNameColumn
             // 
@@ -910,7 +910,7 @@ namespace TimeTableManager.UI {
             // SatRequireColumn
             // 
             this.SatRequireColumn.ColumnName = "SatRequireColumn";
-            this.SatRequireColumn.DataType = typeof(TimeTableManager.Element.CRequirePatterns);
+            this.SatRequireColumn.DataType = typeof(TimeTableManager.Element.BRequirePatterns);
             // 
             // SatRequireNameColumn
             // 
@@ -926,7 +926,7 @@ namespace TimeTableManager.UI {
             // SunRequireColumn
             // 
             this.SunRequireColumn.ColumnName = "SunRequireColumn";
-            this.SunRequireColumn.DataType = typeof(TimeTableManager.Element.CRequirePatterns);
+            this.SunRequireColumn.DataType = typeof(TimeTableManager.Element.BRequirePatterns);
             // 
             // SunRequireNameColumn
             // 
@@ -1166,7 +1166,7 @@ namespace TimeTableManager.UI {
             // 
             this.DayOffColumn.Caption = "日付";
             this.DayOffColumn.ColumnName = "DayOffColumn";
-            this.DayOffColumn.DataType = typeof(TimeTableManager.Element.CDayOff);
+            this.DayOffColumn.DataType = typeof(TimeTableManager.Element.BDayOff);
             // 
             // DayOffNameColumn
             // 

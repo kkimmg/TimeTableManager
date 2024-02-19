@@ -20,7 +20,7 @@ namespace TimeTableManager.Evaluation {
     /// <summary>
     /// 評価内容
     /// </summary>
-    public class CEvaluationItem: IComparable {
+    public class BEvaluationItem: IComparable {
         private static long currentid = 0;
         /// <summary>次のIDを発布する
         /// </summary>
@@ -32,15 +32,15 @@ namespace TimeTableManager.Evaluation {
         }
         private readonly long id;
         private readonly EEvaluationResult result;
-        private readonly CScheduledDate sdate;
+        private readonly BScheduledDate sdate;
         private readonly string message;
         /// <summary>コンストラクタ
         /// </summary>
         /// <param name="Result">評価結果</param>
         /// <param name="Date">日付</param>
         /// <param name="Message">メッセージ</param>
-        public CEvaluationItem (EEvaluationResult Result, CScheduledDate Date, string Message) {
-            id = CEvaluationItem.NextID;
+        public BEvaluationItem (EEvaluationResult Result, BScheduledDate Date, string Message) {
+            id = BEvaluationItem.NextID;
             result = Result;
             sdate = Date;
             message = Message;
@@ -61,7 +61,7 @@ namespace TimeTableManager.Evaluation {
         }
         /// <summary>日付
         /// </summary>
-        public CScheduledDate Date {
+        public BScheduledDate Date {
             get {
                 return sdate;
             }
@@ -77,8 +77,8 @@ namespace TimeTableManager.Evaluation {
 
         #region IComparable メンバ
         int IComparable.CompareTo (object obj) {
-            if (obj is CEvaluationItem) {
-                CEvaluationItem item = (CEvaluationItem)obj;
+            if (obj is BEvaluationItem) {
+                BEvaluationItem item = (BEvaluationItem)obj;
                 if (item.Id > Id) {
                     return 1;
                 } else if (item.Id < Id) {

@@ -28,7 +28,7 @@ namespace TimeTableManager.Plugin {
         /// <param name="TimeTable">タイムテーブル</param>
         /// <param name="Start">対象開始日</param>
         /// <param name="End">対象終了日</param>
-        void DoSomething(CTimeTable TimeTable, DateTime Start, DateTime End);
+        void DoSomething(BTimeTable TimeTable, DateTime Start, DateTime End);
         /// <summary>メインウインドウの関連付け
         /// </summary>
         /// <param name="MainForm">メインウインドウ</param>

@@ -5,10 +5,10 @@ using TimeTableManager.ElementCollection;
 namespace TimeTableManager.Element {
     /// <summary>メンバー
     /// </summary>
-	public class CMember:CAbstractElement {
+	public class BMember:BAbstractElement {
         /// <summary>ナル値の替わり
         /// </summary>
-        public static readonly CMember NULL = new NULL_MEMBER();
+        public static readonly BMember NULL = new NULL_MEMBER();
 		/// <summary>メンバー名 
         /// </summary>
 		private string name;
@@ -23,7 +23,7 @@ namespace TimeTableManager.Element {
 		private TimeSpan expectedWork = new TimeSpan(8, 0, 0);
 		/// <summary>メンバーコレクション 
         /// </summary>
-		private CMemberCollection parent;
+		private BMemberCollection parent;
 		/// <summary>このメンバーの表示順 
         /// </summary>
 		private int priority;
@@ -94,7 +94,7 @@ namespace TimeTableManager.Element {
 		}
 		/// <summary>スケジュール全て 
         /// </summary>
-		override public CTimeTable TimeTable {
+		override public BTimeTable TimeTable {
 			get {
 				return parent.TimeTable;
 			}			
@@ -102,7 +102,7 @@ namespace TimeTableManager.Element {
 		/// <summary>コンストラクタ
 		/// </summary>
 		/// <param name="parent">メンバーコレクション</param>
-		public CMember(CMemberCollection parent):base() {
+		public BMember(BMemberCollection parent):base() {
 			name = new System.Text.StringBuilder().ToString();
 			this.parent = parent;
             availDay[0] = true;
@@ -118,13 +118,13 @@ namespace TimeTableManager.Element {
 		/// </summary>
 		/// <param name="parent">メンバーコレクション</param>
 		/// <param name="id">メンバーのID</param>
-		public CMember(CMemberCollection parent, long id):this(parent) {
+		public BMember(BMemberCollection parent, long id):this(parent) {
 			ObjectID = id;
 		}
 		/// <summary>勤務シフトの追加
 		/// </summary>
 		/// <param name="pattern">追加するシフト</param>
-		public virtual void  AddPattern(CPattern pattern) {
+		public virtual void  AddPattern(BPattern pattern) {
 			if (!selectedpatterns.Contains(pattern)) {
 				selectedpatterns.Add(pattern);
 			}
@@ -133,18 +133,18 @@ namespace TimeTableManager.Element {
 		/// </summary>
 		/// <param name="n">n番目</param>
 		/// <returns>勤務シフト</returns>
-		public virtual CPattern GetPattern(int n) {
-			return (CPattern) selectedpatterns[n];
+		public virtual BPattern GetPattern(int n) {
+			return (BPattern) selectedpatterns[n];
 		}
 		/// <summary>勤務シフトの削除
 		/// </summary>
 		/// <param name="pattern">削除するシフト</param>
-		public virtual void  RemovePattern(CPattern pattern) {
+		public virtual void  RemovePattern(BPattern pattern) {
 			selectedpatterns.Remove(pattern);
 		}
 		/// <summary>勤務シフト
 		/// </summary>
-		public CPattern this[int n] {
+		public BPattern this[int n] {
 			get {
 				return GetPattern(n);
 			}
@@ -156,7 +156,7 @@ namespace TimeTableManager.Element {
 		}
 		/// <summary>勤務シフトを含んでいるか？
 		/// </summary>
-		public bool Contains(CPattern pattern) {
+		public bool Contains(BPattern pattern) {
 			return this.selectedpatterns.Contains(pattern);
 		}
         /// <summary>指定された曜日は稼働日かどうか
@@ -178,14 +178,14 @@ namespace TimeTableManager.Element {
         /// <param name="weekday">曜日</param>
         /// <returns>true:稼働日 false:休み</returns>
         public bool IsAvalableDay (DayOfWeek weekday) {
-            return IsAvailableDay(CTimeTable.DayOfWeek2Int(weekday));
+            return IsAvailableDay(BTimeTable.DayOfWeek2Int(weekday));
         }
         /// <summary>指定された曜日を稼働日とするかどうか
         /// </summary>
         /// <param name="weekday">曜日</param>
         /// <param name="available">true:稼働日 false:休み</param>
         public void SetAvailableDay (DayOfWeek weekday, bool available) {
-            SetAvailableDay(CTimeTable.DayOfWeek2Int(weekday), available);
+            SetAvailableDay(BTimeTable.DayOfWeek2Int(weekday), available);
         }
         /// <summary>指定された日は稼働日かどうか
         /// </summary>
@@ -223,7 +223,7 @@ namespace TimeTableManager.Element {
 	}
     /// <summary>Nullの替わり
     /// </summary>
-    public class NULL_MEMBER : CMember {
+    public class NULL_MEMBER : BMember {
         /// <summary>コンストラクタ
         /// </summary>
         public NULL_MEMBER ()
@@ -239,7 +239,7 @@ namespace TimeTableManager.Element {
         /// <summary>勤務シフトの追加不可
         /// </summary>
         /// <param name="pattern">勤務シフト</param>
-        public override void AddPattern (CPattern pattern) {
+        public override void AddPattern (BPattern pattern) {
             // Do Nothing
         }
     }

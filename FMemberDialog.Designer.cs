@@ -266,7 +266,7 @@ namespace TimeTableManager.UI {
             // 
             this.ClmPattern.Caption = "勤務シフト";
             this.ClmPattern.ColumnName = "ClmPattern";
-            this.ClmPattern.DataType = typeof(TimeTableManager.Element.CPattern);
+            this.ClmPattern.DataType = typeof(TimeTableManager.Element.BPattern);
             // 
             // ClmPatternName
             // 

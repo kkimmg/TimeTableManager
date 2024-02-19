@@ -13,11 +13,11 @@ namespace TimeTableManager.Component {
     /// </summary>
     public partial class UScheduleCalenderView : UserControl {
         #region プライベート
-        private TimeTableManager.Element.CTimeTable timeTable;
+        private TimeTableManager.Element.BTimeTable timeTable;
         private TimeTableManager.UI.FMainForm mainForm;
         private DateTime startDate, endDate;
         private List<ShiftComboBoxColumn> columns1;
-        private Dictionary<CMember, ShiftComboBoxColumn> columns2;
+        private Dictionary<BMember, ShiftComboBoxColumn> columns2;
         private static bool columnFitAuto = true;
         private static UScheduleCalenderView singleton;
         /// <summary>選択された日付
@@ -96,7 +96,7 @@ namespace TimeTableManager.Component {
         /// </summary>
         /// <param name="index"></param>
         /// <returns></returns>
-        public CMember GetColumnMember(int index) {
+        public BMember GetColumnMember(int index) {
             return columns1[index].Member;
         }
         /// <summary>カレント行インデックス
@@ -133,14 +133,14 @@ namespace TimeTableManager.Component {
         }
         /// <summary>タイムテーブル
         /// </summary>
-        public CTimeTable TimeTable {
+        public BTimeTable TimeTable {
             get { return timeTable; }
             set {
                 timeTable = value;
                 if (timeTable != null) {
-                    timeTable.OnScheduleEdited += new CTimeTable.ScheduleEditedEventHandler(timeTable_OnScheduleEdited);
-                    timeTable.OnScheduleDateRequirePatternsEdited += new CTimeTable.ScheduleDateRequirePatternsEditedEventHandler(timeTable_OnScheduleDateRequirePatternsEdited);
-                    timeTable.OnMembersEdited += new CTimeTable.MembersEditedEventHandler(timeTable_OnMembersEdited);
+                    timeTable.OnScheduleEdited += new BTimeTable.ScheduleEditedEventHandler(timeTable_OnScheduleEdited);
+                    timeTable.OnScheduleDateRequirePatternsEdited += new BTimeTable.ScheduleDateRequirePatternsEditedEventHandler(timeTable_OnScheduleDateRequirePatternsEdited);
+                    timeTable.OnMembersEdited += new BTimeTable.MembersEditedEventHandler(timeTable_OnMembersEdited);
                 }
                 // 不要な列の削除
                 columns1.Clear();
@@ -266,10 +266,10 @@ namespace TimeTableManager.Component {
         private void ResetRequires(DateTime currentdate) {
             if (timeTable == null) return;
             TblRequireComboBox.Clear();
-            TimeTableManager.ElementCollection.CRequirePatternsCollection requires = TimeTable.Requires;
+            TimeTableManager.ElementCollection.BRequirePatternsCollection requires = TimeTable.Requires;
             int size = requires.Size(true);
             for (int i = 0; i < size; i++) {
-                CRequirePatterns require = requires[i, true];
+                BRequirePatterns require = requires[i, true];
                 if (require.IsAvailable(currentdate)) {
                     TblRequireComboBox.Rows.Add(require, require.Name);
                 }
@@ -286,10 +286,10 @@ namespace TimeTableManager.Component {
         private void ResetPatterns(DateTime currentdate) {
             if (timeTable == null) return;
             TblPatternComboBox.Clear();
-            TimeTableManager.ElementCollection.CPatternCollection Patterns = TimeTable.Patterns;
+            TimeTableManager.ElementCollection.BPatternCollection Patterns = TimeTable.Patterns;
             int size = Patterns.Size(true);
             for (int i = 0; i < size; i++) {
-                CPattern Pattern = Patterns[i, true];
+                BPattern Pattern = Patterns[i, true];
                 if (Pattern.IsAvailable(currentdate)) {
                     TblPatternComboBox.Rows.Add(Pattern, Pattern.Name);
                 }
@@ -299,12 +299,12 @@ namespace TimeTableManager.Component {
         /// </summary>
         private void ResetMembers() {
             CalenderView.Enabled = false;
-            TimeTableManager.ElementCollection.CMemberCollection Members = TimeTable.Members;
+            TimeTableManager.ElementCollection.BMemberCollection Members = TimeTable.Members;
             // 不要な列の削除
             int workcount = 0;
             while (workcount < columns1.Count) {
                 ShiftComboBoxColumn column = columns1[workcount];
-                CMember member = column.Member;
+                BMember member = column.Member;
                 if (member.TimeTable != this.TimeTable) {
                     // 異なるタイムテーブルのメンバー
                     CalenderView.Columns.Remove(column);
@@ -323,7 +323,7 @@ namespace TimeTableManager.Component {
                 }
             }
             for (int i = 0; i < Members.Size(true); i++) {
-                CMember member = Members[i, true];
+                BMember member = Members[i, true];
                 if (member.IsAvailable(StartDate, EndDate)) {
                     // 列が必要なら追加
                     ShiftComboBoxColumn column;
@@ -397,7 +397,7 @@ namespace TimeTableManager.Component {
             // 日付セル
             this.DateColumn.CellTemplate = new DateCell();
             // データ型（人員配置）
-            ClmRequireOfRequireCombo.DataType = typeof(CRequirePatterns);
+            ClmRequireOfRequireCombo.DataType = typeof(BRequirePatterns);
             RequirePatternColumn.CellTemplate = new RequirePatternsCell();
             try {
                 System.Windows.Forms.DataGridViewCellStyle RequirePatternsCellStyle = new System.Windows.Forms.DataGridViewCellStyle();
@@ -412,10 +412,10 @@ namespace TimeTableManager.Component {
                 this.RequirePatternColumn.ValueMember = "TblRequireComboBox.ClmRequireOfRequireCombo";
             } catch { }
             // データ型（シフト）
-            ClmPatternComboBox.DataType = typeof(CPattern);
+            ClmPatternComboBox.DataType = typeof(BPattern);
             // 変数
             columns1 = new List<ShiftComboBoxColumn>();
-            columns2 = new Dictionary<CMember, ShiftComboBoxColumn>();
+            columns2 = new Dictionary<BMember, ShiftComboBoxColumn>();
             // 初期化
             DateTime today = System.DateTime.Today;
             StartDate = new DateTime(today.Year, today.Month, 1);
@@ -440,7 +440,7 @@ namespace TimeTableManager.Component {
                 // 日付
                 e.Value = date;
             } else {
-                CScheduledDate sdate = TimeTable[date];
+                BScheduledDate sdate = TimeTable[date];
                 if (e.ColumnIndex == 1) {
                     // 人員配置
                     e.Value = sdate.Require;
@@ -449,9 +449,9 @@ namespace TimeTableManager.Component {
                     int index = e.ColumnIndex - 2;
                     if (index < columns1.Count) {
                         ShiftComboBoxColumn col = columns1[index];
-                        CMember member = col.Member;
+                        BMember member = col.Member;
                         if (member != null) {
-                            CSchedule schedule = sdate[member];
+                            BSchedule schedule = sdate[member];
                             e.Value = schedule.Pattern;
                         }
                     }
@@ -469,19 +469,19 @@ namespace TimeTableManager.Component {
                 // 日付
                 //e.Value = date;
             } else {
-                CScheduledDate sdate = TimeTable[date];
+                BScheduledDate sdate = TimeTable[date];
                 if (e.ColumnIndex == 1) {
                     // 人員配置
-                    sdate.Require = e.Value as CRequirePatterns;
+                    sdate.Require = e.Value as BRequirePatterns;
                 } else {
                     // メンバー｜｜シフト
                     int index = e.ColumnIndex - 2;
                     if (index < columns1.Count) {
                         ShiftComboBoxColumn col = columns1[index];
-                        CMember member = col.Member;
+                        BMember member = col.Member;
                         if (member != null) {
-                            CSchedule schedule = sdate[member];
-                            schedule.Pattern = e.Value as CPattern;
+                            BSchedule schedule = sdate[member];
+                            schedule.Pattern = e.Value as BPattern;
                         }
                     }
                 }
@@ -652,9 +652,9 @@ namespace TimeTableManager.Component {
               TypeConverter valueTypeConverter,
               TypeConverter formattedValueTypeConverter,
               DataGridViewDataErrorContexts context) {
-            CRequirePatterns ret = null;
-            if (value != null && value is CRequirePatterns) {
-                ret = value as CRequirePatterns;
+            BRequirePatterns ret = null;
+            if (value != null && value is BRequirePatterns) {
+                ret = value as BRequirePatterns;
             }
             return (ret == null) ? "" : ret.Name;
         }
@@ -692,8 +692,8 @@ namespace TimeTableManager.Component {
               TypeConverter formattedValueTypeConverter,
               DataGridViewDataErrorContexts context) {
             string ret = "";
-            if (value != null && value is CPattern) {
-                ret = (value as CPattern).Name;
+            if (value != null && value is BPattern) {
+                ret = (value as BPattern).Name;
             }
             return ret;
         }
@@ -769,10 +769,10 @@ namespace TimeTableManager.Component {
     /// <summary>勤務シフトコンボボックス
     /// </summary>
     class ShiftComboBoxColumn : DataGridViewComboBoxColumn {
-        private CMember member;
+        private BMember member;
         /// <summary>メンバー
         /// </summary>
-        public CMember Member {
+        public BMember Member {
             get { return member; }
             set {
                 member = value;

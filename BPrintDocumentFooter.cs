@@ -8,7 +8,7 @@ using TimeTableManager.Element;
 namespace TimeTableManager.Printing {
     /// <summary>印刷フッタ
     /// </summary>
-    public class CPrintDocumentFooter {
+    public class BPrintDocumentFooter {
         /// <summary>印刷機能のプロパティキー</summary>
         public const string RIT_FONT = "Printing.Footer.Font.Font";
         /// <summary>印刷機能のプロパティキー</summary>
@@ -28,21 +28,21 @@ namespace TimeTableManager.Printing {
         private Brush brush = Brushes.Black;
         /// <summary>タイムテーブル
         /// </summary>
-        private CTimeTable timeTable;
+        private BTimeTable timeTable;
         /// <summary>ドキュメント
         /// </summary>
-        private CPrintDocumentBody document;
+        private BPrintDocumentBody document;
         #endregion
         /// <summary>
         /// 列数
         /// </summary>
         public int ColumnCount {
             get {
-                string column = TimeTable[CPrintDocumentFooter.RIT_COLUMN];
-                int icolumn = CPrintDocumentFooter.RIT_COLUMN_DEFAULT;
+                string column = TimeTable[BPrintDocumentFooter.RIT_COLUMN];
+                int icolumn = BPrintDocumentFooter.RIT_COLUMN_DEFAULT;
                 if (column != null) {
                     if (!(int.TryParse(column, out icolumn))) {
-                        icolumn = CPrintDocumentFooter.RIT_COLUMN_DEFAULT;
+                        icolumn = BPrintDocumentFooter.RIT_COLUMN_DEFAULT;
                     }
                 }
                 return icolumn;
@@ -51,7 +51,7 @@ namespace TimeTableManager.Printing {
         /// <summary>
         /// ドキュメント
         /// </summary>
-        public CPrintDocumentBody Document {
+        public BPrintDocumentBody Document {
             get { return document; }
             set { document = value; }
         }
@@ -61,11 +61,11 @@ namespace TimeTableManager.Printing {
         public string Format {
             get {
                 // 書式
-                string format = TimeTable[CPrintDocumentFooter.RIT_FORMAT];
+                string format = TimeTable[BPrintDocumentFooter.RIT_FORMAT];
                 if (format == null) {
-                    format = CPrintDocumentFooter.RID_FORMAT_DEFAULT;
+                    format = BPrintDocumentFooter.RID_FORMAT_DEFAULT;
                 } else if (format.Trim().Length == 0) {
-                    format = CPrintDocumentFooter.RID_FORMAT_DEFAULT;
+                    format = BPrintDocumentFooter.RID_FORMAT_DEFAULT;
                 }
                 return format;
             }
@@ -82,7 +82,7 @@ namespace TimeTableManager.Printing {
         /// </summary>
         public Font Font {
             get {
-                return CPrintDocumentBody.GetFont(TimeTable, RIT_FONT);
+                return BPrintDocumentBody.GetFont(TimeTable, RIT_FONT);
             }
         }
         /// <summary>
@@ -95,12 +95,12 @@ namespace TimeTableManager.Printing {
         }
         /// <summary>パターンの一覧
         /// </summary>
-        public List<CPattern> Patterns {
+        public List<BPattern> Patterns {
             get {
-                List<CPattern> ret = new List<CPattern>();
+                List<BPattern> ret = new List<BPattern>();
                 int size = timeTable.Patterns.Size(true);
                 for (int i = 0; i < size; i++) {
-                    CPattern pattern = timeTable.Patterns[i, true];
+                    BPattern pattern = timeTable.Patterns[i, true];
                     if (!pattern.BuiltIn && pattern.IsAvailable(Document.Start, Document.End)) {
                         ret.Add(pattern);
                     }
@@ -116,13 +116,13 @@ namespace TimeTableManager.Printing {
         public float GetHeight (Graphics g) {
             if (timeTable == null) return 0F;
             // 列数＊たて数＊(文字の高さ + 間隔)
-            List<CPattern> patterns = Patterns;
+            List<BPattern> patterns = Patterns;
             int PatternCount = patterns.Count;
             int row = 0, column = 0;
             float work = 0;
             float RowHeiht = 0;
             for (int count = 0; count < PatternCount; count++) {
-                CPattern pattern = patterns[count];
+                BPattern pattern = patterns[count];
                 string text = pattern.Name + ":" + pattern.Start.ToString() + "～" + pattern.End.ToString();
                 SizeF size = g.MeasureString(text, Font);
                 if (column >= ColumnCount) {
@@ -159,7 +159,7 @@ namespace TimeTableManager.Printing {
             float LeftWidth = ColumnWidth / 2;
             float RigtWidth = ColumnWidth - LeftWidth;
             // 列数＊たて数
-            List<CPattern> patterns = Patterns;
+            List<BPattern> patterns = Patterns;
             int PatternCount = patterns.Count;
             int row = 0, column = 0;
             float work = 0;
@@ -167,7 +167,7 @@ namespace TimeTableManager.Printing {
             // ":"のサイズ
             SizeF size2 = g.MeasureString(":", Font);
             for (int count = 0; count < PatternCount; count++) {
-                CPattern pattern = patterns[count];
+                BPattern pattern = patterns[count];
                 // 行高さ設定
                 SizeF size1 = g.MeasureString(pattern.Name, Font);
                 //SizeF size2 = g.MeasureString(":", Font);
@@ -207,7 +207,7 @@ namespace TimeTableManager.Printing {
         /// <summary>
         /// タイムテーブル
         /// </summary>
-        public CTimeTable TimeTable {
+        public BTimeTable TimeTable {
             get { return timeTable; }
             set {
                 timeTable = value;

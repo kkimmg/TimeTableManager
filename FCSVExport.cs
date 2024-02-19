@@ -13,13 +13,13 @@ namespace TimeTableManager.UI {
     public partial class FCSVExport : Form {
         /// <summary>タイムテーブル
         /// </summary>
-        private TimeTableManager.Element.CTimeTable timeTable;
+        private TimeTableManager.Element.BTimeTable timeTable;
         /// <summary>開始日、終了日
         /// </summary>
         private DateTime startDate, endDate;
         /// <summary>タイムテーブル
         /// </summary>
-        public TimeTableManager.Element.CTimeTable TimeTable {
+        public TimeTableManager.Element.BTimeTable TimeTable {
             get { return timeTable; }
             set { timeTable = value; }
         }
@@ -96,7 +96,7 @@ namespace TimeTableManager.UI {
         /// <param name="date"></param>
         /// <param name="member"></param>
         /// <param name="head"></param>
-        public delegate string OutputColumnMethod(DateTime date, CMember member, bool head);
+        public delegate string OutputColumnMethod(DateTime date, BMember member, bool head);
         /// <summary>出力実行
         /// </summary>
         /// <param name="sender">イベント発生元</param>
@@ -146,9 +146,9 @@ namespace TimeTableManager.UI {
                 System.IO.StreamWriter writer = new System.IO.StreamWriter(TxtOutFile.Text.Trim());
                 string RowText = "";
                 #region メンバー一覧の作成
-                List<CMember> members = new List<CMember>();
+                List<BMember> members = new List<BMember>();
                 for (int i = 0; i < TimeTable.Members.Size(true); i++) {
-                    CMember member = TimeTable.Members[i, true];
+                    BMember member = TimeTable.Members[i, true];
                     if (member.IsAvailable(StartDate, EndDate)) {
                         members.Add(member);
                     }
@@ -158,7 +158,7 @@ namespace TimeTableManager.UI {
                 for (int i = 0; i < items1.Count; i++) {
                     RowText += items1[i](DateTime.Now, null, true) + ",";
                 }
-                foreach (CMember member in members) {
+                foreach (BMember member in members) {
                     for (int i = 0; i < items2.Count; i++) {
                         RowText += items2[i](DateTime.Now, member, true) + ",";
                     }
@@ -172,7 +172,7 @@ namespace TimeTableManager.UI {
                     for (int i = 0; i < items1.Count; i++) {
                         RowText += items1[i](date, null, false) + ",";
                     }
-                    foreach (CMember member in members) {
+                    foreach (BMember member in members) {
                         for (int i = 0; i < items2.Count; i++) {
                             RowText += items2[i](date, member, false) + ",";
                         }
@@ -195,7 +195,7 @@ namespace TimeTableManager.UI {
         /// <param name="member"></param>
         /// <param name="head"></param>
         /// <returns></returns>
-        private string ReturnDate(DateTime date, CMember member, bool head) {
+        private string ReturnDate(DateTime date, BMember member, bool head) {
             if (head) return "日付";
             return date.ToLongDateString();
         }
@@ -216,10 +216,10 @@ namespace TimeTableManager.UI {
         /// <param name="member"></param>
         /// <param name="head"></param>
         /// <returns></returns>
-        private string ReturnRequireName(DateTime date, CMember member, bool head) {
+        private string ReturnRequireName(DateTime date, BMember member, bool head) {
             if (head) return "人員配置";
-            CScheduledDate sdate = TimeTable[date];
-            CRequirePatterns rq = sdate.Require;
+            BScheduledDate sdate = TimeTable[date];
+            BRequirePatterns rq = sdate.Require;
             if (rq == null) return "";
             return ConvertColumn(rq.Name);
         }
@@ -229,12 +229,12 @@ namespace TimeTableManager.UI {
         /// <param name="member"></param>
         /// <param name="head"></param>
         /// <returns></returns>
-        private string ReturnPatternName(DateTime date, CMember member, bool head) {
+        private string ReturnPatternName(DateTime date, BMember member, bool head) {
             if (head) return member.Name + "の勤務シフト";
-            CScheduledDate sdate = TimeTable[date];
-            CSchedule schdule = sdate[member];
+            BScheduledDate sdate = TimeTable[date];
+            BSchedule schdule = sdate[member];
             if (schdule == null) return "";
-            CPattern pattern = schdule.Pattern;
+            BPattern pattern = schdule.Pattern;
             if (pattern == null) return "";
             return ConvertColumn(pattern.Name);
         }
@@ -244,12 +244,12 @@ namespace TimeTableManager.UI {
         /// <param name="member"></param>
         /// <param name="head"></param>
         /// <returns></returns>
-        private string ReturnPatternStart(DateTime date, CMember member, bool head) {
+        private string ReturnPatternStart(DateTime date, BMember member, bool head) {
             if (head) return member.Name + "のシフト開始";
-            CScheduledDate sdate = TimeTable[date];
-            CSchedule schdule = sdate[member];
+            BScheduledDate sdate = TimeTable[date];
+            BSchedule schdule = sdate[member];
             if (schdule == null) return "";
-            CPattern pattern = schdule.Pattern;
+            BPattern pattern = schdule.Pattern;
             if (pattern == null) return "";
             if (pattern.BuiltIn) return "";
             DateTime ret = date.Date + pattern.Start;
@@ -261,12 +261,12 @@ namespace TimeTableManager.UI {
         /// <param name="member"></param>
         /// <param name="head"></param>
         /// <returns></returns>
-        private string ReturnPatternLength(DateTime date, CMember member, bool head) {
+        private string ReturnPatternLength(DateTime date, BMember member, bool head) {
             if (head) return member.Name + "の勤務時間";
-            CScheduledDate sdate = TimeTable[date];
-            CSchedule schdule = sdate[member];
+            BScheduledDate sdate = TimeTable[date];
+            BSchedule schdule = sdate[member];
             if (schdule == null) return TimeSpan.Zero.ToString();
-            CPattern pattern = schdule.Pattern;
+            BPattern pattern = schdule.Pattern;
             if (pattern == null) return TimeSpan.Zero.ToString();
             if (pattern.BuiltIn) return TimeSpan.Zero.ToString();
             return pattern.Scope.ToString();
@@ -277,12 +277,12 @@ namespace TimeTableManager.UI {
         /// <param name="member"></param>
         /// <param name="head"></param>
         /// <returns></returns>
-        private string ReturnPatternEnd(DateTime date, CMember member, bool head) {
+        private string ReturnPatternEnd(DateTime date, BMember member, bool head) {
             if (head) return member.Name + "のシフト終了";
-            CScheduledDate sdate = TimeTable[date];
-            CSchedule schdule = sdate[member];
+            BScheduledDate sdate = TimeTable[date];
+            BSchedule schdule = sdate[member];
             if (schdule == null) return "";
-            CPattern pattern = schdule.Pattern;
+            BPattern pattern = schdule.Pattern;
             if (pattern == null) return "";
             if (pattern.BuiltIn) return "";
             DateTime ret = date.Date + pattern.End;
